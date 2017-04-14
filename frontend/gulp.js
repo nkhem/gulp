@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(<Root store={ store }/>, root);
 });
 
-// let user = {user: {f_name: 'Nicole', l_name: 'Hemenway', username: 'hemenway', email: 'nkhemenway@gmail.com', password: 'hemenway'}}
+// let user = {user: {f_name: 'Nicole', l_name: 'Hemenway', email: 'nkhemenway@gmail.com', password: 'hemenway'}}
 
 // signup
 // $.ajax({

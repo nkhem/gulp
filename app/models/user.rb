@@ -5,15 +5,15 @@
 #  id              :integer          not null, primary key
 #  f_name          :string           not null
 #  l_name          :string           not null
-#  username        :string           not null
 #  email           :string           not null
 #  password_digest :string           not null
 #  session_token   :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
+
 class User < ApplicationRecord
-  validates :f_name, :l_name, :username, :email, :session_token, presence: true
+  validates :f_name, :l_name, :email, :session_token, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :email, uniqueness: :true
 
@@ -21,8 +21,8 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
-  def self.find_by_credentials(username, password)
-    user = User.find_by(username: username)
+  def self.find_by_credentials(email, password)
+    user = User.find_by(email: email)
     return nil unless user && user.valid_password?(password)
     user
   end
