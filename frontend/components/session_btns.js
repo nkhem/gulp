@@ -13,6 +13,7 @@ class SessionBtns extends React.Component {
   }
 
   renderSignOut(signout){
+    console.log(signout);
     return (
       <button
         className="signout-btn"
@@ -23,7 +24,7 @@ class SessionBtns extends React.Component {
   }
 
   render() {
-    let renderBtns = this.props.loggedIn
+    let renderBtns = window.currentUser
     ? this.renderSignOut
     : this.renderNewSessionBtns;
 
