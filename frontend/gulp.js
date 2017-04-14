@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 //     data: user
 //   })
 
-// signout
+// logout
 // $.ajax({
 //     method: 'DELETE',
 //     url: '/api/session'

@@ -8,17 +8,21 @@ class Header extends React.Component {
   }
 
   renderSessionBtns(){
+    console.log('renderSessionBtns this.props.logout:');
+    console.log(this.props.logout);
     if (this.props.hideSessionBtns) {
       return null;
     } else {
       return (
       <SessionBtns
         loggedIn={ this.props.loggedIn }
-        signout={ this.props.signout } />
+        logout={ this.props.logout } />
       );
     }
   }
   render() {
+    console.log('Header render this.props.logout:');
+    console.log(this.props.logout);
     return (
       <div id='header'>
         {this.renderSessionBtns()}

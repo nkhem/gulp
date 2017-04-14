@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { login, signup, signout } from '../actions/session_actions';
+import { login, signup } from '../actions/session_actions';
 
 import Header from './header';
 
@@ -46,7 +46,8 @@ class SessionForm extends React.Component {
     return (
       <div>
         <Header
-          hideSessionBtns={ true } />
+          hideSessionBtns={ true }
+          loggedIn={this.props.loggedIn} />
   			<div className='main-content'>
           <h3>{this.props.formType}</h3>
   				<form onSubmit={this.handleSubmit} id="new-session-form">
@@ -100,7 +101,6 @@ const mapDispatchToProps = (dispatch, state) => {
 
   return {
     processForm: user => dispatch(processForm(user)),
-    signout: () => dispatch(signout()),
     formType: formType
   };
 };

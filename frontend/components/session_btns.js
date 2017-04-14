@@ -2,6 +2,10 @@ import React from 'react';
 import { Link } from 'react-router';
 
 class SessionBtns extends React.Component {
+  constructor(props) {
+    super(props);
+    this.renderLogout = this.renderLogout.bind(this);
+  }
   renderNewSessionBtns(){
     return (
       <nav className="login-signup">
@@ -12,25 +16,26 @@ class SessionBtns extends React.Component {
     );
   }
 
-  renderSignOut(signout){
-    console.log(signout);
+  renderLogout(){
+    console.log('SessionBtns renderLogout this.props.logout:');
+    console.log(this.props.logout);
     return (
       <button
-        className="signout-btn"
-        onClick={ signout }>
+        className="logout-btn"
+        onClick={ this.props.logout }>
         Sign Out
       </button>
     );
   }
 
   render() {
-    let renderBtns = window.currentUser
-    ? this.renderSignOut
+    let renderBtns = this.props.loggedIn
+    ? this.renderLogout
     : this.renderNewSessionBtns;
 
     return (
       <div id='session-btns'>
-        { renderBtns(this.props.signout) }
+        { renderBtns() }
       </div>
     );
   }
