@@ -3,8 +3,8 @@ import * as ApiUtil from '../util/session_api_util';
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 
-export const signUp = user => dispatch => {
-  ApiUtil.signUp(user)
+export const signup = user => dispatch => {
+  return ApiUtil.signup(user)
     .then(userPromise => {
       dispatch(receiveCurrentUser(userPromise));
     }, errors => {
@@ -12,8 +12,8 @@ export const signUp = user => dispatch => {
     });
 };
 
-export const logIn = user => dispatch => {
-  ApiUtil.logIn(user)
+export const login = user => dispatch => {
+  return ApiUtil.logIn(user)
     .then(userPromise => {
       dispatch(receiveCurrentUser(userPromise));
     }, errors => {
@@ -21,8 +21,8 @@ export const logIn = user => dispatch => {
     });
 };
 
-export const logOut = () => dispatch => {
-  ApiUtil.logOut()
+export const logout = () => dispatch => {
+  return ApiUtil.logOut()
     .then(() => {
       dispatch(receiveCurrentUser(null));
     }, errors => {

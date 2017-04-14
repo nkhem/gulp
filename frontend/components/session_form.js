@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { signIn, signUp, signOut } from '../actions/session_actions';
+import { login, signup, signout } from '../actions/session_actions';
+
+import Header from './header';
 
 class SessionForm extends React.Component {
   constructor(props){
@@ -17,9 +19,8 @@ class SessionForm extends React.Component {
 
   handleSubmit(e) {
 		e.preventDefault();
-
 		this.props.processForm({user: this.state})
-      .then( () => this.redirectIfLoggedIn );
+      .then( () => this.redirectIfLoggedIn() );
 
     this.setState({
       f_name: '',
@@ -43,39 +44,44 @@ class SessionForm extends React.Component {
 
   render() {
     return (
-			<div className="signin-form">
-        <h3>{this.props.formType}</h3>
-				<form onSubmit={this.handleSubmit} className="signin-form">
+      <div>
+        <Header
+          loggedIn={ this.props.loggedIn }
+          hideSessionBtns={ true } />
+  			<div className='main-content'>
+          <h3>{this.props.formType}</h3>
+  				<form onSubmit={this.handleSubmit} id="new-session-form">
 
-					<input type="text"
-						value={this.state.f_name}
-						onChange={this.update("f_name")}
-            placeholder='f_name' />
+  					<input type="text"
+  						value={this.state.f_name}
+  						onChange={this.update("f_name")}
+              placeholder='f_name' />
 
-					<input type="text"
-						value={this.state.l_name}
-						onChange={this.update("l_name")}
-            placeholder='l_name' />
+  					<input type="text"
+  						value={this.state.l_name}
+  						onChange={this.update("l_name")}
+              placeholder='l_name' />
 
-          <br/>
+            <br/>
 
-					<input type="text"
-						value={this.state.email}
-						onChange={this.update("email")}
-            placeholder='email' />
+  					<input type="text"
+  						value={this.state.email}
+  						onChange={this.update("email")}
+              placeholder='email' />
 
-					<br/>
+  					<br/>
 
-					<input type="password"
-						value={this.state.password}
-						onChange={this.update("password")}
-            placeholder='password' />
+  					<input type="password"
+  						value={this.state.password}
+  						onChange={this.update("password")}
+              placeholder='password' />
 
-					<br/>
-          
-					<input type="submit" value={this.props.formType} />
-				</form>
-			</div>
+  					<br/>
+
+  					<input type="submit" value={this.props.formType} />
+  				</form>
+  			</div>
+      </div>
 		);
   }
 
@@ -89,10 +95,13 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch, state) => {
-  const formType = state.location.pathname.slice(1);
-  const processForm = (formType === 'signin') ? signIn : signUp;
+  const pathname = state.location.pathname;
+  const formType = (pathname.substring(0,1) === '/') ? pathname.slice(1) : pathname ;
+  const processForm = (formType === 'login') ? login : signup;
+
   return {
     processForm: user => dispatch(processForm(user)),
+    signout: () => dispatch(signout()),
     formType: formType
   };
 };

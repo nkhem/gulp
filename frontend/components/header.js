@@ -1,26 +1,27 @@
 import React from 'react';
-
-import { Link } from 'react-router';
+import SessionBtns from './session_btns';
 
 class Header extends React.Component {
-  renderSignInSignUp(){
-    return (
-      <nav className="login-signup">
-        <Link to="login">Log In</Link>
-        <br/>
-        <Link to="signup">Sign Up</Link>
-      </nav>
-    );
+  constructor(props) {
+    super(props);
+    this.renderSessionBtns = this.renderSessionBtns.bind(this);
   }
 
-  renderSignOut(){
-
+  renderSessionBtns(){
+    if (this.props.hideSessionBtns) {
+      return null;
+    } else {
+      return (
+      <SessionBtns
+        loggedIn={ this.props.loggedIn }
+        signout={ this.props.signout } />
+      );
+    }
   }
-
   render() {
     return (
       <div id='header'>
-        {this.renderSignInSignUp()}
+        {this.renderSessionBtns()}
       </div>
     );
   }
