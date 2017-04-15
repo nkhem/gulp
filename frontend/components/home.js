@@ -11,7 +11,7 @@ class Home extends React.Component {
     return (
       <div id='home' className='main-content'>
         <Header
-          loggedIn={ this.props.loggedIn }
+          loggedIn={this.props.loggedIn}
           logout={ this.props.logout } />
         <h1>gulp</h1>
         <SearchBar />

@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 class SessionBtns extends React.Component {
   constructor(props) {
     super(props);
-    this.renderLogout = this.renderLogout.bind(this);
+    this.renderLogoutBtn = this.renderLogoutBtn.bind(this);
   }
   renderNewSessionBtns(){
     return (
