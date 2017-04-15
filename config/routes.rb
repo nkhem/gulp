@@ -1,13 +1,28 @@
 Rails.application.routes.draw do
-  get 'businesses/index'
+  namespace :api do
+    get 'categories/index'
+  end
 
-  get 'businesses/show'
+  namespace :api do
+    get 'reviews/index'
+  end
 
-  get 'static_pages/root'
+  namespace :api do
+    get 'reviews/create'
+  end
+
+  namespace :api do
+    get 'reviews/show'
+  end
+
+  namespace :api do
+    get 'reviews/destroy'
+  end
 
   root "static_pages#root"
   namespace :api, defaults: {format: :json} do
     resource :user, only: [:create]
     resource :session, only: [:create, :destroy, :show]
+    resources :businesses, only: [:index, :show]
   end
 end
