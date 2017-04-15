@@ -8,27 +8,45 @@ import Header from '../header';
 class SessionForm extends React.Component {
   constructor(props){
     super(props);
+
     this.state = {
       f_name: '',
       l_name: '',
       email: '',
       password: ''
     };
-    this.handleSubmit = this.handleSubmit.bind(this);
+
     this.redirectIfLoggedIn = this.redirectIfLoggedIn.bind(this);
   }
 
-  handleSubmit(e) {
-		e.preventDefault();
-		this.props.processForm({user: this.state})
-      .then( () => this.redirectIfLoggedIn() );
+  handleSubmit(asGuest){
+    let logUserIn = asGuest ? this.loginAsGuest() : this.loginAsTrueUser();
+    return e => {
+      e.preventDefault();
+      logUserIn(e);
+      this.setState({
+        f_name: '',
+        l_name: '',
+        email: '',
+        password: ''
+      });
+    };
+  }
 
-    this.setState({
-      f_name: '',
-      l_name: '',
-      email: '',
-      password: ''
-    });
+  loginAsGuest(){
+    return e => {
+  		this.props.processFormAsGuest({ user: {
+        email: 'nkhemenway@gmail.com',
+        password: 'asdfasdf'} })
+        .then( () => this.redirectIfLoggedIn() );
+    };
+  }
+
+  loginAsTrueUser() {
+    return e => {
+  		this.props.processFormAsTrueUser({ user: this.state })
+        .then( () => this.redirectIfLoggedIn() );
+    };
 	}
 
   redirectIfLoggedIn(){
@@ -44,6 +62,8 @@ class SessionForm extends React.Component {
   }
 
   render() {
+    let asGuest = true;
+    let asUser = false;
     return (
       <div>
         <Header
@@ -51,7 +71,7 @@ class SessionForm extends React.Component {
           loggedIn={this.props.loggedIn} />
   			<div className='main-content'>
           <h3>{this.props.formType}</h3>
-  				<form onSubmit={this.handleSubmit} id="new-session-form">
+  				<form onSubmit={ this.handleSubmit(asUser) } id="new-session-form">
 
   					<input type={`${this.props.formType === 'login' ? 'hidden': 'text'}`}
   						value={this.state.f_name}
@@ -82,7 +102,11 @@ class SessionForm extends React.Component {
   					<input type="submit" value={this.props.formType} />
   				</form>
 
-          <nav className="login-signup">
+          <form id="demo-mode-form" onSubmit={ this.handleSubmit(asGuest) }>
+            <input type="submit" value="Continue in demo mode" />
+          </form>
+
+          <nav className="session-form-switch">
             <span>{this.props.formType === 'login'
               ? 'New user? ' :
               'Already have an account? '}
@@ -95,6 +119,7 @@ class SessionForm extends React.Component {
                 : 'Sign in' }
             </Link>
           </nav>
+
   			</div>
       </div>
 		);
@@ -112,10 +137,11 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch, state) => {
   const pathname = state.location.pathname;
   const formType = (pathname.substring(0,1) === '/') ? pathname.slice(1) : pathname ;
-  const processForm = (formType === 'login') ? login : signup;
+  const processFormAsTrueUser = (formType === 'login') ? login : signup;
 
   return {
-    processForm: user => dispatch(processForm(user)),
+    processFormAsGuest: user => dispatch(login(user)),
+    processFormAsTrueUser: user => dispatch(processFormAsTrueUser(user)),
     formType: formType
   };
 };

@@ -10,7 +10,6 @@ class Main extends React.Component {
   }
 
   render() {
-    console.log(this.businessSearch);
     return (
       <div id='main' className='main-content'>
         <Header
