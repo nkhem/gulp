@@ -16,21 +16,19 @@ class SessionBtns extends React.Component {
     );
   }
 
-  renderLogout(){
-    console.log('SessionBtns renderLogout this.props.logout:');
-    console.log(this.props.logout);
+  renderLogoutBtn(){
     return (
       <button
         className="logout-btn"
         onClick={ this.props.logout }>
-        Sign Out
+        Log Out
       </button>
     );
   }
 
   render() {
     let renderBtns = this.props.loggedIn
-    ? this.renderLogout
+    ? this.renderLogoutBtn
     : this.renderNewSessionBtns;
 
     return (

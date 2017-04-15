@@ -8,8 +8,6 @@ import Header from './header';
 class Home extends React.Component {
 
   render() {
-    console.log('Home render this.props.logout:');
-    console.log(this.props.logout);
     return (
       <div id='home' className='main-content'>
         <Header
