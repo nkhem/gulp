@@ -13,4 +13,9 @@
 #
 
 class Review < ApplicationRecord
+  validates :title, :content, :rating, presence: true
+
+  belongs_to :business
+  belongs_to :user
+  has_many :photos
 end

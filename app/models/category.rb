@@ -9,4 +9,9 @@
 #
 
 class Category < ApplicationRecord
+  validates :name, presence: true, uniqueness: true
+
+  has_many :businesses,
+    through: :businesses_categories,
+    source: :business
 end

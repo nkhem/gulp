@@ -15,7 +15,16 @@
 #  price          :string           not null
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  image_url      :string           not null
 #
 
 class Business < ApplicationRecord
+  validates :user, :name, :street_address, :city, :state, :zip, :price, :image_url, :lat, :lng, presence: true
+  validates :price, inclusion: { in: ["$", "$$", "$$$", "$$$$"] }
+
+  belongs_to :user
+  has_many :reviews
+  has_many :categories,
+    through: :businesses_categories,
+    source: :category
 end

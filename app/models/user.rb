@@ -17,6 +17,10 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :email, uniqueness: :true
 
+  has_many :businesses
+  has_many :reviews
+  has_many :photos
+
   attr_reader :password
 
   after_initialize :ensure_session_token
