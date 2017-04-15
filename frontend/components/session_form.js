@@ -52,12 +52,12 @@ class SessionForm extends React.Component {
           <h3>{this.props.formType}</h3>
   				<form onSubmit={this.handleSubmit} id="new-session-form">
 
-  					<input type="text"
+  					<input type={`${this.props.formType === 'login' ? 'hidden': 'text'}`}
   						value={this.state.f_name}
   						onChange={this.update("f_name")}
               placeholder='f_name' />
 
-  					<input type="text"
+            <input type={`${this.props.formType === 'login' ? 'hidden': 'text'}`}
   						value={this.state.l_name}
   						onChange={this.update("l_name")}
               placeholder='l_name' />
