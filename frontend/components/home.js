@@ -2,27 +2,22 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { logout } from '../actions/session_actions';
-import SearchBar from './search_bar.js';
 import Header from './header';
 
 class Home extends React.Component {
-  constructor(props) {
-    super(props);
-    this.businessSearch = this.businessSearch.bind(this);
-  }
-
   businessSearch(term){
     console.log(term);
   }
 
   render() {
+    console.log(this.businessSearch);
     return (
       <div id='home' className='main-content'>
         <Header
           loggedIn={this.props.loggedIn}
-          logout={ this.props.logout } />
+          logout={ this.props.logout }
+          onSearchTermChange={ this.businessSearch } />
         <h1>gulp</h1>
-        <SearchBar onSearchTermChange={ this.businessSearch }/>
       </div>
     );
   }

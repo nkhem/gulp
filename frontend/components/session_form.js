@@ -47,7 +47,7 @@ class SessionForm extends React.Component {
     return (
       <div>
         <Header
-          hideSessionBtns={ true }
+          isSessionFormOpen={ true }
           loggedIn={this.props.loggedIn} />
   			<div className='main-content'>
           <h3>{this.props.formType}</h3>
