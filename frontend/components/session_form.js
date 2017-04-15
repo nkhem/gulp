@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { login, signup } from '../actions/session_actions';
+import { Link } from 'react-router';
 
 import Header from './header';
 
@@ -80,6 +81,20 @@ class SessionForm extends React.Component {
 
   					<input type="submit" value={this.props.formType} />
   				</form>
+
+          <nav className="login-signup">
+            <span>{this.props.formType === 'login'
+              ? 'New user? ' :
+              'Already have an account? '}
+            </span>
+            <Link to={this.props.formType === 'login'
+              ? 'signup'
+              : 'login'}>
+              {this.props.formType === 'login'
+                ? 'Create an account'
+                : 'Sign in' }
+            </Link>
+          </nav>
   			</div>
       </div>
 		);
