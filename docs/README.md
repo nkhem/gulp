@@ -41,27 +41,18 @@ sufficient CSS styling:
 
 ### Phase 1: Backend Setup and Front End User Authentication (2 days)
 
-**Objective:** To create a functioning rails project with front-end Authentication
+**Objective:** To create a functioning rails project with front-end authentication
 
-### Phase 2: Models (.5 days)
+### Phase 2: Models (1 day)
 
-**Objective:** To build complete business, review, photo, and tag models, controllers, and views (jbuilder)
+**Objective:** To build complete business, review, photo, and category models and controllers
 
-### Phase 3: Home Page (1.5 days)
+### Phase 2: Create Business Backend and Front End Show Pages (.5 days)
+**Objective** To be able to view a business' show page
 
-**Objective:** To set up a functioning home page with links to different cuisines
+### Phase 3:
+**Objective**
 
-### Phase 4: Business Search (2 days)
-
-**Objective:** To allow the user to search for businesses with location and cuisine, to set up a functioning search results page with links to different businesses, and to drop locations on a map
-
-### Phase 5: Business Detail (2 days)
-
-**Objective:** To set up a page with business details
-
-### Phase 6: Reviews (2 days)
-
-**Objective:** To allow the user to submit a review and view other reviews
 
 ### Bonus Features (TBD)
 - [ ] Personal profiles
