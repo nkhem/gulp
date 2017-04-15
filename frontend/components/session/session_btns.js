@@ -6,6 +6,7 @@ class SessionBtns extends React.Component {
     super(props);
     this.renderLogoutBtn = this.renderLogoutBtn.bind(this);
   }
+
   renderNewSessionBtns(){
     return (
       <nav className="login-signup">

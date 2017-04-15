@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { logout } from '../actions/session_actions';
 import Header from './header';
 
-class Home extends React.Component {
+class Main extends React.Component {
   businessSearch(term){
     console.log(term);
   }
@@ -12,7 +12,7 @@ class Home extends React.Component {
   render() {
     console.log(this.businessSearch);
     return (
-      <div id='home' className='main-content'>
+      <div id='main' className='main-content'>
         <Header
           loggedIn={this.props.loggedIn}
           logout={ this.props.logout }
@@ -37,7 +37,7 @@ const mapDispatchToProps = (dispatch, state) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Main);
 
 
 

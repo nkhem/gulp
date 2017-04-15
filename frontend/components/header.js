@@ -1,5 +1,5 @@
 import React from 'react';
-import SessionBtns from './session_btns';
+import SessionBtns from './session/session_btns';
 import SearchBar from './search_bar.js';
 
 class Header extends React.Component {
@@ -22,17 +22,12 @@ class Header extends React.Component {
   }
 
   renderSearchBar(){
-    console.log('inside header.renderSearchBar:');
-    console.log(this.props.onSearchTermChange);
     if (!this.props.isSessionFormOpen) {
-      return <SearchBar onSearchTermChange={ this.props.businessSearch } />;
+      return <SearchBar onSearchTermChange={ this.props.onSearchTermChange } />;
     }
   }
 
   render() {
-    console.log('inside header.render:');
-
-    console.log(this.props.onSearchTermChange);
     return (
       <div id='header'>
         {this.renderSearchBar()}

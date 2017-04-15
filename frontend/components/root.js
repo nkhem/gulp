@@ -3,8 +3,8 @@ import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
 import App from './app';
-import Home from './home';
-import SessionForm from './session_form';
+import Main from './main';
+import SessionForm from './session/session_form';
 
 const Root = ({ store }) => {
   const _redirectIfLoggedIn = (nextState, replace) => {
@@ -18,7 +18,7 @@ const Root = ({ store }) => {
     <Provider store={ store }>
       <Router history={ hashHistory }>
         <Route path="/" component={ App }>
-          <IndexRoute component={ Home }/>
+          <IndexRoute component={ Main }/>
           <Route path="login" component={ SessionForm } onEnter={ _redirectIfLoggedIn } />
           <Route path="signup" component={ SessionForm } onEnter={ _redirectIfLoggedIn } />
         </Route>

@@ -8,9 +8,13 @@ class SearchBar extends Component {
     this.onInputChange = this.onInputChange.bind(this);
   }
 
+  onInputChange(term){
+
+    this.setState({term: term});
+    this.props.onSearchTermChange(term);
+  }
+
   render(){
-    console.log('inside search_bar.render:');
-    console.log(this.props.onSearchTermChange);
     return (
       <div className='search-bar'>
         <input
@@ -22,14 +26,6 @@ class SearchBar extends Component {
         />
       </div>
     );
-  }
-
-  onInputChange(term){
-    console.log('inside search_bar.onInputChange:');
-    console.log(this.props.onSearchTermChange);
-
-    this.setState({term: term});
-    this.props.onSearchTermChange(term);
   }
 }
 
