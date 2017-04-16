@@ -1,3 +1,5 @@
+# ruby yelp_fusion.rb search --term=kombucha  --location="San Francisco"
+
 require "json"
 require "http"
 require "optparse"
@@ -18,7 +20,7 @@ TOKEN_PATH = "/oauth2/token"
 GRANT_TYPE = "client_credentials"
 
 
-DEFAULT_BUSINESS_ID = "yelp-san-francisco"
+DEFAULT_BUSINESS_ID = "samovar-tea-san-francisco-2"
 DEFAULT_TERM = "dinner"
 DEFAULT_LOCATION = "San Francisco, CA"
 SEARCH_LIMIT = 5
