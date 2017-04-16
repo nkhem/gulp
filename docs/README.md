@@ -45,10 +45,13 @@ sufficient CSS styling:
 
 ### Phase 2: Models (1 day)
 
-**Objective:** To build complete business, review, photo, and category models and controllers
+**Objective:** To build complete business, review, photo, and category models, including associations and validations.
 
-### Phase 2: Create Business Backend and Front End Show Pages (.5 days)
-**Objective** To be able to view a business' show page
+### Phase 2: Seed Database (1 day)
+**Objective** To seed database.
+* To give Users randomly generated names
+* To create drink-related Categories, selected from [Yelp's category list]: https://www.yelp.com/developers/documentation/v2/category_list
+* To take real-world data from Yelp's Fusion API to generate Businesses, Reviews, and Photos based on the selected drink-related Categories, and attributing them to random Users
 
 ### Phase 3:
 **Objective**
