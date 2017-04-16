@@ -2,11 +2,21 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { logout } from '../actions/session_actions';
+import { fetchCategories } from '../actions/category_actions';
 import Header from './header';
 
 class Main extends React.Component {
-  businessSearch(term){
-    console.log(term);
+  constructor(props) {
+    super(props);
+    this.fetchMatches = this.fetchMatches.bind(this);
+  }
+
+  fetchMatches(term){
+    console.log('fetchCategories:');
+    console.log(fetchCategories);
+    console.log('this.props.fetchCategories:');
+    console.log(this.props);
+    this.props.fetchCategories(term);
   }
 
   render() {
@@ -15,7 +25,7 @@ class Main extends React.Component {
         <Header
           loggedIn={this.props.loggedIn}
           logout={ this.props.logout }
-          onSearchTermChange={ this.businessSearch } />
+          fetchMatches={ this.fetchMatches } />
         <h1>gulp</h1>
       </div>
     );
@@ -32,7 +42,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch, state) => {
   return {
-    logout: () => dispatch(logout())
+    logout: () => dispatch(logout()),
+    fetchCategories: term => dispatch(fetchCategories(term))
   };
 };
 

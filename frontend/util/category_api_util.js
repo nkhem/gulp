@@ -1,8 +1,7 @@
-export const fetchMatchingCategories = term => (
-  $.ajax({
+export const fetchCategories = input => {
+  return $.ajax({
       method: 'GET',
       url: '/api/categories',
-      data: term,
-      success: res => console.log(res)
-  })
-);
+      data: { term : input },
+  });
+};
