@@ -13,10 +13,10 @@
 
 class Photo < ApplicationRecord
   validates :url, :caption, presence: true
-  
+
   belongs_to :user
   belongs_to :review
-  belongs_to :business,
+  has_one :business,
     through: :review,
     source: :business
 end
