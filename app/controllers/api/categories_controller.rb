@@ -7,6 +7,6 @@ class Api::CategoriesController < ApplicationController
   private
 
   def search_term
-    params[:term] === "bars" ? "bars" : "%#{params[:term]}%"
+    params[:term] === "bars" ? "%bars%" : "%#{params[:term]}%"
   end
 end

@@ -47,14 +47,14 @@ sufficient CSS styling:
 
 **Objective:** To build complete business, review, photo, and category models, including associations and validations.
 
-### Phase 2: Seed Database (1 day)
+### Phase 3: Seed Database (1 day)
 **Objective** To seed database.
 * To give Users randomly generated names
 * To create drink-related Categories, selected from [Yelp's category list]: https://www.yelp.com/developers/documentation/v2/category_list
 * To take real-world data from Yelp's Fusion API to generate Businesses, Reviews, and Photos based on the selected drink-related Categories, and attributing them to random Users
 
-### Phase 3:
-**Objective**
+### Phase 3: Search Bar (1 day)
+**Objective** To render top search results into dropdown list and navigation pages as user types in a search term.
 
 
 ### Bonus Features (TBD)

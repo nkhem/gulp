@@ -8,7 +8,7 @@ const CategoriesReducer = (state = initialState, action) => {
 
   switch (action.type) {
     case RECEIVE_CATEGORIES:
-      nextState = Object.assign({}, { categories: action.categories });
+      nextState = Object.assign({}, state, {termMatches: {categories: action.categories} });
       return nextState;
     default:
       return state;
