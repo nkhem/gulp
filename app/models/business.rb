@@ -19,7 +19,7 @@
 #
 
 class Business < ApplicationRecord
-  validates :user, :name, :street_address, :city, :state, :zip, :price, :image_url, :lat, :lng, presence: true
+  validates :name, :user, :address1, :address2, :phone, :lat, :lng, :image_url, presence: true
   validates :price, inclusion: { in: ["$", "$$", "$$$", "$$$$"] }
 
   belongs_to :user
