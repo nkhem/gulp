@@ -1,6 +1,7 @@
 class Api::BusinessesController < ApplicationController
   def index
-    @businesses = Business.where("lower(name) LIKE ?", search_term).limit(5)
+    @businesses = Business.where("lower(name) LIKE ?", search_term)
+    render :index
   end
 
   def show

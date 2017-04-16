@@ -15,16 +15,20 @@ class Main extends React.Component {
 
   fetchMatches(term){
     let results = [];
+    
     this.props.fetchCategories(term)
       .then( res => {
         results.push(_.map(res.categories, cat => cat.title));
       });
       console.log(results);
+
     this.props.fetchBusinesses(term)
-    .then( businesses => console.log(businesses));
+    .then( businesses => {
+      console.log(businesses);
+    });
   }
 
-  sortByBestMatch(matches){
+  bestResults(results){
 
   }
 
