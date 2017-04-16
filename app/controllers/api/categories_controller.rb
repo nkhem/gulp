@@ -4,6 +4,8 @@ class Api::CategoriesController < ApplicationController
     render :index
   end
 
+  private
+
   def search_term
     term = params[:term].downcase.gsub(/[^a-z]/, "")
     term === "bars" ? "bars" : "%#{term}%"

@@ -1,6 +1,7 @@
 class Api::BusinessesController < ApplicationController
   def index
-    @businesses = Business.all.limit(3)
+    debugger
+    @businesses = Business.where("lower(name) LIKE ?", search_term).limit(5)
   end
 
   def show
@@ -10,8 +11,7 @@ class Api::BusinessesController < ApplicationController
 
   private
 
-  def business_params
-    params.require(:business).permit()
+  def search_term
+    "%#{params[:term].downcase.gsub(/[^a-z]/, '')}%"
   end
-
 end
