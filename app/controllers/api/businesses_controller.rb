@@ -1,6 +1,5 @@
 class Api::BusinessesController < ApplicationController
   def index
-    debugger
     @businesses = Business.where("lower(name) LIKE ?", search_term).limit(5)
   end
 

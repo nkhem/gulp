@@ -17,11 +17,15 @@ class Main extends React.Component {
     let results = [];
     this.props.fetchCategories(term)
       .then( res => {
-        results.concat(_.map(res.categories, cat => cat.title));
+        results.push(_.map(res.categories, cat => cat.title));
       });
       console.log(results);
     this.props.fetchBusinesses(term)
     .then( businesses => console.log(businesses));
+  }
+
+  sortByBestMatch(matches){
+
   }
 
   render() {
