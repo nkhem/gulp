@@ -109,7 +109,8 @@ end
 all_businesses_by_category.each do |category_alias, biz_arr|
   biz_arr.each do |biz|
     Business.create({
-      name: biz["name"],
+      title: biz["name"],
+      alias: biz["name"].downcase.gsub(/[^0-9a-z]/, ''),
       user_id: User.find_by_l_name(all_last_names.sample).id,
       address1: biz["location"]["display_address"].first,
       address2: biz["location"]["display_address"].last,
@@ -121,7 +122,7 @@ all_businesses_by_category.each do |category_alias, biz_arr|
     })
 
     current_biz = Business.find_by(
-      name: biz["name"],
+      title: biz["name"],
       address1: biz["location"]["display_address"].first,
       address2: biz["location"]["display_address"].last
     )
@@ -129,7 +130,7 @@ all_businesses_by_category.each do |category_alias, biz_arr|
     if current_biz
       BusinessesCategory.create({
         business_id: Business.find_by(
-          name: biz["name"],
+          title: biz["name"],
           address1: biz["location"]["display_address"].first,
           address2: biz["location"]["display_address"].last
         ).id,

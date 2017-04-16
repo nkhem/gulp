@@ -7,7 +7,6 @@ class Api::CategoriesController < ApplicationController
   private
 
   def search_term
-    term = params[:term].downcase.gsub(/[^a-z]/, "")
-    term === "bars" ? "bars" : "%#{term}%"
+    params[:term] === "bars" ? "bars" : "%#{params[:term]}%"
   end
 end

@@ -13,8 +13,6 @@ class SearchBar extends Component {
     this.props.fetchMatches(term);
   }
 
-  
-
   render(){
     return (
       <div className='search-bar'>
