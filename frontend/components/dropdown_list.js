@@ -22,14 +22,28 @@ const bestTitles = (searchTerm, allTitles)  => {
 
 const exactMatches = (searchTerm, allTitles) => {
   let result = [];
-  const exactMatch = word => word.toLowerCase() === term;
-  results.forEach( result => {
-    if (result.split(" ").toLowerCase().some(exactMatch)) {
-      exactResults.push(result);
-    }
-  });
+  let searchWords = searchTerm.toLowerCase().split(/[^0-9a-z]/g);
 
-  return exactResults;
+  allTitles.forEach( title => {
+    let titleWords = title.toLowerCase().split(/[^0-9a-z]/g);
+    let isExactSearchMatch = word => Boolean(searchWords.includes(word));
+    let titleWordsContainsMatch = titleWords.some(word => isExactSearchMatch(word));
+
+    if (titleWordsContainsMatch) {
+      result.push(title);
+    }
+  })
+
+  return result;
+  // let result = [];
+  // const exactMatch = word => word.toLowerCase() === term;
+  // results.forEach( result => {
+  //   if (result.split(" ").toLowerCase().some(exactMatch)) {
+  //     exactResults.push(result);
+  //   }
+  // });
+  //
+  // return exactResults;
 };
 
 const dropdownItems = (titles) => (titles.map (title => <DropdownItem searchResultTitle={ title } key={ title }/> ));
