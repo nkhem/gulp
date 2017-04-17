@@ -5,7 +5,7 @@ import DropdownItem from './dropdown_item';
 const DropdownList = props => {
   let { searchTerm, allTitles } = props.searchResults;
   let titles = bestTitles(searchTerm, allTitles);
-
+// console.log(titles);
   return (
     <ul id="search-results">
       { dropdownItems(titles) }
@@ -13,14 +13,35 @@ const DropdownList = props => {
   );
 };
 
+const defaultSuggestions = [
+  "Bubble Tea",
+  "Coffee",
+  "Happy Hour",
+  "Kava Lounge",
+  "Fresh Juice",
+  "Distilleries",
+  "Wine Tasting",
+  "Tea Rooms"]
+
 const bestTitles = (searchTerm, allTitles)  => {
   let result = [];
 
-  result.push(exactMatches(searchTerm, allTitles));
+  result = result.concat(nearExactMatches(searchTerm, allTitles));
+
+  // while(result.length)
   return result;
 };
 
-const exactMatches = (searchTerm, allTitles) => {
+const exactExactMatches = (searchTerm, allTitles) => {
+  let result = [];
+  searchTerm = searchTerm.toLowerCase().replace(/[^0-9a-z]/g, "");
+  allTitles.forEach( title => {
+    
+  });
+
+};
+
+const nearExactMatches = (searchTerm, allTitles) => {
   let result = [];
   let searchWords = searchTerm.toLowerCase().split(/[^0-9a-z]/g);
 
@@ -29,24 +50,17 @@ const exactMatches = (searchTerm, allTitles) => {
     let isExactSearchMatch = word => Boolean(searchWords.includes(word));
     let titleWordsContainsMatch = titleWords.some(word => isExactSearchMatch(word));
 
-    if (titleWordsContainsMatch) {
-      result.push(title);
-    }
-  })
+    if (titleWordsContainsMatch) result.push(title);
+  });
 
   return result;
-  // let result = [];
-  // const exactMatch = word => word.toLowerCase() === term;
-  // results.forEach( result => {
-  //   if (result.split(" ").toLowerCase().some(exactMatch)) {
-  //     exactResults.push(result);
-  //   }
-  // });
-  //
-  // return exactResults;
 };
 
-const dropdownItems = (titles) => (titles.map (title => <DropdownItem searchResultTitle={ title } key={ title }/> ));
+const dropdownItems = (titles) => (
+  titles.map(title => {
+    return <DropdownItem searchResultTitle={ title } key={ title }/>;
+  })
+);
 
 export default DropdownList;
 
