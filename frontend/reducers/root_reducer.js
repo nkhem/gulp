@@ -7,40 +7,9 @@ import SearchReducer from './search_reducer';
 
 const RootReducer = combineReducers({
   session: SessionReducer,
-  searchResults: SearchReducer,
-  businesses: BusinessesReducer,
-  categories: CategoriesReducer
+  // categories: CategoriesReducer,
+  // businesses: BusinessesReducer,
+  searchResults: SearchReducer
 });
 
 export default RootReducer;
-
-// {
-//   session: {
-//     currentUser: {
-//       id: 1,
-//       email: "guest@guest.com"
-//     },
-//     errors: []
-//   },
-//   searchResults: {
-//     categories: [],
-//     businesses: [],
-//     allTitles: [],
-//     prevTitles: []
-//   }
-//   businesses: {
-//     currentBusiness: {},
-//     businessesList:{
-//       1: {
-//         id: 1
-//         <!-- ... -->
-//       },
-//       <!-- ... -->
-//       n: {
-//         id: n
-//         <!-- ... -->
-//       },
-//     }
-//   },
-//   reviews: {}
-// }

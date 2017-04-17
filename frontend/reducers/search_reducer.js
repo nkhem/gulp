@@ -1,12 +1,9 @@
 import { RECEIVE_SEARCH_RESULTS } from '../actions/search_actions';
 
 const nullMatches = {
-  searchResults: {
-    categories: [],
-    businesses: [],
-    allTitles: [],
-    prevTitles: []
-  }
+  categories: [],
+  businesses: [],
+  allTitles: [],
 };
 
 const SearchReducer = (state = nullMatches, action) => {
