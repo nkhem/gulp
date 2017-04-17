@@ -1,25 +1,68 @@
-require 'namey'
-# 'namey' gem generates random :common or :rare names based on US Census Data
-@namey = Namey::Generator.new
+all_first_names =  [
+  "Marshall",
+  "Dania",
+  "Josette",
+  "Gerry",
+  "Domingo",
+  "Shemeka",
+  "Francesca",
+  "Michael",
+  "Tiffany",
+  "Chase",
+  "Jeanne",
+  "Krishna",
+  "Kurtis",
+  "Federico",
+  "Graham",
+  "Eura",
+  "Hugh",
+  "Pilar",
+  "Doretha",
+  "Lizzette",
+  "Woodrow",
+  "Robyn",
+  "Dinah",
+  "Raguel",
+  "Obdulia",
+  "Tyron",
+  "Rochel",
+  "Antony",
+  "Gail",
+  "Blaine"
+]
 
-# generate 30 random first and last names
-all_first_names = []
-all_last_names = []
-
-30.times do
-  name_types = [:common, :rare]
-
-  first_name = @namey.name(name_types.sample).split.first
-  last_name = @namey.name(name_types.sample).split.last
-
-  # ensures unique name combinations
-  while all_last_names.include?(last_name)
-    last_name = @namey.name(name_types.sample).split.last
-  end
-
-  all_first_names.push(first_name)
-  all_last_names.push(last_name)
-end
+all_last_names = [
+  "Frayre",
+  "Sholar",
+  "Huwe",
+  "Aquirre",
+  "Arrez",
+  "Knutt",
+  "Krakowsky",
+  "Drzazgowski",
+  "Bienfang",
+  "Raglin",
+  "Alhameed",
+  "Vojta",
+  "Pase",
+  "Badeaux",
+  "Margeson",
+  "Kepner",
+  "Po",
+  "Haith",
+  "Levett",
+  "Prettner",
+  "Rauth",
+  "Westman",
+  "Akemon",
+  "Smid",
+  "Economides",
+  "Gotcher",
+  "Josich",
+  "Rosenfield",
+  "Dinn",
+  "Mintken"
+]
 
 all_categories = {
   beerwinespirits: "Beer, Wine & Spirits",
