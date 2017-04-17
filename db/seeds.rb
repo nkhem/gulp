@@ -1,3 +1,4 @@
+require 'namey'
 # 'namey' gem generates random :common or :rare names based on US Census Data
 @namey = Namey::Generator.new
 
