@@ -34,6 +34,7 @@ class SessionForm extends React.Component {
   }
 
   loginAsGuest(){
+    console.log("{ user: { email: 'guest_user@email.com', password: 'user_password'} }");
     return e => {
   		this.props.processFormAsGuest({ user: {
         email: 'guest_user@email.com',
