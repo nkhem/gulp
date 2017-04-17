@@ -36,8 +36,8 @@ class SessionForm extends React.Component {
   loginAsGuest(){
     return e => {
   		this.props.processFormAsGuest({ user: {
-        email: 'guest@email.com',
-        password: 'guessed password'} })
+        email: 'guest_user@email.com',
+        password: 'user_password'} })
         .then( () => this.redirectIfLoggedIn() );
     };
   }
