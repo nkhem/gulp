@@ -1,7 +1,9 @@
 import React from 'react';
 
 const DropdownItem = props => (
-  <li>item</li>
+  <li>
+    { props.searchResultTitle }
+  </li>
 );
 
 export default DropdownItem;

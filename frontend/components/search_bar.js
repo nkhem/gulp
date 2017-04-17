@@ -12,13 +12,7 @@ class SearchBar extends Component {
 
   onInputChange(searchTerm){
     this.props.fetchSearchResults(searchTerm);
-    console.log(this.props.searchResults);
-
-    this.props.searchResults.allTitles.forEach( title => {
-      let node = document.createElement("li")
-      let textnode = document.createTextNode(title);
-      document.getElementById("search-results").appendChild(textnode);
-    });
+    this.setState({ searchResults: this.props.searchResults });
   }
 
   render(){
@@ -31,7 +25,9 @@ class SearchBar extends Component {
             this.onInputChange(e.target.value);
           }}
         />
-      <DropdownList />
+      <DropdownList
+          searchResults={this.props.searchResults}
+          />
       </div>
     );
   }
