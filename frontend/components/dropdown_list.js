@@ -2,7 +2,7 @@ import React from 'react';
 import DropdownItem from './dropdown_item';
 
 const DropdownList = props => (
-  <ul>
+  <ul id="search-results">
     <li>{props.cat}</li>
     <DropdownItem />
   </ul>

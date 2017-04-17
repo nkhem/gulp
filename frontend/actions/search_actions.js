@@ -3,10 +3,10 @@ import * as CatApiUtil from '../util/category_api_util';
 
 export const RECEIVE_SEARCH_RESULTS = 'RECEIVE_SEARCH_RESULTS';
 
-export const fetchSearchResults = term => dispatch => {
-  let fetchBizes = BizApiUtil.fetchBusinesses(term)
+export const fetchSearchResults = searchTerm => dispatch => {
+  let fetchBizes = BizApiUtil.fetchBusinesses(searchTerm)
     .then(businesses => dispatch(receiveSearchResults({ businesses })));
-  let fetchCats = CatApiUtil.fetchCategories(term)
+  let fetchCats = CatApiUtil.fetchCategories(searchTerm)
     .then(categories => dispatch(receiveSearchResults({ categories })));
 
   return Promise.all([fetchCats, fetchBizes]).then( res => {
@@ -15,7 +15,7 @@ export const fetchSearchResults = term => dispatch => {
     let allTitles = [];
 
     cats.concat(bizes).forEach( result => allTitles.push(result.title));
-    dispatch(receiveSearchResults({ allTitles }));
+    dispatch(receiveSearchResults({ allTitles, searchTerm }));
   });
 };
 

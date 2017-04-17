@@ -13,7 +13,8 @@ class Main extends React.Component {
         <Header
           loggedIn={this.props.loggedIn}
           logout={ this.props.logout }
-          fetchSearchResults={ this.props.fetchSearchResults } />
+          fetchSearchResults={ this.props.fetchSearchResults }
+          searchResults={ this.props.searchResults } />
         <h1>gulp</h1>
       </div>
     );
@@ -23,7 +24,8 @@ class Main extends React.Component {
 const mapStateToProps = state => {
   return {
     loggedIn: Boolean(state.session.currentUser),
-    errors: state.session.errors
+    errors: state.session.errors,
+    searchResults: state.searchResults
   };
 };
 

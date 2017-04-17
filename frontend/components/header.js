@@ -23,7 +23,9 @@ class Header extends React.Component {
 
   renderSearchBar(){
     if (!this.props.isSessionFormOpen) {
-      return <SearchBar fetchSearchResults={ this.props.fetchSearchResults } />;
+      return <SearchBar
+        fetchSearchResults={ this.props.fetchSearchResults }
+        searchResults={ this.props.searchResults } />;
     }
   }
 
