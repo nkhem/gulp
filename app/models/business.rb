@@ -18,7 +18,7 @@
 
 class Business < ApplicationRecord
   validates :title, :alias, :user, :address1, :address2, :phone, :lat, :lng, :image_url, presence: true
-  validates :title, uniqueness: { scope: [:address1, :address2] }
+  validates :title, uniqueness: true
   validates :price, inclusion: { in: ["$", "$$", "$$$", "$$$$"] }
 
   belongs_to :user

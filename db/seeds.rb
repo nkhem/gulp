@@ -1,4 +1,5 @@
 all_first_names =  [
+  "Guest",
   "Marshall",
   "Dania",
   "Josette",
@@ -32,6 +33,7 @@ all_first_names =  [
 ]
 
 all_last_names = [
+  "User",
   "Frayre",
   "Sholar",
   "Huwe",
@@ -135,10 +137,8 @@ Category.destroy_all
 Business.destroy_all
 BusinessesCategory.destroy_all
 
-# User.create!({f_name: 'guest', l_name: 'user', email: 'guest@email.com', password: 'guessed password'})
-
 all_first_names.length.times do |i|
-  User.create!({
+  User.create({
     f_name: all_first_names[i],
     l_name: all_last_names[i],
     email: "#{all_first_names[i].downcase}_#{all_last_names[i].downcase}@email.com",
