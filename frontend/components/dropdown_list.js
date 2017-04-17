@@ -1,11 +1,12 @@
 import React from 'react';
 import DropdownItem from './dropdown_item';
-
+import _ from 'lodash';
 
 const DropdownList = props => {
   let { searchTerm, allTitles } = props.searchResults;
-  let titles = bestTitles(searchTerm, allTitles);
+  let titles = (searchTerm === "" ? [] : bestTitles(searchTerm, allTitles));
 // console.log(titles);
+
   return (
     <ul id="search-results">
       { dropdownItems(titles) }
@@ -14,37 +15,41 @@ const DropdownList = props => {
 };
 
 const defaultSuggestions = [
+  "Fresh Juice",
   "Bubble Tea",
   "Coffee",
   "Happy Hour",
   "Kava Lounge",
-  "Fresh Juice",
-  "Distilleries",
   "Wine Tasting",
-  "Tea Rooms"]
+  "Smoothies",
+];
 
-const bestTitles = (searchTerm, allTitles)  => {
-  let result = [];
-
-  result = result.concat(nearExactMatches(searchTerm, allTitles));
-
-  // while(result.length)
-  return result;
-};
+const bestTitles = (searchTerm, allTitles)  => (
+  _.uniq([].concat(exactExactMatches(searchTerm, allTitles))
+    .concat(nearExactMatches(searchTerm, allTitles))
+    .concat(goodMatches(searchTerm, allTitles))
+    .concat(defaultSuggestions).slice(0, 7))
+);
 
 const exactExactMatches = (searchTerm, allTitles) => {
   let result = [];
-  searchTerm = searchTerm.toLowerCase().replace(/[^0-9a-z]/g, "");
+  let searchTermAlias = searchTerm.toLowerCase().replace(/[^0-9a-z]/g, "");
+
   allTitles.forEach( title => {
-    
+    let titleAlias = title.toLowerCase().replace(/[^0-9a-z]/g, "");
+    let isExactMatch = (titleAlias === searchTermAlias);
+    if (isExactMatch) result.push(title);
   });
 
+  console.log("exactExactMatches:");
+  console.log(result);
+  return result;
 };
 
 const nearExactMatches = (searchTerm, allTitles) => {
   let result = [];
   let searchWords = searchTerm.toLowerCase().split(/[^0-9a-z]/g);
-
+  searchWords = searchWords.filter( word => word !== "");
   allTitles.forEach( title => {
     let titleWords = title.toLowerCase().split(/[^0-9a-z]/g);
     let isExactSearchMatch = word => Boolean(searchWords.includes(word));
@@ -53,6 +58,21 @@ const nearExactMatches = (searchTerm, allTitles) => {
     if (titleWordsContainsMatch) result.push(title);
   });
 
+  console.log("nearExactMatches:");
+  console.log(result);
+  return result;
+};
+
+const goodMatches = (searchTerm, allTitles) => {
+  let result = [];
+  let searchTermAlias = searchTerm.toLowerCase().replace(/[^0-9a-z]/g, "");
+  allTitles.forEach( title => {
+    let titleAlias = title.toLowerCase().replace(/[^0-9a-z]/g, "");
+    if (titleAlias.match(searchTermAlias).index === 0) result.push(title);
+  });
+
+  console.log("goodMatches:");
+  console.log(result);
   return result;
 };
 
