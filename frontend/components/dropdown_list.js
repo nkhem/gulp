@@ -5,7 +5,6 @@ import _ from 'lodash';
 const DropdownList = props => {
   let { searchTerm, allTitles } = props.searchResults;
   let titles = (searchTerm === "" ? [] : bestTitles(searchTerm, allTitles));
-// console.log(titles);
 
   return (
     <ul id="search-results">
@@ -14,19 +13,18 @@ const DropdownList = props => {
   );
 };
 
-const defaultSuggestions = [
-  "Fresh Juice",
-  "Coffee",
-  "Happy Hour",
-  "Bubble Tea",
-  "Kava Lounge",
-  "Wine Tasting"
-];
+// const defaultSuggestions = [
+//   "Fresh Juice",
+//   "Coffee",
+//   "Happy Hour",
+//   "Bubble Tea",
+//   "Kava Lounge",
+//   "Wine Tasting"
+// ];
 
 const bestTitles = (searchTerm, allTitles)  => (
   _.uniq([].concat(exactMatches(searchTerm, allTitles))
-    .concat(goodMatches(searchTerm, allTitles))
-    .concat(defaultSuggestions)).slice(0, 6)
+    .concat(goodMatches(searchTerm, allTitles))).slice(0, 6)
 );
 
 const exactMatches = (searchTerm, allTitles) => {

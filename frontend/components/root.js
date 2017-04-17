@@ -5,7 +5,7 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import App from './app';
 import Main from './main';
 import SessionForm from './session/session_form';
-import BusinessIndex from './business/business_index';
+import BusinessIndex from './biz/business_index';
 
 const Root = ({ store }) => {
   const _redirectIfLoggedIn = (nextState, replace) => {
