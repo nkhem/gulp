@@ -19,7 +19,7 @@ class SearchBar extends Component {
     return (
       <div className='search-bar'>
         <input
-          placeholder="bubble tea, wineries, Philz"
+          placeholder="tea, wineries, Philz"
           value={this.state.term}
           onChange={ e => {
             this.onInputChange(e.target.value);
