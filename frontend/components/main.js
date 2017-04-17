@@ -10,11 +10,11 @@ class Main extends React.Component {
   render() {
     return (
       <div id='main' className='main-content'>
-        // <Header
-        //   loggedIn={this.props.loggedIn}
-        //   logout={ this.props.logout }
-        //   fetchSearchResults={ this.props.fetchSearchResults }
-        //   searchResults={ this.props.searchResults } />
+        <Header
+          loggedIn={this.props.loggedIn}
+          logout={ this.props.logout }
+          fetchSearchResults={ this.props.fetchSearchResults }
+          searchResults={ this.props.searchResults } />
         <h1>gulp</h1>
       </div>
     );
