@@ -2,12 +2,14 @@ import { combineReducers } from 'redux';
 
 import SessionReducer from './session_reducer';
 import BusinessesReducer from './businesses_reducer';
-import SearchResultsReducer from './search_results_reducer';
+import CategoriesReducer from './categories_reducer';
+import SearchReducer from './search_reducer';
 
 const RootReducer = combineReducers({
   session: SessionReducer,
-  searchResults: SearchResultsReducer,
-  business: BusinessesReducer
+  searchResults: SearchReducer,
+  businesses: BusinessesReducer,
+  categories: CategoriesReducer
 });
 
 export default RootReducer;
@@ -21,13 +23,10 @@ export default RootReducer;
 //     errors: []
 //   },
 //   searchResults: {
-//     currentTerm: 'k',
-//     matches: {
-//       categories: [],
-//       businesses: [],
-//       allTitles: [],
-//       prevTitles: []
-//     }
+//     categories: [],
+//     businesses: [],
+//     allTitles: [],
+//     prevTitles: []
 //   }
 //   businesses: {
 //     currentBusiness: {},
