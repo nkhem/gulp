@@ -15,7 +15,7 @@
 class User < ApplicationRecord
   validates :f_name, :l_name, :email, :session_token, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
-  validates :email, uniqueness: :true
+  validates :email, uniqueness: :true, format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i }
 
   has_many :businesses
   has_many :reviews

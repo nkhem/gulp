@@ -135,7 +135,7 @@ Category.destroy_all
 Business.destroy_all
 BusinessesCategory.destroy_all
 
-User.create!({f_name: 'guest', l_name: 'user', email: 'guest@email.com', password: 'guessed password'})
+# User.create!({f_name: 'guest', l_name: 'user', email: 'guest@email.com', password: 'guessed password'})
 
 all_first_names.length.times do |i|
   User.create!({
