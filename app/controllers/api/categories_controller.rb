@@ -1,13 +1,15 @@
 class Api::CategoriesController < ApplicationController
   def index
-    @categories = Category.where("alias LIKE ?", search_term)
+    @categories = []
+    search_terms.each do |search_term|
+      @categories += Category.where("alias LIKE ?", "%#{search_term}%")
+    end
     render :index
   end
 
   private
 
-  def search_term
-    term = params[:term].downcase.gsub(/[^0-9a-z]/, '')
-    term === "bars" ? "%bars%" : "%#{params[:term]}%"
+  def search_terms
+    params[:term].downcase.split(/[^0-9a-z]/)
   end
 end

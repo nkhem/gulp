@@ -1,6 +1,9 @@
 class Api::BusinessesController < ApplicationController
   def index
-    @businesses = Business.where("alias LIKE ?", "%#{search_term}%")
+    @businesses = []
+    search_terms.each do |search_term|
+      @businesses += Business.where("alias LIKE ?", "%#{search_term}%")
+    end
     render :index
   end
 
@@ -11,7 +14,7 @@ class Api::BusinessesController < ApplicationController
 
   private
 
-  def search_term
-    params[:term].downcase.gsub(/[^0-9a-z]/, '')
+  def search_terms
+    params[:term].downcase.split(/[^0-9a-z]/)
   end
 end
