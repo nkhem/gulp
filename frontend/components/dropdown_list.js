@@ -26,7 +26,7 @@ const defaultSuggestions = [
 const bestTitles = (searchTerm, allTitles)  => (
   _.uniq([].concat(exactMatches(searchTerm, allTitles))
     .concat(goodMatches(searchTerm, allTitles))
-    .concat(defaultSuggestions).slice(0, 5))
+    .concat(defaultSuggestions)).slice(0, 6)
 );
 
 const exactMatches = (searchTerm, allTitles) => {
@@ -39,8 +39,6 @@ const exactMatches = (searchTerm, allTitles) => {
     if (isExactMatch) result.push(title);
   });
 
-  // console.log("exactMatches:");
-  // console.log(result);
   return result;
 };
 
@@ -50,14 +48,8 @@ const goodMatches = (searchTerm, allTitles) => {
 
   let searchWords = searchTerm.toLowerCase().split(/[^0-9a-z]/g);
   searchWords = searchWords.filter( word => word !== "");
-console.log("searchWords:");
-console.log(searchWords);
 
-console.log("allTitles:");
-console.log(allTitles);
   allTitles.forEach( title => {
-    console.log("title:");
-    console.log(title);
     let titleWords = title.toLowerCase().split(/[^0-9a-z]/g);
 
     let isMatchingWord = word => Boolean(searchWords.includes(word));
@@ -75,11 +67,6 @@ console.log(allTitles);
 
 
   });
-  console.log("titlesWithSimilarWord:");
-  console.log(titlesWithSimilarWord);
-
-  console.log("titlesWithMatchingWord:");
-  console.log(titlesWithMatchingWord);
 
   return _.uniq(titlesWithMatchingWord.concat(titlesWithSimilarWord));
 };
