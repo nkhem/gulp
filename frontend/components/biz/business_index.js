@@ -11,11 +11,11 @@ import BusinessIndexDetail from './business_index_detail';
 class BusinessIndex extends React.Component {
   renderBizTitles(bizes){
     return (
-      <ul id='business-results'>
+      <ol id='business-results'>
         { bizes.map( biz => (
           <BusinessIndexDetail business={biz} key={biz.alias}/>
         ))}
-      </ul>
+      </ol>
     );
 
   }
