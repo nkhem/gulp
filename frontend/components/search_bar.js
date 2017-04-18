@@ -15,7 +15,6 @@ class SearchBar extends Component {
 
   onInputChange(e){
     e.preventDefault();
-    e.stopPropagation();
     this.setState({ searchTerm: (e.target.value) });
     this.props.fetchSearchResults(e.target.value);
   }
@@ -23,7 +22,9 @@ class SearchBar extends Component {
   handleSubmit(e){
     e.preventDefault();
     let searchTerm = document.getElementById('search-field').value;
+
     this.setState({ searchTerm: searchTerm });
+    console.log(this.state.searchTerm);
     this.props.fetchSearchResults(this.state.searchTerm)
       .then( searchResults => {
         console.log("handleSubmit searchResults:");
@@ -35,6 +36,7 @@ class SearchBar extends Component {
   render(){
     return (
       <div className='search-bar'>
+
         <form
           className='search-form'
           onSubmit={ this.handleSubmit }>
@@ -42,15 +44,15 @@ class SearchBar extends Component {
             id="search-field"
             type="text"
             placeholder="tea, wineries, Philz"
+            autoComplete="off"
             value={this.state.term}
             onChange={ this.onInputChange }
           />
           <input type="submit" value="search" />
-
         </form>
-      <DropdownList
-          searchResults={this.props.searchResults}
-          />
+
+      <DropdownList searchResults={this.props.searchResults} />
+
       </div>
     );
   }
