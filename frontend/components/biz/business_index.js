@@ -4,16 +4,17 @@ import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
 import { fetchSearchResults } from '../../actions/search_actions';
 import { fetchBusiness } from '../../actions/business_actions';
+
 import Header from '../header';
+import BusinessIndexDetail from './business_index_detail';
 
 class BusinessIndex extends React.Component {
   renderBizTitles(bizes){
-    console.log(bizes);
     return (
       <ul id='business-results'>
-        { bizes.map( biz => {
-          return <li>{biz.title}</li>;
-        })}
+        { bizes.map( biz => (
+          <BusinessIndexDetail business={biz} key={biz.alias}/>
+        ))}
       </ul>
     );
 
