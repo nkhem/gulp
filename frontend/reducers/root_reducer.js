@@ -8,7 +8,7 @@ import SearchReducer from './search_reducer';
 const RootReducer = combineReducers({
   session: SessionReducer,
   // categories: CategoriesReducer,
-  // businesses: BusinessesReducer,
+  businesses: BusinessesReducer,
   searchResults: SearchReducer
 });
 

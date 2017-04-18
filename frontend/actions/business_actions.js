@@ -9,6 +9,11 @@ export const fetchBusinessesByTerm = term => dispatch => {
     .then(businesses => dispatch(receiveBusinesses(businesses)));
 };
 
+export const fetchBusinessesByCategory = categoryAlias => dispatch => {
+  return BizApiUtil.fetchBusinessesByCategory(categoryAlias)
+    .then(businesses => dispatch(receiveBusinesses(businesses)));
+};
+
 export const fetchBusiness = term => dispatch => {
   // term = term.toLowerCase().replace(/[^0-9a-z]/g, '');
   // return BizApiUtil.fetchBusinessesByTerm(term)

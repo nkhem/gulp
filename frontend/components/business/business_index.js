@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { logout } from '../../actions/session_actions';
 import { fetchSearchResults } from '../../actions/search_actions';
-import { fetchBusiness } from '../../actions/business_actions';
+import { fetchBusinessesByCategory } from '../../actions/business_actions';
 import Header from '../header';
 
 class BusinessIndex extends React.Component {
@@ -29,7 +29,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = (dispatch, state) => {
   return {
     logout: () => dispatch(logout()),
-    fetchBusiness: term => dispatch(fetchBusiness(term)),
+    fetchBusinessesByCategory: categoryAlias => dispatch(fetchBusinessesByCategory(categoryAlias)),
     fetchSearchResults: term => dispatch(fetchSearchResults(term)),
   };
 };

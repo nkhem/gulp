@@ -23,7 +23,7 @@ class SearchBar extends Component {
 
   handleSubmit(e){
     e.preventDefault();
-    this.props.fetchBusinesses(this.state.searchTerm)
+    this.props.fetchBusinessesByCategory(this.state.searchTerm)
       .then( () => this.props.router.push("/search") );
   }
 
