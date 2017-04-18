@@ -34,15 +34,17 @@ const exactMatches = (searchTerm, allTitles) => {
   allTitles.forEach( title => {
     let titleAlias = title.toLowerCase().replace(/[^0-9a-z]/g, "");
     let isExactMatch = (titleAlias === searchTermAlias);
-    if (isExactMatch) result.push(title);
+    if (isExactMatch && !result.includes(title)) result.push(title);
   });
-
+  console.log("exactMatches:");
+  console.log(result);
   return result;
 };
 
 const goodMatches = (searchTerm, allTitles) => {
   let titlesWithMatchingWord = [];
   let titlesWithSimilarWord = [];
+  let titlesWithMultipleGoodWords = [];
 
   let searchWords = searchTerm.toLowerCase().split(/[^0-9a-z]/g);
   searchWords = searchWords.filter( word => word !== "");
@@ -57,16 +59,26 @@ const goodMatches = (searchTerm, allTitles) => {
       });
     };
 
-    let hasMatchingWord = titleWords.some(word => isMatchingWord(word));
-    let hasSimilarWord = titleWords.some(word => isSimilarWord(word));
+    let matchingWordCount = _.countBy(titleWords, (word) => isMatchingWord(word))['true'];
+    let similarWordCount = _.countBy(titleWords, (word) => isSimilarWord(word))['true'];
 
-    if (hasMatchingWord) titlesWithMatchingWord.push(title);
-    if (hasSimilarWord) titlesWithSimilarWord.push(title);
-
+    if (matchingWordCount >= 2 || similarWordCount >= 2) {
+      titlesWithMultipleGoodWords.push(title);
+    } else if (matchingWordCount === 1) {
+      titlesWithMatchingWord.push(title);
+    } else if (similarWordCount === 1) {
+      titlesWithSimilarWord.push(title);
+    }
 
   });
-
-  return _.uniq(titlesWithMatchingWord.concat(titlesWithSimilarWord));
+  console.log("goodMatches:");
+  console.log(_.uniq(titlesWithMultipleGoodWords
+    .concat(titlesWithMatchingWord)
+    .concat(titlesWithSimilarWord)));
+    
+  return _.uniq(titlesWithMultipleGoodWords
+    .concat(titlesWithMatchingWord)
+    .concat(titlesWithSimilarWord));
 };
 
 const dropdownItems = (titles) => (
