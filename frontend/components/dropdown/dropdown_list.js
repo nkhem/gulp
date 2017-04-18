@@ -3,7 +3,6 @@ import DropdownItem from './dropdown_item';
 import _ from 'lodash';
 
 const DropdownList = props => {
-  console.log(props.searchResults);
   let { searchTerm, allTitles } = props.searchResults;
   let titles = (searchTerm === "" ? [] : bestTitles(searchTerm, allTitles));
 

@@ -12,28 +12,30 @@ import BusinessIndexDetail from './business_index_detail';
 class BusinessIndex extends React.Component {
   constructor(props) {
     super(props);
-    this.renderBizTitles = this.renderBizTitles.bind(this);
+    this.state = {
+      businesses: []
+    }
+    this.bizTitles = this.bizTitles.bind(this);
   }
+  componentWillMount() {
+    this.setState({businesses: this.props.businesses });
+    console.log(this.state.map(biz => biz.title));
+    this.setState({businesses: [] });
 
-  renderBizTitles() {
-    console.log("this.props.businesses:");
-    console.log(this.props.businesses);
-    return (
-      <ol id='biz-index-list'>
-        { createFragment(this.props.businesses).forEach( biz => {
-          console.log(biz);
-          return <BusinessIndexDetail business={biz} key={biz.alias}/>;
-        })}
-      </ol>
-    );
+  }
+  bizTitles() {
+    // return businesses.map( biz => {
+    //   return <BusinessIndexDetail business={biz} key={biz.alias}/>;
+    // });
   }
 
   render(){
-    let shouldRenderBizTitles = Boolean(this.props.businesses.length > 0);
+    let { businesses } = this.props ;
+
     return (
       <div id='main' className='biz-index'>
         <h1>gulp</h1>
-        <h3>{ this.renderBizTitles() }</h3>
+        <ol id='biz-index-list'>{ this.bizTitles() }</ol>
       </div>
     );
   }
@@ -41,6 +43,7 @@ class BusinessIndex extends React.Component {
 }
 
 const mapStateToProps = state => {
+  console.log(state.businesses);
   return {
     loggedIn: Boolean(state.session.currentUser),
     businesses: state.businesses
