@@ -23,8 +23,9 @@ const DropdownList = props => {
 // ];
 
 const bestTitles = (searchTerm, allTitles)  => (
-  _.uniq([].concat(exactMatches(searchTerm, allTitles))
-    .concat(goodMatches(searchTerm, allTitles))).slice(0, 6)
+  _.uniq(exactMatches(searchTerm, allTitles)
+    .concat(goodMatches(searchTerm, allTitles)))
+    .slice(0, 6)
 );
 
 const exactMatches = (searchTerm, allTitles) => {
@@ -43,6 +44,7 @@ const exactMatches = (searchTerm, allTitles) => {
 const goodMatches = (searchTerm, allTitles) => {
   let titlesWithMatchingWord = [];
   let titlesWithSimilarWord = [];
+  let titlesWithMultipleGreatWords = [];
   let titlesWithMultipleGoodWords = [];
 
   let searchWords = searchTerm.toLowerCase().split(/[^0-9a-z]/g);
@@ -61,7 +63,9 @@ const goodMatches = (searchTerm, allTitles) => {
     let matchingWordCount = _.countBy(titleWords, (word) => isMatchingWord(word))['true'];
     let similarWordCount = _.countBy(titleWords, (word) => isSimilarWord(word))['true'];
 
-    if (matchingWordCount >= 2 || similarWordCount >= 2) {
+    if (matchingWordCount >= 2) {
+      titlesWithMultipleGreatWords.push(title);
+    } else if (matchingWordCount === 1 && similarWordCount === 1) {
       titlesWithMultipleGoodWords.push(title);
     } else if (matchingWordCount === 1) {
       titlesWithMatchingWord.push(title);
@@ -71,7 +75,8 @@ const goodMatches = (searchTerm, allTitles) => {
 
   });
 
-  return _.uniq(titlesWithMultipleGoodWords
+  return _.uniq(titlesWithMultipleGreatWords
+    .concat(titlesWithMultipleGoodWords)
     .concat(titlesWithMatchingWord)
     .concat(titlesWithSimilarWord));
 };

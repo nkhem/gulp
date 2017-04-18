@@ -6,28 +6,30 @@ class SearchBar extends Component {
   constructor(props){
     super(props);
     this.state = {
-      searchResults: [],
+      searchTerm: '',
     };
 
     this.onInputChange = this.onInputChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   onInputChange(e){
-    console.log(e.target);
-    this.setState({ searchResults: (e.target.value) });
+    e.preventDefault();
+    e.stopPropagation();
+    this.setState({ searchTerm: (e.target.value) });
     this.props.fetchSearchResults(e.target.value);
   }
 
   handleSubmit(e){
     e.preventDefault();
-    console.log(document.getElementById("search-field"));
-    // this.setState({ searchResults: (e.target.value) });
-    // this.props.fetchSearchResults(e.target.value)
-    //   .then( searchResults => {
-    //     console.log("handleSubmit searchResults:");
-    //     console.log(searchResults);
-    //     this.props.router.push('/search');
-    //   }).catch(res => console.log("afdasdfasdfa"));
+    let searchTerm = document.getElementById('search-field').value;
+    this.setState({ searchTerm: searchTerm });
+    this.props.fetchSearchResults(this.state.searchTerm)
+      .then( searchResults => {
+        console.log("handleSubmit searchResults:");
+        console.log(searchResults);
+        this.props.router.push('search');
+      });
   }
 
   render(){
@@ -43,7 +45,7 @@ class SearchBar extends Component {
             value={this.state.term}
             onChange={ this.onInputChange }
           />
-        <input type="submit" value="search" />
+          <input type="submit" value="search" />
 
         </form>
       <DropdownList
