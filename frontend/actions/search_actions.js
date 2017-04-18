@@ -4,7 +4,7 @@ import * as CatApiUtil from '../util/category_api_util';
 export const RECEIVE_SEARCH_RESULTS = 'RECEIVE_SEARCH_RESULTS';
 
 export const fetchSearchResults = searchTerm => dispatch => {
-  let fetchBizes = BizApiUtil.fetchBusinesses(searchTerm)
+  let fetchBizes = BizApiUtil.fetchBusinessesByTerm(searchTerm)
     .then(businesses => dispatch(receiveSearchResults({ businesses })));
   let fetchCats = CatApiUtil.fetchCategories(searchTerm)
     .then(categories => dispatch(receiveSearchResults({ categories })));

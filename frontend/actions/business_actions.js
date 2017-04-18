@@ -3,15 +3,15 @@ import * as BizApiUtil from '../util/business_api_util';
 export const RECEIVE_BUSINESSES = "RECEIVE_BUSINESSES";
 export const RECEIVE_BUSINESS = "RECEIVE_BUSINESS";
 
-export const fetchBusinesses = term => dispatch => {
+export const fetchBusinessesByTerm = term => dispatch => {
   term = term.toLowerCase().replace(/[^0-9a-z]/g, '');
-  return BizApiUtil.fetchBusinesses(term)
+  return BizApiUtil.fetchBusinessesByTerm(term)
     .then(businesses => dispatch(receiveBusinesses(businesses)));
 };
 
 export const fetchBusiness = term => dispatch => {
   // term = term.toLowerCase().replace(/[^0-9a-z]/g, '');
-  // return BizApiUtil.fetchBusinesses(term)
+  // return BizApiUtil.fetchBusinessesByTerm(term)
   //   .then(businesses => dispatch(receiveBusinesses(businesses)));
 };
 

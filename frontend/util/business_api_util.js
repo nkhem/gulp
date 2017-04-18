@@ -1,4 +1,4 @@
-export const fetchBusinesses = input => {
+export const fetchBusinessesByTerm = input => {
   return $.ajax({
       method: 'GET',
       url: '/api/businesses',

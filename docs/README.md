@@ -56,6 +56,9 @@ sufficient CSS styling:
 ### Phase 3: Search Bar (1 day)
 **Objective** To render top search results into dropdown list and navigation pages as user types in a search term.
 
+### Phase 3: Business Search Results Page (1 day)
+**Objective** To display list of businesses when user submits search term.
+
 
 ### Bonus Features (TBD)
 - [ ] Personal profiles
