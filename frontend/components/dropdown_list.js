@@ -36,8 +36,7 @@ const exactMatches = (searchTerm, allTitles) => {
     let isExactMatch = (titleAlias === searchTermAlias);
     if (isExactMatch && !result.includes(title)) result.push(title);
   });
-  console.log("exactMatches:");
-  console.log(result);
+
   return result;
 };
 
@@ -71,11 +70,7 @@ const goodMatches = (searchTerm, allTitles) => {
     }
 
   });
-  console.log("goodMatches:");
-  console.log(_.uniq(titlesWithMultipleGoodWords
-    .concat(titlesWithMatchingWord)
-    .concat(titlesWithSimilarWord)));
-    
+
   return _.uniq(titlesWithMultipleGoodWords
     .concat(titlesWithMatchingWord)
     .concat(titlesWithSimilarWord));
