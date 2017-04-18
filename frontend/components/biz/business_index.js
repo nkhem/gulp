@@ -7,9 +7,18 @@ import { fetchBusiness } from '../../actions/business_actions';
 import Header from '../header';
 
 class BusinessIndex extends React.Component {
+  renderBizTitles(bizes){
+    console.log(bizes);
+    return (
+      <ul id='business-results'>
+        { bizes.map( biz => {
+          return <li>{biz.title}</li>;
+        })}
+      </ul>
+    );
 
+  }
   render() {
-    console.log(this.props.searchResults);
     return (
       <div id='main' className='biz-index'>
         <Header
@@ -18,7 +27,7 @@ class BusinessIndex extends React.Component {
           fetchSearchResults={ this.props.fetchSearchResults }
           searchResults={ this.props.searchResults } />
         <h1>gulp</h1>
-        <h3>{this.props.searchResults.businesses}</h3>
+        <h3>{this.renderBizTitles(this.props.searchResults.businesses)}</h3>
       </div>
     );
   }
