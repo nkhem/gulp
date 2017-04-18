@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import DropdownList from './dropdown_list';
-import DropdownItem from './dropdown_item';
+import DropdownList from './dropdown/dropdown_list';
+import DropdownItem from './dropdown/dropdown_item';
 
 class SearchBar extends Component {
   constructor(props){

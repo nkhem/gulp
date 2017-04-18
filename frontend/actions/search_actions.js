@@ -8,7 +8,7 @@ export const fetchSearchResults = searchTerm => dispatch => {
     .then(businesses => dispatch(receiveSearchResults({ businesses })));
   let fetchCats = CatApiUtil.fetchCategories(searchTerm)
     .then(categories => dispatch(receiveSearchResults({ categories })));
-
+    console.log("fetching");
   return Promise.all([fetchCats, fetchBizes]).then( res => {
     let cats = res[0].searchResults.categories;
     let bizes = res[1].searchResults.businesses;
