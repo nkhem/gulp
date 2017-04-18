@@ -1,11 +1,11 @@
 import { RECEIVE_BUSINESSES } from '../actions/business_actions';
 
-const initialState = { businesses: [] };
+const initialState = {};
 
 const BusinessesReducer = (state = initialState, action) => {
   Object.freeze(state);
   let nextState;
-
+  
   switch (action.type) {
     case RECEIVE_BUSINESSES:
       nextState = Object.assign(

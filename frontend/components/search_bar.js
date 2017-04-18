@@ -36,8 +36,8 @@ class SearchBar extends Component {
       console.log("shouldRenderBiz");
       this.props.fetchBusiness(this.props.searchResults.searchTerm.toLowerCase())
         .then( () => this.props.router.push("/business") );
-
     }
+    console.log('refusing to render');
   }
 
   render(){

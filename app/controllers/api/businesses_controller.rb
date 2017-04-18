@@ -1,12 +1,12 @@
 class Api::BusinessesController < ApplicationController
   def index
-    @businesses = []
     if search_terms
+      @businesses = []
       search_terms.each do |search_term|
         @businesses += Business.where("alias LIKE ?", "%#{search_term}%")
       end
     elsif category
-      @businesses += Business.where("alias LIKE ?", "%kava%")
+      @businesses = Business.joins(:categories).where('categories.alias = ?', category)
     end
 
     render :index
@@ -24,6 +24,6 @@ class Api::BusinessesController < ApplicationController
   end
 
   def category
-    params[:category] if params[:category]
+    params[:category].downcase.gsub(/[^0-9a-z]/, '') if params[:category]
   end
 end

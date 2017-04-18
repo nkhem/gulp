@@ -1,34 +1,39 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import createFragment from 'react-addons-create-fragment';
 
 import { logout } from '../../actions/session_actions';
 import { fetchSearchResults } from '../../actions/search_actions';
-import { fetchBusiness } from '../../actions/business_actions';
+import { fetchBusinessesByCategory, fetchBusiness } from '../../actions/business_actions';
 
 import Header from '../header';
 import BusinessIndexDetail from './business_index_detail';
 
 class BusinessIndex extends React.Component {
-  renderBizTitles(bizes){
+  constructor(props) {
+    super(props);
+    this.renderBizTitles = this.renderBizTitles.bind(this);
+  }
+
+  renderBizTitles() {
+    console.log("this.props.businesses:");
+    console.log(this.props.businesses);
     return (
-      <ol id='business-results'>
-        { bizes.map( biz => (
-          <BusinessIndexDetail business={biz} key={biz.alias}/>
-        ))}
+      <ol id='biz-index-list'>
+        { createFragment(this.props.businesses).forEach( biz => {
+          console.log(biz);
+          return <BusinessIndexDetail business={biz} key={biz.alias}/>;
+        })}
       </ol>
     );
-
   }
-  render() {
+
+  render(){
+    let shouldRenderBizTitles = Boolean(this.props.businesses.length > 0);
     return (
       <div id='main' className='biz-index'>
-        <Header
-          loggedIn={this.props.loggedIn}
-          logout={ this.props.logout }
-          fetchSearchResults={ this.props.fetchSearchResults }
-          searchResults={ this.props.searchResults } />
         <h1>gulp</h1>
-        <h3>{this.renderBizTitles(this.props.searchResults.businesses)}</h3>
+        <h3>{ this.renderBizTitles() }</h3>
       </div>
     );
   }
@@ -38,15 +43,16 @@ class BusinessIndex extends React.Component {
 const mapStateToProps = state => {
   return {
     loggedIn: Boolean(state.session.currentUser),
-    searchResults: state.searchResults
+    businesses: state.businesses
   };
 };
 
 const mapDispatchToProps = (dispatch, state) => {
   return {
     logout: () => dispatch(logout()),
-    fetchBusiness: term => dispatch(fetchBusiness(term)),
     fetchSearchResults: term => dispatch(fetchSearchResults(term)),
+    fetchBusinessesByCategory: cat => dispatch(fetchBusinessesByCategory(cat)),
+    fetchBusiness: title => dispatch(fetchBusiness(title))
   };
 };
 

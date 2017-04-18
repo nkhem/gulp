@@ -2,8 +2,8 @@ import { RECEIVE_SEARCH_RESULTS } from '../actions/search_actions';
 
 const nullMatches = {
   searchTerm: '',
-  categories: [],
-  businesses: [],
+  categories: [],//DELETE SOON!!!!!
+  businesses: [],//DELETE SOON!!!!!
   categoryTitles: [],
   businessTitles: [],
   allTitles: []//DELETE SOON!!!!!

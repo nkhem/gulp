@@ -5,6 +5,7 @@ import SearchBar from './search_bar.js';
 class Header extends React.Component {
   constructor(props) {
     super(props);
+
     this.renderSessionBtns = this.renderSessionBtns.bind(this);
     this.renderSearchBar = this.renderSearchBar.bind(this);
   }
@@ -24,8 +25,8 @@ class Header extends React.Component {
   renderSearchBar(){
     if (!this.props.isSessionFormOpen) {
       return <SearchBar
-        fetchSearchResults={ this.props.fetchSearchResults }
         searchResults={ this.props.searchResults }
+        fetchSearchResults={ this.props.fetchSearchResults }
         fetchBusinessesByCategory={this.props.fetchBusinessesByCategory}
         fetchBusiness={this.props.fetchBusiness}
         />;
