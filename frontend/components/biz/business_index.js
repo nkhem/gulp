@@ -11,33 +11,27 @@ class BusinessIndex extends React.Component {
     this.state = {
       businesses: []
     };
+    this.renderBizTitles = this.renderBizTitles.bind(this);
   }
 
   componentWillReceiveProps(){
-    console.log("this.props.businesses");
-    console.log(this.props.businesses);
-    console.log("THIS WORKS!!!!!!!");
-    console.log(Object.values(this.props.businesses).map(biz => biz.lat) );
-    // this.setState({
-    //   businesses: [...this.props.businesses
-    // });
-
-
-    // console.log("this.state:");
-    // console.log(this.state);
+    this.setState({
+      businesses: this.props.businesses
+    });
   }
 
   renderBizTitles(){
-
+    let { businesses } = this.state;
+    return businesses.map( biz => {
+      return <BusinessIndexDetail business={biz} />;
+    });
   }
 
   render() {
-    console.log("BusinessIndex this.props.businesses:");
-    console.log(this.props.businesses);
 
     return (
       <div>
-        <p>business_index:</p>
+        <p>{this.renderBizTitles()}</p>
       </div>
     );
   }
@@ -45,12 +39,12 @@ class BusinessIndex extends React.Component {
 }
 
 BusinessIndex.propTypes = {
-  businesses: PropTypes.object
+  businesses: PropTypes.array
 };
 
 const mapStateToProps = state => {
   return {
-    businesses: state.businesses
+    businesses: Object.values(state.businesses)
   };
 };
 
