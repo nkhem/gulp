@@ -18,13 +18,26 @@ class SearchBar extends Component {
   onInputChange(e){
     e.preventDefault();
     this.setState({ searchTerm: (e.target.value) });
-    this.props.fetchSearchResults(e.target.value);
+    this.props.fetchSearchResults(e.target.value)
+      .then( asdf => console.log(this.props.searchResults));
   }
 
   handleSubmit(e){
     e.preventDefault();
-    this.props.fetchBusinessesByCategory(this.state.searchTerm)
+
+    let shouldRenderByCat = this.props.searchResults.categoryTitles.includes(this.state.searchTerm)
+    let shouldRenderBiz = this.props.searchResults.businessTitles.includes(this.state.searchTerm)
+
+    if (shouldRenderByCat) {
+      console.log("shouldRenderByCat");
+      this.props.fetchBusinessesByCategory(this.props.searchResults.searchTerm.toLowerCase())
       .then( () => this.props.router.push("/search") );
+    } else if (shouldRenderBiz) {
+      console.log("shouldRenderBiz");
+      this.props.fetchBusiness(this.props.searchResults.searchTerm.toLowerCase())
+        .then( () => this.props.router.push("/business") );
+
+    }
   }
 
   render(){

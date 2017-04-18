@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import { logout } from '../actions/session_actions';
 import { fetchSearchResults } from '../actions/search_actions';
+import { fetchBusinessesByCategory, fetchBusiness } from '../actions/business_actions';
 import Header from './header';
 
 class Main extends React.Component {
@@ -13,7 +14,10 @@ class Main extends React.Component {
           loggedIn={this.props.loggedIn}
           logout={ this.props.logout }
           fetchSearchResults={ this.props.fetchSearchResults }
-          searchResults={ this.props.searchResults } />
+          searchResults={ this.props.searchResults }
+          fetchBusinessesByCategory={this.props.fetchBusinessesByCategory}
+          fetchBusiness={this.props.fetchBusiness} 
+          />
         <h1>gulp</h1>
       </div>
     );
@@ -32,6 +36,8 @@ const mapDispatchToProps = (dispatch, state) => {
   return {
     logout: () => dispatch(logout()),
     fetchSearchResults: term => dispatch(fetchSearchResults(term)),
+    fetchBusinessesByCategory: term => dispatch(fetchBusinessesByCategory(term)),
+    fetchBusiness: term => dispatch(fetchBusiness(term)),
   };
 };
 

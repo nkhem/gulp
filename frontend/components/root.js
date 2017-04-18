@@ -6,6 +6,7 @@ import App from './app';
 import Main from './main';
 import SessionForm from './session/session_form';
 import BusinessIndex from './biz/business_index';
+import BusinessShow from './biz/business_show';
 
 const Root = ({ store }) => {
   const _redirectIfLoggedIn = (nextState, replace) => {
@@ -23,6 +24,7 @@ const Root = ({ store }) => {
           <Route path="login" component={ SessionForm } onEnter={ _redirectIfLoggedIn } />
           <Route path="signup" component={ SessionForm } onEnter={ _redirectIfLoggedIn } />
           <Route path="search" component={ BusinessIndex } />
+          <Route path="business" component={ BusinessShow } />
         </Route>
       </Router>
     </Provider>

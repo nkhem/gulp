@@ -4,7 +4,9 @@ const nullMatches = {
   searchTerm: '',
   categories: [],
   businesses: [],
-  allTitles: [],
+  categoryTitles: [],
+  businessTitles: [],
+  allTitles: []//DELETE SOON!!!!!
 };
 
 const SearchReducer = (state = nullMatches, action) => {

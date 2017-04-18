@@ -12,10 +12,14 @@ export const fetchSearchResults = searchTerm => dispatch => {
   return Promise.all([fetchCats, fetchBizes]).then( res => {
     let cats = res[0].searchResults.categories;
     let bizes = res[1].searchResults.businesses;
+    let categoryTitles = [];
+    let businessTitles = [];
     let allTitles = [];
 
     cats.concat(bizes).forEach( result => allTitles.push(result.title));
-    dispatch(receiveSearchResults({ allTitles, searchTerm }));
+    cats.forEach( cat => categoryTitles.push(cat.title));
+    bizes.forEach( biz => businessTitles.push(biz.title));
+    dispatch(receiveSearchResults({ allTitles, categoryTitles, businessTitles, searchTerm }));
   });
 };
 

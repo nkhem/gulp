@@ -4,7 +4,7 @@ class BusinessShow extends React.Component {
 
   render() {
     return (
-      <div></div>
+      <div id='biz-show'></div>
     );
   }
 
