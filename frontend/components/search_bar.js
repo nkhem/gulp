@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router';
+
 import DropdownList from './dropdown/dropdown_list';
 import DropdownItem from './dropdown/dropdown_item';
 
@@ -21,16 +23,8 @@ class SearchBar extends Component {
 
   handleSubmit(e){
     e.preventDefault();
-    let searchTerm = document.getElementById('search-field').value;
-
-    this.setState({ searchTerm: searchTerm });
-    console.log(this.state.searchTerm);
     this.props.fetchSearchResults(this.state.searchTerm)
-      .then( searchResults => {
-        console.log("handleSubmit searchResults:");
-        console.log(searchResults);
-        this.props.router.push('search');
-      });
+      .then( () => this.props.router.push("/search") );
   }
 
   render(){
@@ -58,4 +52,4 @@ class SearchBar extends Component {
   }
 }
 
-export default SearchBar;
+export default withRouter(SearchBar);
