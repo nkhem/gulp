@@ -20,11 +20,12 @@ const Root = ({ store }) => {
     <Provider store={ store }>
       <Router history={ hashHistory }>
         <Route path="/" component={ App }>
-          <IndexRoute component={ Main }/>
+          <IndexRoute component={ Main }>
+            <Route path="business" component={ BusinessShow } />
+          </IndexRoute>
           <Route path="login" component={ SessionForm } onEnter={ _redirectIfLoggedIn } />
           <Route path="signup" component={ SessionForm } onEnter={ _redirectIfLoggedIn } />
           <Route path="search" component={ BusinessIndex } />
-          <Route path="business" component={ BusinessShow } />
         </Route>
       </Router>
     </Provider>

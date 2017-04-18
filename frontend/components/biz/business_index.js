@@ -1,61 +1,62 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import createFragment from 'react-addons-create-fragment';
-
-import { logout } from '../../actions/session_actions';
-import { fetchSearchResults } from '../../actions/search_actions';
-import { fetchBusinessesByCategory, fetchBusiness } from '../../actions/business_actions';
-
-import Header from '../header';
 import BusinessIndexDetail from './business_index_detail';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
+import { fetchBusinessesByCategory } from '../../actions/business_actions';
 
 class BusinessIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       businesses: []
-    }
-    this.bizTitles = this.bizTitles.bind(this);
+    };
   }
-  componentWillMount() {
-    this.setState({businesses: this.props.businesses });
-    console.log(this.state.map(biz => biz.title));
-    this.setState({businesses: [] });
 
-  }
-  bizTitles() {
-    // return businesses.map( biz => {
-    //   return <BusinessIndexDetail business={biz} key={biz.alias}/>;
+  componentWillReceiveProps(){
+    console.log("this.props.businesses");
+    console.log(this.props.businesses);
+    console.log("THIS WORKS!!!!!!!");
+    console.log(Object.values(this.props.businesses).map(biz => biz.lat) );
+    // this.setState({
+    //   businesses: [...this.props.businesses
     // });
+
+
+    // console.log("this.state:");
+    // console.log(this.state);
   }
 
-  render(){
-    let { businesses } = this.props ;
+  renderBizTitles(){
+
+  }
+
+  render() {
+    console.log("BusinessIndex this.props.businesses:");
+    console.log(this.props.businesses);
 
     return (
-      <div id='main' className='biz-index'>
-        <h1>gulp</h1>
-        <ol id='biz-index-list'>{ this.bizTitles() }</ol>
+      <div>
+        <p>business_index:</p>
       </div>
     );
   }
 
 }
 
+BusinessIndex.propTypes = {
+  businesses: PropTypes.object
+};
+
 const mapStateToProps = state => {
-  console.log(state.businesses);
   return {
-    loggedIn: Boolean(state.session.currentUser),
     businesses: state.businesses
   };
 };
 
 const mapDispatchToProps = (dispatch, state) => {
   return {
-    logout: () => dispatch(logout()),
-    fetchSearchResults: term => dispatch(fetchSearchResults(term)),
     fetchBusinessesByCategory: cat => dispatch(fetchBusinessesByCategory(cat)),
-    fetchBusiness: title => dispatch(fetchBusiness(title))
   };
 };
 

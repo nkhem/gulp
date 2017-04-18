@@ -30,8 +30,7 @@ class SearchBar extends Component {
     if (shouldRenderByCat) {
       console.log("shouldRenderByCat");
       this.props.fetchBusinessesByCategory(searchResults.searchTerm.toLowerCase())
-      .then( res => console.log(res.businesses.map(biz => biz.title)))
-      .then( () => this.props.router.push("/search") );
+        .then( () => this.props.router.push("/search") );
     } else if (shouldRenderBiz) {
       console.log("shouldRenderBiz");
       this.props.fetchBusiness(searchResults.searchTerm.toLowerCase())

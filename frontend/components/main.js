@@ -8,6 +8,8 @@ import Header from './header';
 
 class Main extends React.Component {
   render() {
+    console.log("Main this.props:");
+    console.log(this.props);
     return (
       <div id='main' className='main-content'>
         <Header
