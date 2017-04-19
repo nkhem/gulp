@@ -5,11 +5,10 @@ import { logout } from '../actions/session_actions';
 import { fetchSearchResults } from '../actions/search_actions';
 import { fetchBusinessesByCategory, fetchBusiness } from '../actions/business_actions';
 import Header from './header';
+import SearchBar from './search_bar';
 
 class Main extends React.Component {
   render() {
-    console.log("Main this.props:");
-    console.log(this.props);
     return (
       <div id='main' className='main-content'>
         <Header
@@ -19,8 +18,15 @@ class Main extends React.Component {
           searchResults={ this.props.searchResults }
           fetchBusinessesByCategory={this.props.fetchBusinessesByCategory}
           fetchBusiness={this.props.fetchBusiness}
+          shouldDisplaySearchBar={ false }
           />
         <h1>gulp</h1>
+        <SearchBar
+          searchResults={ this.props.searchResults }
+          fetchSearchResults={ this.props.fetchSearchResults }
+          fetchBusinessesByCategory={this.props.fetchBusinessesByCategory}
+          fetchBusiness={this.props.fetchBusiness}
+          />
       </div>
     );
   }

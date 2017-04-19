@@ -28,15 +28,16 @@ class SearchBar extends Component {
     let shouldRenderBiz = searchResults.businessTitles.includes(this.state.searchTerm);
 
     if (shouldRenderByCat) {
-      console.log("shouldRenderByCat");
       this.props.fetchBusinessesByCategory(searchResults.searchTerm.toLowerCase())
-        .then( () => this.props.router.push("/search") );
+        .then( () => {
+          if (this.props.router.location.pathname !== "/search") {
+            this.props.router.push("/search");
+          }
+        } );
     } else if (shouldRenderBiz) {
-      console.log("shouldRenderBiz");
       this.props.fetchBusiness(searchResults.searchTerm.toLowerCase())
         .then( () => this.props.router.push("/business") );
     }
-    console.log('refusing to render');
   }
 
   render(){

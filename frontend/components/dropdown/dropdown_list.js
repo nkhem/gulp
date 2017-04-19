@@ -3,14 +3,18 @@ import DropdownItem from './dropdown_item';
 import _ from 'lodash';
 
 const DropdownList = props => {
-  let { searchTerm, allTitles } = props.searchResults;
-  let titles = (searchTerm === "" ? [] : bestTitles(searchTerm, allTitles));
+  if (props.searchResults) {
+    let { searchTerm, allTitles } = props.searchResults;
+    let titles = (searchTerm === "" ? [] : bestTitles(searchTerm, allTitles));
 
-  return (
-    <ul id="search-bar-dropdown">
-      { dropdownItems(titles) }
-    </ul>
-  );
+    return (
+      <ul id="search-bar-dropdown">
+        { dropdownItems(titles) }
+      </ul>
+    );
+  } else {
+    return null;
+  }
 };
 
 // const defaultSuggestions = [
