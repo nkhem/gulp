@@ -1,7 +1,7 @@
 import React from 'react';
 
 const BusinessIndexDetail = props => (
-  <div id='main' className='biz-index'>
+  <div id='biz-index'>
     <li>
       <img src={`${props.business.image_url}`} width={100} />
       <h4>{props.business.title}</h4>

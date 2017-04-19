@@ -24,7 +24,7 @@ const Root = ({ store }) => {
           <Route path="login" component={ SessionForm } onEnter={ _redirectIfLoggedIn } />
           <Route path="signup" component={ SessionForm } onEnter={ _redirectIfLoggedIn } />
           <Route path="search" component={ BusinessIndex } />
-          <Route path = 'business/:businessId' component={BusinessShow} />
+          <Route path ="business" component={BusinessShow} />
         </Route>
       </Router>
     </Provider>

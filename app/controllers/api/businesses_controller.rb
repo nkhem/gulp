@@ -13,7 +13,6 @@ class Api::BusinessesController < ApplicationController
   end
 
   def show
-    debugger
     @business = Business.where('alias LIKE ?', "%#{biz_name}%").first
     render :show
   end
@@ -29,7 +28,6 @@ class Api::BusinessesController < ApplicationController
   end
 
   def biz_name
-    debugger
     params[:bizName].downcase.gsub(/[^0-9a-z]/, '') if params[:bizName]
   end
 end

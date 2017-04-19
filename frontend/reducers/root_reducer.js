@@ -9,6 +9,7 @@ const RootReducer = combineReducers({
   session: SessionReducer,
   // categories: CategoriesReducer,
   businesses: BusinessesReducer,
+  business: BusinessesReducer,
   searchResults: SearchReducer
 });
 

@@ -1,17 +1,23 @@
-import { RECEIVE_BUSINESSES } from '../actions/business_actions';
+import { RECEIVE_BUSINESSES, RECEIVE_BUSINESS } from '../actions/business_actions';
 
-const initialState = {};
+const nullState = {};
 
-const BusinessesReducer = (state = initialState, action) => {
+const BusinessesReducer = (state = nullState, action) => {
   Object.freeze(state);
   let nextState;
-  
+
   switch (action.type) {
     case RECEIVE_BUSINESSES:
       nextState = Object.assign(
         {},
-        state,
+        nullState,
         action.businesses);
+      return nextState;
+    case RECEIVE_BUSINESS:
+      nextState = Object.assign(
+        {},
+        nullState,
+        action.business);
       return nextState;
     default:
       return state;

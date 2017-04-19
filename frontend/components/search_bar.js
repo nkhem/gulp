@@ -26,8 +26,11 @@ class SearchBar extends Component {
     let { searchResults: {categoryTitles, businessTitles} } = this.props;
 
     let searchAlias = this.state.searchTerm.toLowerCase().replace(/[^0-9a-z]/g,'');
-    let categoryAliases = categoryTitles.map( title => title.toLowerCase().replace(/[^0-9a-z]/g,''));
-    let businessAliases = businessTitles.map( title => title.toLowerCase().replace(/[^0-9a-z]/g,''));
+    let categoryAliases = categoryTitles
+      .map( title => title.toLowerCase().replace(/[^0-9a-z]/g,'')).sort((a,b) => a.length - b.length);
+
+    let businessAliases = businessTitles
+      .map( title => title.toLowerCase().replace(/[^0-9a-z]/g,'')).sort((a,b) => a.length - b.length);
 
     let cat = categoryAliases.find( alias => alias.match(searchAlias));
     let biz = businessAliases.find( alias => alias.match(searchAlias));
@@ -36,9 +39,8 @@ class SearchBar extends Component {
       this.props.fetchBusinessesByCategory(cat)
         .then( () => this.props.router.replace(`/search?category='${cat}'`) );
     } else if (biz) {
-      console.log(biz);
       this.props.fetchBusiness(biz)
-        .then( res => console.log(res) );//this.props.router.replace(`/business/?name='${biz}'`)
+        .then( res => this.props.router.replace(`/business?name='${biz}'`) );
     } else {
       console.log('no matches found');
     }
