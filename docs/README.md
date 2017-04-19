@@ -59,6 +59,9 @@ sufficient CSS styling:
 ### Phase 3: Business Search Results Page (1 day)
 **Objective** To display list of businesses when user submits search term.
 
+### Phase 3: Business Detail Page (1 day)
+**Objective** To display display business show page when user's search matches a business.
+
 
 ### Bonus Features (TBD)
 - [ ] Personal profiles

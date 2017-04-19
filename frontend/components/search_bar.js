@@ -34,14 +34,10 @@ class SearchBar extends Component {
 
     if (shouldRenderByCat) {
       this.props.fetchBusinessesByCategory(searchAlias)
-        .then( () => {
-          if (this.props.router.location.pathname !== "/search") {
-            this.props.router.push("/search");
-          }
-        } );
+        .then( () => this.props.router.replace("/search") );
     } else if (shouldRenderBiz) {
       this.props.fetchBusiness(searchAlias)
-        .then( () => this.props.router.push("/business") );
+        .then( () => this.props.router.replace(`/business`) ); // /${this.props.business.id}
     }
   }
 
