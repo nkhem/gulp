@@ -13,3 +13,11 @@ export const fetchBusinessesByCategory = categoryAlias => {
       data: { category : categoryAlias }
   });
 };
+
+export const fetchBusiness = bizName => {
+  return $.ajax({
+      method: 'GET',
+      url: '/api/businesses/0',
+      data: { bizName : bizName }
+  });//RETURNTOME
+};

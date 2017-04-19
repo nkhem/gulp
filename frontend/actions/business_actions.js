@@ -15,9 +15,8 @@ export const fetchBusinessesByCategory = categoryAlias => dispatch => {
 };
 
 export const fetchBusiness = term => dispatch => {
-  // term = term.toLowerCase().replace(/[^0-9a-z]/g, '');
-  // return BizApiUtil.fetchBusinessesByTerm(term)
-  //   .then(businesses => dispatch(receiveBusinesses(businesses)));
+  return BizApiUtil.fetchBusiness(term)
+    .then(business => dispatch(receiveBusiness(business)));
 };
 
 export const receiveBusiness = business => ({

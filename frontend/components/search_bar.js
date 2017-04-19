@@ -29,15 +29,18 @@ class SearchBar extends Component {
     let categoryAliases = categoryTitles.map( title => title.toLowerCase().replace(/[^0-9a-z]/g,''));
     let businessAliases = businessTitles.map( title => title.toLowerCase().replace(/[^0-9a-z]/g,''));
 
-    let shouldRenderByCat = categoryAliases.includes(searchAlias);
-    let shouldRenderBiz = businessAliases.includes(searchAlias);
+    let cat = categoryAliases.find( alias => alias.match(searchAlias));
+    let biz = businessAliases.find( alias => alias.match(searchAlias));
 
-    if (shouldRenderByCat) {
-      this.props.fetchBusinessesByCategory(searchAlias)
-        .then( () => this.props.router.replace("/search") );
-    } else if (shouldRenderBiz) {
-      this.props.fetchBusiness(searchAlias)
-        .then( () => this.props.router.replace(`/business`) ); // /${this.props.business.id}
+    if (cat) {
+      this.props.fetchBusinessesByCategory(cat)
+        .then( () => this.props.router.replace(`/search?category='${cat}'`) );
+    } else if (biz) {
+      console.log(biz);
+      this.props.fetchBusiness(biz)
+        .then( res => console.log(res) );//this.props.router.replace(`/business/?name='${biz}'`)
+    } else {
+      console.log('no matches found');
     }
   }
 
