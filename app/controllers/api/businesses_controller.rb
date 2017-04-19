@@ -6,7 +6,7 @@ class Api::BusinessesController < ApplicationController
         @businesses += Business.where("alias LIKE ?", "%#{search_term}%")
       end
     elsif category
-      @businesses = Business.joins(:categories).where('categories.alias = ?', category)
+      @businesses = Business.joins(:categories).where('categories.alias LIKE ?', "%#{category}%")
     end
 
     render :index

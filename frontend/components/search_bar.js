@@ -23,19 +23,24 @@ class SearchBar extends Component {
 
   handleSubmit(e){
     e.preventDefault();
-    let { searchResults } = this.props;
-    let shouldRenderByCat = searchResults.categoryTitles.includes(this.state.searchTerm);
-    let shouldRenderBiz = searchResults.businessTitles.includes(this.state.searchTerm);
+    let { searchResults: {categoryTitles, businessTitles} } = this.props;
+
+    let searchAlias = this.state.searchTerm.toLowerCase().replace(/[^0-9a-z]/g,'');
+    let categoryAliases = categoryTitles.map( title => title.toLowerCase().replace(/[^0-9a-z]/g,''));
+    let businessAliases = businessTitles.map( title => title.toLowerCase().replace(/[^0-9a-z]/g,''));
+
+    let shouldRenderByCat = categoryAliases.includes(searchAlias);
+    let shouldRenderBiz = businessAliases.includes(searchAlias);
 
     if (shouldRenderByCat) {
-      this.props.fetchBusinessesByCategory(searchResults.searchTerm.toLowerCase())
+      this.props.fetchBusinessesByCategory(searchAlias)
         .then( () => {
           if (this.props.router.location.pathname !== "/search") {
             this.props.router.push("/search");
           }
         } );
     } else if (shouldRenderBiz) {
-      this.props.fetchBusiness(searchResults.searchTerm.toLowerCase())
+      this.props.fetchBusiness(searchAlias)
         .then( () => this.props.router.push("/business") );
     }
   }
