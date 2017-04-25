@@ -19,14 +19,12 @@ class BusinessIndex extends React.Component {
   }
 
   componentWillMount(){
-    // console.log('willmount');
     this.setState({
       businessesList: this.props.businessesList
     });
   }
 
   componentWillUpdate(){
-    // console.log('didupdate');
     let currentBusinesses = this.state.businessesList;
     let nextBusinesses = this.props.businessesList;
 

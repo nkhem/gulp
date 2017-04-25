@@ -9,22 +9,13 @@ const DropdownList = props => {
 
     return (
       <ul id="search-bar-dropdown">
-        { dropdownItems(titles) }
+        { dropdownItems(titles, props.handleItemClick) }
       </ul>
     );
   } else {
     return null;
   }
 };
-
-// const defaultSuggestions = [
-//   "Fresh Juice",
-//   "Coffee",
-//   "Happy Hour",
-//   "Bubble Tea",
-//   "Kava Lounge",
-//   "Wine Tasting"
-// ];
 
 const bestTitles = (searchTerm, allTitles)  => (
   _.uniq(exactMatches(searchTerm, allTitles)
@@ -85,9 +76,12 @@ const goodMatches = (searchTerm, allTitles) => {
     .concat(titlesWithSimilarWord));
 };
 
-const dropdownItems = (titles) => (
+const dropdownItems = (titles, handleItemClick) => (
   titles.map(title => {
-    return <DropdownItem searchResultTitle={ title } key={ title }/>;
+    return <DropdownItem
+      searchResultTitle={ title }
+      key={ title }
+      handleItemClick={handleItemClick} />;
   })
 );
 

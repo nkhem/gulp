@@ -13,6 +13,7 @@ class SearchBar extends Component {
 
     this.onInputChange = this.onInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleItemClick = this.handleItemClick.bind(this);
   }
 
   onInputChange(e){
@@ -23,7 +24,10 @@ class SearchBar extends Component {
   }
 
   handleSubmit(e){
-    e.preventDefault();
+    if (e) {
+      e.preventDefault();
+    }
+
     let { searchResults: {categoryTitles, businessTitles} } = this.props;
 
     let searchAlias = this.state.searchTerm.toLowerCase().replace(/[^0-9a-z]/g,'');
@@ -47,6 +51,14 @@ class SearchBar extends Component {
     }
   }
 
+  handleItemClick(itemTitle){
+    return ctx => {
+      this.setState({searchTerm: itemTitle});
+      this.handleSubmit();
+      this.setState({searchTerm: ''});
+    };
+  }
+
   render(){
     return (
       <div className='search-bar'>
@@ -65,7 +77,9 @@ class SearchBar extends Component {
           <input type="submit" value="search" />
         </form>
 
-      <DropdownList searchResults={this.props.searchResults} />
+      <DropdownList
+        searchResults={this.props.searchResults}
+        handleItemClick={this.handleItemClick} />
 
       </div>
     );

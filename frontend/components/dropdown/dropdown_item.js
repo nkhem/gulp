@@ -1,9 +1,15 @@
 import React from 'react';
 
-const DropdownItem = props => (
-  <li>
-    { props.searchResultTitle }
-  </li>
-);
+class DropdownItem extends React.Component {
+
+  render() {
+    return (
+      <li onClick={this.props.handleItemClick(this.props.searchResultTitle)}>
+        { this.props.searchResultTitle }
+      </li>
+    );
+  }
+
+}
 
 export default DropdownItem;
