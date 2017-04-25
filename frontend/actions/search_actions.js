@@ -4,12 +4,12 @@ import * as CatApiUtil from '../util/category_api_util';
 export const RECEIVE_SEARCH_RESULTS = 'RECEIVE_SEARCH_RESULTS';
 
 export const fetchSearchResults = searchTerm => dispatch => {
-  let fetchBizes = BizApiUtil.fetchBusinessesByTerm(searchTerm)
+  let fetchBizesByTerm = BizApiUtil.fetchBusinessesByTerm(searchTerm)
     .then(businesses => dispatch(receiveSearchResults({ businesses })));
   let fetchCats = CatApiUtil.fetchCategories(searchTerm)
     .then(categories => dispatch(receiveSearchResults({ categories })));
-
-  return Promise.all([fetchCats, fetchBizes]).then( res => {
+  let fetchBizesByCat = BizApiUtil.fetchBusinessesByCategory(searchTerm)
+  return Promise.all([fetchCats, fetchBizesByTerm]).then( res => {
     let cats = res[0].searchResults.categories;
     let bizes = res[1].searchResults.businesses;
     let categoryTitles = [];
