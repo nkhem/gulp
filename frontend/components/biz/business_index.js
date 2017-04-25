@@ -19,14 +19,14 @@ class BusinessIndex extends React.Component {
   }
 
   componentWillMount(){
-    console.log('willmount');
+    // console.log('willmount');
     this.setState({
       businessesList: this.props.businessesList
     });
   }
 
   componentWillUpdate(){
-    console.log('didupdate');
+    // console.log('didupdate');
     let currentBusinesses = this.state.businessesList;
     let nextBusinesses = this.props.businessesList;
 
@@ -38,10 +38,8 @@ class BusinessIndex extends React.Component {
   }
 
   renderBizTitles(){
-    console.log('rendering biz titles');
     let { businessesList } = this.state;
     return businessesList.map( biz => {
-      console.log(biz.id);
       return <BusinessIndexDetail business={biz} key={biz.id}/>;
     });
   }
