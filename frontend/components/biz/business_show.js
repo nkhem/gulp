@@ -31,14 +31,15 @@ class BusinessShow extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state);
+  const biz = state.businesses.featured;
+
   return {
-    image_url: state.businesses.featured.image_url,
-    title: state.businesses.featured.title,
-    price: state.businesses.featured.price,
-    phone: state.businesses.featured.phone,
-    address1: state.businesses.featured.address1,
-    address2: state.businesses.featured.address2,
+    image_url: biz.image_url,
+    title: biz.title,
+    price: biz.price,
+    phone: biz.phone,
+    address1: biz.address1,
+    address2: biz.address2,
     searchResults: state.searchResults
   };
 };
