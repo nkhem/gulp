@@ -41,7 +41,7 @@ class SearchBar extends Component {
         .then( () => this.props.router.replace(`/search?category='${cat}'`) );
     } else if (biz) {
       this.props.fetchBusiness(biz)
-        .then( res => this.props.router.replace(`/business?name='${biz}'`) );
+        .then( res => this.props.router.replace(`/business/${res.business.id}`) );
     } else {
       console.log('no matches found');
     }
