@@ -8,7 +8,7 @@ const DropdownList = props => {
     let titles = (searchTerm === "" ? [] : bestTitles(searchTerm, allTitles));
 
     return (
-      <ul id="search-bar-dropdown">
+      <ul id="search-dropdown">
         { dropdownItems(titles, props.handleItemClick) }
       </ul>
     );
