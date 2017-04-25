@@ -4,7 +4,7 @@ class BusinessIndexDetail extends React.Component {
 
   render() {
     return (
-      <div id='biz-index' key={this.props.business.alias}>
+      <div id='biz-index' key={this.props.business.id}>
         <li>
           <img src={`${this.props.business.image_url}`} width={100} />
           <h4>{this.props.business.title}</h4>

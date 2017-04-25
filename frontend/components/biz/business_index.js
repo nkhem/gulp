@@ -2,6 +2,7 @@ import React from 'react';
 import BusinessIndexDetail from './business_index_detail';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import _ from 'lodash';
 
 import { fetchBusinessesByCategory, fetchBusiness } from '../../actions/business_actions';
 import { fetchSearchResults } from '../../actions/search_actions';
@@ -18,14 +19,14 @@ class BusinessIndex extends React.Component {
   }
 
   componentWillMount(){
-    // console.log('willmount');
+    console.log('willmount');
     this.setState({
       businesses: this.props.businesses
     });
   }
 
   componentDidUpdate(){
-    // console.log('willupdate');
+    console.log('willupdate');
     let currentBusinesses = this.state.businesses;
     let nextBusinesses = this.props.businesses;
 
@@ -36,12 +37,12 @@ class BusinessIndex extends React.Component {
     }
   }
 
-  renderBizTitles(){
-    // console.log('rendering biz titles');
+  renderBizTitles(e){
+    console.log('rendering biz titles');
     let { businesses } = this.state;
     return businesses.map( biz => {
-      // console.log(biz.alias);
-      return <BusinessIndexDetail business={biz} key={biz.alias}/>;
+      console.log(biz.id);
+      return <BusinessIndexDetail business={biz} key={biz.id}/>;
     });
   }
 
@@ -58,7 +59,7 @@ class BusinessIndex extends React.Component {
         fetchBusiness={this.props.fetchBusiness}
         shouldDisplaySearchBar={true}
         />
-        <div>{this.renderBizTitles()}</div>
+      <div>{this.renderBizTitles()}</div>
       </div>
     );
   }

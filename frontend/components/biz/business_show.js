@@ -9,7 +9,7 @@ import Header from '../header';
 class BusinessShow extends React.Component {
   render() {
     return (
-      <div id='biz-show'>
+      <div id='biz-show' key={this.props.id}>
         <Header
           loggedIn={this.props.loggedIn}
           logout={ this.props.logout }

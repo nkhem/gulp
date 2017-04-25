@@ -1,8 +1,11 @@
 import { RECEIVE_BUSINESSES, RECEIVE_BUSINESS } from '../actions/business_actions';
 
-const nullState = {};
+const initialState = {
+  featured: [],
+  list: []
+};
 
-const BusinessesReducer = (state = nullState, action) => {
+const BusinessesReducer = (state = initialState, action) => {
   Object.freeze(state);
   let nextState;
 
@@ -10,14 +13,14 @@ const BusinessesReducer = (state = nullState, action) => {
     case RECEIVE_BUSINESSES:
       nextState = Object.assign(
         {},
-        nullState,
-        action.businesses);
+        state,
+        {list: action.businesses});
       return nextState;
     case RECEIVE_BUSINESS:
       nextState = Object.assign(
         {},
-        nullState,
-        action.business);
+        state,
+        {featured: action.business});
       return nextState;
     default:
       return state;
