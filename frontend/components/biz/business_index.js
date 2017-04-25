@@ -13,7 +13,7 @@ class BusinessIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      businesses: []
+      businessesList: []
     };
     this.renderBizTitles = this.renderBizTitles.bind(this);
   }
@@ -21,26 +21,26 @@ class BusinessIndex extends React.Component {
   componentWillMount(){
     console.log('willmount');
     this.setState({
-      businesses: this.props.businesses
+      businessesList: this.props.businessesList
     });
   }
 
-  componentDidUpdate(){
-    console.log('willupdate');
-    let currentBusinesses = this.state.businesses;
-    let nextBusinesses = this.props.businesses;
+  componentWillUpdate(){
+    console.log('didupdate');
+    let currentBusinesses = this.state.businessesList;
+    let nextBusinesses = this.props.businessesList;
 
     if (currentBusinesses !== nextBusinesses) {
       this.setState({
-        businesses: nextBusinesses
+        businessesList: nextBusinesses
       });
     }
   }
 
-  renderBizTitles(e){
+  renderBizTitles(){
     console.log('rendering biz titles');
-    let { businesses } = this.state;
-    return businesses.map( biz => {
+    let { businessesList } = this.state;
+    return businessesList.map( biz => {
       console.log(biz.id);
       return <BusinessIndexDetail business={biz} key={biz.id}/>;
     });
@@ -72,7 +72,7 @@ BusinessIndex.propTypes = {
 
 const mapStateToProps = state => {
   return {
-    businesses: Object.values(state.businesses),
+    businessesList: Object.values(state.businesses.list),
     errors: state.session.errors,
     searchResults: state.searchResults
   };
