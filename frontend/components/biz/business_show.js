@@ -14,7 +14,7 @@ class BusinessShow extends React.Component {
 
   render() {
     let biz = this.props.business;
-
+    
     return (
       <div id='biz-show' key={biz.id}>
         <Header
@@ -44,7 +44,6 @@ class BusinessShow extends React.Component {
 }
 
 const mapStateToProps = state => {
-  const biz = state.businesses.featured;
 
   return {
     currentUser: state.session.currentUser,
