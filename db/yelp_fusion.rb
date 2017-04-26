@@ -1,4 +1,5 @@
 # ruby yelp_fusion.rb search --term=kombucha  --location="San Francisco"
+# ruby yelp_fusion.rb lookup , change DEFAULT_BUSINESS_ID
 
 require "json"
 require "http"
@@ -20,7 +21,7 @@ TOKEN_PATH = "/oauth2/token"
 GRANT_TYPE = "client_credentials"
 
 
-DEFAULT_BUSINESS_ID = "samovar-tea-san-francisco-2"
+DEFAULT_BUSINESS_ID = "lovejoys-tea-room-san-francisco"
 DEFAULT_TERM = "dinner"
 DEFAULT_LOCATION = "San Francisco, CA"
 SEARCH_LIMIT = 5
@@ -177,7 +178,7 @@ when "search"
   # t.string   "image_url",      null: false
 
 when "lookup"
-  business_id = options.fetch(:id, DEFAULT_BUSINESS_ID)
+  business_id = options.fetch(:id, DEFAULT_BUSINESS_ID) + "/reviews"
 
 
   raise "term is not a valid parameter for lookup" if options.key?(:term)
