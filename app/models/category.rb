@@ -3,9 +3,10 @@
 # Table name: categories
 #
 #  id         :integer          not null, primary key
-#  name       :string           not null
+#  title      :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  alias      :string
 #
 
 class Category < ApplicationRecord

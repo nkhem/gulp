@@ -3,7 +3,7 @@
 # Table name: businesses
 #
 #  id         :integer          not null, primary key
-#  name       :string           not null
+#  title      :string           not null
 #  user_id    :integer          not null
 #  phone      :string           not null
 #  lat        :float            not null
@@ -14,6 +14,7 @@
 #  image_url  :string           not null
 #  address1   :string           not null
 #  address2   :string           not null
+#  alias      :string
 #
 
 require 'test_helper'
