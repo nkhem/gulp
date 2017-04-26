@@ -1,20 +1,35 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { fetchBusinessesByCategory, fetchBusiness } from '../../actions/business_actions';
+import { fetchBusinessesByCategory, fetchBusiness, fetchReviews } from '../../actions/business_actions';
 import { fetchSearchResults } from '../../actions/search_actions';
 import { logout } from '../../actions/session_actions';
 import Header from '../header';
 import ReviewSection from '../review/review_section';
 
 class BusinessShow extends React.Component {
+  constructor(props) {
+    super(props);
+    this.renderReviewSection = this.renderReviewSection.bind(this);
+  }
+
+  renderReviewSection(){
+    if (this.props.business) {
+      return <ReviewSection
+        reviews={this.props.business.reviews}
+        businessId={this.props.business}
+        currentUser={this.props.currentUser}/>;
+    }
+  }
+
   componentWillMount(){
-    this.props.fetchBusiness(this.props.params.businessId);
+    // console.log('componentWillMount');
+    this.props.fetchBusiness(this.props.params.businessId)
+    .then(res => console.log('success:', res));
   }
 
   render() {
     let biz = this.props.business;
-    
     return (
       <div id='biz-show' key={biz.id}>
         <Header
@@ -33,10 +48,7 @@ class BusinessShow extends React.Component {
         <p>{biz.address1}</p>
         <p>{biz.address2}</p>
 
-        <ReviewSection
-          reviews={biz.reviews}
-          currentBiz={biz.business}
-          currentUser={this.props.currentUser}/>
+        {this.renderReviewSection()}
 
       </div>
     );
@@ -44,7 +56,6 @@ class BusinessShow extends React.Component {
 }
 
 const mapStateToProps = state => {
-
   return {
     currentUser: state.session.currentUser,
     business: state.businesses.featured,

@@ -13,8 +13,8 @@ class ReviewForm extends React.Component {
 
   componentWillMount(){
     this.setState({
-      businessId: this.props.currentBiz,
-      userId: this.props.currentUser
+      businessId: this.props.businessId,
+      userId: this.props.currentUser.id
     });
   }
 

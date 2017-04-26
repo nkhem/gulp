@@ -18,10 +18,12 @@ export const fetchBusinessesByCategory = categoryAlias => dispatch => {
 
 export const fetchBusiness = term => dispatch => {
   return BizApiUtil.fetchBusiness(term)
-    .then(business => dispatch(receiveBusiness(business)))
-    .then(res => ReviewApiUtil.fetchReviews(res.business.id))
-    .then(reviews => dispatch(receiveReviews(reviews)))
-    ;
+    .then(business => dispatch(receiveBusiness(business)));
+};
+
+export const fetchReviews = bizId => dispatch => {
+  return ReviewApiUtil.fetchReviews(bizId)
+    .then(reviews => dispatch(receiveReviews(reviews)));
 };
 
 export const receiveBusiness = business => ({
