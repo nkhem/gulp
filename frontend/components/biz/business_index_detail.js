@@ -8,7 +8,7 @@ class BusinessIndexDetail extends React.Component {
   }
 
   handleClick(e){
-    e.preventDefault;
+    e.preventDefault();
     this.props.router.replace(`/business/${this.props.business.id}`);
   }
 

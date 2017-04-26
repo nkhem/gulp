@@ -5,6 +5,7 @@ import { fetchBusinessesByCategory, fetchBusiness } from '../../actions/business
 import { fetchSearchResults } from '../../actions/search_actions';
 import { logout } from '../../actions/session_actions';
 import Header from '../header';
+import ReviewSection from '../review/review_section';
 
 class BusinessShow extends React.Component {
   componentWillMount(){
@@ -29,6 +30,7 @@ class BusinessShow extends React.Component {
         <p>{this.props.phone}</p>
         <p>{this.props.address1}</p>
         <p>{this.props.address2}</p>
+        <ReviewSection />
       </div>
     );
   }
