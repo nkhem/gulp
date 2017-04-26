@@ -1,6 +1,6 @@
 class Api::ReviewsController < ApplicationController
   def index
-    @reviews = Review.joins(:businesses).where('businesses.id = ?', params[:businessId])
+    @reviews =  Review.joins(:business).where('reviews.business_id = ?', params[:businessId])
     render :index
   end
 

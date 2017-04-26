@@ -13,6 +13,8 @@ class BusinessShow extends React.Component {
   }
 
   render() {
+    console.log('this.props.reviews:', this.props.reviews);
+    
     return (
       <div id='biz-show' key={this.props.id}>
         <Header
@@ -46,6 +48,7 @@ const mapStateToProps = state => {
     phone: biz.phone,
     address1: biz.address1,
     address2: biz.address2,
+    reviews: biz.reviews,
     searchResults: state.searchResults
   };
 };
