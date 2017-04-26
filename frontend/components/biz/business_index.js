@@ -38,7 +38,10 @@ class BusinessIndex extends React.Component {
   renderBizTitles(){
     let { businessesList } = this.state;
     return businessesList.map( biz => {
-      return <BusinessIndexDetail business={biz} key={biz.id}/>;
+      return <BusinessIndexDetail
+        business={biz}
+        key={biz.id}
+        />;
     });
   }
 

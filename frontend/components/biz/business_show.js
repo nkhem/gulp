@@ -7,6 +7,10 @@ import { logout } from '../../actions/session_actions';
 import Header from '../header';
 
 class BusinessShow extends React.Component {
+  componentWillMount(){
+    this.props.fetchBusiness(this.props.params.businessId);
+  }
+
   render() {
     return (
       <div id='biz-show' key={this.props.id}>
@@ -49,7 +53,7 @@ const mapDispatchToProps = (dispatch, state) => {
     logout: () => dispatch(logout()),
     fetchBusinessesByCategory: cat => dispatch(fetchBusinessesByCategory(cat)),
     fetchSearchResults: term => dispatch(fetchSearchResults(term)),
-    fetchBusiness: title => dispatch(fetchBusiness(title))
+    fetchBusiness: titleOrId => dispatch(fetchBusiness(titleOrId))
   };
 };
 

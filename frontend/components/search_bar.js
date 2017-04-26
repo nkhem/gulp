@@ -42,10 +42,10 @@ class SearchBar extends Component {
 
     if (cat) {
       this.props.fetchBusinessesByCategory(cat)
-        .then( () => this.props.router.replace(`/search?category='${cat}'`) );
+        .then( () => this.props.router.replace(`/search?category='${cat}'`));
     } else if (biz) {
       this.props.fetchBusiness(biz)
-        .then( res => this.props.router.replace(`/business/${res.business.id}`) );
+        .then( res => this.props.router.replace(`/business/${res.business.id}`));
     } else {
       console.log('no matches found');
     }

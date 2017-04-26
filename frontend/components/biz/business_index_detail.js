@@ -1,17 +1,29 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 
 class BusinessIndexDetail extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(e){
+    e.preventDefault;
+    console.log(this.props);
+    this.props.router.replace(`/business/${this.props.business.id}`);
+  }
 
   render() {
+    const biz = this.props.business;
     return (
-      <div id='biz-index' key={this.props.business.id}>
+      <div key={biz.id}>
         <li>
-          <img src={`${this.props.business.image_url}`} width={100} />
-          <h4>{this.props.business.title}</h4>
-          <p>{this.props.business.price}</p>
-          <p>{this.props.business.phone}</p>
-          <p>{this.props.business.address1}</p>
-          <p>{this.props.business.address2}</p>
+          <img src={`${biz.image_url}`} width={100} />
+          <h4 onClick={this.handleClick.bind(this)}>{biz.title}</h4>
+          <p>{biz.price}</p>
+          <p>{biz.phone}</p>
+          <p>{biz.address1}</p>
+          <p>{biz.address2}</p>
         </li>
         <br />
       </div>
@@ -20,4 +32,4 @@ class BusinessIndexDetail extends React.Component {
 
 }
 
-export default BusinessIndexDetail;
+export default withRouter(BusinessIndexDetail);

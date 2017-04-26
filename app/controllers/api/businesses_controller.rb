@@ -13,7 +13,12 @@ class Api::BusinessesController < ApplicationController
   end
 
   def show
-    @business = Business.where('alias LIKE ?', "%#{biz_name}%").first
+    if params[:bizName]
+      @business = Business.where('alias LIKE ?', "%#{biz_name}%").first
+    elsif params[:businessId]
+      @business = Business.find_by(id: params[:businessId].to_i)
+    end
+
     render :show
   end
 

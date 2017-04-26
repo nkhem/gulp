@@ -14,10 +14,20 @@ export const fetchBusinessesByCategory = categoryAlias => {
   });
 };
 
-export const fetchBusiness = bizName => {
+export const fetchBusiness = titleOrId => {
+  let data;
+  let url;
+  if(titleOrId.replace(/[^0-9]/g, '').length === titleOrId.length){
+    data = { businessId: parseInt(titleOrId) };
+    url = `/api/businesses/${parseInt(titleOrId)}`;
+  } else {
+    data = { bizName : titleOrId };
+    url = '/api/businesses/0';
+  }
+
   return $.ajax({
       method: 'GET',
-      url: '/api/businesses/0',
-      data: { bizName : bizName }
-  });//RETURNTOME
+      url,
+      data
+  });
 };
