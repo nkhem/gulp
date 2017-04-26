@@ -13,10 +13,10 @@ class BusinessShow extends React.Component {
   }
 
   render() {
-    console.log('this.props.reviews:', this.props.reviews);
-    
+    let biz = this.props.business;
+
     return (
-      <div id='biz-show' key={this.props.id}>
+      <div id='biz-show' key={biz.id}>
         <Header
           loggedIn={this.props.loggedIn}
           logout={ this.props.logout }
@@ -26,13 +26,18 @@ class BusinessShow extends React.Component {
           fetchBusiness={this.props.fetchBusiness}
           shouldDisplaySearchBar={true}
           />
-        <img src={`${this.props.image_url}`} width={300} />
-        <h4>{this.props.title}</h4>
-        <p>{this.props.price}</p>
-        <p>{this.props.phone}</p>
-        <p>{this.props.address1}</p>
-        <p>{this.props.address2}</p>
-        <ReviewSection />
+        <img src={`${biz.image_url}`} width={300} />
+        <h4>{biz.title}</h4>
+        <p>{biz.price}</p>
+        <p>{biz.phone}</p>
+        <p>{biz.address1}</p>
+        <p>{biz.address2}</p>
+
+        <ReviewSection
+          reviews={biz.reviews}
+          currentBiz={biz.business}
+          currentUser={this.props.currentUser}/>
+
       </div>
     );
   }
@@ -42,13 +47,8 @@ const mapStateToProps = state => {
   const biz = state.businesses.featured;
 
   return {
-    image_url: biz.image_url,
-    title: biz.title,
-    price: biz.price,
-    phone: biz.phone,
-    address1: biz.address1,
-    address2: biz.address2,
-    reviews: biz.reviews,
+    currentUser: state.session.currentUser,
+    business: state.businesses.featured,
     searchResults: state.searchResults
   };
 };

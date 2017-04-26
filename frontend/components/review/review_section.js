@@ -7,8 +7,10 @@ class ReviewSection extends React.Component {
   render() {
     return (
       <div>
-        <ReviewForm />
-        <ReviewIndex />
+        <ReviewForm
+          currentBiz={this.props.currentBiz}
+          currentUser={this.props.currentUser}/>
+        <ReviewIndex reviews={this.props.reviews}/>
       </div>
     );
   }
