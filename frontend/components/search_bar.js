@@ -13,7 +13,6 @@ class SearchBar extends Component {
 
     this.onInputChange = this.onInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleItemClick = this.handleItemClick.bind(this);
   }
 
   onInputChange(e){
@@ -51,14 +50,6 @@ class SearchBar extends Component {
     }
   }
 
-  handleItemClick(itemTitle){
-    return ctx => {
-      this.setState({searchTerm: itemTitle});
-      this.handleSubmit();
-      this.setState({searchTerm: ''});
-    };
-  }
-
   render(){
     return (
       <div className='search-bar'>
@@ -79,7 +70,9 @@ class SearchBar extends Component {
 
       <DropdownList
         searchResults={this.props.searchResults}
-        handleItemClick={this.handleItemClick} />
+        fetchSearchResults={ this.props.fetchSearchResults }
+        fetchBusinessesByCategory={this.props.fetchBusinessesByCategory}
+        fetchBusiness={this.props.fetchBusiness} />
 
       </div>
     );

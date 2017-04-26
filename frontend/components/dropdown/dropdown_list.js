@@ -2,20 +2,42 @@ import React from 'react';
 import DropdownItem from './dropdown_item';
 import _ from 'lodash';
 
-const DropdownList = props => {
-  if (props.searchResults) {
-    let { searchTerm, allTitles } = props.searchResults;
-    let titles = (searchTerm === "" ? [] : bestTitles(searchTerm, allTitles));
-
-    return (
-      <ul id="search-dropdown">
-        { dropdownItems(titles, props.handleItemClick) }
-      </ul>
-    );
-  } else {
-    return null;
+class DropdownList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.renderDropdownItems = this.renderDropdownItems.bind(this);
   }
-};
+
+  renderDropdownItems(titles){
+
+        return titles.map(title => {
+          return <DropdownItem
+            itemTitle={ title }
+            key={ title }
+            searchResults={this.props.searchResults}
+            fetchSearchResults={ this.props.fetchSearchResults }
+            fetchBusinessesByCategory={this.props.fetchBusinessesByCategory}
+            fetchBusiness={this.props.fetchBusiness} />;
+        });
+    }
+
+  render() {
+    if (this.props.searchResults) {
+      let { searchTerm, allTitles } = this.props.searchResults;
+      let titles = (searchTerm === "" ? [] : bestTitles(searchTerm, allTitles));
+
+      return (
+        <ul id="search-dropdown">
+          { this.renderDropdownItems(titles) }
+        </ul>
+      );
+    } else {
+      return null;
+    }
+  }
+
+}
+
 
 const bestTitles = (searchTerm, allTitles)  => (
   _.uniq(exactMatches(searchTerm, allTitles)
@@ -75,14 +97,5 @@ const goodMatches = (searchTerm, allTitles) => {
     .concat(titlesWithMatchingWord)
     .concat(titlesWithSimilarWord));
 };
-
-const dropdownItems = (titles, handleItemClick) => (
-  titles.map(title => {
-    return <DropdownItem
-      searchResultTitle={ title }
-      key={ title }
-      handleItemClick={handleItemClick} />;
-  })
-);
 
 export default DropdownList;
