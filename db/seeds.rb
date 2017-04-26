@@ -123,31 +123,47 @@ all_businesses_by_category = {
 
   }
 
-all_reviews = {
-  boba:
-    {
-    content: "This place lives up to all the hype. Their boba is perfect! Warm, sweet and perfectly chewy!",
-    rating: 5
-    },{
-    content: "We tried their oolong tea, and we ordered it extra oolongy because we love oolong. But they put way too much oolong in it. Hard 3.",
-    rating: 3
-    },{
-    content: "This place is overrated and super hyped. The line was super long"
-    rating: 3
-    },{
-    content: "It's good. A big selection of teas with and without milk"
-    rating: 4
-    },{
-    content: "Do not - I repeat, do NOT - come near this place if you have a peanut allergy."
-    rating: 1
-    },{
-    content: "Typical bubble tea shop. You can customize the sweetness and amount of ice just like most other bubble tea shops."
-    rating: 3
-    },{
-    content: "it is my favorite boba place. I ordered the hot ginger milk tea and it was killer; creamy and spicy and delish."
-    rating: 5
-    },{
-}
+all_reviews = [
+  "After waiting in line for almost and HOUR etiam tellus lorem, porta ac turpis in, vehicula laoreet dui. Suspendisse potenti. Unbelievable.",
+
+  "My new favorite integer sodales tellus justo, laoreet consectetur enim ultricies id. Donec justo ligula, rhoncus sit amet elit at, condimentum mattis lacus. Suspendisse rutrum, mi et pellentesque auctor, arcu erat tempus neque, id tincidunt ligula felis vel ipsum.",
+
+  "Definitely super etiam efficitur sem eget odio molestie, at blandit ex interdum. Nulla mattis leo ut pharetra ultricies.,"
+
+  "I don't know about you, but I love ilam vel risus metus. Aliquam congue sollicitudin nibh, gravida mollis risus rutrum egestas. Nulla sollicitudin quam non lorem euismod rutrum nec a nisl. In non iaculis risus. Maecenas scelerisque viverra viverra.",
+
+  "I'd been meaning to try this place out for forever, and interdum et malesuada fames ac ante ipsum primis in faucibus. Maecenas ornare diam ut quam ultricies sollicitudin.",
+
+  "Vivamus ac nulla eget massa pharetra rhoncus. 'nuff said.",
+
+  "My wife and I were hanging out class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi et odio id ligula pellentesque suscipit at ut purus.",
+
+  "I couldn't believe when aenean interdum condimentum purus non venenatis. Nulla facilisi.",
+
+  "Why doesnt this place offer any nunc dapibus metus diam, eu aliquet orci semper eget? Curabitur in mauris eu dolor posuere condimentum a vitae libero.",
+
+  "If I could go aliquam scelerisque ipsum vel pharetra ultricies. Quisque posuere mi aliquet facilisis tristique.",
+
+  "I never leave reviews like this, but ante sagittis sagittis vel iaculis orci. Hasellus eget est vitae nibh fermentum ornare. Maecenas pulvinar augue quis tellus efficitur, nec tristique risus varius. Quisque a tortor sit amet. Pellentesque dapibus massa in ultricies auctor. Donec rhoncus augue eros, iaculis bibendum libero tincidunt eget. Maecenas scelerisque finibus faucibus.",
+
+  "Since when did curabitur suscipit egestas mattis? The owner here knows what's up.",
+
+  "Nulla sed nisi risus. That's all I have to say about this place.",
+
+  "Holy guacamole, etiam auctor finibus porttitor! Mauris convallis leo ac rhoncus dictum. Vivamus vitae fringilla justo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vivamus ac nulla eget massa pharetra rhoncus. Pellentesque placerat ligula a erat consequat accumsan. Ut eget dui quam. Proin sollicitudin vehicula nisl, sit amet tincidunt leo convallis ac. Morbi metus lorem, luctus sed mollis id, finibus eu tellus. Integer porta lacus tortor, eget tincidunt dui efficitur eget. Nunc tempor neque vel sollicitudin lobortis. Vestibulum elementum sapien vel nibh laoreet sodales. Fusce consequat bibendum mi nec ultrices. Ut ornare bibendum nunc, sed mattis diam. Vestibulum convallis massa et nunc semper tincidunt. Praesent lorem odio, faucibus non massa in, cursus suscipit odio. Curabitur pretium nibh id commodo eleifend. Unfreakinbelievable.",
+
+  "My new favorite place for mauris ac dolor pulvinar, mollis nibh sit amet, congue leo. Praesent congue magna quis dapibus semper.",
+
+  "Wowzers. Cras mattis congue egestas. Praesent id ullamcorper lectus, in congue massa. Fusce consequat pulvinar vulputate. Aenean eu enim dignissim, dignissim nisi venenatis, aliquam erat. In non orci purus.",
+
+  "I really don't mauris lectus felis, vulputate sit amet luctus egestas, lacinia ac eros. Phasellus ut pretium arcu.",
+
+  "Last night, etiam eget leo at urna venenatis dignissim. Praesent tincidunt elit erat, sit amet scelerisque est eleifend vel.",
+
+  "If you've read my other reviews, suspendisse tempor placerat tristique. Praesent vitae augue in dui auctor porta. Fusce sit amet maximus turpis, at finibus magna. Cras blandit id nisi non bibendum. Suspendisse consectetur tristique nibh. Nullam feugiat porttitor ex pellentesque dapibus. Praesent mi leo, gravida a ex eu, vulputate accumsan lorem. Cras mattis congue egestas. Praesent id ullamcorper lectus, in congue massa. Fusce consequat pulvinar vulputate. Aenean eu enim dignissim, dignissim nisi venenatis, aliquam erat. In non orci purus. Nullam nec mollis nibh, id pellentesque mi. Fusce sed risus augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia.",
+
+  "I decided to give this place a try because sed sed sed viverra metus. Aliquam erat volutpat. Etiam eleifend nisi sit amet odio posuere, ut ultrices eros viverra. Nulla feugiat facilisis enim eu malesuada. Donec feugiat lorem arcu, eu pharetra diam volutpat volutpat. Suspendisse tempor dictum eros, viverra semper metus pulvinar eget. Phasellus elit purus, varius a turpis a, sagittis faucibus sem. Sed et vulputate metus."
+]
 
 User.destroy_all
 Category.destroy_all
@@ -183,21 +199,23 @@ all_businesses_by_category.each do |category_alias, biz_arr|
       image_url: biz["image_url"]
     })
 
-    current_biz = Business.find_by(
-      title: biz["name"],
-      address1: biz["location"]["display_address"].first,
-      address2: biz["location"]["display_address"].last
-    )
+    current_biz = Business.find_by(title: biz["name"])
 
     if current_biz
       BusinessesCategory.create({
-        business_id: Business.find_by(
-          title: biz["name"],
-          address1: biz["location"]["display_address"].first,
-          address2: biz["location"]["display_address"].last
-        ).id,
+        business_id: current_biz.id,
         category_id: Category.find_by(alias: category_alias).id
       })
+
+      3.times do
+        Review.create(
+          business_id: current_biz.id,
+          user_id: User.find_by_l_name(all_last_names.sample).id,
+          content: all_reviews.sample,
+          rating: (1..5).to_a.sample
+        )
+      end
+
     end
   end
 end

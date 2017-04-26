@@ -21,7 +21,7 @@ TOKEN_PATH = "/oauth2/token"
 GRANT_TYPE = "client_credentials"
 
 
-DEFAULT_BUSINESS_ID = "fermentation-lab-san-francisco"
+DEFAULT_BUSINESS_ID = "the-pub-at-ghirardelli-square-san-francisco-2"
 DEFAULT_TERM = "dinner"
 DEFAULT_LOCATION = "San Francisco, CA"
 SEARCH_LIMIT = 5
