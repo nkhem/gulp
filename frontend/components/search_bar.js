@@ -60,7 +60,7 @@ class SearchBar extends Component {
           <input
             id="search-field"
             type="text"
-            placeholder="tea, wineries, Philz"
+            placeholder="tea, wineries, The Boba Guys"
             autoComplete="off"
             value={this.state.term}
             onChange={ this.onInputChange }

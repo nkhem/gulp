@@ -13,7 +13,7 @@
 #
 
 class Review < ApplicationRecord
-  validates :title, :content, :rating, presence: true
+  validates :content, :rating, presence: true
 
   belongs_to :business
   belongs_to :user

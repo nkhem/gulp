@@ -124,11 +124,11 @@ all_businesses_by_category = {
   }
 
 all_reviews = [
-  "After waiting in line for almost and HOUR etiam tellus lorem, porta ac turpis in, vehicula laoreet dui. Suspendisse potenti. Unbelievable.",
+  "After waiting in line for almost an HOUR, etiam tellus lorem porta ac turpis in, vehicula laoreet dui. Suspendisse potenti. Unbelievable.",
 
   "My new favorite integer sodales tellus justo, laoreet consectetur enim ultricies id. Donec justo ligula, rhoncus sit amet elit at, condimentum mattis lacus. Suspendisse rutrum, mi et pellentesque auctor, arcu erat tempus neque, id tincidunt ligula felis vel ipsum.",
 
-  "Definitely super etiam efficitur sem eget odio molestie, at blandit ex interdum. Nulla mattis leo ut pharetra ultricies.,"
+  "Definitely super etiam efficitur sem eget odio molestie, at blandit ex interdum. Nulla mattis leo ut pharetra ultricies.",
 
   "I don't know about you, but I love ilam vel risus metus. Aliquam congue sollicitudin nibh, gravida mollis risus rutrum egestas. Nulla sollicitudin quam non lorem euismod rutrum nec a nisl. In non iaculis risus. Maecenas scelerisque viverra viverra.",
 
@@ -207,7 +207,7 @@ all_businesses_by_category.each do |category_alias, biz_arr|
         category_id: Category.find_by(alias: category_alias).id
       })
 
-      3.times do
+      4.times do
         Review.create(
           business_id: current_biz.id,
           user_id: User.find_by_l_name(all_last_names.sample).id,
