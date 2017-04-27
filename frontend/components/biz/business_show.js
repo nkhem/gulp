@@ -12,9 +12,12 @@ import ReviewSection from '../review/review_section';
 class BusinessShow extends React.Component {
 
   componentWillMount(){
-    console.log(this.props);
+    // this.fetchData.bind(this);
     this.props.fetchBusiness(this.props.params.businessId)
     .then(res => this.props.fetchReviews(res.business.id));
+  }
+
+  fetchData(){
   }
 
   render() {

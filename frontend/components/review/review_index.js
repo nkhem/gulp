@@ -21,9 +21,6 @@ class ReviewIndex extends React.Component {
       <div>
       <h4>Reviews!</h4>
         <ul>
-          <li>aasdf</li>
-          <li>asdfagdas</li>
-          <li>dasdf</li>
           {this.renderIndexDetail()}
         </ul>
       </div>

@@ -206,16 +206,20 @@ all_businesses_by_category.each do |category_alias, biz_arr|
         business_id: current_biz.id,
         category_id: Category.find_by(alias: category_alias).id
       })
-
-      4.times do
-        Review.create(
+      
+      unless Review.find_by(business_id: current_biz.id)
+        all_reviews.sample(3).each do |review|
+          Review.create(
           business_id: current_biz.id,
           user_id: User.find_by_l_name(all_last_names.sample).id,
-          content: all_reviews.sample,
+          content: review,
           rating: (1..5).to_a.sample
-        )
+          )
+        end
       end
 
     end
+
+
   end
 end
