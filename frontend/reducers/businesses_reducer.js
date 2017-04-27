@@ -1,7 +1,7 @@
 import {
   RECEIVE_BUSINESSES,
-  RECEIVE_BUSINESS,
-  RECEIVE_REVIEWS } from '../actions/business_actions';
+  RECEIVE_BUSINESS } from '../actions/business_actions';
+import { RECEIVE_REVIEWS } from '../actions/review_actions';
 
 const initialState = {
   featured: {},

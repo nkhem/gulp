@@ -1,35 +1,24 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { fetchBusinessesByCategory, fetchBusiness, fetchReviews } from '../../actions/business_actions';
+import { fetchBusinessesByCategory, fetchBusiness } from '../../actions/business_actions';
+import { fetchReviews } from '../../actions/review_actions';
 import { fetchSearchResults } from '../../actions/search_actions';
 import { logout } from '../../actions/session_actions';
+
 import Header from '../header';
 import ReviewSection from '../review/review_section';
 
 class BusinessShow extends React.Component {
-  constructor(props) {
-    super(props);
-    this.renderReviewSection = this.renderReviewSection.bind(this);
-  }
-
-  renderReviewSection(){
-    if (this.props.business) {
-      return <ReviewSection
-        reviews={this.props.business.reviews}
-        businessId={this.props.business}
-        currentUser={this.props.currentUser}/>;
-    }
-  }
-
   componentWillMount(){
     // console.log('componentWillMount');
     this.props.fetchBusiness(this.props.params.businessId)
-    .then(res => console.log('success:', res));
+    .then(res => this.props.fetchReviews(res.business.id));
   }
 
   render() {
     let biz = this.props.business;
+
     return (
       <div id='biz-show' key={biz.id}>
         <Header
@@ -48,7 +37,10 @@ class BusinessShow extends React.Component {
         <p>{biz.address1}</p>
         <p>{biz.address2}</p>
 
-        {this.renderReviewSection()}
+        <ReviewSection
+          reviews={this.props.business.reviews}
+          businessId={this.props.business}
+          currentUser={this.props.currentUser}/>
 
       </div>
     );
@@ -68,7 +60,8 @@ const mapDispatchToProps = (dispatch, state) => {
     logout: () => dispatch(logout()),
     fetchBusinessesByCategory: cat => dispatch(fetchBusinessesByCategory(cat)),
     fetchSearchResults: term => dispatch(fetchSearchResults(term)),
-    fetchBusiness: titleOrId => dispatch(fetchBusiness(titleOrId))
+    fetchBusiness: titleOrId => dispatch(fetchBusiness(titleOrId)),
+    fetchReviews: bizId => dispatch(fetchReviews(bizId))
   };
 };
 

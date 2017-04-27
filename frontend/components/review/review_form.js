@@ -12,9 +12,10 @@ class ReviewForm extends React.Component {
   }
 
   componentWillMount(){
+    let userId = this.props.currentUser ? this.props.currentUser.id : null;
     this.setState({
       businessId: this.props.businessId,
-      userId: this.props.currentUser.id
+      userId: userId
     });
   }
 
