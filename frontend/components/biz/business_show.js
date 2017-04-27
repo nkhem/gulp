@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import { fetchBusinessesByCategory, fetchBusiness } from '../../actions/business_actions';
 import { fetchReviews } from '../../actions/review_actions';
+import { fetchUser } from '../../actions/user_actions';
 import { fetchSearchResults } from '../../actions/search_actions';
 import { logout } from '../../actions/session_actions';
 
@@ -44,7 +45,8 @@ class BusinessShow extends React.Component {
           <ReviewSection
             reviews={this.props.business.reviews}
             businessId={this.props.business}
-            currentUser={this.props.currentUser}/>
+            currentUser={this.props.currentUser}
+            fetchUser={this.props.fetchUser}/>
         </div>
       );
     } else {
@@ -67,7 +69,8 @@ const mapDispatchToProps = (dispatch, state) => {
     fetchBusinessesByCategory: cat => dispatch(fetchBusinessesByCategory(cat)),
     fetchSearchResults: term => dispatch(fetchSearchResults(term)),
     fetchBusiness: titleOrId => dispatch(fetchBusiness(titleOrId)),
-    fetchReviews: bizId => dispatch(fetchReviews(bizId))
+    fetchReviews: bizId => dispatch(fetchReviews(bizId)),
+    fetchUser: userId => dispatch(fetchUser(userId))
   };
 };
 

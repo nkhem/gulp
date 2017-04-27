@@ -10,7 +10,9 @@ class ReviewSection extends React.Component {
         <ReviewForm
           businessId={this.props.businessId}
           currentUser={this.props.currentUser}/>
-        <ReviewIndex reviews={this.props.reviews}/>
+        <ReviewIndex
+          reviews={this.props.reviews}
+          fetchUser={this.props.fetchUser}/>
       </div>
     );
   }

@@ -40,6 +40,7 @@ class BusinessIndex extends React.Component {
     return businessesList.map( biz => {
       return <BusinessIndexDetail
         business={biz}
+        fetchUser={this.props.fetchUser}
         key={biz.id}
         />;
     });
