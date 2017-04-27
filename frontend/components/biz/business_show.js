@@ -10,40 +10,43 @@ import Header from '../header';
 import ReviewSection from '../review/review_section';
 
 class BusinessShow extends React.Component {
+
   componentWillMount(){
-    // console.log('componentWillMount');
+    console.log(this.props);
     this.props.fetchBusiness(this.props.params.businessId)
     .then(res => this.props.fetchReviews(res.business.id));
   }
 
   render() {
     let biz = this.props.business;
+    if (biz.id && biz.reviews) {
+      return (
+        <div id='biz-show' key={biz.id}>
+          <Header
+            loggedIn={this.props.loggedIn}
+            logout={ this.props.logout }
+            fetchSearchResults={ this.props.fetchSearchResults }
+            searchResults={ this.props.searchResults }
+            fetchBusinessesByCategory={this.props.fetchBusinessesByCategory}
+            fetchBusiness={this.props.fetchBusiness}
+            shouldDisplaySearchBar={true}
+            />
+          <img src={`${biz.image_url}`} width={300} />
+          <h4>{biz.title}</h4>
+          <p>{biz.price}</p>
+          <p>{biz.phone}</p>
+          <p>{biz.address1}</p>
+          <p>{biz.address2}</p>
 
-    return (
-      <div id='biz-show' key={biz.id}>
-        <Header
-          loggedIn={this.props.loggedIn}
-          logout={ this.props.logout }
-          fetchSearchResults={ this.props.fetchSearchResults }
-          searchResults={ this.props.searchResults }
-          fetchBusinessesByCategory={this.props.fetchBusinessesByCategory}
-          fetchBusiness={this.props.fetchBusiness}
-          shouldDisplaySearchBar={true}
-          />
-        <img src={`${biz.image_url}`} width={300} />
-        <h4>{biz.title}</h4>
-        <p>{biz.price}</p>
-        <p>{biz.phone}</p>
-        <p>{biz.address1}</p>
-        <p>{biz.address2}</p>
-
-        <ReviewSection
-          reviews={this.props.business.reviews}
-          businessId={this.props.business}
-          currentUser={this.props.currentUser}/>
-
-      </div>
-    );
+          <ReviewSection
+            reviews={this.props.business.reviews}
+            businessId={this.props.business}
+            currentUser={this.props.currentUser}/>
+        </div>
+      );
+    } else {
+      return null;
+    }
   }
 }
 
