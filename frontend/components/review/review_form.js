@@ -1,16 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router';
+import { createReview } from '../../actions/review_actions';
 
 class ReviewForm extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      businessId: null,
-      userId: null,
-      content: '',
-      rating: null
+    this.nullState = {
+      review: {
+        businessId: null,
+        userId: null,
+        content: '',
+        rating: null
+      }
     };
+
+    this.state = this.nullState;
 
     this.renderSubmitBtn = this.renderSubmitBtn.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -38,22 +43,15 @@ class ReviewForm extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-    this.props.processForm(//createReview Api call
-      { review: {
-        business_id: null,
-        user_id: null,
-        content: null,
-        rating: null//fill with form data
-      }}
-    );
+    this.setState({
+      content: 'asdf',
+      rating: 0
+    });
 
-    //   .then( () => this.redirectIfLoggedIn() );
-    // this.setState({
-    //   f_name: '',
-    //   l_name: '',
-    //   email: '',
-    //   password: ''
-    // });
+    this.props.processForm(this.state.review)
+      .then( () => {
+        this.setState(this.nullState);
+     });
   }
 
   render() {
