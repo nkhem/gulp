@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { createReview } from '../../actions/review_actions';
 
 class ReviewForm extends React.Component {
   constructor(props) {
@@ -48,7 +47,7 @@ class ReviewForm extends React.Component {
       rating: 0
     });
 
-    this.props.processForm(this.state.review)
+    this.props.createReview(this.state.review)
       .then( () => {
         this.setState(this.nullState);
      });

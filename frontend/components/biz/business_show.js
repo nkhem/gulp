@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import { createReview } from '../../actions/review_actions';
 import { fetchBusinessesByCategory, fetchBusiness } from '../../actions/business_actions';
 import { fetchReviews } from '../../actions/review_actions';
 import { fetchUser } from '../../actions/user_actions';
@@ -46,7 +47,8 @@ class BusinessShow extends React.Component {
             reviews={this.props.business.reviews}
             businessId={this.props.business}
             currentUser={this.props.currentUser}
-            fetchUser={this.props.fetchUser}/>
+            fetchUser={this.props.fetchUser}
+            createReview={this.props.createReview}/>
         </div>
       );
     } else {
@@ -70,7 +72,8 @@ const mapDispatchToProps = (dispatch, state) => {
     fetchSearchResults: term => dispatch(fetchSearchResults(term)),
     fetchBusiness: titleOrId => dispatch(fetchBusiness(titleOrId)),
     fetchReviews: bizId => dispatch(fetchReviews(bizId)),
-    fetchUser: userId => dispatch(fetchUser(userId))
+    fetchUser: userId => dispatch(fetchUser(userId)),
+    createReview: userId => dispatch(createReview(userId))
   };
 };
 
