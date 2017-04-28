@@ -15,9 +15,14 @@ class ReviewIndexDetail extends React.Component {
 
   render() {
     if (Object.keys(this.state.user).length !== 0){
+
+      let userDisplayName = this.state.user.f_name === 'Guest'
+      ? 'Guest User'
+      : `${this.state.user.f_name} ${this.state.user.l_name.slice(0,1)}`;
+
       return (
         <li>
-          <p>{`${this.state.user.f_name} ${this.state.user.l_name.slice(0,1)}:`}</p>
+          <p>{`${userDisplayName}:`}</p>
           <p>{this.props.review.content}</p>
         </li>
       );

@@ -14,7 +14,6 @@ export const createReview = review => dispatch => {
     .then(reviews => dispatch(receiveReviews(reviews)));
 };
 
-
 export const receiveReviews = reviews => ({
   type: RECEIVE_REVIEWS,
   reviews: reviews
