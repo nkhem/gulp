@@ -6,10 +6,10 @@ class Api::ReviewsController < ApplicationController
 
   def create
     @review = Review.new(
-      business_id: params[:businessId],
-      user_id: params[:userId],
-      content: params[:content],
-      rating: params[:rating]
+      business_id: params[:review][:businessId],
+      user_id: params[:review][:userId],
+      content: params[:review][:content],
+      rating: params[:review][:rating]
     )
 
     if @review.save

@@ -13,6 +13,7 @@ class ReviewForm extends React.Component {
     };
 
     this.renderSubmitBtn = this.renderSubmitBtn.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentWillMount(){
@@ -33,6 +34,26 @@ class ReviewForm extends React.Component {
         </div>
       );
     }
+  }
+
+  handleSubmit(e){
+    e.preventDefault();
+    this.props.processForm(//createReview Api call
+      { review: {
+        business_id: null,
+        user_id: null,
+        content: null,
+        rating: null//fill with form data
+      }}
+    );
+
+    //   .then( () => this.redirectIfLoggedIn() );
+    // this.setState({
+    //   f_name: '',
+    //   l_name: '',
+    //   email: '',
+    //   password: ''
+    // });
   }
 
   render() {
@@ -67,7 +88,7 @@ class ReviewForm extends React.Component {
             disabled={isLoggedIn ? false : 'disabled'} />
 
           <br/>
-          
+
           {this.renderSubmitBtn(isLoggedIn)}
 
           <br/>
