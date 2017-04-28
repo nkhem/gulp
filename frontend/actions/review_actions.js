@@ -10,13 +10,10 @@ export const fetchReviews = bizId => dispatch => {
 
 export const createReview = review => dispatch => {
   return ReviewApiUtil.createReview(review)
-    .then(res => dispatch(receiveReview(res)));
+    .then( () => ReviewApiUtil.fetchReviews(review.businessId))
+    .then(reviews => dispatch(receiveReviews(reviews)));
 };
 
-export const receiveReview = review => ({
-  type: RECEIVE_REVIEW,
-  review: review
-});
 
 export const receiveReviews = reviews => ({
   type: RECEIVE_REVIEWS,
