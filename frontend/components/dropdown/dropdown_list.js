@@ -9,16 +9,15 @@ class DropdownList extends React.Component {
   }
 
   renderDropdownItems(titles){
-
-        return titles.map(title => {
-          return <DropdownItem
-            itemTitle={ title }
-            key={ title }
-            searchResults={this.props.searchResults}
-            fetchSearchResults={ this.props.fetchSearchResults }
-            fetchBusinessesByCategory={this.props.fetchBusinessesByCategory}
-            fetchBusiness={this.props.fetchBusiness} />;
-        });
+    return titles.map(title => {
+      return <DropdownItem
+        itemTitle={ title }
+        key={ title }
+        searchResults={this.props.searchResults}
+        fetchSearchResults={ this.props.fetchSearchResults }
+        fetchBusinessesByCategory={this.props.fetchBusinessesByCategory}
+        fetchBusiness={this.props.fetchBusiness} />;
+    });
     }
 
   render() {
@@ -37,7 +36,6 @@ class DropdownList extends React.Component {
   }
 
 }
-
 
 const bestTitles = (searchTerm, allTitles)  => (
   _.uniq(exactMatches(searchTerm, allTitles)

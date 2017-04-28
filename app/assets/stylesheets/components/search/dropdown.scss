@@ -1,0 +1,18 @@
+#search-dropdown {
+  position: absolute;
+  top: 28px;
+  left: 139px;
+  width: 160px;
+  padding: 5px 10px;
+
+  background-color: $lightest-gray;
+  font-size: 85%;
+}
+
+#search-dropdown li {
+  padding: 3px 0;
+}
+
+#search-dropdown li:hover {
+  cursor: pointer;
+}
