@@ -1,0 +1,31 @@
+.new-session-form input {
+  margin: 10px auto;
+  padding: 7px 9px;
+  font-family: $sans-serif;
+}
+
+// .sign-up-box {
+//   border: 1px solid $light-gray;
+//   padding: 10px;
+//   margin: 20px auto;
+// }
+
+.signup-btn, .login-btn {
+  transition: background-color 0.3s ease;
+  background-color: none;
+  color: $lightest-gray;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  border-radius: 3px;
+  border: 1px solid $lightest-gray
+}
+
+.signup-btn:hover {
+	background-color: $lightest-gray;
+}
+
+.login-signup-btns {
+  right: 20px;
+  top: 20px;
+}

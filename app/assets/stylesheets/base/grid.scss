@@ -82,36 +82,9 @@ ul.article {
   flex: 2;
 }
 
-.sign-up-form input {
-  margin: 10px auto;
-  padding: 7px 9px;
-  font-family: $sans-serif;
-}
-
-.sign-up-box {
-  border: 1px solid $light-gray;
-  padding: 10px;
-  margin: 20px auto;
-}
-
 #input-field {
   width: 200px;
   border: 1px solid $light-gray;
-}
-
-#sign-up-btn {
-  transition: background-color 0.3s ease;
-  background-color: $blue;
-  color: $lightest-gray;
-  font-weight: bold;
-  text-transform: uppercase;
-  text-align: center;
-  border-radius: 3px;
-}
-
-#sign-up-btn:hover {
-	background-color: $dark-blue;
-	border-color: $darkest-blue;
 }
 
 span.fine-print {
