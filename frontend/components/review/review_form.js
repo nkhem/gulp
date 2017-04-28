@@ -39,8 +39,8 @@ class ReviewForm extends React.Component {
   handleSubmit(e){
     e.preventDefault();
 
-    console.log(this.state.review);
-    this.props.createReview(this.state.review)
+    console.log(this.state);
+    this.props.createReview(this.state)
       .then( () => this.setState({
         businessId: this.state.businessId,
         userId: this.state.userId,
