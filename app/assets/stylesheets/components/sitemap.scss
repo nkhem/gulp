@@ -1,0 +1,23 @@
+seciton.sitemap {
+  border-bottom: 1px solid #ccc;
+  margin-top: 1em;
+}
+
+section .col-md-3 {
+  border-left: 1px solid #ccc;
+  padding-right:13px;
+}
+
+section .col-md-3:first-child {
+  border: none;
+}
+
+@media screen and (max-width: 1200px) {
+section .col-md-3 {
+  border:none;
+}
+}
+
+.fa-github {
+  width: 15px;
+}

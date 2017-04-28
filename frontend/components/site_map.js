@@ -5,7 +5,10 @@ class SiteMap extends React.Component {
   render() {
     return (
       <div id='sitemap'>
-        <p>sitemap</p>
+        <a href="https://github.com/nkhem/gulp">
+          <i className="fa fa-github fa-2x" aria-hidden="true"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/nkhem/" target="_blank">LinkedIn</a>
       </div>
     );
   }
