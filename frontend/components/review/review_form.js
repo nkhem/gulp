@@ -66,6 +66,8 @@ class ReviewForm extends React.Component {
             placeholder='content'
             disabled={isLoggedIn ? false : 'disabled'} />
 
+          <br/>
+          
           {this.renderSubmitBtn(isLoggedIn)}
 
           <br/>

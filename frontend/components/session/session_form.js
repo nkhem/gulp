@@ -50,7 +50,9 @@ class SessionForm extends React.Component {
 	}
 
   redirectIfLoggedIn(){
-    if(this.props.loggedIn){
+    if(this.props.loggedIn && this.props.prevBiz){
+      this.props.router.push(`/business/${this.props.prevBiz.id}`);
+    } else if (this.props.loggedIn) {
       this.props.router.push("/");
     }
   }
@@ -130,7 +132,8 @@ class SessionForm extends React.Component {
 const mapStateToProps = (state) => {
   return {
     loggedIn: Boolean(state.session.currentUser),
-    errors: state.session.errors
+    errors: state.session.errors,
+    prevBiz: state.businesses.featured
   };
 };
 
