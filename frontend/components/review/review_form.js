@@ -28,9 +28,7 @@ class ReviewForm extends React.Component {
     }
   }
 
-
   update(field) {
-    console.log("updating ", field);
     return e => this.setState({
       [field]: e.currentTarget.value
     });
@@ -39,13 +37,12 @@ class ReviewForm extends React.Component {
   handleSubmit(e){
     e.preventDefault();
 
-    console.log(this.state);
     this.props.createReview(this.state)
       .then( () => this.setState({
         businessId: this.state.businessId,
         userId: this.state.userId,
         content: '',
-        rating: null
+        rating: ''
       }));
   }
 
