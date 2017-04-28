@@ -5,27 +5,15 @@ class ReviewForm extends React.Component {
   constructor(props) {
     super(props);
 
-    this.nullState = {
-      review: {
-        businessId: null,
-        userId: null,
-        content: '',
-        rating: null
-      }
+    this.state = {
+      businessId: props.businessId,
+      userId: (props.currentUser ? props.currentUser.id : ''),
+      content: '',
+      rating: ''
     };
-
-    this.state = this.nullState;
 
     this.renderSubmitBtn = this.renderSubmitBtn.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  componentWillMount(){
-    let userId = this.props.currentUser ? this.props.currentUser.id : null;
-    this.setState({
-      businessId: this.props.businessId,
-      userId: userId
-    });
   }
 
   renderSubmitBtn(isLoggedIn){
@@ -40,47 +28,59 @@ class ReviewForm extends React.Component {
     }
   }
 
+
+  update(field) {
+    console.log("updating ", field);
+    return e => this.setState({
+      [field]: e.currentTarget.value
+    });
+  }
+
   handleSubmit(e){
     e.preventDefault();
-    this.setState({
-      content: 'asdf',
-      rating: 0
-    });
 
+    console.log(this.state.review);
     this.props.createReview(this.state.review)
-      .then( () => {
-        this.setState(this.nullState);
-     });
+      .then( () => this.setState({
+        businessId: this.state.businessId,
+        userId: this.state.userId,
+        content: '',
+        rating: null
+      }));
   }
 
   render() {
     let isLoggedIn = this.props.currentUser;
     return (
       <div>
-        <form id="new-review-form">
+        <form id="new-review-form" onSubmit={ e => this.handleSubmit(e)}>
 
           <input
-            type='text'
+            type='hidden'
+            value={this.state.userId}
             placeholder={`current userId: ${this.state.userId}`}
-            disabled={isLoggedIn ? false : 'disabled'} />
+            />
+
+          <input
+            type='hidden'
+            value={this.state.businessId}
+            />
 
           <br/>
 
           <input
             type='text'
-            placeholder={`current bizId: ${this.state.businessId}`}
-            disabled={isLoggedIn ? false : 'disabled'} />
-
-          <br/>
-
-          <input
-            type='text'
+            value={this.state.rating}
+            onChange={this.update("rating")}
             placeholder='rating'
             disabled={isLoggedIn ? false : 'disabled'} />
 
           <br/>
 
-          <input type='text'
+          <input
+            type='text'
+            value={this.state.content}
+            onChange={this.update("content")}
             placeholder='content'
             disabled={isLoggedIn ? false : 'disabled'} />
 

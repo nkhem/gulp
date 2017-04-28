@@ -45,7 +45,7 @@ class BusinessShow extends React.Component {
 
           <ReviewSection
             reviews={this.props.business.reviews}
-            businessId={this.props.business}
+            businessId={this.props.business.id}
             currentUser={this.props.currentUser}
             fetchUser={this.props.fetchUser}
             createReview={this.props.createReview}/>
