@@ -1,7 +1,7 @@
 import {
   RECEIVE_BUSINESSES,
   RECEIVE_BUSINESS } from '../actions/business_actions';
-import { RECEIVE_REVIEWS } from '../actions/review_actions';
+import { RECEIVE_REVIEWS, RECEIVE_REVIEW } from '../actions/review_actions';
 
 const initialState = {
   featured: {},
@@ -36,6 +36,15 @@ const BusinessesReducer = (state = initialState, action) => {
           {reviews: action.reviews}
         )
       };
+
+      nextState = Object.assign(
+        {},
+        state,
+        nextFeatured
+      );
+      return nextState;
+
+    case RECEIVE_REVIEW:
 
       nextState = Object.assign(
         {},

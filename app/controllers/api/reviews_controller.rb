@@ -13,7 +13,7 @@ class Api::ReviewsController < ApplicationController
     )
 
     if @review.save
-      render "api/businesses/#{params[:businessId]}"
+      render :index
     else
       render(
         json: ['Invalid credentials'],
