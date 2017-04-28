@@ -7,19 +7,23 @@ class ReviewIndexDetail extends React.Component {
       user: {}
     };
   }
+  
   componentWillMount() {
-    this.props.fetchUser(this.props.review.userId)
+    this.props.fetchUser(this.props.review.user_id)
       .then(res => this.setState({ user: res.user}));
   }
 
   render() {
-    console.log('this.state:', this.state);
-    console.log(this.props.review);
-    return (
-      <li>
-        {this.props.review.content}
-      </li>
-    );
+    if (Object.keys(this.state.user).length !== 0){
+      return (
+        <li>
+          <p>{`${this.state.user.f_name} ${this.state.user.l_name.slice(0,1)}:`}</p>
+          <p>{this.props.review.content}</p>
+        </li>
+      );
+    } else {
+      return null;
+    }
   }
 
 }
