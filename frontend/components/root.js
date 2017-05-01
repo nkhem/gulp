@@ -5,7 +5,7 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import App from './app';
 import Main from './main';
 import SessionForm from './session/session_form';
-import BusinessIndex from './biz/business_index';
+import SearchResults from './search_results';
 import BusinessShow from './biz/business_show';
 
 const Root = ({ store }) => {
@@ -23,7 +23,7 @@ const Root = ({ store }) => {
           <IndexRoute component={ Main } />
           <Route path="login" component={ SessionForm } onEnter={ _redirectIfLoggedIn } />
           <Route path="signup" component={ SessionForm } onEnter={ _redirectIfLoggedIn } />
-          <Route path="search" component={ BusinessIndex } />
+          <Route path="search" component={ SearchResults } />
           <Route path ="business/:businessId" component={BusinessShow} />
         </Route>
       </Router>

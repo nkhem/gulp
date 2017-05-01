@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import { withRouter } from 'react-router';
+import { withRouter } from 'react-router';
 // import MarkerManager from './marker_manager';
 
 // const _getCoordsObj = latLng => ({
@@ -13,7 +13,7 @@ let _mapOptions = {
   zoom: 13
 };
 
-class Map extends Component {
+class BusinessMap extends React.Component {
 
   // componentDidMount() {
   //   const map = this.refs.map;
@@ -65,4 +65,4 @@ class Map extends Component {
   }
 }
 
-export default withRouter(Map);
+export default withRouter(BusinessMap);
