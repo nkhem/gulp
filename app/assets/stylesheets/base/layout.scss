@@ -47,22 +47,9 @@ button {
 	border-color: $darkest-blue;
 }
 
-header {
-	padding: 15px 10px 15px 0;
-}
-
 .main-nav {
 	display: flex;
 	justify-content: space-between;
-}
-
-.right-nav ul{
-	display: flex;
-	align-items: center;
-}
-
-.left-nav ul{
-	display: flex;
 }
 
 i.fa-github {
@@ -76,29 +63,6 @@ i.fa-github {
 /*
 	Header Rules
 */
-
-hr {
-	border: 0;
-	height: 1px;
-	background-color: $light-gray;
-}
-
-.hr-top, .hr-bottom {
-	width: 100%;
-	margin: 0;
-}
-
-.hr-top {
-	height: 2px;
-	margin-bottom: 1px;
-}
-
-.clearfix:after {
-  content: "";
-  display: block;
-  clear: both;
-}
-
 h1 {
 	font-size: 18px;
 	font-weight: bold;
@@ -119,10 +83,6 @@ h3 {
 	border-bottom: 1px solid $light-gray;
 }
 
-h1:hover, h2:hover {
-	text-decoration: underline;
-}
-
 @media all and (max-width: 1043px) {
 	.search, .sections {
 		display: none;
@@ -130,11 +90,5 @@ h1:hover, h2:hover {
 
 	i.fa-bars, i.fa-search {
 		font-size: 18px;
-	}
-}
-
-@media all and (max-width: 905px) {
-	.sections-bar {
-		display: none;
 	}
 }
