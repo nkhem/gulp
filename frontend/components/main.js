@@ -21,14 +21,16 @@ class Main extends React.Component {
           shouldDisplaySearchBar={ false }
           shouldDisplayLogo={ false }
           />
-        <h1 id="main-gulp-logo" className="gulp-logo">gulp</h1>
-        <SearchBar
-          searchResults={ this.props.searchResults }
-          fetchSearchResults={ this.props.fetchSearchResults }
-          fetchBusinessesByCategory={this.props.fetchBusinessesByCategory}
-          fetchBusiness={this.props.fetchBusiness}
-          id="main-search-bar"
-          />
+        <div id="main-detail">
+          <h1 id="main-gulp-logo" className="gulp-logo">gulp</h1>
+          <SearchBar
+            searchResults={ this.props.searchResults }
+            fetchSearchResults={ this.props.fetchSearchResults }
+            fetchBusinessesByCategory={this.props.fetchBusinessesByCategory}
+            fetchBusiness={this.props.fetchBusiness}
+            id="main-search-bar"
+            />
+        </div>
       </div>
     );
   }

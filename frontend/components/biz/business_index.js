@@ -49,7 +49,7 @@ class BusinessIndex extends React.Component {
   render() {
 
     return (
-      <div id='biz-index'>
+      <div>
       <Header
         loggedIn={this.props.loggedIn}
         logout={ this.props.logout }
@@ -60,7 +60,7 @@ class BusinessIndex extends React.Component {
         shouldDisplaySearchBar={true}
         shouldDisplayLogo={true}
         />
-      <div>{this.renderBizTitles()}</div>
+      <div id='biz-index'>{this.renderBizTitles()}</div>
       </div>
     );
   }

@@ -22,7 +22,7 @@ class SessionBtns extends React.Component {
   renderLogoutBtn(){
     return (
       <button
-        id="logout-btn transparent-btn"
+        className="logout-btn transparent-btn"
         onClick={ this.props.logout }>
         Log Out
       </button>

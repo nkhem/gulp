@@ -2,6 +2,8 @@ import React from 'react';
 import SessionBtns from './session/session_btns';
 import SearchBar from './search_bar.js';
 
+import { Link } from 'react-router';
+
 class Header extends React.Component {
   constructor(props) {
     super(props);
@@ -37,7 +39,7 @@ class Header extends React.Component {
 
   renderHeader(){
     if (this.props.shouldDisplayLogo) {
-      return <h1 className='gulp-logo'>gulp</h1>;
+      return <Link to="/"><h1 className='gulp-logo'>gulp</h1></Link>;
     } else {
       return <h1 className='gulp-logo'> </h1>;
     }
