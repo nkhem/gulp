@@ -36,6 +36,7 @@ class Header extends React.Component {
   render() {
     return (
       <nav className='main-nav'>
+        <h1 className='header-logo'>gulp</h1>
         {this.renderSearchBar()}
         {this.renderSessionBtns()}
       </nav>
