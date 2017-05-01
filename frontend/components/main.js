@@ -10,7 +10,7 @@ import SearchBar from './search_bar';
 class Main extends React.Component {
   render() {
     return (
-      <div id='main' className='main-content'>
+      <div>
         <Header
           loggedIn={this.props.loggedIn}
           logout={ this.props.logout }
@@ -27,6 +27,7 @@ class Main extends React.Component {
           fetchSearchResults={ this.props.fetchSearchResults }
           fetchBusinessesByCategory={this.props.fetchBusinessesByCategory}
           fetchBusiness={this.props.fetchBusiness}
+          id="main-search-bar"
           />
       </div>
     );

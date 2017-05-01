@@ -58,6 +58,7 @@ class BusinessIndex extends React.Component {
         fetchBusinessesByCategory={this.props.fetchBusinessesByCategory}
         fetchBusiness={this.props.fetchBusiness}
         shouldDisplaySearchBar={true}
+        shouldDisplayLogo={true}
         />
       <div>{this.renderBizTitles()}</div>
       </div>

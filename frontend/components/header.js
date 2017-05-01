@@ -30,6 +30,7 @@ class Header extends React.Component {
         fetchSearchResults={ this.props.fetchSearchResults }
         fetchBusinessesByCategory={this.props.fetchBusinessesByCategory}
         fetchBusiness={this.props.fetchBusiness}
+        id="header-search-bar"
         />;
     }
   }

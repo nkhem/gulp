@@ -73,6 +73,7 @@ class SessionForm extends React.Component {
           isSessionFormOpen={ true }
           shouldDisplayLogo={ true }
           loggedIn={this.props.loggedIn} />
+
   			<div className='main-content'>
           <h3>{this.props.formType}</h3>
   				<form onSubmit={ this.handleSubmit(asUser) } id="new-session-form">

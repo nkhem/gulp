@@ -53,23 +53,23 @@ class SearchBar extends Component {
   }
 
   render(){
-    let isMainSearchBar = Boolean(document.getElementById('main-gulp-logo'));
-    
     return (
-      <div className='search-bar'>
-
+      <div className='search-bar' id={this.props.id}>
         <form
-          className='search-form'
+          id={`${this.props.id}-form`}
           onSubmit={ this.handleSubmit }>
           <input
-            id="search-field"
+            id={`${this.props.id}-field`}
             type="text"
             placeholder="tea, wineries, The Boba Guys"
             autoComplete="off"
             value={this.state.term}
             onChange={ this.onInputChange }
           />
-          <input type="submit" value="search" />
+          <input
+            type="submit"
+            value="search"
+            id={`${this.props.id}-submit`} />
         </form>
 
       <DropdownList
