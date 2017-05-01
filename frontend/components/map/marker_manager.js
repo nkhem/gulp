@@ -1,39 +1,32 @@
 export default class MarkerManager {
+  constructor(map) {
+    this.map = map;
+    this.markers = {};
+  }
 
-  // constructor(map, handleClick){
-  //   this.map = map;
-  //   this.handleClick = handleClick;
-  //   this.markers = {};
-  // }
-  //
-  // updateMarkers(benches){
-  //
-  //   const benchesObj = {};
-  //   benches.forEach(bench => benchesObj[bench.id] = bench);
-  //
-  //   benches
-  //     .filter(bench => !this.markers[bench.id])
-  //     .forEach(newBench => this.createMarkerFromBench(newBench, this.handleClick))
-  //
-  //   Object.keys(this.markers)
-  //     .filter(benchId => !benchesObj[benchId])
-  //     .forEach((benchId) => this.removeMarker(this.markers[benchId]))
-  // }
-  //
-  // createMarkerFromBench(bench) {
-  //   const position = new google.maps.LatLng(bench.lat, bench.lng);
-  //   const marker = new google.maps.Marker({
-  //     position,
-  //     map: this.map,
-  //     benchId: bench.id
-  //   });
-  //
-  //   marker.addListener('click', () => this.handleClick(bench));
-  //   this.markers[marker.benchId] = marker;
-  // }
-  //
-  // removeMarker(marker) {
-  //   this.markers[marker.benchId].setMap(null);
-  //   delete this.markers[marker.benchId];
-  // }
+  updateMarkers(businesses) {
+    for (let idx in businesses){
+      let business = businesses[idx];
+      this.markers[business.id]
+        ? this.updateMarker(business)
+        : this.addMarker(business);
+    }
+  }
+
+  addMarker(business){
+    this.markers[business.id] = new google.maps.Marker({
+      position: {lat: business.lat, lng: business.lng},
+      map: this.map,
+      businessId: business.id
+    });
+  }
+
+  updateMarker(business){
+    this.removeMarker(business);
+    this.addMarker(business);
+  }
+
+  removeMarker(business){
+    delete this.markers[business.id];
+  }
 }

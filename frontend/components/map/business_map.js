@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { withRouter } from 'react-router';
-// import MarkerManager from './marker_manager';
+
+import MarkerManager from './marker_manager';
 
 // const _getCoordsObj = latLng => ({
 //   lat: latLng.lat(),
@@ -14,6 +15,19 @@ let _mapOptions = {
 };
 
 class BusinessMap extends React.Component {
+
+    componentDidMount() {
+      this.map = new google.maps.Map(document.getElementById('search-map'), _mapOptions);
+      this.MarkerManager = new MarkerManager(this.map);
+      this.MarkerManager.updateMarkers(this.props.businesses);
+
+      // if (this.props.singleBench) {
+      //   this.props.fetchBench(this.props.benchId);
+      // } else {
+      //   this._registerListeners();
+      //   this.MarkerManager.updateMarkers(this.props.benches);
+      // }
+    }
 
   // componentDidMount() {
   //   const map = this.refs.map;
@@ -61,7 +75,9 @@ class BusinessMap extends React.Component {
   // }
 
   render() {
-    return <div className="map" ref="map">Map</div>;
+    return (
+      <div id='search-map' />
+    );
   }
 }
 
