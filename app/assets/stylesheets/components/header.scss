@@ -36,10 +36,13 @@
 
 .main-nav {
 	background-color: $lightest-gray;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 35px;
 	display: flex;
 	justify-content: space-between;
-	margin: 0;
-	padding: 0;
 }
 
 .new-session-btns {
@@ -55,7 +58,6 @@
 
 .search-bar {
   width: 300px;
-  border: 1px solid $light-gray;
   justify-content: center;
 }
 
