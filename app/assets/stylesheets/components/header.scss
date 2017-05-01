@@ -1,20 +1,37 @@
-
-.blue-btn {
+.gray-btn {
+  padding: 7px 9px;
+  margin: 3px;
+  font-weight: bold;
+  font-family: $sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  border-radius: 3px;
 	transition: background-color 0.3s ease;
-	background-color: $blue;
-}
-.blue-btn span {
-	color: $lightest-gray;
+	background-color: $dark-gray;
+  color: $light-gray;
 }
 
-.blue-btn:hover {
-	background-color: $dark-blue;
-	border-color: $darkest-blue;
+.gray-btn:hover {
+	background-color: $gray;
+	border-color: $gray;
+}
+
+.transparent-btn {
+  padding: 7px 9px;
+  margin: 3px;
+  font-weight: bold;
+  font-family: $sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  border-radius: 3px;
+	transition: background-color 0.3s ease;
+	background-color: inherit;
+  color: $dark-gray;
 }
 
 .transparent-btn:hover {
-	background-color: $lightest-gray;
-	border-color: $darkest-blue;
+	background-color: $light-gray;
+	border-color: $light-gray;
 }
 
 .main-nav {
@@ -42,13 +59,13 @@
   justify-content: center;
 }
 
-#main-search-bar-form {
+#main-search-bar-form, #header-search-bar-form {
   width: 300px;
   display: flex;
   justify-content: space-between;
 }
 
-#main-search-bar-field {
+#main-search-bar-field, #header-search-bar-field {
   background-color: $light-gray;
   width: 100%;
   height: 100%;
@@ -57,17 +74,12 @@
   padding-bottom: 5px;
 }
 
-#main-search-bar-submit {
+#main-search-bar-submit, #header-search-bar-submit {
   width: 15%;
   height: 100%;
   padding: 5px;
   background-color: $dark-gray;
   color: $light-gray;
-  text-align: center;
-}
-
-#header-search-bar {
-  font-size: 50px;
   text-align: center;
 }
 

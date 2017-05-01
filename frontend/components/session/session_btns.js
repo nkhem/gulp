@@ -12,7 +12,7 @@ class SessionBtns extends React.Component {
       <nav className="new-session-btns">
         <Link to="login" className="login-btn transparent-btn">Log In</Link>
         <br/>
-        <button className="signup-btn blue-btn">
+        <button className="signup-btn gray-btn">
           <Link to="signup">Sign Up</Link>
         </button>
       </nav>

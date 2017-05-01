@@ -108,7 +108,7 @@ class SessionForm extends React.Component {
   				</form>
 
           <form id="demo-mode-form" onSubmit={ this.handleSubmit(asGuest) }>
-            <input type="submit" value="Continue in demo mode" />
+            <input className="transparent-btn" type="submit" value="Continue in demo mode" />
           </form>
 
           <nav className="session-form-switch">
