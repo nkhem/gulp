@@ -35,10 +35,10 @@ class Header extends React.Component {
 
   render() {
     return (
-      <div id='header'>
+      <nav className='main-nav'>
         {this.renderSearchBar()}
         {this.renderSessionBtns()}
-      </div>
+      </nav>
     );
   }
 

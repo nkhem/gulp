@@ -9,8 +9,8 @@ class SessionBtns extends React.Component {
 
   renderNewSessionBtns(){
     return (
-      <nav className="login-btn transparent-btn">
-        <Link to="login" className="login-btn">Log In</Link>
+      <nav className="right-nav">
+        <Link to="login" className="login-btn transparent-btn">Log In</Link>
         <br/>
         <button className="signup-btn blue-btn">
           <Link to="signup">Sign Up</Link>
