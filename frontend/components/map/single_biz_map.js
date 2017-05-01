@@ -14,12 +14,12 @@ let _mapOptions = {
   zoom: 13
 };
 
-class BusinessMap extends React.Component {
+class SingleBizMap extends React.Component {
 
     componentDidMount() {
-      this.map = new google.maps.Map(document.getElementById('search-map'), _mapOptions);
+      this.map = new google.maps.Map(document.getElementById('single-biz-map'), _mapOptions);
       this.MarkerManager = new MarkerManager(this.map);
-      this.MarkerManager.updateMarkers(this.props.businesses);
+      this.MarkerManager.addMarker(this.props.business);
 
       // if (this.props.singleBench) {
       //   this.props.fetchBench(this.props.benchId);
@@ -76,9 +76,9 @@ class BusinessMap extends React.Component {
 
   render() {
     return (
-      <div id='search-map' />
+      <div id='single-biz-map' />
     );
   }
 }
 
-export default withRouter(BusinessMap);
+export default withRouter(SingleBizMap);

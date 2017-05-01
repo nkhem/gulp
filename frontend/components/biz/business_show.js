@@ -9,6 +9,7 @@ import { fetchSearchResults } from '../../actions/search_actions';
 import { logout } from '../../actions/session_actions';
 
 import Header from '../header';
+import SingleBizMap from '../map/single_biz_map';
 import ReviewSection from '../review/review_section';
 
 class BusinessShow extends React.Component {
@@ -27,6 +28,7 @@ class BusinessShow extends React.Component {
     if (biz.id && biz.reviews) {
       return (
         <div id='biz-show' key={biz.id}>
+
           <Header
             loggedIn={this.props.loggedIn}
             logout={ this.props.logout }
@@ -36,6 +38,9 @@ class BusinessShow extends React.Component {
             fetchBusiness={this.props.fetchBusiness}
             shouldDisplaySearchBar={true}
             />
+
+          <SingleBizMap business={biz} />
+
           <img src={`${biz.image_url}`} width={300} />
           <h4>{biz.title}</h4>
           <p>{biz.price}</p>
