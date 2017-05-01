@@ -4,6 +4,16 @@
   font-family: $sans-serif;
 }
 
+#new-session-box {
+  background-color: white;
+  background-color:rgba(0, 0, 0, 0.4);
+  position: absolute;
+  top: 150px;
+  right: 80px;
+  padding: 40px;
+  border-radius: 3px;
+}
+
 #signup-btn, #login-btn {
   transition: background-color 0.3s ease;
   background-color: none;

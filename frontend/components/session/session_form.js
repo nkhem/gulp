@@ -75,57 +75,59 @@ class SessionForm extends React.Component {
           shouldDisplayLogo={ true }
           loggedIn={this.props.loggedIn} />
 
-  			<div className='main-content'>
-          <h3>{this.props.formType}</h3>
-  				<form onSubmit={ this.handleSubmit(asUser) } id="new-session-form">
+        <div className='main-content'>
+          <div id="new-session-box">
+            <h3>{this.props.formType}</h3>
+    				<form onSubmit={ this.handleSubmit(asUser) } id="new-session-form">
 
-  					<input type={`${this.props.formType === 'login' ? 'hidden': 'text'}`}
-  						value={this.state.f_name}
-  						onChange={this.update("f_name")}
-              placeholder='f_name' />
+    					<input type={`${this.props.formType === 'login' ? 'hidden': 'text'}`}
+    						value={this.state.f_name}
+    						onChange={this.update("f_name")}
+                placeholder='f_name' />
 
-            <input type={`${this.props.formType === 'login' ? 'hidden': 'text'}`}
-  						value={this.state.l_name}
-  						onChange={this.update("l_name")}
-              placeholder='l_name' />
+              <input type={`${this.props.formType === 'login' ? 'hidden': 'text'}`}
+    						value={this.state.l_name}
+    						onChange={this.update("l_name")}
+                placeholder='l_name' />
 
-            <br/>
+              <br/>
 
-  					<input type="text"
-  						value={this.state.email}
-  						onChange={this.update("email")}
-              placeholder='email' />
+    					<input type="text"
+    						value={this.state.email}
+    						onChange={this.update("email")}
+                placeholder='email' />
 
-  					<br/>
+    					<br/>
 
-  					<input type="password"
-  						value={this.state.password}
-  						onChange={this.update("password")}
-              placeholder='password' />
+    					<input type="password"
+    						value={this.state.password}
+    						onChange={this.update("password")}
+                placeholder='password' />
 
-  					<br/>
+    					<br/>
 
-  					<input type="submit" value={this.props.formType} />
-  				</form>
+    					<input type="submit" value={this.props.formType} />
+    				</form>
 
-          <form id="demo-mode-form" onSubmit={ this.handleSubmit(asGuest) }>
-            <input className="transparent-btn" type="submit" value="Continue in demo mode" />
-          </form>
+            <form id="demo-mode-form" onSubmit={ this.handleSubmit(asGuest) }>
+              <input className="transparent-btn" type="submit" value="Continue in demo mode" />
+            </form>
 
-          <nav className="session-form-switch">
-            <span>{this.props.formType === 'login'
-              ? 'New user? ' :
-              'Already have an account? '}
-            </span>
-            <Link to={this.props.formType === 'login'
-              ? 'signup'
-              : 'login'}>
-              {this.props.formType === 'login'
-                ? 'Create an account'
-                : 'Sign in' }
-            </Link>
-          </nav>
+            <nav className="session-form-switch">
+              <span>{this.props.formType === 'login'
+                ? 'New user? ' :
+                'Already have an account? '}
+              </span>
+              <Link to={this.props.formType === 'login'
+                ? 'signup'
+                : 'login'}>
+                {this.props.formType === 'login'
+                  ? 'Create an account'
+                  : 'Sign in' }
+              </Link>
+            </nav>
 
+    			</div>
   			</div>
       </div>
 		);
