@@ -13,7 +13,7 @@
 
 class Review < ApplicationRecord
   validates :content, :rating, presence: true
-  validates :rating, inclusion: { in: 1..5 }
+  validates :rating, inclusion: { in: [1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5] }
 
   belongs_to :business
   belongs_to :user
