@@ -29,32 +29,6 @@ button {
 	position: relative;
 }
 
-.blue-btn {
-	transition: background-color 0.3s ease;
-	background-color: $blue;
-}
-.blue-btn span {
-	color: $lightest-gray;
-}
-
-.blue-btn:hover {
-	background-color: $dark-blue;
-	border-color: $darkest-blue;
-}
-
-.transparent-btn:hover {
-	background-color: $lightest-gray;
-	border-color: $darkest-blue;
-}
-
-.main-nav {
-	background-color: $lightest-gray;
-	display: flex;
-	justify-content: space-between;
-	margin: 0;
-	padding: 0;
-}
-
 i.fa-github {
 	font-size: 20px;
 }
