@@ -18,7 +18,7 @@ class ReviewForm extends React.Component {
 
   renderSubmitBtn(isLoggedIn){
     if (isLoggedIn) {
-      return <input type="submit" value='Submit Review' />;
+      return <input className="transparent-btn" type="submit" value='Submit Review' />;
     } else {
       return (
         <div>

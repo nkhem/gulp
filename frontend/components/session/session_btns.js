@@ -9,10 +9,10 @@ class SessionBtns extends React.Component {
 
   renderNewSessionBtns(){
     return (
-      <nav className="login-signup-btns">
+      <nav className="login-btn transparent-btn">
         <Link to="login" className="login-btn">Log In</Link>
         <br/>
-        <button className="signup-btn">
+        <button className="signup-btn blue-btn">
           <Link to="signup">Sign Up</Link>
         </button>
       </nav>
@@ -22,7 +22,7 @@ class SessionBtns extends React.Component {
   renderLogoutBtn(){
     return (
       <button
-        id="logout-btn"
+        id="logout-btn transparent-btn"
         onClick={ this.props.logout }>
         Log Out
       </button>
