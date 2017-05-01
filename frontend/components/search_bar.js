@@ -10,13 +10,14 @@ class SearchBar extends Component {
     this.state = {
       searchTerm: '',
     };
-
+    this.shouldRenderDropdown = false;
     this.onInputChange = this.onInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   onInputChange(e){
     e.preventDefault();
+    this.shouldRenderDropdown = true;
     this.setState({ searchTerm: (e.target.value) });
     this.props.fetchSearchResults(e.target.value);
     this.setState({ searchTerm: '' });
@@ -27,6 +28,7 @@ class SearchBar extends Component {
       e.preventDefault();
     }
 
+    this.shouldRenderDropdown = false;
     let { searchResults: {categoryTitles, businessTitles} } = this.props;
 
     let searchAlias = this.state.searchTerm.toLowerCase().replace(/[^0-9a-z]/g,'');
@@ -72,7 +74,8 @@ class SearchBar extends Component {
         searchResults={this.props.searchResults}
         fetchSearchResults={ this.props.fetchSearchResults }
         fetchBusinessesByCategory={this.props.fetchBusinessesByCategory}
-        fetchBusiness={this.props.fetchBusiness} />
+        fetchBusiness={this.props.fetchBusiness}
+        shouldRenderDropdown={this.shouldRenderDropdown} />
 
       </div>
     );

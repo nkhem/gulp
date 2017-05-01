@@ -21,12 +21,12 @@ class DropdownList extends React.Component {
     }
 
   render() {
-    if (this.props.searchResults) {
+    if (this.props.searchResults && this.props.shouldRenderDropdown) {
       let { searchTerm, allTitles } = this.props.searchResults;
       let titles = (searchTerm === "" ? [] : bestTitles(searchTerm, allTitles));
 
       return (
-        <ul id="search-dropdown">
+        <ul id="dropdown-list">
           { this.renderDropdownItems(titles) }
         </ul>
       );
