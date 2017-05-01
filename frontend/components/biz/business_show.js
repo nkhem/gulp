@@ -37,6 +37,7 @@ class BusinessShow extends React.Component {
             fetchBusinessesByCategory={this.props.fetchBusinessesByCategory}
             fetchBusiness={this.props.fetchBusiness}
             shouldDisplaySearchBar={true}
+            shouldDisplayLogo={true}
             />
 
           <SingleBizMap business={biz} />

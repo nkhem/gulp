@@ -53,6 +53,8 @@ class SearchBar extends Component {
   }
 
   render(){
+    let isMainSearchBar = Boolean(document.getElementById('main-gulp-logo'));
+    
     return (
       <div className='search-bar'>
 

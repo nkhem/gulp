@@ -48,8 +48,11 @@ button {
 }
 
 .main-nav {
+	background-color: $lightest-gray;
 	display: flex;
 	justify-content: space-between;
+	margin: 0;
+	padding: 0;
 }
 
 i.fa-github {
@@ -66,7 +69,6 @@ i.fa-github {
 h1 {
 	font-size: 18px;
 	font-weight: bold;
-	font-style: italic;
 }
 
 h2 {

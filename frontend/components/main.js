@@ -19,8 +19,9 @@ class Main extends React.Component {
           fetchBusinessesByCategory={this.props.fetchBusinessesByCategory}
           fetchBusiness={this.props.fetchBusiness}
           shouldDisplaySearchBar={ false }
+          shouldDisplayLogo={ false }
           />
-        <h1>gulp</h1>
+        <h1 id="main-gulp-logo" className="gulp-logo">gulp</h1>
         <SearchBar
           searchResults={ this.props.searchResults }
           fetchSearchResults={ this.props.fetchSearchResults }

@@ -71,6 +71,7 @@ class SessionForm extends React.Component {
       <div>
         <Header
           isSessionFormOpen={ true }
+          shouldDisplayLogo={ true }
           loggedIn={this.props.loggedIn} />
   			<div className='main-content'>
           <h3>{this.props.formType}</h3>

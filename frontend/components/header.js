@@ -8,6 +8,7 @@ class Header extends React.Component {
 
     this.renderSessionBtns = this.renderSessionBtns.bind(this);
     this.renderSearchBar = this.renderSearchBar.bind(this);
+    this.renderHeader = this.renderHeader.bind(this);
   }
 
   renderSessionBtns(){
@@ -33,10 +34,18 @@ class Header extends React.Component {
     }
   }
 
+  renderHeader(){
+    if (this.props.shouldDisplayLogo) {
+      return <h1 className='gulp-logo'>gulp</h1>;
+    } else {
+      return <h1 className='gulp-logo'> </h1>;
+    }
+  }
+
   render() {
     return (
       <nav className='main-nav'>
-        <h1 className='header-logo'>gulp</h1>
+        {this.renderHeader()}
         {this.renderSearchBar()}
         {this.renderSessionBtns()}
       </nav>
