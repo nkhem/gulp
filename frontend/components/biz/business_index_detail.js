@@ -17,11 +17,13 @@ class BusinessIndexDetail extends React.Component {
     return (
       <div key={biz.id} className="biz-index-detail">
         <img src={`${biz.image_url}`} width={100} />
-        <h3 onClick={this.handleClick.bind(this)}>{biz.title}</h3>
-        <p>{biz.price}</p>
-        <p>{biz.phone}</p>
-        <p>{biz.address1}</p>
-        <p>{biz.address2}</p>
+        <div className="info-box">
+          <h3 onClick={this.handleClick.bind(this)}>{biz.title}</h3>
+          <p>{biz.price}</p>
+          <p>{biz.phone}</p>
+          <p>{biz.address1}</p>
+          <p>{biz.address2}</p>
+        </div>
       </div>
     );
   }

@@ -30,7 +30,7 @@
   justify-content: center;
   padding: 10px;
 
-  border-top: 1px solid $light-plum;
+  border-top: 1px solid $dark-plum;
   width: 80%;
 
   position: absolute;
@@ -40,13 +40,16 @@
 #main-footer i {
   font-size: 50px;
 }
-
-#biz-index-footer i {
-  margin: 5px
-}
-
 #main-footer i:hover {
   color:$dark-plum;
+}
+
+#biz-index-footer i {
+  margin: 5px;
+  color:$dark-plum;
+}
+#biz-index-footer i:hover {
+  color: $light-plum;
 }
 
 i.fa-github, i.fa-linkedin-square {
