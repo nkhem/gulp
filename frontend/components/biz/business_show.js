@@ -9,6 +9,7 @@ import { fetchSearchResults } from '../../actions/search_actions';
 import { logout } from '../../actions/session_actions';
 
 import Header from '../header';
+import Footer from '../footer';
 import SingleBizMap from '../map/single_biz_map';
 import ReviewSection from '../review/review_section';
 
@@ -55,6 +56,8 @@ class BusinessShow extends React.Component {
             currentUser={this.props.currentUser}
             fetchUser={this.props.fetchUser}
             createReview={this.props.createReview}/>
+
+          <Footer id="biz-show-footer"/>
         </div>
       );
     } else {

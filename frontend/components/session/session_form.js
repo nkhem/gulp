@@ -5,6 +5,7 @@ import { Link } from 'react-router';
 import { login, signup } from '../../actions/session_actions';
 
 import Header from '../header';
+import Footer from '../footer';
 
 class SessionForm extends React.Component {
   constructor(props){
@@ -108,7 +109,7 @@ class SessionForm extends React.Component {
 
     					<input type="submit" value={this.props.formType} />
     				</form>
-            
+
             <div className="session-form-btns">
               <form id="demo-mode-form" onSubmit={ this.handleSubmit(asGuest) }>
                 <input
@@ -130,6 +131,9 @@ class SessionForm extends React.Component {
 
     			</div>
   			</div>
+
+        <Footer id="session-form-footer"/>
+
       </div>
 		);
   }

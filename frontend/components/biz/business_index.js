@@ -8,6 +8,7 @@ import { fetchBusinessesByCategory, fetchBusiness } from '../../actions/business
 import { fetchSearchResults } from '../../actions/search_actions';
 import { logout } from '../../actions/session_actions';
 import Header from '../header';
+import Footer from '../footer';
 
 class BusinessIndex extends React.Component {
   constructor(props) {
@@ -60,7 +61,8 @@ class BusinessIndex extends React.Component {
         shouldDisplaySearchBar={true}
         shouldDisplayLogo={true}
         />
-      <div id='biz-index'>{this.renderBizTitles()}</div>
+      <div className='biz-index'>{this.renderBizTitles()}</div>
+      <Footer id="biz-index-footer"/>
       </div>
     );
   }

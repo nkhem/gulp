@@ -1,10 +1,10 @@
 import React from 'react';
 
-class SiteMap extends React.Component {
+class Footer extends React.Component {
 
   render() {
     return (
-      <div id='sitemap'>
+      <div className='footer' id={this.props.id}>
         <a href="https://github.com/nkhem/gulp" target="_blank">
           <i className="fa fa-github" aria-hidden="true"></i>
         </a>
@@ -17,4 +17,4 @@ class SiteMap extends React.Component {
 
 }
 
-export default SiteMap;
+export default Footer;

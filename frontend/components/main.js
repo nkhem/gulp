@@ -4,8 +4,10 @@ import { connect } from 'react-redux';
 import { logout } from '../actions/session_actions';
 import { fetchSearchResults } from '../actions/search_actions';
 import { fetchBusinessesByCategory, fetchBusiness } from '../actions/business_actions';
+
 import Header from './header';
 import SearchBar from './search_bar';
+import Footer from './footer';
 
 class Main extends React.Component {
   render() {
@@ -33,6 +35,7 @@ class Main extends React.Component {
               />
           </div>
         </div>
+        <Footer id="main-footer"/>
       </div>
     );
   }
