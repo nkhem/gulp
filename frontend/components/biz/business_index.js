@@ -14,7 +14,8 @@ class BusinessIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      businessesList: []
+      businessesList: [],
+      categoryTitles: '',
     };
     this.renderBizDetails = this.renderBizDetails.bind(this);
     this.renderSearchTitle = this.renderSearchTitle.bind(this);
@@ -26,13 +27,22 @@ class BusinessIndex extends React.Component {
     });
   }
 
-  componentWillUpdate(){
+  componentDidUpdate(){
     let currentBusinesses = this.state.businessesList;
     let nextBusinesses = this.props.businessesList;
 
     if (currentBusinesses !== nextBusinesses) {
       this.setState({
         businessesList: nextBusinesses
+      });
+    }
+
+    let currentCategoryTitles = this.state.categoryTitles;
+    let nextCategoryTitles = this.props.categoryTitles;
+
+    if (currentCategoryTitles !== nextCategoryTitles) {
+      this.setState({
+        categoryTitles: nextCategoryTitles
       });
     }
   }
@@ -50,6 +60,7 @@ class BusinessIndex extends React.Component {
 
   renderSearchTitle(){
     let cat = this.props.searchResults.categoryTitles[0];
+
     if (cat) {
       return (
         <h2 className='biz-index-title'>
