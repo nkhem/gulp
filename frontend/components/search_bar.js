@@ -56,17 +56,20 @@ class SearchBar extends Component {
     return (
       <div className='search-bar' id={this.props.id}>
         <form
-          id={`${this.props.id}-form`}
           onSubmit={ this.handleSubmit }>
           <input
-            id={`${this.props.id}-field`}
             type="text"
             placeholder="tea, wineries, The Boba Guys"
             autoComplete="off"
             value={this.state.term}
             onChange={ this.onInputChange }
           />
-        <button id="search-btn">
+          <input
+            type="text"
+            placeholder="San Francisco"
+            disabled={ true }
+          />
+        <button>
             <i className="fa fa-search" aria-hidden="true"></i>
           </button>
         </form>

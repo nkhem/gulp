@@ -108,27 +108,25 @@ class SessionForm extends React.Component {
 
     					<input type="submit" value={this.props.formType} />
     				</form>
+            
+            <div className="session-form-btns">
+              <form id="demo-mode-form" onSubmit={ this.handleSubmit(asGuest) }>
+                <input
+                  className="demo-mode-gray-btn"
+                  type="submit"
+                  value="Continue in demo mode" />
+              </form>
 
-            <form id="demo-mode-form" onSubmit={ this.handleSubmit(asGuest) }>
-              <input
-                className="gray-btn"
-                type="submit"
-                value="Continue in demo mode" />
-            </form>
-
-            <nav className="session-form-switch">
-              <span>{this.props.formType === 'login'
-                ? 'New user? ' :
-                'Already have an account? '}
-              </span>
-              <Link to={this.props.formType === 'login'
-                ? 'signup'
-                : 'login'}>
-                {this.props.formType === 'login'
-                  ? 'Create an account'
-                  : 'Sign in' }
-              </Link>
-            </nav>
+              <button className="session-form-switch transparent-btn">
+                <Link to={this.props.formType === 'login'
+                  ? 'signup'
+                  : 'login'}>
+                  {this.props.formType === 'login'
+                    ? 'New user? Create an account.'
+                    : 'Already have an account? Sign in' }
+                </Link>
+              </button>
+            </div>
 
     			</div>
   			</div>
