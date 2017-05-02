@@ -1,6 +1,9 @@
 #sitemap {
-  bottom: 0;
-  right: 0;
   width: 100%;
-  background-color: $lightest-gray;
+  height: 35px;
+  background-color:rgba(0, 0, 0, 0.4);
+  color: $off-white;
+  position: absolute;
+  bottom: -35px;
+  left: 0;
 }

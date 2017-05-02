@@ -1,0 +1,29 @@
+.gray-btn, .transparent-btn {
+  padding: 7px 9px;
+  margin: 3px;
+  font-weight: bold;
+  font-family: $sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  border-radius: 3px;
+	transition: background-color 0.3s ease;
+  color: $deep-plum;
+}
+
+.transparent-btn {
+	background-color: inherit;
+}
+
+.gray-btn {
+	background-color: $warm-gray;
+}
+
+.gray-btn:hover {
+  background-color: $pale-pink;
+  border-color: $pale-pink;
+}
+
+.transparent-btn:hover {
+  background-color: $pale-pink;
+  border-color: $pale-pink;
+}
