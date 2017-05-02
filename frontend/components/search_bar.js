@@ -69,7 +69,8 @@ class SearchBar extends Component {
           <input
             type="submit"
             value="search"
-            id={`${this.props.id}-submit`} />
+            id="search-btn"
+            className="transparent-btn" />
         </form>
 
       <DropdownList

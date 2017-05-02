@@ -1,4 +1,4 @@
-.gray-btn, .transparent-btn {
+.gray-btn, .transparent-btn, .darkest-btn {
   padding: 7px 9px;
   margin: 3px;
   font-weight: bold;
@@ -7,15 +7,26 @@
   text-align: center;
   border-radius: 3px;
 	transition: background-color 0.3s ease;
-  color: $deep-plum;
 }
 
 .transparent-btn {
+  color: $deep-plum;
 	background-color: inherit;
 }
 
 .gray-btn {
+  color: $deep-plum;
 	background-color: $warm-gray;
+}
+
+.darkest-btn {
+  color: $pale-pink;
+	background-color: $deep-plum;
+}
+
+.transparent-btn:hover {
+  background-color: $pale-pink;
+  border-color: $pale-pink;
 }
 
 .gray-btn:hover {
@@ -23,7 +34,7 @@
   border-color: $pale-pink;
 }
 
-.transparent-btn:hover {
+.darkest-btn:hover {
   background-color: $pale-pink;
   border-color: $pale-pink;
 }
