@@ -6,10 +6,11 @@ class SiteMap extends React.Component {
     return (
       <div id='sitemap'>
         <a href="https://github.com/nkhem/gulp">
-          <i className="fa fa-github fa-2x" aria-hidden="true"></i>
-          GitHub
+          <i className="fa fa-github" aria-hidden="true"></i>
         </a>
-        <a href="https://www.linkedin.com/in/nkhem/" target="_blank">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/nkhem/" target="_blank">
+          <i className="fa fa-linkedin-square" aria-hidden="true"></i>
+        </a>
       </div>
     );
   }

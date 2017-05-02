@@ -66,11 +66,9 @@ class SearchBar extends Component {
             value={this.state.term}
             onChange={ this.onInputChange }
           />
-          <input
-            type="submit"
-            value="search"
-            id="search-btn"
-            className="transparent-btn" />
+        <button id="search-btn">
+            <i className="fa fa-search" aria-hidden="true"></i>
+          </button>
         </form>
 
       <DropdownList

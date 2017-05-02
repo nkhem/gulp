@@ -11,6 +11,11 @@
   justify-content: center;
 }
 
-i.fa-github {
-	font-size: 20px;
+i.fa-github, i.fa-linkedin-square {
+	font-size: 30px;
+  color: $warm-gray;
+}
+
+i.fa-github:hover, i.fa-linkedin-square:hover {
+  color: $pale-pink;
 }
