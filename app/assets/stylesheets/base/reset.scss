@@ -18,6 +18,7 @@ span, article, footer, time, small {
   background: transparent;
 }
 
+
 ol, ul {
   list-style: none;
 }
@@ -44,8 +45,8 @@ input[type="submit"] {
   cursor: pointer;
 }
 
-.group:after {
+.clearfix:after {
   content: "";
-  display:block;
-  align-items:center;
+  display: block;
+  align-items: center;
 }

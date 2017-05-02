@@ -51,18 +51,18 @@ class BusinessIndex extends React.Component {
 
     return (
       <div>
-      <Header
-        loggedIn={this.props.loggedIn}
-        logout={ this.props.logout }
-        fetchSearchResults={ this.props.fetchSearchResults }
-        searchResults={ this.props.searchResults }
-        fetchBusinessesByCategory={this.props.fetchBusinessesByCategory}
-        fetchBusiness={this.props.fetchBusiness}
-        shouldDisplaySearchBar={true}
-        shouldDisplayLogo={true}
-        />
-      <div className='biz-index'>{this.renderBizTitles()}</div>
-      <Footer id="biz-index-footer"/>
+        <Header
+          loggedIn={this.props.loggedIn}
+          logout={ this.props.logout }
+          fetchSearchResults={ this.props.fetchSearchResults }
+          searchResults={ this.props.searchResults }
+          fetchBusinessesByCategory={this.props.fetchBusinessesByCategory}
+          fetchBusiness={this.props.fetchBusiness}
+          shouldDisplaySearchBar={true}
+          shouldDisplayLogo={true}
+          />
+        <div className='biz-index'>{this.renderBizTitles()}</div>
+        <Footer id="biz-index-footer"/>
       </div>
     );
   }
