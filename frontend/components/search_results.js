@@ -5,7 +5,7 @@ import BusinessIndex from './biz/business_index';
 import SearchMap from './map/search_map';
 
 const SearchResults = props => (
-  <div>
+  <div className='search-results-container'>
     <BusinessIndex />
     <SearchMap
       businesses={props.businesses} />
