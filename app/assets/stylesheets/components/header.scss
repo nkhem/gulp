@@ -40,6 +40,7 @@ input::placeholder {
 
 i.fa-search:hover {
   color: $plum;
+  transition: color 0.3s ease;
 }
 
 .search-bar form {

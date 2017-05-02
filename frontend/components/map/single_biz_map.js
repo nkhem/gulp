@@ -13,6 +13,7 @@ class SingleBizMap extends React.Component {
     };
 
     this.map = new google.maps.Map(document.getElementById('single-biz-map'), _mapOptions);
+    this.map.setOptions({ scrollwheel: false });
     this.MarkerManager = new MarkerManager(this.map);
     this.MarkerManager.addMarker(this.props.business);
   }

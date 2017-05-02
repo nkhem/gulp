@@ -13,6 +13,7 @@ class SearchMap extends React.Component {
 
   componentDidMount() {
     this.map = new google.maps.Map(document.getElementById('search-map'), _mapOptions);
+    this.map.setOptions({ scrollwheel: false });
     this.MarkerManager = new MarkerManager(this.map);
     this.MarkerManager.updateMarkers(this.props.businesses);
   }

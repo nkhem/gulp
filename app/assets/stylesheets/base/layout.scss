@@ -35,6 +35,12 @@ link {
 	text-shadow: -3px 0 $dark-plum, 0 3px $dark-plum, 3px 0 $dark-plum, 0 -3px $dark-plum;
 }
 
+.gulp-logo:not(#main-gulp-logo):hover {
+  font-size: 20px;
+  color: $light-plum;
+	transition: color 0.3s ease;
+}
+
 /*
 	Header Rules
 */
@@ -62,7 +68,7 @@ h3 {
 		display: none;
 	}
 
-	i.fa-bars, i.fa-search {
+	i.fa-search {
 		font-size: 18px;
 	}
 }
