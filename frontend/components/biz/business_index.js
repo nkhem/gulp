@@ -17,6 +17,7 @@ class BusinessIndex extends React.Component {
       businessesList: []
     };
     this.renderBizDetails = this.renderBizDetails.bind(this);
+    this.renderSearchTitle = this.renderSearchTitle.bind(this);
   }
 
   componentWillMount(){
@@ -47,6 +48,19 @@ class BusinessIndex extends React.Component {
     });
   }
 
+  renderSearchTitle(){
+    let cat = this.props.searchResults.categoryTitles[0];
+    if (cat) {
+      return (
+        <h2 className='biz-index-title'>
+          {`Best ${cat} in San Francisco, CA`}
+        </h2>
+      );
+    } else {
+      return null;
+    }
+  }
+
   render() {
 
     return (
@@ -61,7 +75,10 @@ class BusinessIndex extends React.Component {
           shouldDisplaySearchBar={true}
           shouldDisplayLogo={true}
           />
-        <div className='biz-index'>{this.renderBizDetails()}</div>
+        <div className='biz-index'>
+          {this.renderSearchTitle()}
+          {this.renderBizDetails()}
+        </div>
         <Footer id="biz-index-footer"/>
       </div>
     );

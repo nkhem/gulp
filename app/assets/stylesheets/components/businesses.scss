@@ -1,6 +1,5 @@
 .biz-index {
   width: 300px;
-  height: 100%;
   top: 60px;
   left: 40px;
   position: absolute;
@@ -20,6 +19,11 @@
 }
 
 .biz-index-detail {
-
+  margin: 20px 0px;
   width: 100%;
+}
+
+.biz-index-title {
+  color: $light-plum;
+  font-weight: lighter;
 }
