@@ -51,3 +51,9 @@
 .info-box h3{
   border-bottom: 1px solid $dark-plum;
 }
+
+.biz-index-detail:hover{
+  background-color: $opaque-gray;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+}
