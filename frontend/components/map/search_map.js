@@ -20,7 +20,7 @@ class SearchMap extends React.Component {
 
   render() {
     return (
-      <div id='search-map' />
+      <div className='map' id='search-map' />
     );
   }
 }

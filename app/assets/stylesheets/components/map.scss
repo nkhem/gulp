@@ -1,18 +1,20 @@
-#search-map {
-  height: 100%;
+.map {
   width: 100%;
-  position: fixed !important;
   top: 0px;
   left: 0px;
   z-index: -1;
 }
 
-#single-biz-map {
-  height: 600px;
-  width: 100%;
-  position: absolute;
+#search-map {
+  height: 100%;
+  position: fixed !important;
   top: 0px;
   left: 0px;
+}
+
+#single-biz-map {
+  height: 300px;
+  position: absolute;
 }
 
 .search-results-container {

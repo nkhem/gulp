@@ -8,7 +8,7 @@ class SingleBizMap extends React.Component {
 
   componentDidMount() {
     const _mapOptions = {
-      center: {lat: this.props.business.lat, lng: this.props.business.lng},
+      center: {lat: this.props.business.lat, lng: this.props.business.lng - 0.008},
       zoom: 15
     };
 
@@ -20,7 +20,7 @@ class SingleBizMap extends React.Component {
 
   render() {
     return (
-      <div id='single-biz-map' />
+      <div className='map' id='single-biz-map' />
     );
   }
 }

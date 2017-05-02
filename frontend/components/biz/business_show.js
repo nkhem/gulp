@@ -16,12 +16,8 @@ import ReviewSection from '../review/review_section';
 class BusinessShow extends React.Component {
 
   componentWillMount(){
-    // this.fetchData.bind(this);
     this.props.fetchBusiness(this.props.params.businessId)
     .then(res => this.props.fetchReviews(res.business.id));
-  }
-
-  fetchData(){
   }
 
   render() {
@@ -43,12 +39,13 @@ class BusinessShow extends React.Component {
 
           <SingleBizMap business={biz} />
 
-          <img src={`${biz.image_url}`} width={300} />
-          <h4>{biz.title}</h4>
-          <p>{biz.price}</p>
-          <p>{biz.phone}</p>
-          <p>{biz.address1}</p>
-          <p>{biz.address2}</p>
+          <div className="biz-show-info">
+            <h4>{biz.title}</h4>
+            <p>{biz.price}</p>
+            <p>{biz.phone}</p>
+            <p>{biz.address1}</p>
+            <p>{biz.address2}</p>
+          </div>
 
           <ReviewSection
             reviews={this.props.business.reviews}
