@@ -1,11 +1,14 @@
 .biz-index {
+  position: absolute;
+
   width: 300px;
   top: 60px;
   left: 40px;
-  position: absolute;
+
   border-radius: 3px;
 
-  padding: 20px;
+  margin-bottom: 20px;
+  padding: 20px 20px 85px 20px;
   background-color: $gray-plum;
 }
 
@@ -28,4 +31,5 @@
   font-weight: 100;
   text-transform: uppercase;
   text-align: center;
+  border-bottom: 1px solid $light-plum;
 }

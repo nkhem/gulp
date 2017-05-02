@@ -89,8 +89,8 @@ class BusinessIndex extends React.Component {
         <div className='biz-index'>
           {this.renderSearchTitle()}
           {this.renderBizDetails()}
+          <Footer id="biz-index-footer"/>
         </div>
-        <Footer id="biz-index-footer"/>
       </div>
     );
   }
