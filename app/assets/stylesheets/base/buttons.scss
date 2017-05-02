@@ -10,31 +10,31 @@
 }
 
 .transparent-btn {
-  color: $warm-gray;
+  color: $light-plum;
 	background-color: inherit;
 }
 
 .gray-btn {
-  color: $deep-plum;
-	background-color: $warm-gray;
+  color: $light-plum;
+	background-color: $light-plum;
 }
 
 .darkest-btn {
-  color: $pale-pink;
-	background-color: $deep-plum;
+  color: $light-plum;
+	background-color: $dark-plum;
 }
 
 .transparent-btn:hover {
-  background-color: $plum;
-  border-color: $plum;
+  background-color: $dark-plum;
+  border-color: $dark-plum;
 }
 
 .gray-btn:hover {
-  background-color: $pale-pink;
-  border-color: $pale-pink;
+  background-color: $gray-plum;
+  border-color: $gray-plum;
 }
 
 .darkest-btn:hover {
-  background-color: $pale-pink;
-  border-color: $pale-pink;
+  background-color: $light-plum;
+  border-color: $light-plum;
 }

@@ -23,17 +23,21 @@
 
 i.fa-search {
   font-size: 19px;
-  color: $warm-gray;
+  color: $light-plum;
   padding: 6px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: $opaque-gray;
+  background-color: $dark-plum;
   border-radius: 0px 3px 3px 0px;
 }
 
+input::placeholder {
+  color: $gray-plum;
+}
+
 i.fa-search:hover {
-  color: $pale-pink;
+  color: $plum;
 }
 
 #main-search-bar-form, #header-search-bar-form {
@@ -43,7 +47,7 @@ i.fa-search:hover {
 }
 
 #main-search-bar-field, #header-search-bar-field {
-  background-color: $warm-gray;
+  background-color: $light-plum;
   width: 100%;
   height: 100%;
   padding: 8px 14px;
@@ -54,8 +58,8 @@ i.fa-search:hover {
   width: 370px;
   padding: 6px 0px;
   font-size: 85%;
-  border: 0 solid $pale-pink;
-  background-color: $warm-gray;
+  border: 0 solid $light-plum;
+  background-color: $light-plum;
   z-index: 1;
 }
 
