@@ -39,9 +39,9 @@ class Header extends React.Component {
 
   renderHeader(){
     if (this.props.shouldDisplayLogo) {
-      return <Link to="/"><h1 className='tulp-logo'>tul*p</h1></Link>;
+      return <Link to="/"><h1 className='gulp-logo'>gulp</h1></Link>;
     } else {
-      return <h1 className='tulp-logo'> </h1>;
+      return <h1 className='gulp-logo'> </h1>;
     }
   }
 

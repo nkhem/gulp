@@ -23,7 +23,7 @@ class Main extends React.Component {
           />
         <div className="main-content">
           <div id="main-detail">
-            <h1 id="main-tulp-logo" className="tulp-logo">tul*p</h1>
+            <h1 id="main-gulp-logo" className="gulp-logo">gulp</h1>
             <SearchBar
               searchResults={ this.props.searchResults }
               fetchSearchResults={ this.props.fetchSearchResults }
