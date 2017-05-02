@@ -5,7 +5,7 @@ import { withRouter } from 'react-router';
 import MarkerManager from './marker_manager';
 
 let _mapOptions = {
-  center: {lat: 37.773972, lng: -122.431297}, // San Francisco coords
+  center: {lat: 37.773972, lng: -122.431297},
   zoom: 13
 };
 
