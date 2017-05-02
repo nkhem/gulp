@@ -15,14 +15,14 @@ class BusinessIndexDetail extends React.Component {
   render() {
     const biz = this.props.business;
     return (
-      <li key={biz.id} className="biz-index-detail">
+      <div key={biz.id} className="biz-index-detail">
         <img src={`${biz.image_url}`} width={100} />
         <h3 onClick={this.handleClick.bind(this)}>{biz.title}</h3>
         <p>{biz.price}</p>
         <p>{biz.phone}</p>
         <p>{biz.address1}</p>
         <p>{biz.address2}</p>
-      </li>
+      </div>
     );
   }
 

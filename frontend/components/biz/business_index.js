@@ -16,7 +16,7 @@ class BusinessIndex extends React.Component {
     this.state = {
       businessesList: []
     };
-    this.renderBizTitles = this.renderBizTitles.bind(this);
+    this.renderBizDetails = this.renderBizDetails.bind(this);
   }
 
   componentWillMount(){
@@ -36,7 +36,7 @@ class BusinessIndex extends React.Component {
     }
   }
 
-  renderBizTitles(){
+  renderBizDetails(){
     let { businessesList } = this.state;
     return businessesList.map( biz => {
       return <BusinessIndexDetail
@@ -61,7 +61,7 @@ class BusinessIndex extends React.Component {
           shouldDisplaySearchBar={true}
           shouldDisplayLogo={true}
           />
-        <div className='biz-index'>{this.renderBizTitles()}</div>
+        <div className='biz-index'>{this.renderBizDetails()}</div>
         <Footer id="biz-index-footer"/>
       </div>
     );
