@@ -63,27 +63,28 @@ i.fa-search:hover {
   width: 50%
 }
 
-#dropdown-list {
+ul.dropdown-list {
   width: 270px;
   font-size: 85%;
-  border: 0 solid $light-plum;
   background-color: $light-plum;
   position: absolute;
   z-index: 1;
+
+  border: 0 solid $light-plum;
+	box-shadow: -1px 4px 6px 1px rgba(0,0,0,0.09);
+  border-radius: 0px 0px 2px 2px;
+  padding: 4px
 }
 
-#dropdown-list li {
+.dropdown-list li {
   padding: 4px 14px;
   cursor: pointer;
   color: $dark-plum;
   background-color: $light-plum;
 }
 
-#dropdown-list li:last-child {
-  border-radius: 0px 0px 2px 2px;
-}
-
-#dropdown-list li:hover {
+.dropdown-list li:hover {
   cursor: pointer;
   background-color: $white-plum;
+  border-radius: 2px;
 }

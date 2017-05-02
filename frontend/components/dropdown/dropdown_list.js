@@ -26,7 +26,7 @@ class DropdownList extends React.Component {
       let titles = (searchTerm === "" ? [] : bestTitles(searchTerm, allTitles));
 
       return (
-        <ul id="dropdown-list">
+        <ul className="dropdown-list">
           { this.renderDropdownItems(titles) }
         </ul>
       );
