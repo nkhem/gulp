@@ -16,7 +16,7 @@ class Api::ReviewsController < ApplicationController
       render :index
     else
       render(
-        json: ['Invalid credentials'],
+        json: ['Invalid review'],
         status: 401
       )
     end
