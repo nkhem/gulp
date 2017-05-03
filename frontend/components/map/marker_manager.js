@@ -5,15 +5,22 @@ export default class MarkerManager {
   }
 
   updateMarkers(businesses) {
+    this.hideAllMarkers();
+
     for (let idx in businesses){
       let business = businesses[idx];
-      this.markers[business.id]
-        ? this.updateMarker(business)
-        : this.addMarker(business);
+      let hasMarker = Boolean(this.markers[business.id])
+
+      if (hasMarker) {
+        this.showMarker(business);
+      } else {
+        this.createMarker(business);
+      }
+
     }
   }
 
-  addMarker(business){
+  createMarker(business){
     this.markers[business.id] = new google.maps.Marker({
       position: {lat: business.lat, lng: business.lng},
       map: this.map,
@@ -21,12 +28,17 @@ export default class MarkerManager {
     });
   }
 
-  updateMarker(business){
-    this.removeMarker(business);
-    this.addMarker(business);
+  showMarker(business){
+    this.markers[business.id].setMap(this.map);
   }
 
-  removeMarker(business){
-    delete this.markers[business.id];
+  hideAllMarkers(){
+    Object.keys(this.markers).forEach(bizId => {
+      this.markers[bizId].setMap(null);
+    });
+  }
+
+  hideMarker(business){
+    this.markers[business.id].setMap(null);
   }
 }

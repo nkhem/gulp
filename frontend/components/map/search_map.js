@@ -5,17 +5,32 @@ import { withRouter } from 'react-router';
 import MarkerManager from './marker_manager';
 
 let _mapOptions = {
-  center: {lat: 37.773972, lng: -122.431297},
-  zoom: 13
+  center: {lat: 37.773972, lng: -122.431297  - 0.06},
+  zoom: 12,
+  zoomControl: true,
+  scaleControl: true,
+  scrollwheel: false,
+  disableDoubleClickZoom: false
 };
 
 class SearchMap extends React.Component {
+  constructor(props) {
+    super(props);
+    this.markerManager = null;
+  }
 
   componentDidMount() {
     this.map = new google.maps.Map(document.getElementById('search-map'), _mapOptions);
-    this.map.setOptions({ scrollwheel: false });
-    this.MarkerManager = new MarkerManager(this.map);
-    this.MarkerManager.updateMarkers(this.props.businesses);
+    this.markerManager = new MarkerManager(this.map);
+    this.updateMarkers(this.props.businesses);
+  }
+
+  componentDidUpdate() {
+    this.updateMarkers(this.props.businesses);
+  }
+
+  updateMarkers(){
+    this.markerManager.updateMarkers(this.props.businesses);
   }
 
   render() {
