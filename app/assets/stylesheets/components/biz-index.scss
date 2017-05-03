@@ -10,6 +10,8 @@
   margin-bottom: 20px;
   padding: 20px 10px 85px 10px;
   background-color: $white-plum;
+  border: 1px solid $white-plum-shadow;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.3);
 }
 
 .biz-index li {
@@ -31,11 +33,19 @@
 
 .biz-index-detail{
   background-color: $light-plum;
-  border: 1px solid $light-plum;
+  border: 1px solid $light-plum-shadow;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.3);
   border-radius: 2px;
   padding: 10px;
   margin: 20px 0px;
   width: 280px;
+}
+
+.biz-index-detail:hover{
+  background-color: $opaque-gray;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.3);
+  transition: background-color 0.2s ease;
+  cursor: pointer;
 }
 
 .biz-index-detail img {
@@ -50,10 +60,4 @@
 
 .info-box h3{
   border-bottom: 1px solid $dark-plum;
-}
-
-.biz-index-detail:hover{
-  background-color: $opaque-gray;
-  transition: background-color 0.2s ease;
-  cursor: pointer;
 }

@@ -186,6 +186,7 @@ all_businesses_by_category.each do |category_alias, biz_arr|
       user_id: User.find_by_l_name(all_last_names.sample).id,
       address1: biz["location"]["display_address"].first,
       address2: biz["location"]["display_address"].last,
+      rating: 
       phone: biz["display_phone"],
       lat: biz["coordinates"]["latitude"],
       lng: biz["coordinates"]["longitude"],

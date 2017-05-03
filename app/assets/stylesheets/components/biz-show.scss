@@ -1,8 +1,18 @@
 .biz-show-info {
   position: absolute;
-  top: 200px;
+  top: 135px;
   left: 40px;
-  font-size: 20px;
+
+  color: $dark-plum;
   font-weight: bold;
-  background-color: $light-gray;
+  background-color: $light-plum;
+  padding: 10px;
+}
+
+.biz-show-info h3 {
+  border-bottom: 1px solid $dark-plum;
+}
+
+.biz-show-info div {
+  padding-top: 4px;
 }

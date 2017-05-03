@@ -22,6 +22,7 @@ class BusinessShow extends React.Component {
 
   render() {
     let biz = this.props.business;
+    console.log(biz);
     if (biz.id && biz.reviews) {
 
       return (
@@ -41,11 +42,13 @@ class BusinessShow extends React.Component {
           <SingleBizMap business={biz} />
 
           <div className="biz-show-info">
-            <h4>{biz.title}</h4>
-            <p>{biz.price}</p>
-            <p>{biz.phone}</p>
-            <p>{biz.address1}</p>
-            <p>{biz.address2}</p>
+            <h3>{biz.title}</h3>
+            <div>
+              <p>{biz.price}</p>
+              <p>{biz.phone}</p>
+              <p>{biz.address1}</p>
+              <p>{biz.address2}</p>
+            </div>
           </div>
 
           <ReviewSection
