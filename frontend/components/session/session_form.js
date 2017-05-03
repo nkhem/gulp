@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
-import { login, signup } from '../../actions/session_actions';
+import { login, signup, clearErrors } from '../../actions/session_actions';
 
 import Header from '../header';
 import Footer from '../footer';
@@ -37,17 +37,24 @@ class SessionForm extends React.Component {
 
   loginAsGuest(){
     return e => {
-  		this.props.processFormAsGuest({ user: {
-        email: 'guest_user@email.com',
-        password: 'user_password'} })
-        .then( () => this.redirectIfLoggedIn());
+  		this.props.processFormAsGuest(
+        {user: {
+          email: 'guest_user@email.com',
+          password: 'user_password'}
+        })
+        .then( () => {
+          this.props.clearErrors();
+          this.redirectIfLoggedIn();
+        });
     };
   }
 
   loginAsTrueUser() {
     return e => {
   		this.props.processFormAsTrueUser({ user: this.state })
-        .then( () => this.redirectIfLoggedIn());
+        .then( () => {
+          this.props.clearErrors();
+          this.redirectIfLoggedIn()});
     };
 	}
 
@@ -133,7 +140,7 @@ class SessionForm extends React.Component {
               <div id="session-form-switch">
                 <Link
                   to={this.props.formType === 'login'?'signup':'login'}
-                  onClick={()=> this.setState({errors: ''})}>
+                  onClick={()=> this.props.clearErrors()}>
 
                   {this.props.formType === 'login'
                     ? 'New user? '
@@ -177,6 +184,7 @@ const mapDispatchToProps = (dispatch, state) => {
   const processFormAsTrueUser = (formType === 'login') ? login : signup;
 
   return {
+    clearErrors: () => dispatch(clearErrors()),
     processFormAsGuest: user => dispatch(login(user)),
     processFormAsTrueUser: user => dispatch(processFormAsTrueUser(user)),
     formType: formType
