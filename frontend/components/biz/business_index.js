@@ -73,7 +73,6 @@ class BusinessIndex extends React.Component {
   }
 
   render() {
-    console.log(this.props.loggedIn);
     return (
       <div>
         <Header

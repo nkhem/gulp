@@ -23,7 +23,6 @@ class BusinessShow extends React.Component {
   render() {
     let biz = this.props.business;
     if (biz.id && biz.reviews) {
-      console.log(this.props.loggedIn);
 
       return (
         <div id='biz-show' key={biz.id}>
