@@ -76,10 +76,9 @@ class SessionForm extends React.Component {
           loggedIn={this.props.loggedIn} />
 
         <div className="main-content">
-          <div id="new-session-box">
-            <h3>{this.props.formType}</h3>
-    				<form onSubmit={ this.handleSubmit(asUser) } id="new-session-form">
-
+          <div className="new-session-box">
+            <h3 className="session-box-title">{this.props.formType}</h3>
+    				<form onSubmit={ this.handleSubmit(asUser) }>
     					<input type={`${this.props.formType === 'login' ? 'hidden': 'text'}`}
     						value={this.state.f_name}
     						onChange={this.update("f_name")}
@@ -107,32 +106,40 @@ class SessionForm extends React.Component {
     					<br/>
 
     					<input
-                className='submit-btn'
+                className="submit-btn session-form-btn"
                 type="submit"
                 value={this.props.formType} />
     				</form>
 
-            <div className="session-form-btns">
+            <div id='session-form-btns'>
               <div>
                 <form onSubmit={ this.handleSubmit(asGuest) }>
                   <input
+                    className="submit-btn session-form-btn"
+                    id="demo-btn"
                     type="submit"
                     value="Continue in demo mode" />
                 </form>
               </div>
 
-              <div>
-                <Link to={this.props.formType === 'login'
-                  ? 'signup'
-                  : 'login'}>
+              <div id="session-form-switch">
+                <Link
+                  to={this.props.formType === 'login'?'signup':'login'}>
+
                   {this.props.formType === 'login'
-                    ? 'New user? Create an account.'
-                    : 'Already have an account? Sign in' }
+                    ? 'New user? '
+                    : 'Already have an account? ' }
+
+                  <span>{this.props.formType === 'login'
+                    ? 'Create an account.  '
+                    : 'Log in  ' }</span>
+
                 </Link>
               </div>
 
-              <div onClick={()=> this.props.router.push("/")}>
-                back to main
+              <div id='back-to-main' onClick={()=> this.props.router.push("/")}>
+                <span>Back to main  </span>
+                <i className="fa fa-angle-right" aria-hidden="true"></i>
               </div>
             </div>
 
