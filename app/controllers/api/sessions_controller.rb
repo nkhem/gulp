@@ -10,7 +10,7 @@ class Api::SessionsController < ApplicationController
       render 'api/users/show'
     else
       render(
-        json: ["Huh, we can't seem to find you in the system with that login info."],
+        json: ["Huh, we can't seem to find you in the system with those login credentials."],
         status: 401
       )
     end

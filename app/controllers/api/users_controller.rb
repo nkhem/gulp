@@ -1,11 +1,14 @@
 class Api::UsersController < ApplicationController
   def create
-    @user = User.create(user_params)
-    if @user.save
+    begin
+      @user = User.new(user_params)
+    rescue ActiveRecord::RecordInvalid => invalid
+      render json: invalid.record.errors.full_messages, status: 404
+    end
+
+    if @user && @user.save
       log_in(@user)
       render "api/users/show"
-    else
-      render json: @user.errors.full_messages, status: 404
     end
   end
 
