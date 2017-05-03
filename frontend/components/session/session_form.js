@@ -24,11 +24,21 @@ class SessionForm extends React.Component {
   }
 
   renderErrors(){
-    return (
-      <ul className='error-msgs'>
-        {_.map(this.props.errors, err => <li key={err}>{err}</li>)}
-      </ul>
-    );
+    if (this.props.errors.length === 1) {
+      return (
+        <div className='error-msgs'>
+          {this.props.errors[0]}
+        </div>
+      );
+    } else if (this.props.errors.length > 1) {
+      return (
+        <ul className='error-msgs'>
+          {_.map(this.props.errors, err => <li key={err}>{err}</li>)}
+        </ul>
+      );
+    } else {
+      return null;
+    }
   }
 
   handleSubmit(asGuest){

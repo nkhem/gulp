@@ -1,8 +1,9 @@
 .new-session-box {
+  width: 300px;
   background-color: $light-plum;
   position: absolute;
-  right: 80px;
-  padding: 40px;
+  right: 100px;
+  padding: 20px;
   border-radius: 3px;
   color: $dark-plum;
   border: 1px solid $light-plum-shadow;
@@ -27,6 +28,7 @@
   width: 80%;
   height: 100%;
   padding: 8px 14px;
+  font-size: 10px;
 }
 
 .new-session-box input::placeholder {
