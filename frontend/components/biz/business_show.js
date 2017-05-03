@@ -23,6 +23,8 @@ class BusinessShow extends React.Component {
   render() {
     let biz = this.props.business;
     if (biz.id && biz.reviews) {
+      console.log(this.props.loggedIn);
+
       return (
         <div id='biz-show' key={biz.id}>
 
@@ -65,6 +67,7 @@ class BusinessShow extends React.Component {
 
 const mapStateToProps = state => {
   return {
+    loggedIn: Boolean(state.session.currentUser),
     currentUser: state.session.currentUser,
     business: state.businesses.featured,
     searchResults: state.searchResults

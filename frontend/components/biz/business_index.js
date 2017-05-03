@@ -73,7 +73,7 @@ class BusinessIndex extends React.Component {
   }
 
   render() {
-
+    console.log(this.props.loggedIn);
     return (
       <div>
         <Header
@@ -103,6 +103,7 @@ BusinessIndex.propTypes = {
 
 const mapStateToProps = state => {
   return {
+    loggedIn: Boolean(state.session.currentUser),
     businessesList: Object.values(state.businesses.list),
     errors: state.session.errors,
     searchResults: state.searchResults

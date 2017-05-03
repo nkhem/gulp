@@ -11,6 +11,8 @@ import Footer from './footer';
 
 class Main extends React.Component {
   render() {
+    console.log(this.props.loggedIn);
+
     return (
       <div>
         <Header
