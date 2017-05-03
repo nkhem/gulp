@@ -8,7 +8,7 @@ export const signup = user => dispatch => {
     .then(userPromise => {
       dispatch(receiveCurrentUser(userPromise));
     }, errors => {
-      console.log(errors);
+      dispatch(receiveErrors(errors.responseJSON));
     });
 };
 
@@ -17,7 +17,7 @@ export const login = user => dispatch => {
     .then(userPromise => {
       dispatch(receiveCurrentUser(userPromise));
     }, errors => {
-      console.log(errors);
+      dispatch(receiveErrors(errors.responseJSON));
     });
 };
 
@@ -25,8 +25,6 @@ export const logout = () => dispatch => {
   return ApiUtil.logOut()
     .then(() => {
       dispatch(receiveCurrentUser(null));
-    }, errors => {
-      console.log(errors);
     });
 };
 

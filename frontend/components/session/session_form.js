@@ -40,14 +40,14 @@ class SessionForm extends React.Component {
   		this.props.processFormAsGuest({ user: {
         email: 'guest_user@email.com',
         password: 'user_password'} })
-        .then( () => this.redirectIfLoggedIn() );
+        .then( () => this.redirectIfLoggedIn());
     };
   }
 
   loginAsTrueUser() {
     return e => {
   		this.props.processFormAsTrueUser({ user: this.state })
-        .then( () => this.redirectIfLoggedIn() );
+        .then( () => this.redirectIfLoggedIn());
     };
 	}
 
@@ -77,31 +77,39 @@ class SessionForm extends React.Component {
 
         <div className="main-content">
           <div className="new-session-box">
+
             <h3 className="session-box-title">{this.props.formType}</h3>
+
+            <div id='error-msg'>{this.props.errors}</div>
+
     				<form id='session-form' onSubmit={ this.handleSubmit(asUser) }>
     					<input type={`${this.props.formType === 'login' ? 'hidden': 'text'}`}
     						value={this.state.f_name}
     						onChange={this.update("f_name")}
-                placeholder='f_name' />
+                placeholder='First Name'
+                autoComplete="off" />
 
               <input type={`${this.props.formType === 'login' ? 'hidden': 'text'}`}
     						value={this.state.l_name}
     						onChange={this.update("l_name")}
-                placeholder='l_name' />
+                placeholder='Last Name'
+                autoComplete="off" />
 
               <br/>
 
     					<input type="text"
     						value={this.state.email}
     						onChange={this.update("email")}
-                placeholder='email' />
+                autoComplete="off"
+                placeholder='Email' />
 
     					<br/>
 
     					<input type="password"
     						value={this.state.password}
     						onChange={this.update("password")}
-                placeholder='password' />
+                autoComplete="off"
+                placeholder='Password (min. 6 characters)' />
 
     					<br/>
 
@@ -124,7 +132,8 @@ class SessionForm extends React.Component {
 
               <div id="session-form-switch">
                 <Link
-                  to={this.props.formType === 'login'?'signup':'login'}>
+                  to={this.props.formType === 'login'?'signup':'login'}
+                  onClick={()=> this.setState({errors: ''})}>
 
                   {this.props.formType === 'login'
                     ? 'New user? '

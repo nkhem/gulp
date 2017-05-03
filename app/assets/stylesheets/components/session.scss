@@ -5,6 +5,8 @@
   padding: 40px;
   border-radius: 3px;
   color: $dark-plum;
+  border: 1px solid $light-plum-shadow;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.3);
 }
 
 .or-transition {
@@ -25,6 +27,10 @@
   width: 80%;
   height: 100%;
   padding: 8px 14px;
+}
+
+.new-session-box input::placeholder {
+  color: $light-plum;
 }
 
 .new-session-box form {

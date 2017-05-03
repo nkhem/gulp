@@ -48,6 +48,13 @@ class BusinessShow extends React.Component {
               <p>{biz.phone}</p>
               <p>{biz.address1}</p>
               <p>{biz.address2}</p>
+              <p>{biz.rating}</p>
+              <p>{biz.review_count}</p>
+              <p>{biz.address2}</p>
+
+              <div>
+
+              </div>
             </div>
           </div>
 
