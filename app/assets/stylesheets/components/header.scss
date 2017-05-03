@@ -34,10 +34,6 @@ i.fa-search {
   border-radius: 0px 3px 3px 0px;
 }
 
-input::placeholder {
-  color: $gray-plum;
-}
-
 i.fa-search:hover {
   color: $plum;
   transition: color 0.3s ease;
@@ -87,4 +83,8 @@ ul.dropdown-list {
   cursor: pointer;
   background-color: $white-plum;
   border-radius: 2px;
+}
+
+input::placeholder {
+  color: $gray-plum;
 }

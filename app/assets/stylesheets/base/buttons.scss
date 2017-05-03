@@ -1,4 +1,4 @@
-.gray-btn, .transparent-btn, .darkest-btn {
+.gray-btn, .transparent-btn, .darkest-btn, .submit-btn {
   padding: 7px 9px;
   margin: 3px;
   font-weight: bold;
@@ -38,4 +38,13 @@
 .darkest-btn:hover {
   background-color: $light-plum;
   border-color: $light-plum;
+}
+
+.submit-btn {
+  color: $light-plum;
+  background-color: $plum;
+}
+
+.submit-btn:hover {
+  background-color: $dark-plum;
 }

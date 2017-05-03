@@ -5,10 +5,33 @@
 }
 
 #new-session-box {
-  background-color: $opaque-gray;
+  background-color: $light-plum;
   position: absolute;
   top: 150px;
   right: 80px;
   padding: 40px;
   border-radius: 3px;
+  color: $dark-plum;
+}
+
+#new-session-btns div:hover {
+  color: $plum;
+  cursor: pointer;
+}
+
+#new-session-box input[type="text"], input[type="password"] {
+  background-color: $white-plum;
+  width: 100%;
+}
+
+#session-form-btns {
+  text-align: center;
+}
+
+#new-session-box input {
+  background-color: $white-plum;
+  width: 100%;
+  height: 100%;
+  padding: 8px 14px;
+  border-radius: 2px;
 }

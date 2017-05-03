@@ -52,7 +52,6 @@ class SessionForm extends React.Component {
 	}
 
   redirectIfLoggedIn(){
-    console.log(this);
     if(this.props.loggedIn && this.props.prevBiz.id){
       this.props.router.push(`/business/${this.props.prevBiz.id}`);
     } else if (this.props.loggedIn) {
@@ -76,7 +75,7 @@ class SessionForm extends React.Component {
           shouldDisplayLogo={ true }
           loggedIn={this.props.loggedIn} />
 
-        <div className='main-content'>
+        <div className="main-content">
           <div id="new-session-box">
             <h3>{this.props.formType}</h3>
     				<form onSubmit={ this.handleSubmit(asUser) } id="new-session-form">
@@ -107,18 +106,22 @@ class SessionForm extends React.Component {
 
     					<br/>
 
-    					<input type="submit" value={this.props.formType} />
+    					<input
+                className='submit-btn'
+                type="submit"
+                value={this.props.formType} />
     				</form>
 
             <div className="session-form-btns">
-              <form id="demo-mode-form" onSubmit={ this.handleSubmit(asGuest) }>
-                <input
-                  className="demo-mode-gray-btn"
-                  type="submit"
-                  value="Continue in demo mode" />
-              </form>
+              <div>
+                <form onSubmit={ this.handleSubmit(asGuest) }>
+                  <input
+                    type="submit"
+                    value="Continue in demo mode" />
+                </form>
+              </div>
 
-              <button className="session-form-switch transparent-btn">
+              <div>
                 <Link to={this.props.formType === 'login'
                   ? 'signup'
                   : 'login'}>
@@ -126,7 +129,11 @@ class SessionForm extends React.Component {
                     ? 'New user? Create an account.'
                     : 'Already have an account? Sign in' }
                 </Link>
-              </button>
+              </div>
+
+              <div onClick={()=> this.props.router.push("/")}>
+                back to main
+              </div>
             </div>
 
     			</div>

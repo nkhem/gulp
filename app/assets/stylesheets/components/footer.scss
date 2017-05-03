@@ -8,20 +8,6 @@
   flex-direction: column;
 }
 
-#main-footer {
-  position: absolute;
-  bottom: -50px;
-  left: 0;
-
-  width: 100%;
-  height: 50px;
-
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-
 #biz-index-footer {
   position: absolute;
   left: 0;
@@ -35,13 +21,6 @@
 
   position: absolute;
   margin: auto;
-}
-
-#main-footer i {
-  font-size: 50px;
-}
-#main-footer i:hover {
-  color:$dark-plum;
 }
 
 #biz-index-footer i {
