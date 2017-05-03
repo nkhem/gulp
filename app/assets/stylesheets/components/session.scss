@@ -1,7 +1,6 @@
 .new-session-box {
   background-color: $light-plum;
   position: absolute;
-  top: 150px;
   right: 80px;
   padding: 40px;
   border-radius: 3px;
@@ -23,14 +22,18 @@
 
 .new-session-box input {
   background-color: $white-plum;
-  width: 100%;
+  width: 80%;
   height: 100%;
   padding: 8px 14px;
 }
 
 .new-session-box form {
   text-align: center;
-  width: 100%
+  width: 100%;
+}
+
+#session-form {
+  margin-top: 8px;
 }
 
 .session-form-btn {

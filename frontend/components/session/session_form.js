@@ -78,7 +78,7 @@ class SessionForm extends React.Component {
         <div className="main-content">
           <div className="new-session-box">
             <h3 className="session-box-title">{this.props.formType}</h3>
-    				<form onSubmit={ this.handleSubmit(asUser) }>
+    				<form id='session-form' onSubmit={ this.handleSubmit(asUser) }>
     					<input type={`${this.props.formType === 'login' ? 'hidden': 'text'}`}
     						value={this.state.f_name}
     						onChange={this.update("f_name")}
