@@ -9,8 +9,12 @@
   border-radius: 5px;
   height: 270px;
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
+}
+
+.biz-show-img {
+  height: 270px;
+  border-radius: 3px;
 }
 
 .biz-show-info h3 {

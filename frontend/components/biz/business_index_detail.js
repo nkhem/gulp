@@ -18,7 +18,7 @@ class BusinessIndexDetail extends React.Component {
     const biz = this.props.business;
     return (
       <div id={`${biz.id}`} className="biz-index-detail" onClick={this.handleClick.bind(this)}>
-        <img src={`${biz.image_url}`} />
+        <img src={biz.image_url} />
         <div className="info-box">
 
           <div id='info-box-headline'>
