@@ -169,6 +169,7 @@ all_first_names.length.times do |i|
   User.create({
     f_name: all_first_names[i],
     l_name: all_last_names[i],
+    username: all_last_names[i],
     email: "#{all_first_names[i].downcase}_#{all_last_names[i].downcase}@email.com",
     password: "#{all_last_names[i].downcase}_password"
   })
