@@ -10,15 +10,12 @@ class SingleBizMap extends React.Component {
     const _mapOptions = {
       center: {lat: this.props.business.lat, lng: this.props.business.lng - 0.008},
       zoom: 15,
-      zoomControl: true,
-      scaleControl: true,
-      scrollwheel: false,
-      disableDoubleClickZoom: false
+      disableDefaultUI: true
     };
 
     this.map = new google.maps.Map(document.getElementById('single-biz-map'), _mapOptions);
     this.MarkerManager = new MarkerManager(this.map);
-    this.MarkerManager.addMarker(this.props.business);
+    this.MarkerManager.updateMarkers([this.props.business]);
   }
 
   render() {

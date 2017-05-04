@@ -7,10 +7,7 @@ import MarkerManager from './marker_manager';
 let _mapOptions = {
   center: {lat: 37.773972, lng: -122.431297  - 0.06},
   zoom: 12,
-  zoomControl: true,
-  scaleControl: true,
-  scrollwheel: false,
-  disableDoubleClickZoom: false
+  disableDefaultUI: true
 };
 
 class SearchMap extends React.Component {
