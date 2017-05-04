@@ -11,6 +11,7 @@ import { logout } from '../../actions/session_actions';
 import Header from '../header';
 import Footer from '../footer';
 import SingleBizMap from '../map/single_biz_map';
+import YelpSection from '../yelp/yelp_section';
 import ReviewSection from '../review/review_section';
 
 class BusinessShow extends React.Component {
@@ -84,6 +85,11 @@ class BusinessShow extends React.Component {
 
               </div>
             </div>
+            <YelpSection
+              rating={biz.rating}
+              reviewCount={biz.review_count}
+              yelpUrl={biz.yelp_url}
+               />
           </div>
 
           <ReviewSection
