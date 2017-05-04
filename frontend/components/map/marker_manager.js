@@ -57,6 +57,10 @@ export default class MarkerManager {
       infoWindow.close(this.map, marker);
     });
 
+    marker.addListener('click', () => {
+      this.props.router.replace(`/business/${this.props.business.id}`);
+    });
+
     const shouldAddIndexListeners = Boolean(document.getElementById(`${business.id}`));
     if (shouldAddIndexListeners) {
       document.getElementById(`${business.id}`)
