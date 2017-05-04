@@ -16,19 +16,25 @@ import ReviewSection from '../review/review_section';
 class BusinessShow extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      biz: {},
-      reviews: {}
-    };
+    this.biz = {};
+    this.reviews = [];
   }
 
   componentWillMount(){
     this.props.fetchBusiness(this.props.params.businessId)
     .then(res => {
+      console.log(res);
+      this.biz = res.business;
       this.setState({biz: res.business});
-      this.props.fetchReviews(res.business.id);
+      return this.props.fetchReviews(res.business.id);
     })
-    .then(res => this.setState({reviews: res.reviews}));
+    .then(res => {
+      console.log(res);
+      this.reviews = res.reviews;
+      this.setState({reviews: res.reviews});
+  });
+    console.log(this.biz);
+    console.log(this.reviews);
   }
 
   render() {
