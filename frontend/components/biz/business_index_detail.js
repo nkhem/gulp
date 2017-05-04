@@ -1,6 +1,8 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 
+import YelpSection from '../yelp/yelp_section';
+
 class BusinessIndexDetail extends React.Component {
   constructor(props) {
     super(props);
@@ -24,6 +26,13 @@ class BusinessIndexDetail extends React.Component {
           <p>{biz.address1}</p>
           <p>{biz.address2}</p>
         </div>
+
+        <YelpSection
+          className='biz-index-yelp'
+          rating={biz.rating}
+          yelpUrl={biz.yelp_url}
+           />
+
       </div>
     );
   }

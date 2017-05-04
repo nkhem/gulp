@@ -71,23 +71,16 @@ class BusinessShow extends React.Component {
           <SingleBizMap business={biz} />
 
           <div className="biz-show-info">
-            <h3>{biz.title}</h3>
             <div>
+              <h3>{biz.title}</h3>
               <p>{biz.price}</p>
               <p>{biz.phone}</p>
               <p>{biz.address1}</p>
               <p>{biz.address2}</p>
-              <p>{biz.rating}</p>
-              <p>{biz.review_count}</p>
-              <p>{biz.address2}</p>
-
-              <div>
-
-              </div>
             </div>
             <YelpSection
+              className='biz-show-yelp'
               rating={biz.rating}
-              reviewCount={biz.review_count}
               yelpUrl={biz.yelp_url}
                />
           </div>

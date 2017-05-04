@@ -1,0 +1,23 @@
+.biz-show-yelp{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.biz-index-yelp {
+
+}
+
+.yelp-logo {
+  height: 30px;
+}
+
+img.stars {
+  height: 25px;
+  margin: 6px auto;
+}
+
+.yelp-promo:hover {
+  font-size: 14px;
+  color: $plum;
+}

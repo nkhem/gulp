@@ -10,10 +10,10 @@ const _starsImg = {
   4:'http://res.cloudinary.com/dx0y3rkfs/image/upload/v1493927918/stars4_nfjet3.png',
   4.5:'http://res.cloudinary.com/dx0y3rkfs/image/upload/v1493927918/stars4.5_xuverj.png',
   5: 'http://res.cloudinary.com/dx0y3rkfs/image/upload/v1493927918/stars5_aht6hn.png',
-}
+};
 
 const Stars = (props) => (
-  <img src={`${_starsImg[props.rating]}`}></img>
+  <img className='stars' src={`${_starsImg[props.rating]}`}></img>
 );
 
 export default Stars;
