@@ -17,14 +17,18 @@ class BusinessShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      biz: {}
+      biz: {},
+      reviews: {}
     };
   }
 
   componentWillMount(){
     this.props.fetchBusiness(this.props.params.businessId)
-    .then(res => this.props.fetchReviews(res.business.id))
-    .then(res => console.log(res));
+    .then(res => {
+      this.setState({biz: res.business});
+      this.props.fetchReviews(res.business.id);
+    })
+    .then(res => this.setState({reviews: res.reviews}));
   }
 
   render() {
