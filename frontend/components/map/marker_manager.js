@@ -56,6 +56,16 @@ export default class MarkerManager {
     marker.addListener('mouseout', () => {
       infoWindow.close(this.map, marker);
     });
+
+    document.getElementById(`${business.id}`)
+      .addEventListener('mouseover', () => {
+        infoWindow.open(this.map, marker);
+      })
+
+    document.getElementById(`${business.id}`)
+      .addEventListener('mouseout', () => {
+        infoWindow.close(this.map, marker);
+      })
   }
 
   showMarker(business){
