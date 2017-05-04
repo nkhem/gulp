@@ -8,11 +8,10 @@
     "test": "test"
   },
   "engines": {
-    "node": "6.2.1",
+    "node": "v6.2.1",
     "npm": "4.4.4"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "webpack"
   },
   "repository": {
