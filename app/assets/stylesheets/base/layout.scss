@@ -9,7 +9,7 @@ body {
   font-family: $sans-serif;
 	width: 80%;
 	margin: 0 auto;
-	font-size: 12px;
+	font-size: 17px;
 }
 
 link {
@@ -17,12 +17,12 @@ link {
 }
 
 i {
-	font-size: 20px;
+	font-size: 32px;
 }
 
 .map{
-	width: 500px;
-	height: 500px;
+	width: 800px;
+	height: 800px;
 	float: left;
 	position: relative;
 }
@@ -32,15 +32,14 @@ i {
 }
 
 .gulp-logo {
-  font-size: 20px;
+  font-size: 38px;
   color: $white-plum;
   font-family: $sans-serif;
-  padding: 10px;
-	text-shadow: -3px 0 $dark-plum, 0 3px $dark-plum, 3px 0 $dark-plum, 0 -3px $dark-plum;
+  padding: 16px;
+	text-shadow: -5px 0 $dark-plum, 0 5px $dark-plum, 5px 0 $dark-plum, 0 -5px $dark-plum;
 }
 
 .gulp-logo:not(#main-gulp-logo):hover {
-  font-size: 20px;
   color: $light-plum;
 	transition: color 0.3s ease;
 }
@@ -49,17 +48,17 @@ i {
 	Header Rules
 */
 h1 {
-	font-size: 18px;
+	font-size: 30px;
 	font-weight: bold;
 }
 
 h2 {
-	font-size: 12px;
+	font-size: 18px;
 	font-weight: bold;
 }
 
 h3 {
-	font-size: 12px;
+	font-size: 18px;
 	font-weight: lighter;
 	text-transform: uppercase;
 }
@@ -67,9 +66,5 @@ h3 {
 @media all and (max-width: 1043px) {
 	.search, .sections {
 		display: none;
-	}
-
-	i.fa-search {
-		font-size: 18px;
 	}
 }

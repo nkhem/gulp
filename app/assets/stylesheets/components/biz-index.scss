@@ -1,14 +1,14 @@
 .biz-index {
   position: absolute;
 
-  width: 300px;
-  top: 60px;
-  left: 40px;
+  width: 500px;
+  top: 80px;
+  left: 55px;
 
-  border-radius: 3px;
+  border-radius: 5px;
 
-  margin-bottom: 20px;
-  padding: 20px 10px 85px 10px;
+  margin-bottom: 30px;
+  padding: 30px 16px 120px 16px;
   background-color: $white-plum;
   border: 1px solid $white-plum-shadow;
   box-shadow: 0 1px 1px rgba(0,0,0,0.3);
@@ -17,16 +17,16 @@
 
 .biz-index li {
   width: 100%;
-  height: 200px;
+  height: 350px;
   list-style: none;
-  padding-bottom: 10px;
+  padding-bottom: 16px;
   border: 1px solid black;
   display: block;
 }
 
 .biz-index-title, .session-box-title {
   color: $dark-plum;
-  font-weight: 100;
+  font-weight: bolder;
   text-transform: uppercase;
   text-align: center;
   border-bottom: 1px solid $dark-plum;
@@ -36,10 +36,10 @@
   background-color: $light-plum;
   border: 1px solid $light-plum-shadow;
   box-shadow: 0 1px 1px rgba(0,0,0,0.3);
-  border-radius: 2px;
-  padding: 10px;
-  margin: 20px 0px;
-  width: 280px;
+  border-radius: 3px;
+  padding: 16px;
+  margin: 32px 0;
+  width: 380px;
 }
 
 .biz-index-detail:hover{
@@ -55,7 +55,7 @@
 }
 
 .info-box{
-  padding: 20px;
+  padding: 35px;
   color: $dark-plum;
 }
 

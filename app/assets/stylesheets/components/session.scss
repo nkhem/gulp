@@ -1,10 +1,10 @@
 .new-session-box {
-  width: 300px;
+  width: 500px;
   background-color: $light-plum;
   position: absolute;
-  right: 100px;
-  padding: 20px;
-  border-radius: 3px;
+  right: 160px;
+  padding: 32px;
+  border-radius: 5px;
   color: $dark-plum;
   border: 1px solid $light-plum-shadow;
   box-shadow: 0 1px 1px rgba(0,0,0,0.3);
@@ -13,22 +13,23 @@
 .or-transition {
   text-align: center;
   color: $white-plum;
+  font-size: 12px;
 }
 
 .new-session-box input[type="text"] {
-  border-radius: 2px 2px 0 0;
+  border-radius: 3px 3px 0 0;
 }
 
 .new-session-box input[type="password"] {
-  border-radius: 0 0 2px 2px;
+  border-radius: 0 0 3px 3px;
 }
 
 .new-session-box input {
   background-color: $white-plum;
   width: 80%;
   height: 100%;
-  padding: 8px 14px;
-  font-size: 10px;
+  padding: 11px 20px;
+  font-size: 16px;
 }
 
 .new-session-box input::placeholder {
@@ -41,12 +42,12 @@
 }
 
 #session-form {
-  margin-top: 8px;
+  margin-top: 11px;
 }
 
 .session-form-btn {
   margin: 0;
-  margin-top: 3px;
+  margin-top: 5px;
 }
 
 #demo-btn {
@@ -55,8 +56,8 @@
 
 #back-to-main, #session-form-switch {
   color: $dark-plum;
-  font-size: 10px;
-  margin-top: 3px;
+  font-size: 16px;
+  margin-top: 5px;
   text-align: right;
 }
 
