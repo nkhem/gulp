@@ -4,10 +4,7 @@ https://github.com/appacademy/curriculum/blob/master/full-stack-project/proposal
 
 [On Heroku][heroku]
 
-[On Trello][trello]
-
-[heroku]: http://www.gulp.com/
-[trello]: https://trello.com/b/Bow3TM3k/gulp
+[heroku]: nkhem-gulp.herokuapp.com
 
 ## Minimum Viable Product
 
@@ -23,19 +20,6 @@ sufficient CSS styling:
 - Reviews/Ratings: CRUD capable
 - Navigation Page: central map with up to ten business location markers based on top search results
 - Production README
-
-## Design Docs
-* [View Wireframes][wireframes]
-* [React Components][components]
-* [API endpoints][api-endpoints]
-* [DB schema][schema]
-* [Sample State][sample-state]
-
-[wireframes]: ./wireframes
-[components]: ./component-hierarchy.md
-[sample-state]: ./sample-state.md
-[api-endpoints]: ./api-endpoints.md
-[schema]: ./schema.md
 
 ## Implementation Timeline
 
@@ -60,7 +44,16 @@ sufficient CSS styling:
 **Objective** To display list of businesses when user submits search term.
 
 ### Phase 3: Business Detail Page (1 day)
-**Objective** To display display business show page when user's search matches a business.
+**Objective** To display business show page when user's search matches a business name.
+
+### Phase 4: Reviews (2 days)
+**Objective** To display business reviews on business show page, and allow user to write reviews if they're logged in.
+
+### Phase 5: Maps (2 days)
+**Objective** To display a map on the search results page and the business show page, with information boxes that display business info on mouseover.
+
+### Phase 6: CSS (4 days)
+**Objective** To make things pretty.
 
 
 ### Bonus Features (TBD)

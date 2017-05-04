@@ -16,7 +16,8 @@ class SessionForm extends React.Component {
       f_name: '',
       l_name: '',
       email: '',
-      password: ''
+      password: '',
+      username: 'username'
     };
 
     this.redirectIfLoggedIn = this.redirectIfLoggedIn.bind(this);
@@ -50,7 +51,8 @@ class SessionForm extends React.Component {
         f_name: '',
         l_name: '',
         email: '',
-        password: ''
+        password: '',
+        username: 'username'
       });
     };
   }
