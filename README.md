@@ -1,6 +1,4 @@
-https://github.com/appacademy/curriculum/blob/master/full-stack-project/proposal/full-stack-project-proposal.md
-
-# gulp
+# Gulp
 
 [On Heroku][heroku]
 
@@ -37,22 +35,22 @@ sufficient CSS styling:
 * To create drink-related Categories, selected from [Yelp's category list]: https://www.yelp.com/developers/documentation/v2/category_list
 * To take real-world data from Yelp's Fusion API to generate Businesses, Reviews, and Photos based on the selected drink-related Categories, and attributing them to random Users
 
-### Phase 3: Search Bar (1 day)
+### Phase 4: Search Bar (1 day)
 **Objective** To render top search results into dropdown list and navigation pages as user types in a search term.
 
-### Phase 3: Business Search Results Page (1 day)
+### Phase 5: Business Search Results Page (1 day)
 **Objective** To display list of businesses when user submits search term.
 
-### Phase 3: Business Detail Page (1 day)
+### Phase 6: Business Detail Page (1 day)
 **Objective** To display business show page when user's search matches a business name.
 
-### Phase 4: Reviews (2 days)
+### Phase 7: Reviews (2 days)
 **Objective** To display business reviews on business show page, and allow user to write reviews if they're logged in.
 
-### Phase 5: Maps (2 days)
+### Phase 8: Maps (2 days)
 **Objective** To display a map on the search results page and the business show page, with information boxes that display business info on mouseover.
 
-### Phase 6: CSS (4 days)
+### Phase 9: CSS (4 days)
 **Objective** To make things pretty.
 
 

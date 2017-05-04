@@ -19,6 +19,7 @@ const SessionReducer = (state = nullUser, action) => {
         nullUser,
         { currentUser: action.currentUser }
       );
+      console.log(nextState);
       return nextState;
     case RECEIVE_ERRORS:
       nextState = Object.assign(
@@ -26,6 +27,7 @@ const SessionReducer = (state = nullUser, action) => {
         nullUser,
         { errors: action.errors }
       );
+      console.log(nextState);
       return nextState;
     case CLEAR_ERRORS:
       nextState = Object.assign(
