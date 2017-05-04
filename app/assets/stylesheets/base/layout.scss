@@ -50,17 +50,20 @@ i {
 h1 {
 	font-size: 30px;
 	font-weight: bold;
+	font-family: $garamond;
 }
 
 h2 {
 	font-size: 18px;
 	font-weight: bold;
+	font-family: $garamond;
 }
 
 h3 {
 	font-size: 18px;
 	font-weight: lighter;
 	text-transform: uppercase;
+	font-family: $garamond;
 }
 
 @media all and (max-width: 1043px) {
