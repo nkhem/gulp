@@ -25,27 +25,29 @@ class BusinessShow extends React.Component {
   componentWillMount(){
     this.props.fetchBusiness(this.props.params.businessId)
     .then(res => {
-      console.log(res);
       this.biz = res.business;
       this.setState({biz: res.business});
       return this.props.fetchReviews(res.business.id);
     })
     .then(res => {
-      console.log(res);
       this.reviews = res.reviews;
       this.setState({reviews: res.reviews});
-      console.log(this.state);
   });
   }
 
-  componentWillUpdate(nextProps, nextState) {
-    if (nextProps.params.businessId === `${this.state.biz.id}`) {
-      console.log('NEW ID!!!!!!!!!');
+  componentDidUpdate(nextProps, nextState) {
+    if (parseInt(nextProps.params.businessId) !== this.state.biz.id) {
+      this.props.fetchBusiness(this.props.params.businessId)
+      .then(res => {
+        this.biz = res.business;
+        this.setState({biz: res.business});
+        return this.props.fetchReviews(res.business.id);
+      })
+      .then(res => {
+        this.reviews = res.reviews;
+        this.setState({reviews: res.reviews});
+    });
     }
-    console.log('nextProps.params.businessId');
-    console.log(nextProps.params.businessId);
-    console.log('this.state.biz.id');
-    console.log(`${this.state.biz.id}`);
   }
 
   render() {

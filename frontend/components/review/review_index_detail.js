@@ -8,7 +8,7 @@ class ReviewIndexDetail extends React.Component {
     };
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.fetchUser(this.props.review.user_id)
       .then(res => this.setState({ user: res.user}));
   }
