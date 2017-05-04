@@ -53,10 +53,16 @@
 }
 
 .info-box{
-  padding: 35px;
   color: $dark-plum;
 }
 
 .info-box h3{
   border-bottom: 1px solid $dark-plum;
+}
+
+#info-box-headline {
+  margin-top: 16px;
+  display:flex;
+  justify-content: space-between;
+
 }

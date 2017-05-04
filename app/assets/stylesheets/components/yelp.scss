@@ -4,17 +4,16 @@
   align-items: center;
 }
 
-.biz-index-yelp {
-
+.biz-index-yelp .yelp-logo {
+  display: none;
 }
 
 .yelp-logo {
-  height: 30px;
+  height: 40px;
 }
 
 img.stars {
   height: 25px;
-  margin: 6px auto;
 }
 
 .yelp-promo:hover {

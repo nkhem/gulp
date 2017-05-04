@@ -18,20 +18,24 @@ class BusinessIndexDetail extends React.Component {
     const biz = this.props.business;
     return (
       <div id={`${biz.id}`} className="biz-index-detail" onClick={this.handleClick.bind(this)}>
-        <img src={`${biz.image_url}`} width={100} />
+        <img src={`${biz.image_url}`} />
         <div className="info-box">
-          <h3>{biz.title}</h3>
+
+          <div id='info-box-headline'>
+            <h3>{biz.title}</h3>
+            <YelpSection
+            className='biz-index-yelp'
+            rating={biz.rating}
+            yelpUrl={biz.yelp_url}
+            />
+          </div>
+
           <p>{biz.price}</p>
           <p>{biz.phone}</p>
           <p>{biz.address1}</p>
           <p>{biz.address2}</p>
         </div>
 
-        <YelpSection
-          className='biz-index-yelp'
-          rating={biz.rating}
-          yelpUrl={biz.yelp_url}
-           />
 
       </div>
     );
