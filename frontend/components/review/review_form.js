@@ -50,7 +50,7 @@ class ReviewForm extends React.Component {
     let isLoggedIn = this.props.currentUser;
     return (
       <div>
-        <form id="new-review-form" onSubmit={ e => this.handleSubmit(e)}>
+        <form className="review-form" onSubmit={ e => this.handleSubmit(e)}>
 
           <input
             type='hidden'

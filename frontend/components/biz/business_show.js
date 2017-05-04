@@ -16,8 +16,10 @@ import ReviewSection from '../review/review_section';
 class BusinessShow extends React.Component {
   constructor(props) {
     super(props);
-    this.biz = {};
-    this.reviews = [];
+    this.state = {
+      biz: {},
+      reviews: []
+    };
   }
 
   componentWillMount(){
@@ -32,9 +34,18 @@ class BusinessShow extends React.Component {
       console.log(res);
       this.reviews = res.reviews;
       this.setState({reviews: res.reviews});
+      console.log(this.state);
   });
-    console.log(this.biz);
-    console.log(this.reviews);
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    if (nextProps.params.businessId === `${this.state.biz.id}`) {
+      console.log('NEW ID!!!!!!!!!');
+    }
+    console.log('nextProps.params.businessId');
+    console.log(nextProps.params.businessId);
+    console.log('this.state.biz.id');
+    console.log(`${this.state.biz.id}`);
   }
 
   render() {

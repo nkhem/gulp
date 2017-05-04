@@ -7,12 +7,13 @@
 #search-map {
   height: 100%;
   position: fixed !important;
-  top: 0px;
-  left: 0px;
+  top: 0;
+  left: 0;
 }
 
 #single-biz-map {
-  height: 300px;
+  top: 50px;
+  height: 250px;
   position: absolute;
 }
 
