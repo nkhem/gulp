@@ -14,17 +14,22 @@ import SingleBizMap from '../map/single_biz_map';
 import ReviewSection from '../review/review_section';
 
 class BusinessShow extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      biz: {}
+    };
+  }
 
   componentWillMount(){
     this.props.fetchBusiness(this.props.params.businessId)
-    .then(res => this.props.fetchReviews(res.business.id));
+    .then(res => this.props.fetchReviews(res.business.id))
+    .then(res => console.log(res));
   }
 
   render() {
     let biz = this.props.business;
-    console.log(biz);
     if (biz.id && biz.reviews) {
-
       return (
         <div id='biz-show' key={biz.id}>
 

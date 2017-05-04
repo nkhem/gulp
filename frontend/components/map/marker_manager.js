@@ -57,15 +57,18 @@ export default class MarkerManager {
       infoWindow.close(this.map, marker);
     });
 
-    document.getElementById(`${business.id}`)
+    const shouldAddIndexListeners = Boolean(document.getElementById(`${business.id}`));
+    if (shouldAddIndexListeners) {
+      document.getElementById(`${business.id}`)
       .addEventListener('mouseover', () => {
         infoWindow.open(this.map, marker);
-      })
+      });
 
-    document.getElementById(`${business.id}`)
+      document.getElementById(`${business.id}`)
       .addEventListener('mouseout', () => {
         infoWindow.close(this.map, marker);
-      })
+      });
+    }
   }
 
   showMarker(business){
