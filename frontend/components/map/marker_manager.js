@@ -20,6 +20,10 @@ export default class MarkerManager {
     }
   }
 
+  setMarker(business){
+    this.updateMarkers([business]);
+  }
+
   createMarker(business){
     this.markers[business.id] = new google.maps.Marker({
       position: {lat: business.lat, lng: business.lng},
@@ -57,8 +61,13 @@ export default class MarkerManager {
     });
 
     const marker = this.markers[business.id];
-    marker.addListener('click', function(){
+
+    marker.addListener('mouseover', () => {
       infoWindow.open(this.map, marker);
+    });
+
+    marker.addListener('mouseout', () => {
+      infoWindow.close(this.map, marker);
     });
   }
 

@@ -9,18 +9,17 @@ class SingleBizMap extends React.Component {
   componentDidMount() {
     const _mapOptions = {
       center: {lat: this.props.business.lat, lng: this.props.business.lng - 0.008},
-      zoom: 15,
-      disableDefaultUI: true
+      zoom: 15
     };
-
-    this.map = new google.maps.Map(document.getElementById('single-biz-map'), _mapOptions);
+    const mapNode = ReactDOM.findDOMNode(this.refs.map);
+    this.map = new google.maps.Map(mapNode, _mapOptions);
     this.MarkerManager = new MarkerManager(this.map);
-    this.MarkerManager.updateMarkers([this.props.business]);
+    this.MarkerManager.setMarker(this.props.business);
   }
 
   render() {
     return (
-      <div className='map' id='single-biz-map' />
+      <div ref='map' className='map' id='single-biz-map' />
     );
   }
 }

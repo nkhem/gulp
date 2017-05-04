@@ -6,8 +6,7 @@ import MarkerManager from './marker_manager';
 
 let _mapOptions = {
   center: {lat: 37.773972, lng: -122.431297  - 0.06},
-  zoom: 12,
-  disableDefaultUI: true
+  zoom: 12
 };
 
 class SearchMap extends React.Component {
@@ -17,7 +16,8 @@ class SearchMap extends React.Component {
   }
 
   componentDidMount() {
-    this.map = new google.maps.Map(document.getElementById('search-map'), _mapOptions);
+    const mapNode = ReactDOM.findDOMNode(this.refs.map);
+    this.map = new google.maps.Map(mapNode, _mapOptions);
     this.markerManager = new MarkerManager(this.map);
     this.updateMarkers(this.props.businesses);
   }
@@ -32,7 +32,7 @@ class SearchMap extends React.Component {
 
   render() {
     return (
-      <div className='map' id='search-map' />
+      <div ref='map' className='map' id='search-map' />
     );
   }
 }
