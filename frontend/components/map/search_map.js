@@ -5,8 +5,8 @@ import { withRouter } from 'react-router';
 import MarkerManager from './marker_manager';
 
 let _mapOptions = {
-  center: {lat: 37.773972, lng: -122.431297  - 0.06},
-  zoom: 12
+  center: {lat: 37.773972 + 0.01, lng: -122.431297  - 0.05},
+  zoom: 13
 };
 
 class SearchMap extends React.Component {
