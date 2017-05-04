@@ -1,10 +1,10 @@
-.biz-show-info {
+.biz-show-info-container {
   position: absolute;
   top: 100px;
   left: 60px;
   color: #280A20;
   background-color: #D88F93;
-  padding: 18px;
+  padding: 12px;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
   border-radius: 5px;
   height: 270px;
@@ -17,11 +17,14 @@
   border-radius: 3px;
 }
 
-.biz-show-info h3 {
+.biz-show-info-container h3 {
   border-bottom: 1px solid $dark-plum;
 }
 
-.biz-show-info div {
+.biz-show-info-container div {
   padding-top: 6px;
+}
 
+.biz-show-info {
+  margin: auto 15px auto 25px;
 }
