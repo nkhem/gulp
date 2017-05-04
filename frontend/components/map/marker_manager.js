@@ -1,6 +1,7 @@
 export default class MarkerManager {
-  constructor(map) {
+  constructor(map, router) {
     this.map = map;
+    this.router = router;
     this.markers = {};
   }
 
@@ -58,7 +59,7 @@ export default class MarkerManager {
     });
 
     marker.addListener('click', () => {
-      this.props.router.replace(`/business/${this.props.business.id}`);
+      this.router.replace(`/business/${business.id}`);
     });
 
     const shouldAddIndexListeners = Boolean(document.getElementById(`${business.id}`));

@@ -18,7 +18,7 @@ class SearchMap extends React.Component {
   componentDidMount() {
     const mapNode = ReactDOM.findDOMNode(this.refs.map);
     this.map = new google.maps.Map(mapNode, _mapOptions);
-    this.markerManager = new MarkerManager(this.map);
+    this.markerManager = new MarkerManager(this.map, this.props.router);
     this.updateMarkers(this.props.businesses);
   }
 
