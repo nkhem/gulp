@@ -23,5 +23,15 @@ class Api::ReviewsController < ApplicationController
   end
 
   def destroy
+    @review = Review.find(params[:reviewId])
+
+    if @review && @review.user_id == current_user.id
+      @review.destroy
+    else
+      render(
+        json: ["User not authorized to delete this review or review not found"],
+        status: 404
+      )
+    end
   end
 end
