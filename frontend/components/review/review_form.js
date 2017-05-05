@@ -61,7 +61,37 @@ class ReviewForm extends React.Component {
     });
   }
 
-  handleRating(){
+  renderRatingInput(isLoggedIn){
+    if (isLoggedIn) {
+      return (
+        <ul
+          className="rating-input"
+          onMouseOut={this.handleRatingMouseOut}>
+          <li id="star-1"
+            onMouseOver={this.handleRatingMouseOver}
+            onClick={this.handleRatingClick}>1</li>
+          <li id="star-2"
+            onMouseOver={this.handleRatingMouseOver}
+            onMouseOut={this.handleRatingOMouseut}
+            onClick={this.handleRatingClick}>2</li>
+          <li id="star-3"
+            onMouseOver={this.handleRatingMouseOver}
+            onClick={this.handleRatingClick}>3</li>
+          <li id="star-4"
+            onMouseOver={this.handleRatingMouseOver}
+            onClick={this.handleRatingClick}>4</li>
+          <li id="star-5"
+            onMouseOver={this.handleRatingMouseOver}
+            onClick={this.handleRatingClick}>5</li>
+        </ul>
+      );
+    } else {
+      return (
+        <div>
+          Wanna write a review? {<Link to="login">Log in</Link>} or {<Link to="signup">sign up</Link>}
+        </div>
+      );
+    }
 
   }
 
@@ -95,28 +125,8 @@ class ReviewForm extends React.Component {
             />
 
           <div>
-          <img id='stars-img-form' src={this.starsImgUrl}></img>
-
-          <ul
-            className="rating-input"
-            onMouseOut={this.handleRatingMouseOut}>
-            <li id="star-1"
-              onMouseOver={this.handleRatingMouseOver}
-              onClick={this.handleRatingClick}>1</li>
-            <li id="star-2"
-              onMouseOver={this.handleRatingMouseOver}
-              onMouseOut={this.handleRatingOMouseut}
-              onClick={this.handleRatingClick}>2</li>
-            <li id="star-3"
-              onMouseOver={this.handleRatingMouseOver}
-              onClick={this.handleRatingClick}>3</li>
-            <li id="star-4"
-              onMouseOver={this.handleRatingMouseOver}
-              onClick={this.handleRatingClick}>4</li>
-            <li id="star-5"
-              onMouseOver={this.handleRatingMouseOver}
-              onClick={this.handleRatingClick}>5</li>
-          </ul>
+            <img id='stars-img-form' src={this.starsImgUrl}></img>
+            {this.renderRatingInput(isLoggedIn)}
           </div>
 
           <br/>
