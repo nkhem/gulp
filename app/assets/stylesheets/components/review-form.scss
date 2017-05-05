@@ -23,10 +23,6 @@
   top: 0;
 }
 
-#rating-mouseover-numbers {
-  cursor: pointer;
-}
-
 .review-form-end {
   position: absolute;
   top:100px;
@@ -36,10 +32,19 @@
   color: $plum;
 }
 
-.rating-mouseover-numbers {
-  border: 1px solid black;
-  width: 163px;
+#rating-mouseover-numbers {
+  top: -2px;
+  left:  -2px;
+  position: absolute;
+  cursor: pointer;
+  width: 165px;
+  height: 30px;
   display: flex;
   justify-content: space-around;
   opacity: 0;
+}
+
+#rating-mouseover-numbers span {
+  border: 1px solid black;
+  width: 33px;
 }
