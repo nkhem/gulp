@@ -2,6 +2,8 @@ import React from 'react';
 import { starsImgUrl } from '../yelp/stars';
 import _ from 'lodash';
 
+import ReviewForm from './review_form';
+
 class ReviewIndexDetail extends React.Component {
   constructor(props) {
     super(props);
@@ -10,6 +12,7 @@ class ReviewIndexDetail extends React.Component {
     };
     this.renderEditBtns = this.renderEditBtns.bind(this);
     this.hideIndexDetail = this.hideIndexDetail.bind(this);
+    this.showReviewEditForm = this.showReviewEditForm.bind(this);
   }
 
   componentWillMount() {
@@ -24,7 +27,10 @@ class ReviewIndexDetail extends React.Component {
           <div
             id='review-delete-btn'
             className='gray-btn'
-            onClick={() => this.hideIndexDetail()}>
+            onClick={() => {
+              this.hideIndexDetail();
+              this.showReviewEditForm();
+            }}>
             edit
           </div>
           <div
@@ -38,12 +44,12 @@ class ReviewIndexDetail extends React.Component {
     }
   }
 
+  showReviewEditForm(){
+    document.getElementById(`review-edit-form-${this.props.review.id}`).classList.remove('hidden');
+  }
+
   hideIndexDetail(){
-    let oldNode = document.getElementById(`review-index-detail-original-${this.props.review.id}`);
-    let newNode = document.createElement("span");
-    newNode.innerHTML = 'Whoops! This feature is in the works!';
-    document.getElementById(`review-index-detail-${this.props.review.id}`)
-      .replaceChild(newNode, oldNode);
+    document.getElementById(`review-index-detail-original-${this.props.review.id}`).classList.add('hidden');
   }
 
   render() {
@@ -54,6 +60,7 @@ class ReviewIndexDetail extends React.Component {
       : `${this.state.user.f_name} ${this.state.user.l_name.slice(0,1)}`;
       return (
         <div id={`review-index-detail-${this.props.review.id}`}>
+          <ReviewForm className='hidden' id={`review-edit-form-${this.props.review.id}`}/>
           <li
             id={`review-index-detail-original-${this.props.review.id}`}
             className="review-index-detail">

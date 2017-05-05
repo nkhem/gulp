@@ -111,7 +111,7 @@ class ReviewForm extends React.Component {
   render() {
     let isLoggedIn = this.props.currentUser;
     return (
-      <div className="review-form-section">
+      <div className={`review-form-section ${this.props.className}`} id={this.props.id}>
         <ErrorMsgs id='review-errors' errors={this.props.errors} />
 
         <div className="review-form">
