@@ -10,6 +10,7 @@ class ReviewForm extends React.Component {
     super(props);
 
     this.starsImgUrl = starsImgUrl[0];
+    this.prevReview = null;
 
     this.state = this.props.currentReview;
 
@@ -21,9 +22,10 @@ class ReviewForm extends React.Component {
   }
 
 componentWillUpdate(nextProps, nextState) {
-  if (!_.isEqual(nextProps.currentReview.content, this.state.content) &&
-      !_.isEqual(nextProps.currentReview.rating, this.state.rating)) {
+  if (!_.isEqual(nextProps.currentReview.id, this.state.id)) {
     this.setState(nextProps.currentReview);
+    this.starsImgUrl = starsImgUrl[nextProps.currentReview.rating];
+    this.prevReview = nextProps.currentReview;
   }
 }
 
@@ -94,6 +96,11 @@ componentWillUpdate(nextProps, nextState) {
 
     this.props.createReview(this.state)
       .then( () => {
+        if(this.prevReviewId) {
+          this.props.deleteReview(this.prevReview);
+          this.prevReviewId = null;
+        }
+
         this.starsImgUrl = starsImgUrl[0];
         this.props.clearReviewErrors();
         this.setState({
