@@ -137,7 +137,7 @@ const mapDispatchToProps = (dispatch, state) => {
     fetchUser: userId => dispatch(fetchUser(userId)),
     createReview: userId => dispatch(createReview(userId)),
     clearReviewErrors: () => dispatch(clearReviewErrors()),
-    deleteReview: reviewId => dispatch(deleteReview(reviewId))
+    deleteReview: review => dispatch(deleteReview(review))
   };
 };
 

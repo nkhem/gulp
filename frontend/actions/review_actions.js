@@ -17,9 +17,9 @@ export const createReview = review => dispatch => {
     });
 };
 
-export const deleteReview = reviewId => dispatch => {
-  return ReviewApiUtil.deleteReview(reviewId)
-    .then( () => ReviewApiUtil.fetchReviews(reviewId))
+export const deleteReview = review => dispatch => {
+  return ReviewApiUtil.deleteReview(review)
+    .then( () => ReviewApiUtil.fetchReviews(review.business_id))
     .then(reviews => dispatch(receiveReviews(reviews)));
 };
 

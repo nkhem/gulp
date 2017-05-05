@@ -14,10 +14,10 @@ export const createReview = review => {
   });
 };
 
-export const deleteReview = reviewId => {
+export const deleteReview = review => {
   return $.ajax({
       method: 'DELETE',
-      url: `/api/reviews/${reviewId}`,
-      data: { reviewId: reviewId },
+      url: `/api/reviews/${review.id}`,
+      data: { reviewId: review.id },
   });
 };
