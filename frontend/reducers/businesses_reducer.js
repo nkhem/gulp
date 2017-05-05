@@ -1,11 +1,14 @@
 import {
   RECEIVE_BUSINESSES,
   RECEIVE_BUSINESS } from '../actions/business_actions';
-import { RECEIVE_REVIEWS, RECEIVE_REVIEW } from '../actions/review_actions';
+import { RECEIVE_REVIEWS,
+  RECEIVE_REVIEW,
+  RECEIVE_ERRORS } from '../actions/review_actions';
 
 const initialState = {
   featured: {},
-  list: []
+  list: [],
+  errors: []
 };
 
 const BusinessesReducer = (state = initialState, action) => {
@@ -44,12 +47,11 @@ const BusinessesReducer = (state = initialState, action) => {
       );
       return nextState;
 
-    case RECEIVE_REVIEW:
-
+    case RECEIVE_ERRORS:
       nextState = Object.assign(
         {},
         state,
-        nextFeatured
+        { errors: action.errors }
       );
       return nextState;
 

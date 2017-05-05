@@ -5,20 +5,20 @@ class Api::ReviewsController < ApplicationController
   end
 
   def create
-    @review = Review.new(
+
+    begin
+      @review = Review.create!(
       business_id: params[:review][:businessId],
       user_id: params[:review][:userId],
       content: params[:review][:content],
       rating: params[:review][:rating]
-    )
-
-    if @review.save
-      render :index
-    else
-      render(
-        json: ['Invalid review'],
-        status: 401
       )
+    rescue ActiveRecord::RecordInvalid => invalid
+      render json: invalid.record.errors.full_messages, status: 404
+    end
+
+    if @review
+      render :index
     end
   end
 
