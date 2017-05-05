@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import _ from 'lodash';
 
 import { starsImgUrl } from '../yelp/stars';
 import ErrorMsgs from '../error_msgs';
@@ -18,6 +19,13 @@ class ReviewForm extends React.Component {
     this.handleRatingMouseOut = this.handleRatingMouseOut.bind(this);
     this.handleRatingClick = this.handleRatingClick.bind(this);
   }
+
+componentWillUpdate(nextProps, nextState) {
+  if (!_.isEqual(nextProps.currentReview.content, this.state.content) &&
+      !_.isEqual(nextProps.currentReview.rating, this.state.rating)) {
+    this.setState(nextProps.currentReview);
+  }
+}
 
   handleRatingMouseOver(e){
     const num = e.target.innerHTML;
@@ -104,8 +112,6 @@ class ReviewForm extends React.Component {
   }
 
   render() {
-    console.log(this.props);
-    console.log(this.state);
     let isLoggedIn = this.props.currentUser;
     if (this.state) {
       return (
