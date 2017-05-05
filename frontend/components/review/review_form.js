@@ -25,7 +25,6 @@ class ReviewForm extends React.Component {
 
   handleRatingMouseOver(e){
     const num = e.target.innerHTML;
-    console.log('mouseover:', num);
     document.getElementById('stars-img-form').src = starsImgUrl[num];
   }
 

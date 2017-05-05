@@ -82,7 +82,7 @@ class BusinessShow extends React.Component {
                 <p>{biz.address1}</p>
                 <p>{biz.address2}</p>
               </div>
-              
+
               <YelpSection
                 className='biz-show-yelp'
                 rating={biz.rating}

@@ -60,7 +60,7 @@ class BusinessIndex extends React.Component {
   }
 
   renderSearchTitle(){
-    let cat = this.props.searchResults.categoryTitles[0];
+    let cat = this.state.businessesList[0].categories[0].title;
 
     if (cat) {
       return (

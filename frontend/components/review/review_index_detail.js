@@ -20,7 +20,6 @@ class ReviewIndexDetail extends React.Component {
       let userDisplayName = this.state.user.f_name === 'Guest'
       ? 'Guest User'
       : `${this.state.user.f_name} ${this.state.user.l_name.slice(0,1)}`;
-      console.log(this.props.review.rating);
       return (
         <li className="review-index-detail">
           <p>{`${userDisplayName}:`}</p>
