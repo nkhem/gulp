@@ -1,9 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router';
 
+import { starsImgUrl } from '../yelp/stars';
+
 class ReviewForm extends React.Component {
   constructor(props) {
     super(props);
+
+    this.starsImgUrl = starsImgUrl[0];
 
     this.state = {
       businessId: props.businessId,
@@ -14,6 +18,29 @@ class ReviewForm extends React.Component {
 
     this.renderSubmitBtn = this.renderSubmitBtn.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleRatingMouseOver = this.handleRatingMouseOver.bind(this);
+    this.handleRatingMouseOut = this.handleRatingMouseOut.bind(this);
+    this.handleRatingClick = this.handleRatingClick.bind(this);
+  }
+
+  handleRatingMouseOver(e){
+    const num = e.target.id.slice(-1);
+    console.log('mouseover:', num);
+    document.getElementById('stars-img-form').src = starsImgUrl[num];
+  }
+
+  handleRatingMouseOut(e){
+    if (this.starsImgUrl === starsImgUrl[0]) {
+      document.getElementById('stars-img-form').src = starsImgUrl[0];
+    } else {
+      document.getElementById('stars-img-form').src = this.starsImgUrl;
+    }
+  }
+
+  handleRatingClick(e){
+    const num = e.target.id.slice(-1);
+    this.setState({ rating: num });
+    this.starsImgUrl = starsImgUrl[num];
   }
 
   renderSubmitBtn(isLoggedIn){
@@ -32,6 +59,10 @@ class ReviewForm extends React.Component {
     return e => this.setState({
       [field]: e.currentTarget.value
     });
+  }
+
+  handleRating(){
+
   }
 
   handleSubmit(e){
@@ -63,14 +94,30 @@ class ReviewForm extends React.Component {
             value={this.state.businessId}
             />
 
-          <br/>
+          <div>
+          <img id='stars-img-form' src={this.starsImgUrl}></img>
 
-          <input
-            type='text'
-            value={this.state.rating}
-            onChange={this.update("rating")}
-            placeholder='rating'
-            disabled={isLoggedIn ? false : 'disabled'} />
+          <ul
+            className="rating-input"
+            onMouseOut={this.handleRatingMouseOut}>
+            <li id="star-1"
+              onMouseOver={this.handleRatingMouseOver}
+              onClick={this.handleRatingClick}>1</li>
+            <li id="star-2"
+              onMouseOver={this.handleRatingMouseOver}
+              onMouseOut={this.handleRatingOMouseut}
+              onClick={this.handleRatingClick}>2</li>
+            <li id="star-3"
+              onMouseOver={this.handleRatingMouseOver}
+              onClick={this.handleRatingClick}>3</li>
+            <li id="star-4"
+              onMouseOver={this.handleRatingMouseOver}
+              onClick={this.handleRatingClick}>4</li>
+            <li id="star-5"
+              onMouseOver={this.handleRatingMouseOver}
+              onClick={this.handleRatingClick}>5</li>
+          </ul>
+          </div>
 
           <br/>
 
@@ -95,3 +142,10 @@ class ReviewForm extends React.Component {
 }
 
 export default ReviewForm;
+
+// <input
+//   type='text'
+//   value={this.state.rating}
+//   onChange={this.update("rating")}
+//   placeholder='rating'
+//   disabled={isLoggedIn ? false : 'disabled'} />
