@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import _ from 'lodash';
 
 import { createReview } from '../../actions/review_actions';
 import { fetchBusinessesByCategory, fetchBusiness } from '../../actions/business_actions';
@@ -24,7 +25,8 @@ class BusinessShow extends React.Component {
   }
 
   componentWillMount(){
-    console.log('mounting');
+    if (this.props.errors.length > 0) this.props.clearReviewErrors();
+    
     this.props.fetchBusiness(this.props.params.businessId)
     .then(res => {
       this.biz = res.business;
@@ -38,8 +40,10 @@ class BusinessShow extends React.Component {
   }
 
   componentDidUpdate(nextProps, nextState) {
-    console.log('updating');
-    if (parseInt(nextProps.params.businessId) !== this.state.biz.id) {
+    if (!_.isEqual(parseInt(nextProps.params.businessId), this.state.biz.id)) {
+
+      if (this.props.errors.length > 0) this.props.clearReviewErrors();
+
       this.props.fetchBusiness(this.props.params.businessId)
       .then(res => {
         this.biz = res.business;
@@ -52,6 +56,8 @@ class BusinessShow extends React.Component {
     });
     }
   }
+
+
 
   render() {
     let biz = this.props.business;
@@ -130,7 +136,7 @@ const mapDispatchToProps = (dispatch, state) => {
     fetchReviews: bizId => dispatch(fetchReviews(bizId)),
     fetchUser: userId => dispatch(fetchUser(userId)),
     createReview: userId => dispatch(createReview(userId)),
-    clearReviewErrors: userId => dispatch(clearReviewErrors())
+    clearReviewErrors: () => dispatch(clearReviewErrors())
   };
 };
 

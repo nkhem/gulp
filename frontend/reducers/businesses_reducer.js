@@ -58,12 +58,12 @@ const BusinessesReducer = (state = initialState, action) => {
       return nextState;
 
     case CLEAR_REVIEW_ERRORS:
+    console.log('clearing review errors');
       nextState = Object.assign(
         {},
         state,
         { errors: [] }
       );
-
       return nextState;
 
     default:
