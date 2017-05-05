@@ -39,7 +39,11 @@ class ReviewIndexDetail extends React.Component {
   }
 
   hideIndexDetail(){
-    document.getElementById(`review-index-detail-${this.props.review.id}`).classList.add('hidden');
+    let oldNode = document.getElementById(`review-index-detail-original-${this.props.review.id}`);
+    let newNode = document.createElement("span");
+    newNode.innerHTML = 'Whoops! This feature is in the works!';
+    document.getElementById(`review-index-detail-${this.props.review.id}`)
+      .replaceChild(newNode, oldNode);
   }
 
   render() {
@@ -49,12 +53,16 @@ class ReviewIndexDetail extends React.Component {
       ? 'Guest User'
       : `${this.state.user.f_name} ${this.state.user.l_name.slice(0,1)}`;
       return (
-        <li className="review-index-detail" id={`review-index-detail-${this.props.review.id}`}>
-          <p>{`${userDisplayName}:`}</p>
-          <img src={starsImgUrl[this.props.review.rating]} />
-          <p>{this.props.review.content}</p>
-          {this.renderEditBtns()}
-        </li>
+        <div id={`review-index-detail-${this.props.review.id}`}>
+          <li
+            id={`review-index-detail-original-${this.props.review.id}`}
+            className="review-index-detail">
+            <p>{`${userDisplayName}:`}</p>
+            <img src={starsImgUrl[this.props.review.rating]} />
+            <p>{this.props.review.content}</p>
+            {this.renderEditBtns()}
+          </li>
+        </div>
       );
     } else {
       return null;
