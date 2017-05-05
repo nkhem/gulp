@@ -96,7 +96,8 @@ class BusinessShow extends React.Component {
             businessId={this.props.business.id}
             currentUser={this.props.currentUser}
             fetchUser={this.props.fetchUser}
-            createReview={this.props.createReview}/>
+            createReview={this.props.createReview}
+            errors={this.props.errors}/>
 
           <Footer id="biz-show-footer"/>
         </div>
@@ -112,7 +113,8 @@ const mapStateToProps = state => {
     loggedIn: Boolean(state.session.currentUser),
     currentUser: state.session.currentUser,
     business: state.businesses.featured,
-    searchResults: state.searchResults
+    searchResults: state.searchResults,
+    errors: state.businesses.errors
   };
 };
 

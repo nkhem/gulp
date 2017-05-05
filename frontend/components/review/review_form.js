@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 
 import { starsImgUrl } from '../yelp/stars';
+import ErrorMsgs from '../error_msgs';
 
 class ReviewForm extends React.Component {
   constructor(props) {
@@ -107,8 +108,9 @@ class ReviewForm extends React.Component {
     let isLoggedIn = this.props.currentUser;
     return (
       <div className="review-form">
-        <form onSubmit={ e => this.handleSubmit(e)}>
+        <ErrorMsgs errors={this.props.errors} />
 
+        <form onSubmit={ e => this.handleSubmit(e)}>
           <input
             type='hidden'
             value={this.state.userId}
@@ -149,10 +151,3 @@ class ReviewForm extends React.Component {
 }
 
 export default ReviewForm;
-
-// <input
-//   type='text'
-//   value={this.state.rating}
-//   onChange={this.update("rating")}
-//   placeholder='rating'
-//   disabled={isLoggedIn ? false : 'disabled'} />

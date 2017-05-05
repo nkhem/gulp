@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
-import _ from 'lodash';
 
 import { login, signup, clearErrors } from '../../actions/session_actions';
 
 import Header from '../header';
 import Footer from '../footer';
+import ErrorMsgs from '../error_msgs';
 
 class SessionForm extends React.Component {
   constructor(props){
@@ -21,25 +21,6 @@ class SessionForm extends React.Component {
     };
 
     this.redirectIfLoggedIn = this.redirectIfLoggedIn.bind(this);
-    this.renderErrors = this.renderErrors.bind(this);
-  }
-
-  renderErrors(){
-    if (this.props.errors.length === 1) {
-      return (
-        <div className='error-msgs'>
-          {this.props.errors[0]}
-        </div>
-      );
-    } else if (this.props.errors.length > 1) {
-      return (
-        <ul className='error-msgs'>
-          {_.map(this.props.errors, err => <li key={err}>{err}</li>)}
-        </ul>
-      );
-    } else {
-      return null;
-    }
   }
 
   handleSubmit(asGuest){
@@ -110,7 +91,7 @@ class SessionForm extends React.Component {
 
             <h3 className="session-box-title">{this.props.formType}</h3>
 
-            {this.renderErrors()}
+            <ErrorMsgs errors={this.props.errors} />
 
     				<form id='session-form' onSubmit={ this.handleSubmit(asUser) }>
     					<input type={`${this.props.formType === 'login' ? 'hidden': 'text'}`}
