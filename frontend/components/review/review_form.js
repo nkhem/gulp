@@ -91,6 +91,7 @@ class ReviewForm extends React.Component {
 
     this.props.createReview(this.state)
       .then( () => {
+        this.starsImgUrl = starsImgUrl[0];
         this.props.clearReviewErrors();
         this.setState({
           businessId: this.state.businessId,

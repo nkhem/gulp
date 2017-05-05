@@ -9,6 +9,7 @@ class ReviewIndexDetail extends React.Component {
       user: {}
     };
     this.renderEditBtns = this.renderEditBtns.bind(this);
+    this.hideIndexDetail = this.hideIndexDetail.bind(this);
   }
 
   componentWillMount() {
@@ -19,14 +20,26 @@ class ReviewIndexDetail extends React.Component {
   renderEditBtns(){
     if (this.props.currentUser && _.isEqual(this.state.user.id, this.props.currentUser.id)) {
       return (
-        <div
-          id='review-delete-btn'
-          className='gray-btn'
-          onClick={() => this.props.deleteReview(this.props.review)}>
-          delete
+        <div className='review-index-detail-btns'>
+          <div
+            id='review-delete-btn'
+            className='gray-btn'
+            onClick={() => this.hideIndexDetail()}>
+            edit
+          </div>
+          <div
+            id='review-delete-btn'
+            className='gray-btn'
+            onClick={() => this.props.deleteReview(this.props.review)}>
+            delete
+          </div>
         </div>
       );
     }
+  }
+
+  hideIndexDetail(){
+    document.getElementById(`review-index-detail-${this.props.review.id}`).classList.add('hidden');
   }
 
   render() {
@@ -36,7 +49,7 @@ class ReviewIndexDetail extends React.Component {
       ? 'Guest User'
       : `${this.state.user.f_name} ${this.state.user.l_name.slice(0,1)}`;
       return (
-        <li className="review-index-detail">
+        <li className="review-index-detail" id={`review-index-detail-${this.props.review.id}`}>
           <p>{`${userDisplayName}:`}</p>
           <img src={starsImgUrl[this.props.review.rating]} />
           <p>{this.props.review.content}</p>
