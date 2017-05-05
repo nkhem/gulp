@@ -39,9 +39,10 @@ button {
 }
 
 textarea {
-    border: none;
-    overflow: auto;
-    outline: none;
+  border: none;
+  background-color: transparent;
+  resize: none;
+  outline: none;
 }
 
 button,

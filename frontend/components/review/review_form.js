@@ -133,7 +133,7 @@ class ReviewForm extends React.Component {
             type='text'
             value={this.state.content}
             onChange={this.update("content")}
-            placeholder='My new favorite integer sodales tellus justo, laoreet consectetur enim ultricies id. Donec justo ligula, rhoncus sit amet elit at, condimentum mattis lacus. Suspendisse rutrum, mi et pellentesque auctor, arcu erat tempus neque, id tincidunt ligula felis vel ipsum.'
+            placeholder='Holy flying fruitcakes! This place is totes my new favorite sodales tellus justo, laoreet consectetur enim ultricies id. Donec justo ligula, rhoncus sit amet elit at, condimentum mattis lacus. Suspendisse rutrum, mi et pellentesque auctor, arcu erat tempus neque, id tincidunt ligula felis vel ipsum.'
             disabled={isLoggedIn ? false : 'disabled'} />
 
           <br/>
