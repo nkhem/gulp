@@ -1,4 +1,5 @@
 import React from 'react';
+import { starsImgUrl } from '../yelp/stars';
 
 class ReviewIndexDetail extends React.Component {
   constructor(props) {
@@ -19,10 +20,11 @@ class ReviewIndexDetail extends React.Component {
       let userDisplayName = this.state.user.f_name === 'Guest'
       ? 'Guest User'
       : `${this.state.user.f_name} ${this.state.user.l_name.slice(0,1)}`;
-
+      console.log(this.props.review.rating);
       return (
-        <li>
+        <li className="review-index-detail">
           <p>{`${userDisplayName}:`}</p>
+          <img src={starsImgUrl[this.props.review.rating]} />
           <p>{this.props.review.content}</p>
         </li>
       );
