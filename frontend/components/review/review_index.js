@@ -18,8 +18,8 @@ class ReviewIndex extends React.Component {
 
   render() {
     return (
-      <div className="review-idx">
-      <h4>Reviews!</h4>
+      <div className="review-index">
+        <h4>Reviews!</h4>
         <ul>
           {this.renderIndexDetail()}
         </ul>

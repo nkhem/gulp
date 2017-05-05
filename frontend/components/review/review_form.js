@@ -45,54 +45,45 @@ class ReviewForm extends React.Component {
 
   renderSubmitBtn(isLoggedIn){
     if (isLoggedIn) {
-      return <input className="transparent-btn" type="submit" value='Submit Review' />;
+      return (
+        <div className='review-form-end'>
+          <input className="transparent-btn" type="submit" value='Submit Review' />
+        </div>
+      );
     } else {
       return (
-        <div>
+        <div className='review-form-end'>
           Wanna write a review? {<Link to="login">Log in</Link>} or {<Link to="signup">sign up</Link>}
         </div>
       );
     }
-  }
-
-  update(field) {
-    return e => this.setState({
-      [field]: e.currentTarget.value
-    });
   }
 
   renderRatingInput(isLoggedIn){
     if (isLoggedIn) {
       return (
-        <ul
+        <div
           className="rating-input"
           onMouseOut={this.handleRatingMouseOut}>
-          <li id="star-1"
+          <span id="star-1"
             onMouseOver={this.handleRatingMouseOver}
-            onClick={this.handleRatingClick}>1</li>
-          <li id="star-2"
+            onClick={this.handleRatingClick}>1</span>
+          <span id="star-2"
             onMouseOver={this.handleRatingMouseOver}
             onMouseOut={this.handleRatingOMouseut}
-            onClick={this.handleRatingClick}>2</li>
-          <li id="star-3"
+            onClick={this.handleRatingClick}>2</span>
+          <span id="star-3"
             onMouseOver={this.handleRatingMouseOver}
-            onClick={this.handleRatingClick}>3</li>
-          <li id="star-4"
+            onClick={this.handleRatingClick}>3</span>
+          <span id="star-4"
             onMouseOver={this.handleRatingMouseOver}
-            onClick={this.handleRatingClick}>4</li>
-          <li id="star-5"
+            onClick={this.handleRatingClick}>4</span>
+          <span id="star-5"
             onMouseOver={this.handleRatingMouseOver}
-            onClick={this.handleRatingClick}>5</li>
-        </ul>
-      );
-    } else {
-      return (
-        <div>
-          Wanna write a review? {<Link to="login">Log in</Link>} or {<Link to="signup">sign up</Link>}
+            onClick={this.handleRatingClick}>5</span>
         </div>
       );
     }
-
   }
 
   handleSubmit(e){
@@ -107,11 +98,17 @@ class ReviewForm extends React.Component {
       }));
   }
 
+  update(field) {
+    return e => this.setState({
+      [field]: e.currentTarget.value
+    });
+  }
+
   render() {
     let isLoggedIn = this.props.currentUser;
     return (
-      <div>
-        <form className="review-form" onSubmit={ e => this.handleSubmit(e)}>
+      <div className="review-form">
+        <form onSubmit={ e => this.handleSubmit(e)}>
 
           <input
             type='hidden'
@@ -124,18 +121,19 @@ class ReviewForm extends React.Component {
             value={this.state.businessId}
             />
 
-          <div>
-            <img id='stars-img-form' src={this.starsImgUrl}></img>
+          <div id='review-form-stars'>
+            <img id='stars-img-form' src={this.starsImgUrl} />
             {this.renderRatingInput(isLoggedIn)}
           </div>
 
           <br/>
 
-          <input
+          <textarea
+            className='review-form-content'
             type='text'
             value={this.state.content}
             onChange={this.update("content")}
-            placeholder='content'
+            placeholder='My new favorite integer sodales tellus justo, laoreet consectetur enim ultricies id. Donec justo ligula, rhoncus sit amet elit at, condimentum mattis lacus. Suspendisse rutrum, mi et pellentesque auctor, arcu erat tempus neque, id tincidunt ligula felis vel ipsum.'
             disabled={isLoggedIn ? false : 'disabled'} />
 
           <br/>
