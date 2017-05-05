@@ -1,5 +1,6 @@
 import React from 'react';
 import { starsImgUrl } from '../yelp/stars';
+import _ from 'lodash';
 
 class ReviewIndexDetail extends React.Component {
   constructor(props) {
@@ -7,11 +8,24 @@ class ReviewIndexDetail extends React.Component {
     this.state = {
       user: {}
     };
+    this.renderEditBtns = this.renderEditBtns.bind(this);
   }
 
   componentWillMount() {
     this.props.fetchUser(this.props.review.user_id)
       .then(res => this.setState({ user: res.user}));
+  }
+
+  renderEditBtns(){
+    if (this.props.currentUser && _.isEqual(this.state.user.id, this.props.currentUser.id)) {
+      return (
+        <div
+          id='review-delete-btn'
+          onClick={() => this.props.deleteReview(this.props.review.id)}>
+          delete btn
+        </div>
+      );
+    }
   }
 
   render() {
@@ -25,6 +39,7 @@ class ReviewIndexDetail extends React.Component {
           <p>{`${userDisplayName}:`}</p>
           <img src={starsImgUrl[this.props.review.rating]} />
           <p>{this.props.review.content}</p>
+          {this.renderEditBtns()}
         </li>
       );
     } else {

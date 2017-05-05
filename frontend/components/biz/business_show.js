@@ -4,7 +4,7 @@ import _ from 'lodash';
 
 import { createReview } from '../../actions/review_actions';
 import { fetchBusinessesByCategory, fetchBusiness } from '../../actions/business_actions';
-import { fetchReviews, clearReviewErrors } from '../../actions/review_actions';
+import { fetchReviews, clearReviewErrors, deleteReview } from '../../actions/review_actions';
 import { fetchUser } from '../../actions/user_actions';
 import { fetchSearchResults } from '../../actions/search_actions';
 import { logout } from '../../actions/session_actions';
@@ -26,7 +26,7 @@ class BusinessShow extends React.Component {
 
   componentWillMount(){
     if (this.props.errors.length > 0) this.props.clearReviewErrors();
-    
+
     this.props.fetchBusiness(this.props.params.businessId)
     .then(res => {
       this.biz = res.business;
@@ -56,8 +56,6 @@ class BusinessShow extends React.Component {
     });
     }
   }
-
-
 
   render() {
     let biz = this.props.business;
@@ -106,7 +104,9 @@ class BusinessShow extends React.Component {
             fetchUser={this.props.fetchUser}
             createReview={this.props.createReview}
             errors={this.props.errors}
-            clearReviewErrors={this.props.clearReviewErrors}/>
+            clearReviewErrors={this.props.clearReviewErrors}
+            currentUser={this.props.currentUser}
+            deleteReview={this.props.deleteReview}/>
 
           <Footer id="biz-show-footer"/>
         </div>
@@ -136,7 +136,8 @@ const mapDispatchToProps = (dispatch, state) => {
     fetchReviews: bizId => dispatch(fetchReviews(bizId)),
     fetchUser: userId => dispatch(fetchUser(userId)),
     createReview: userId => dispatch(createReview(userId)),
-    clearReviewErrors: () => dispatch(clearReviewErrors())
+    clearReviewErrors: () => dispatch(clearReviewErrors()),
+    deleteReview: reviewId => dispatch(deleteReview(reviewId))
   };
 };
 

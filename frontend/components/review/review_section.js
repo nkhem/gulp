@@ -15,7 +15,9 @@ class ReviewSection extends React.Component {
           clearReviewErrors={this.props.clearReviewErrors}/>
         <ReviewIndex
           reviews={this.props.reviews}
-          fetchUser={this.props.fetchUser}/>
+          fetchUser={this.props.fetchUser}
+          currentUser={this.props.currentUser}
+          deleteReview={this.props.deleteReview}/>
       </div>
     );
   }

@@ -24,7 +24,6 @@ class Api::ReviewsController < ApplicationController
 
   def destroy
     @review = Review.find(params[:reviewId])
-    
     if @review && @review.user_id == current_user.id
       @review.destroy
     else

@@ -1,3 +1,12 @@
 .review-index-detail {
   padding-top: 20px;
 }
+
+#review-delete-btn{
+  color: $plum;
+  cursor: pointer;
+}
+
+#review-delete-btn:hover {
+  color: $gray-plum;
+}

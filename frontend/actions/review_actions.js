@@ -17,6 +17,12 @@ export const createReview = review => dispatch => {
     });
 };
 
+export const deleteReview = reviewId => dispatch => {
+  return ReviewApiUtil.deleteReview(reviewId)
+    .then( () => ReviewApiUtil.fetchReviews(reviewId))
+    .then(reviews => dispatch(receiveReviews(reviews)));
+};
+
 export const receiveReviews = reviews => ({
   type: RECEIVE_REVIEWS,
   reviews: reviews
