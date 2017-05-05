@@ -21,8 +21,9 @@ class ReviewIndexDetail extends React.Component {
       return (
         <div
           id='review-delete-btn'
+          className='gray-btn'
           onClick={() => this.props.deleteReview(this.props.review)}>
-          delete btn
+          delete
         </div>
       );
     }

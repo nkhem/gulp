@@ -3,10 +3,16 @@
 }
 
 #review-delete-btn{
-  color: $plum;
+  color: $light-plum;
+  background-color: $plum;
+  border: 1px solid $plum-shadow;
   cursor: pointer;
+  width: 40px;
+  font-size: 10px;
+  padding: 4px;
 }
 
 #review-delete-btn:hover {
-  color: $gray-plum;
+  background-color: $error-red;
+  border: 1px solid $error-red-shadow;
 }
