@@ -47,7 +47,7 @@ class ReviewForm extends React.Component {
     if (isLoggedIn) {
       return (
         <div className='review-form-end'>
-          <input className="transparent-btn" type="submit" value='Submit Review' />
+          <input className="gray-btn review-form-submit" type="submit" value='Submit Review' />
         </div>
       );
     } else {

@@ -24,7 +24,7 @@ GRANT_TYPE = "client_credentials"
 DEFAULT_BUSINESS_ID = "the-pub-at-ghirardelli-square-san-francisco-2"
 DEFAULT_TERM = "dinner"
 DEFAULT_LOCATION = "San Francisco, CA"
-SEARCH_LIMIT = 5
+SEARCH_LIMIT = 15
 
 
 # Make a request to the Fusion API token endpoint to get the access token.

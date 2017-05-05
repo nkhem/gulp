@@ -59,7 +59,7 @@ class SearchBar extends Component {
           onSubmit={ this.handleSubmit }>
           <input
             type="text"
-            placeholder="tea, wineries, Boba Guys"
+            placeholder="tea, happy hour, Boba Guys"
             autoComplete="off"
             value={this.state.term}
             onChange={ this.onInputChange }
