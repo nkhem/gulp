@@ -14,6 +14,7 @@ class Main extends React.Component {
     return (
       <div>
         <Header
+          className='main-header'
           loggedIn={this.props.loggedIn}
           logout={ this.props.logout }
           fetchSearchResults={ this.props.fetchSearchResults }

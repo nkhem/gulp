@@ -47,7 +47,7 @@ class Header extends React.Component {
 
   render() {
     return (
-      <nav className='main-nav'>
+      <nav className={`main-nav ${this.props.className}`}>
         {this.renderHeader()}
         {this.renderSearchBar()}
         {this.renderSessionBtns()}
