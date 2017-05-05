@@ -107,42 +107,44 @@ class ReviewForm extends React.Component {
   render() {
     let isLoggedIn = this.props.currentUser;
     return (
-      <div className="review-form">
+      <div className="review-form-section">
         <ErrorMsgs id='review-errors' errors={this.props.errors} />
 
-        <form onSubmit={ e => this.handleSubmit(e)}>
-          <input
-            type='hidden'
-            value={this.state.userId}
-            placeholder={`current userId: ${this.state.userId}`}
-            />
+        <div className="review-form">
+          <form onSubmit={ e => this.handleSubmit(e)}>
+            <input
+              type='hidden'
+              value={this.state.userId}
+              placeholder={`current userId: ${this.state.userId}`}
+              />
 
-          <input
-            type='hidden'
-            value={this.state.businessId}
-            />
+            <input
+              type='hidden'
+              value={this.state.businessId}
+              />
 
-          <div id='review-form-stars'>
-            {this.renderRatingInput(isLoggedIn)}
-            <img id='stars-img-form' src={this.starsImgUrl} />
-          </div>
+            <div id='review-form-stars'>
+              {this.renderRatingInput(isLoggedIn)}
+              <img id='stars-img-form' src={this.starsImgUrl} />
+            </div>
 
-          <br/>
+            <br/>
 
-          <textarea
-            className='review-form-content'
-            type='text'
-            value={this.state.content}
-            onChange={this.update("content")}
-            placeholder='Holy flying fruitcakes! This place is totes my new favorite sodales tellus justo, laoreet consectetur enim ultricies id. Donec justo ligula, rhoncus sit amet elit at, condimentum mattis lacus. Suspendisse rutrum, mi et pellentesque auctor, arcu erat tempus neque, id tincidunt ligula felis vel ipsum.'
-            disabled={isLoggedIn ? false : 'disabled'} />
+            <textarea
+              className='review-form-content'
+              type='text'
+              value={this.state.content}
+              onChange={this.update("content")}
+              placeholder='Holy flying fruitcakes! This place is totes my new favorite sodales tellus justo, laoreet consectetur enim ultricies id. Donec justo ligula, rhoncus sit amet elit at, condimentum mattis lacus. Suspendisse rutrum, mi et pellentesque auctor, arcu erat tempus neque, id tincidunt ligula felis vel ipsum.'
+              disabled={isLoggedIn ? false : 'disabled'} />
 
-          <br/>
+            <br/>
 
-          {this.renderSubmitBtn(isLoggedIn)}
+            {this.renderSubmitBtn(isLoggedIn)}
 
-          <br/>
-        </form>
+            <br/>
+          </form>
+        </div>
       </div>
     );
 

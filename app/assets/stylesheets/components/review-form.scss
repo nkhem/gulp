@@ -1,3 +1,7 @@
+.review-form-section {
+  height: 100%;
+}
+
 .review-form-content {
   border: 1px solid black;
   position: absolute;
@@ -16,7 +20,7 @@
   z-index: -1;
 }
 
-#stars-img-form, #rating-mouseover-numbers {
+#stars-img-form {
   position: absolute;
   top: 0;
 }
