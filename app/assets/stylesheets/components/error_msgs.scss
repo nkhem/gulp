@@ -1,7 +1,13 @@
 .error-msgs {
-  list-style: none;
   color: $error-red;
   list-style: disc;
   font-size: 16px;
+}
+
+#session-errors {
   padding: 24px 50px;
+}
+
+#review-errors {
+
 }

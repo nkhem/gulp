@@ -91,7 +91,7 @@ class SessionForm extends React.Component {
 
             <h3 className="session-box-title">{this.props.formType}</h3>
 
-            <ErrorMsgs errors={this.props.errors} />
+            <ErrorMsgs id='session-errors' errors={this.props.errors} />
 
     				<form id='session-form' onSubmit={ this.handleSubmit(asUser) }>
     					<input type={`${this.props.formType === 'login' ? 'hidden': 'text'}`}

@@ -1,7 +1,7 @@
 import * as ReviewApiUtil from '../util/review_api_util';
 
 export const RECEIVE_REVIEWS = "RECEIVE_REVIEWS";
-export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
+export const RECEIVE_REVIEW_ERRORS = "RECEIVE_REVIEW_ERRORS";
 
 export const fetchReviews = bizId => dispatch => {
   return ReviewApiUtil.fetchReviews(bizId)
@@ -12,7 +12,7 @@ export const createReview = review => dispatch => {
   return ReviewApiUtil.createReview(review)
     .then( () => ReviewApiUtil.fetchReviews(review.businessId))
     .then(reviews => dispatch(receiveReviews(reviews)), errors => {
-      dispatch(receiveErrors(errors.responseJSON));
+      dispatch(receiveReviewErrors(errors.responseJSON));
     });
 };
 
@@ -21,7 +21,7 @@ export const receiveReviews = reviews => ({
   reviews: reviews
 });
 
-export const receiveErrors = errors => ({
-  type: RECEIVE_ERRORS,
+export const receiveReviewErrors = errors => ({
+  type: RECEIVE_REVIEW_ERRORS,
   errors: errors
 });

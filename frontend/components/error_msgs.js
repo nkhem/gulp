@@ -4,13 +4,13 @@ import _ from 'lodash';
 const ErrorMsgs = props => {
   if (props.errors.length === 1) {
     return (
-      <div className='error-msgs'>
+      <div className='error-msgs' id={`${props.id}`}>
         {props.errors[0]}
       </div>
     );
   } else if (props.errors.length > 1) {
     return (
-      <ul className='error-msgs'>
+      <ul className='error-msgs' id={`${props.id}`}>
         {_.map(props.errors, err => <li key={err}>{err}</li>)}
       </ul>
     );

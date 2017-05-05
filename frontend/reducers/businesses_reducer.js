@@ -3,7 +3,7 @@ import {
   RECEIVE_BUSINESS } from '../actions/business_actions';
 import { RECEIVE_REVIEWS,
   RECEIVE_REVIEW,
-  RECEIVE_ERRORS } from '../actions/review_actions';
+  RECEIVE_REVIEW_ERRORS } from '../actions/review_actions';
 
 const initialState = {
   featured: {},
@@ -47,12 +47,13 @@ const BusinessesReducer = (state = initialState, action) => {
       );
       return nextState;
 
-    case RECEIVE_ERRORS:
+    case RECEIVE_REVIEW_ERRORS:
       nextState = Object.assign(
         {},
         state,
         { errors: action.errors }
       );
+
       return nextState;
 
     default:

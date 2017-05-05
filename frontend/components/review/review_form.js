@@ -108,7 +108,7 @@ class ReviewForm extends React.Component {
     let isLoggedIn = this.props.currentUser;
     return (
       <div className="review-form">
-        <ErrorMsgs errors={this.props.errors} />
+        <ErrorMsgs id='review-errors' errors={this.props.errors} />
 
         <form onSubmit={ e => this.handleSubmit(e)}>
           <input
