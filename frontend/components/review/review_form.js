@@ -24,7 +24,7 @@ class ReviewForm extends React.Component {
   }
 
   handleRatingMouseOver(e){
-    const num = e.target.id.slice(-1);
+    const num = e.target.innerHTML;
     console.log('mouseover:', num);
     document.getElementById('stars-img-form').src = starsImgUrl[num];
   }
@@ -38,7 +38,7 @@ class ReviewForm extends React.Component {
   }
 
   handleRatingClick(e){
-    const num = e.target.id.slice(-1);
+    const num = e.target.innerHTML;
     this.setState({ rating: num });
     this.starsImgUrl = starsImgUrl[num];
   }
@@ -63,22 +63,22 @@ class ReviewForm extends React.Component {
     if (isLoggedIn) {
       return (
         <div
-          className="rating-input"
+          id="rating-mouseover-numbers"
           onMouseOut={this.handleRatingMouseOut}>
-          <span id="star-1"
+          <span
             onMouseOver={this.handleRatingMouseOver}
             onClick={this.handleRatingClick}>1</span>
-          <span id="star-2"
+          <span
             onMouseOver={this.handleRatingMouseOver}
             onMouseOut={this.handleRatingOMouseut}
             onClick={this.handleRatingClick}>2</span>
-          <span id="star-3"
+          <span
             onMouseOver={this.handleRatingMouseOver}
             onClick={this.handleRatingClick}>3</span>
-          <span id="star-4"
+          <span
             onMouseOver={this.handleRatingMouseOver}
             onClick={this.handleRatingClick}>4</span>
-          <span id="star-5"
+          <span
             onMouseOver={this.handleRatingMouseOver}
             onClick={this.handleRatingClick}>5</span>
         </div>
@@ -122,8 +122,8 @@ class ReviewForm extends React.Component {
             />
 
           <div id='review-form-stars'>
-            <img id='stars-img-form' src={this.starsImgUrl} />
             {this.renderRatingInput(isLoggedIn)}
+            <img id='stars-img-form' src={this.starsImgUrl} />
           </div>
 
           <br/>

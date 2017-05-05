@@ -14,12 +14,16 @@
   margin: 40px;
 }
 
-#stars-img-form, .rating-input {
+#stars-img-form {
+  z-index: -1;
+}
+
+#stars-img-form, #rating-mouseover-numbers {
   position: absolute;
   top: 0;
 }
 
-.rating-input {
+#rating-mouseover-numbers {
   cursor: pointer;
 }
 
@@ -31,3 +35,12 @@
 .review-form-end a:hover{
   color: $plum;
 }
+
+.rating-mouseover-numbers {
+  border: 1px solid black;
+  width: 163px;
+  display: flex;
+  justify-content: space-around;
+  opacity: 0;
+}
+// opacity: 0;
