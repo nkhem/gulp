@@ -45,9 +45,8 @@ export const receiveErrors = errors => {
   };
 };
 
-export const clearErrors = currentUser => {
+export const clearErrors = () => {
   return {
-    type: CLEAR_ERRORS,
-    currentUser: currentUser
+    type: CLEAR_ERRORS
   };
 };

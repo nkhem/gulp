@@ -90,12 +90,15 @@ class ReviewForm extends React.Component {
     e.preventDefault();
 
     this.props.createReview(this.state)
-      .then( () => this.setState({
+      .then( () => {
+      this.props.clearReviewErrors();
+      this.setState({
         businessId: this.state.businessId,
         userId: this.state.userId,
         content: '',
         rating: ''
-      }));
+      });
+    });
   }
 
   update(field) {

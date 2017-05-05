@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { createReview } from '../../actions/review_actions';
 import { fetchBusinessesByCategory, fetchBusiness } from '../../actions/business_actions';
-import { fetchReviews } from '../../actions/review_actions';
+import { fetchReviews, clearReviewErrors } from '../../actions/review_actions';
 import { fetchUser } from '../../actions/user_actions';
 import { fetchSearchResults } from '../../actions/search_actions';
 import { logout } from '../../actions/session_actions';
@@ -24,6 +24,7 @@ class BusinessShow extends React.Component {
   }
 
   componentWillMount(){
+    console.log('mounting');
     this.props.fetchBusiness(this.props.params.businessId)
     .then(res => {
       this.biz = res.business;
@@ -37,6 +38,7 @@ class BusinessShow extends React.Component {
   }
 
   componentDidUpdate(nextProps, nextState) {
+    console.log('updating');
     if (parseInt(nextProps.params.businessId) !== this.state.biz.id) {
       this.props.fetchBusiness(this.props.params.businessId)
       .then(res => {
@@ -97,7 +99,8 @@ class BusinessShow extends React.Component {
             currentUser={this.props.currentUser}
             fetchUser={this.props.fetchUser}
             createReview={this.props.createReview}
-            errors={this.props.errors}/>
+            errors={this.props.errors}
+            clearReviewErrors={this.props.clearReviewErrors}/>
 
           <Footer id="biz-show-footer"/>
         </div>
@@ -126,7 +129,8 @@ const mapDispatchToProps = (dispatch, state) => {
     fetchBusiness: titleOrId => dispatch(fetchBusiness(titleOrId)),
     fetchReviews: bizId => dispatch(fetchReviews(bizId)),
     fetchUser: userId => dispatch(fetchUser(userId)),
-    createReview: userId => dispatch(createReview(userId))
+    createReview: userId => dispatch(createReview(userId)),
+    clearReviewErrors: userId => dispatch(clearReviewErrors())
   };
 };
 

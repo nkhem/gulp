@@ -23,6 +23,10 @@ class SessionForm extends React.Component {
     this.redirectIfLoggedIn = this.redirectIfLoggedIn.bind(this);
   }
 
+  componentWillMount() {
+    this.props.clearErrors();
+  }
+
   handleSubmit(asGuest){
     let logUserIn = asGuest ? this.loginAsGuest() : this.loginAsTrueUser();
     return e => {
