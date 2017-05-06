@@ -61,6 +61,8 @@ class ReviewIndexDetail extends React.Component {
             id='review-delete-btn'
             className='gray-btn'
             onClick={() => {
+              console.log(this.props.sendReviewForEdit);
+              console.log(this.props.review);
               this.props.sendReviewForEdit(this.props.review);
             }}>
             edit
@@ -68,7 +70,11 @@ class ReviewIndexDetail extends React.Component {
           <div
             id='review-delete-btn'
             className='gray-btn'
-            onClick={() => this.props.deleteReview(this.props.review)}>
+            onClick={() => {
+              console.log(this.props.deleteReview);
+              console.log(this.props.review);
+              this.props.deleteReview(this.props.review);
+            }}>
             delete
           </div>
         </div>
