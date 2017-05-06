@@ -25,7 +25,6 @@ componentWillUpdate(nextProps, nextState) {
   if (!_.isEqual(nextProps.currentReview.id, this.state.id)) {
     this.setState(nextProps.currentReview);
     this.starsImgUrl = starsImgUrl[nextProps.currentReview.rating];
-    console.log(nextProps.currentReview.id);
     this.prevReview = nextProps.currentReview;
   }
 }
@@ -97,9 +96,7 @@ componentWillUpdate(nextProps, nextState) {
 
     this.props.createReview(this.state)
       .then( () => {
-        console.log('successfully created review');
         if(this.prevReview) {
-          console.log('deleting review:', this.prevReview.id);
           this.props.deleteReview(this.prevReview);
           this.prevReview = null;
         }
