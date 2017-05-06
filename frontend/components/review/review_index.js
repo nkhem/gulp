@@ -5,29 +5,19 @@ class ReviewIndex extends React.Component {
   constructor(props) {
     super(props);
     this.renderIndexDetail = this.renderIndexDetail.bind(this);
-    this.renderBizDetail = this.renderBizDetail.bind(this);
-  }
-
-  renderBizDetail(){
-    if (this.props.isUserProfile) {
-      return <p>BIZ DETAIL</p>;
-    }
   }
 
   renderIndexDetail(){
     return this.props.reviews.map( review => {
       return (
-        <div>
-          {this.renderBizDetail()}
-
-          <ReviewIndexDetail
-            review={review}
-            key={review.id}
-            fetchUser={this.props.fetchUser}
-            currentUser={this.props.currentUser}
-            deleteReview={this.props.deleteReview}
-            sendReviewForEdit={this.props.sendReviewForEdit} />
-        </div>
+        <ReviewIndexDetail
+          isUserProfile={this.props.isUserProfile}
+          review={review}
+          key={review.id}
+          fetchUser={this.props.fetchUser}
+          currentUser={this.props.currentUser}
+          deleteReview={this.props.deleteReview}
+          sendReviewForEdit={this.props.sendReviewForEdit} />
       );
     });
   }

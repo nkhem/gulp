@@ -2,18 +2,52 @@ import React from 'react';
 import { starsImgUrl } from '../yelp/stars';
 import _ from 'lodash';
 
+import * as BizApiUtil from '../../util/business_api_util';
+
 class ReviewIndexDetail extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: {}
+      user: {},
+      biz: {}
     };
+    this.bizFetchCompleted = false;
+    this.userFetchCompleted = false;
     this.renderEditBtns = this.renderEditBtns.bind(this);
+    this.renderBizDetail = this.renderBizDetail.bind(this);
   }
 
   componentWillMount() {
     this.props.fetchUser(this.props.review.user_id)
-      .then(res => this.setState({ user: res.user}));
+      .then(res => {
+        this.userFetchCompleted = true;
+        this.setState({ user: res.user});
+    });
+
+    if (this.props.isUserProfile) {
+      BizApiUtil.fetchBusiness(`${this.props.review.business_id}`)
+        .then(res => {
+          this.bizFetchCompleted = true;
+          this.setState({biz: res});
+        });
+    }
+  }
+
+  renderBizDetail(){
+    if (this.props.isUserProfile &&
+      this.bizFetchCompleted &&
+      this.userFetchCompleted) {
+        let { biz } = this.state;
+        return (
+          <div className='user-profile-biz-detail'>
+            <h3>{biz.title}</h3>
+            <p>{biz.price}</p>
+            <p>{biz.phone}</p>
+            <p>{biz.address1}</p>
+            <p>{biz.address2}</p>
+          </div>
+        );
+    }
   }
 
   renderEditBtns(){
@@ -40,7 +74,7 @@ class ReviewIndexDetail extends React.Component {
   }
 
   render() {
-    if (Object.keys(this.state.user).length !== 0){
+    if (this.bizFetchCompleted && this.userFetchCompleted){
 
       let userDisplayName = this.state.user.f_name === 'Guest'
       ? 'Guest User'
@@ -50,6 +84,7 @@ class ReviewIndexDetail extends React.Component {
           <li
             id={`review-index-detail-${this.props.review.id}`}
             className="review-index-detail">
+            {this.renderBizDetail()}
             <p>{`${userDisplayName}:`}</p>
             <img src={starsImgUrl[this.props.review.rating]} />
             <p>{this.props.review.content}</p>
