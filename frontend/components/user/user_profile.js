@@ -41,6 +41,7 @@ class UserProfile extends React.Component {
 
         <ReviewSection
           className='user-profile-reviews'
+          isUserProfile={ true }
           reviews={this.props.currentUser.reviews}
           businessId={this.props.business.id}
           currentUser={this.props.currentUser}

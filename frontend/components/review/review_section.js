@@ -33,8 +33,10 @@ class ReviewSection extends React.Component {
           currentReview={this.state.review}
           deleteReview={this.props.deleteReview}/>
         <ReviewIndex
+          isUserProfile={this.props.isUserProfile}
           reviews={this.props.reviews}
           fetchUser={this.props.fetchUser}
+          fetchBusiness={this.props.fetchBusiness}
           currentUser={this.props.currentUser}
           deleteReview={this.props.deleteReview}
           sendReviewForEdit={this.sendReviewForEdit}/>
