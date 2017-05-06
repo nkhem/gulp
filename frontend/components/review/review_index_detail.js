@@ -1,7 +1,8 @@
 import React from 'react';
-import { starsImgUrl } from '../yelp/stars';
+import { Link } from 'react-router';
 import _ from 'lodash';
 
+import { starsImgUrl } from '../yelp/stars';
 import * as BizApiUtil from '../../util/business_api_util';
 
 class ReviewIndexDetail extends React.Component {
@@ -40,11 +41,13 @@ class ReviewIndexDetail extends React.Component {
         let { biz } = this.state;
         return (
           <div className='user-profile-biz-detail'>
-            <h3>{biz.title}</h3>
-            <p>{biz.price}</p>
-            <p>{biz.phone}</p>
-            <p>{biz.address1}</p>
-            <p>{biz.address2}</p>
+            <Link to={`business/${biz.id}`}>
+              <h3>{biz.title}</h3>
+              <p>{biz.price}</p>
+              <p>{biz.phone}</p>
+              <p>{biz.address1}</p>
+              <p>{biz.address2}</p>
+            </Link>
           </div>
         );
     }
