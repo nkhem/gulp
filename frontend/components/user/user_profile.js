@@ -22,9 +22,6 @@ class UserProfile extends React.Component {
       reviews: []
     };
   }
-  componentWillMount(){
-
-  }
 
   render() {
     return (
@@ -42,9 +39,19 @@ class UserProfile extends React.Component {
           shouldDisplayLogo={true}
           />
 
-        <h3 id='under-construction'>Profile page coming soon!</h3>
+        <ReviewSection
+          className='user-profile-reviews'
+          reviews={this.props.currentUser.reviews}
+          businessId={this.props.business.id}
+          currentUser={this.props.currentUser}
+          fetchUser={this.props.fetchUser}
+          createReview={this.props.createReview}
+          errors={this.props.errors}
+          clearReviewErrors={this.props.clearReviewErrors}
+          currentUser={this.props.currentUser}
+          deleteReview={this.props.deleteReview}/>
 
-          <Footer id="user-profile-footer"/>
+        <Footer id="user-profile-footer"/>
       </div>
     );
   }
@@ -55,6 +62,7 @@ const mapStateToProps = state => {
   return {
     loggedIn: Boolean(state.session.currentUser),
     currentUser: state.session.currentUser,
+    reviews: state.session.currentUser.reviews,
     business: state.businesses.featured,
     searchResults: state.searchResults,
     errors: state.businesses.errors
@@ -76,15 +84,3 @@ const mapDispatchToProps = (dispatch, state) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserProfile);
-
-// <ReviewSection
-//   className='user-profile-reviews'
-//   reviews={this.props.business.reviews}
-//   businessId={this.props.business.id}
-//   currentUser={this.props.currentUser}
-//   fetchUser={this.props.fetchUser}
-//   createReview={this.props.createReview}
-//   errors={this.props.errors}
-//   clearReviewErrors={this.props.clearReviewErrors}
-//   currentUser={this.props.currentUser}
-//   deleteReview={this.props.deleteReview}/>

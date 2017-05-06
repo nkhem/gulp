@@ -23,7 +23,6 @@ class ReviewSection extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <div className={`review-section ${this.props.className}`}>
         <ReviewForm
