@@ -2,9 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 
-import { createReview } from '../../actions/review_actions';
 import { fetchBusinessesByCategory, fetchBusiness } from '../../actions/business_actions';
-import { fetchReviews, clearReviewErrors, deleteReview } from '../../actions/review_actions';
+import { fetchReviews,
+  clearReviewErrors,
+  deleteReview,
+  createReview } from '../../actions/review_actions';
 import { fetchUser } from '../../actions/user_actions';
 import { fetchSearchResults } from '../../actions/search_actions';
 import { logout } from '../../actions/session_actions';
@@ -99,6 +101,7 @@ class BusinessShow extends React.Component {
           </div>
 
           <ReviewSection
+            className='biz-show-reviews'
             reviews={this.props.business.reviews}
             businessId={this.props.business.id}
             currentUser={this.props.currentUser}
