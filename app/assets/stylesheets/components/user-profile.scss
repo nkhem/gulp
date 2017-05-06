@@ -1,11 +1,24 @@
 #profile-nav-btn {
 	font-size: 30px;
-	padding-right: 30px;
-	color: $light-plum;
-	width: 35px;
-	height: 35px;
+	color: $dark-plum;
+	border: 5px solid $dark-plum;
+	background-color: $light-plum;
+	border-radius: 50px;
+	width: 30px;
+	padding-left: 10px;
+	padding-top: 2px;
+}
+
+#profile-nav-btn i {
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #profile-nav-btn:hover {
-	background-color: $gray-plum;
+	background-color: $white-plum;
+}
+
+.logout-profile-btns {
+	display: flex;
+
 }
