@@ -5,6 +5,8 @@ class SessionBtns extends React.Component {
   constructor(props) {
     super(props);
     this.renderLogoutBtn = this.renderLogoutBtn.bind(this);
+    this.renderProfileBtn = this.renderProfileBtn.bind(this);
+    this.renderLogoutAndProfileBtns = this.renderLogoutAndProfileBtns.bind(this);
   }
 
   renderNewSessionBtns(){
@@ -19,6 +21,15 @@ class SessionBtns extends React.Component {
     );
   }
 
+  renderLogoutAndProfileBtns(){
+    return (
+      <div>
+        {this.renderLogoutBtn()}
+        {this.renderProfileBtn()}
+      </div>
+    );
+  }
+
   renderLogoutBtn(){
     return (
       <button
@@ -30,9 +41,18 @@ class SessionBtns extends React.Component {
     );
   }
 
+  renderProfileBtn(){
+    return (
+      <div>
+        <Link to={`user/${this.props.currentUser.id}`}>Profile</Link>
+        <i className="fa fa-user" aria-hidden="true"></i>
+      </div>
+    );
+  }
+
   render() {
     let renderBtns = this.props.loggedIn
-    ? this.renderLogoutBtn
+    ? this.renderLogoutAndProfileBtns
     : this.renderNewSessionBtns;
 
     return (

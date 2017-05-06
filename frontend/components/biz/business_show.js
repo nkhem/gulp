@@ -41,7 +41,6 @@ class BusinessShow extends React.Component {
 
   componentDidUpdate(nextProps, nextState) {
     if (!_.isEqual(parseInt(nextProps.params.businessId), this.state.biz.id)) {
-
       if (this.props.errors.length > 0) this.props.clearReviewErrors();
 
       this.props.fetchBusiness(this.props.params.businessId)
@@ -65,6 +64,8 @@ class BusinessShow extends React.Component {
 
           <Header
             loggedIn={this.props.loggedIn}
+            currentUser={this.props.currentUser}
+            currentUser={this.props.currentUser}
             logout={ this.props.logout }
             fetchSearchResults={ this.props.fetchSearchResults }
             searchResults={ this.props.searchResults }

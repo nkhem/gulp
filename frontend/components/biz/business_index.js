@@ -74,6 +74,7 @@ class BusinessIndex extends React.Component {
       <div>
         <Header
           loggedIn={this.props.loggedIn}
+          currentUser={this.props.currentUser}
           logout={ this.props.logout }
           fetchSearchResults={ this.props.fetchSearchResults }
           searchResults={ this.props.searchResults }
@@ -101,6 +102,7 @@ BusinessIndex.propTypes = {
 
 const mapStateToProps = state => {
   return {
+    currentUser: state.session.currentUser,
     loggedIn: Boolean(state.session.currentUser),
     businessesList: Object.values(state.businesses.list),
     errors: state.session.errors,

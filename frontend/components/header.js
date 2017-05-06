@@ -19,6 +19,7 @@ class Header extends React.Component {
     } else {
       return (
       <SessionBtns
+        currentUser={ this.props.currentUser}
         loggedIn={ this.props.loggedIn }
         logout={ this.props.logout } />
       );

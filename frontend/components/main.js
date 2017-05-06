@@ -16,6 +16,7 @@ class Main extends React.Component {
         <Header
           className='main-header'
           loggedIn={this.props.loggedIn}
+          currentUser={this.props.currentUser}
           logout={ this.props.logout }
           fetchSearchResults={ this.props.fetchSearchResults }
           searchResults={ this.props.searchResults }
@@ -44,6 +45,7 @@ class Main extends React.Component {
 
 const mapStateToProps = state => {
   return {
+    currentUser: state.session.currentUser,
     loggedIn: Boolean(state.session.currentUser),
     errors: state.session.errors,
     searchResults: state.searchResults
