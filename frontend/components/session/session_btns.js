@@ -23,9 +23,9 @@ class SessionBtns extends React.Component {
 
   renderLogoutAndProfileBtns(){
     return (
-      <div>
-        {this.renderLogoutBtn()}
+      <div className="new-session-btns">
         {this.renderProfileBtn()}
+        {this.renderLogoutBtn()}
       </div>
     );
   }
@@ -43,10 +43,12 @@ class SessionBtns extends React.Component {
 
   renderProfileBtn(){
     return (
-      <div>
-        <Link to={`user/${this.props.currentUser.id}`}>Profile</Link>
-        <i className="fa fa-user" aria-hidden="true"></i>
-      </div>
+      <Link
+        to={`user/${this.props.currentUser.id}`}
+        id='profile-nav-btn'
+        className='circle'>
+          <i className="fa fa-user" aria-hidden="true" />
+      </Link>
     );
   }
 

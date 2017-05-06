@@ -1,9 +1,11 @@
-i.fa-user {
-	font-size: 65px;
-  color: $light-plum;
-  padding: 6px;
+#profile-nav-btn {
+	font-size: 30px;
+	padding-right: 30px;
+	color: $light-plum;
+	width: 35px;
+	height: 35px;
 }
 
-i.fa-user {
-  color: $plum;
+#profile-nav-btn:hover {
+	background-color: $gray-plum;
 }

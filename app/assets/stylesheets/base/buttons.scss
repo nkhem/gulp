@@ -55,3 +55,9 @@
   background-color: $gray-plum;
   border-color: $gray-plum-shadow;
 }
+
+.circle {
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+}
