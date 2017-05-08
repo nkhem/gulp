@@ -9,6 +9,7 @@ import { fetchReviews,
   createReview } from '../../actions/review_actions';
 import { fetchSearchResults } from '../../actions/search_actions';
 import { logout } from '../../actions/session_actions';
+import * as BizApiUtil from '../../util/business_api_util';
 
 import Header from '../header';
 import Footer from '../footer';

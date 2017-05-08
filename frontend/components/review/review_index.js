@@ -8,13 +8,13 @@ class ReviewIndex extends React.Component {
   }
 
   renderIndexDetail(){
+    console.log(this.props.reviews);
     return this.props.reviews.map( review => {
       return (
         <ReviewIndexDetail
           isUserProfile={this.props.isUserProfile}
           review={review}
           key={review.id}
-          fetchUser={this.props.fetchUser}
           currentUser={this.props.currentUser}
           deleteReview={this.props.deleteReview}
           sendReviewForEdit={this.props.sendReviewForEdit} />
