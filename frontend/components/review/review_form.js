@@ -22,10 +22,12 @@ class ReviewForm extends React.Component {
   }
 
 componentWillUpdate(nextProps, nextState) {
+  console.log('cwu:', nextProps.currentReview.id, this.state.id);
   if (!_.isEqual(nextProps.currentReview.id, this.state.id)) {
     this.setState(nextProps.currentReview);
     this.starsImgUrl = starsImgUrl[nextProps.currentReview.rating];
     this.prevReview = nextProps.currentReview;
+    console.log("cwu",this.state);
   }
 }
 
@@ -121,6 +123,8 @@ componentWillUpdate(nextProps, nextState) {
   render() {
     let isLoggedIn = this.props.currentUser;
     if (this.state) {
+      console.log(this.props);
+      console.log(this.state);
       return (
         <div className={`review-form-section ${this.props.className}`} id={this.props.id}>
           <ErrorMsgs id='review-errors' errors={this.props.errors} />

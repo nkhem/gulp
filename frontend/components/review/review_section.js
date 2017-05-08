@@ -7,19 +7,24 @@ class ReviewSection extends React.Component {
     super(props);
 
     this.state = {
-      review: {
+        id: '',
         content: '',
         rating: '',
         userId: (props.currentUser ? props.currentUser.id : ''),
         businessId: props.businessId
-      }
     };
 
     this.sendReviewForEdit = this.sendReviewForEdit.bind(this);
   }
 
   sendReviewForEdit(review){
-    this.setState({review: review});
+    this.setState({
+      id: review.id,
+      content: review.content,
+      rating: review.rating,
+      userId: review.user_id,
+      businessId: review.business_id,
+    });
   }
 
   render() {
@@ -30,7 +35,7 @@ class ReviewSection extends React.Component {
           createReview={this.props.createReview}
           errors={this.props.errors}
           clearReviewErrors={this.props.clearReviewErrors}
-          currentReview={this.state.review}
+          currentReview={this.state}
           deleteReview={this.props.deleteReview}/>
         <ReviewIndex
           isUserProfile={this.props.isUserProfile}
