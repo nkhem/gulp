@@ -25,7 +25,7 @@ class ReviewIndexDetail extends React.Component {
       BizApiUtil.fetchBusiness(`${this.props.review.business_id}`)
         .then(res => {
           this.bizFetchCompleted = true;
-          this.setState({biz: res});
+          this.setState({biz: res, user: this.props.currentUser});
         });
     } else {
       UserApiUtil.fetchUser(this.props.review.user_id)
@@ -77,9 +77,6 @@ class ReviewIndexDetail extends React.Component {
   }
 
   render() {
-    console.log('rev index detail');
-    console.log('this.props', this.props);
-    console.log('this.state', this.state);
     if (this.props.isUserProfile && this.bizFetchCompleted) {
       return (
         <div id={`review-index-detail-${this.props.review.id}`}>
