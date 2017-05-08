@@ -8,7 +8,6 @@ class ReviewIndex extends React.Component {
   }
 
   renderIndexDetail(){
-    console.log(this.props.reviews);
     return this.props.reviews.map( review => {
       return (
         <ReviewIndexDetail

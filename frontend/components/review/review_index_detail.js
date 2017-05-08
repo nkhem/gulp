@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import _ from 'lodash';
 
 import { starsImgUrl } from '../yelp/stars';
+import * as BizApiUtil from '../../util/business_api_util';
 import * as UserApiUtil from '../../util/user_api_util';
 
 class ReviewIndexDetail extends React.Component {
@@ -20,12 +21,9 @@ class ReviewIndexDetail extends React.Component {
   }
 
   componentWillMount() {
-
-    console.log('cwm');
     if (this.props.isUserProfile) {
       BizApiUtil.fetchBusiness(`${this.props.review.business_id}`)
         .then(res => {
-          console.log('bizFetchCompleted: ', res );
           this.bizFetchCompleted = true;
           this.setState({biz: res});
         });
