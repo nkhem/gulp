@@ -47,11 +47,13 @@ class BizReviewSection extends React.Component {
           clearReviewErrors={this.props.clearReviewErrors}
           currentReview={this.state.review}
           editReview={this.props.editReview}
+          refreshUser={this.props.refreshUser}
           />
         <ReviewIndex
           isUserProfile={ false }
           reviews={this.props.reviews}
           fetchUser={this.props.fetchUser}
+          refreshUser={this.props.refreshUser}
           currentUser={this.props.currentUser}
           deleteReview={this.props.deleteReview}
           sendReviewForEdit={this.sendReviewForEdit}

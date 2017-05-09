@@ -8,9 +8,11 @@ import {fetchReviews,
   deleteReview,
   createReview,
   editReview } from '../../actions/review_actions';
-import { fetchUser } from '../../actions/user_actions';
+import { fetchUser,
+  refreshUser } from '../../actions/user_actions';
 import { fetchSearchResults } from '../../actions/search_actions';
 import { logout } from '../../actions/session_actions';
+
 import * as ReviewApiUtil from '../../util/review_api_util';
 
 import Header from '../header';
@@ -66,7 +68,8 @@ class BusinessShow extends React.Component {
 
   deleteReview(review){
     return this.props.deleteReview(review)
-      .then( res => this.setState({currentReview: null}));
+      .then( res => this.setState({currentReview: null}))
+      .then( () => this.props.refreshUser(this.props.currentUser.id));
   }
 
   retrieveReviewForEdit(){
@@ -131,6 +134,7 @@ class BusinessShow extends React.Component {
             businessId={this.props.business.id}
             currentUser={this.props.currentUser}
             fetchUser={this.props.fetchUser}
+            refreshUser={this.props.refreshUser}
             createReview={this.props.createReview}
             errors={this.props.errors}
             clearReviewErrors={this.props.clearReviewErrors}
@@ -166,6 +170,7 @@ const mapDispatchToProps = (dispatch, state) => {
     fetchBusiness: titleOrId => dispatch(fetchBusiness(titleOrId)),
     fetchReviews: bizId => dispatch(fetchReviews(bizId)),
     fetchUser: userId => dispatch(fetchUser(userId)),
+    refreshUser: userId => dispatch(refreshUser(userId)),
     createReview: userId => dispatch(createReview(userId)),
     clearReviewErrors: () => dispatch(clearReviewErrors()),
     deleteReview: review => dispatch(deleteReview(review)),

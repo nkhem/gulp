@@ -101,7 +101,7 @@ class ReviewForm extends React.Component {
     } else {
       submitFunction = this.props.createReview;
     }
-    
+
     submitFunction(this.state)
       .then( () => {
         this.starsImgUrl = starsImgUrl[0];
@@ -113,7 +113,7 @@ class ReviewForm extends React.Component {
           content: '',
           rating: 0
       });
-    });
+    }).then( () => this.props.refreshUser(this.props.currentUser.id));
   }
 
   update(field) {
