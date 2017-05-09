@@ -12,13 +12,8 @@ class ReviewForm extends React.Component {
     this.starsImgUrl = starsImgUrl[0];
     this.prevReview = null;
 
-    this.state = {
-      id: '',
-      businessId: this.props.currentReview.businessId,
-      userId: this.props.currentReview.userId,
-      content: '',
-      rating: ''
-  };
+    this.state = this.props.currentReview;
+
     this.renderSubmitBtn = this.renderSubmitBtn.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleRatingMouseOver = this.handleRatingMouseOver.bind(this);
@@ -26,13 +21,8 @@ class ReviewForm extends React.Component {
     this.handleRatingClick = this.handleRatingClick.bind(this);
   }
 
-componentWillMount() {
-  this.setState(this.props.currentReview);
-}
-
 componentWillUpdate(nextProps, nextState) {
-  if (!_.isEqual(nextProps.currentReview.id, this.state.id) && this.props.editInProgress) {
-    console.log('setting state to nextProps.currentReview:', nextProps.currentReview.content);
+  if (!_.isEqual(nextProps.currentReview.id, this.state.id)) {
     this.setState(nextProps.currentReview);
     this.starsImgUrl = starsImgUrl[nextProps.currentReview.rating];
     this.prevReview = nextProps.currentReview;
@@ -103,6 +93,7 @@ componentWillUpdate(nextProps, nextState) {
 
   handleSubmit(e){
     e.preventDefault();
+
     this.props.createReview(this.state)
       .then( () => {
         if(this.prevReview) {
@@ -113,15 +104,11 @@ componentWillUpdate(nextProps, nextState) {
         this.starsImgUrl = starsImgUrl[0];
         this.props.clearReviewErrors();
         this.setState({
-          id: '',
           businessId: this.state.businessId,
           userId: this.state.userId,
           content: '',
           rating: ''
       });
-      this.props.toggleEditInProgress();
-      console.log('submitted, reset state:', this.state.content);
-      this.forceUpdate();
     });
   }
 
@@ -134,7 +121,6 @@ componentWillUpdate(nextProps, nextState) {
   render() {
     let isLoggedIn = this.props.currentUser;
     if (this.state) {
-      console.log('rendering:',this.state.content);
       return (
         <div className={`review-form-section ${this.props.className}`} id={this.props.id}>
           <ErrorMsgs id='review-errors' errors={this.props.errors} />

@@ -9,15 +9,13 @@ class ReviewIndex extends React.Component {
 
   renderIndexDetail(){
     return this.props.reviews.map( review => {
-      return (
-        <ReviewIndexDetail
-          isUserProfile={this.props.isUserProfile}
-          review={review}
-          key={review.id}
-          currentUser={this.props.currentUser}
-          deleteReview={this.props.deleteReview}
-          sendReviewForEdit={this.props.sendReviewForEdit} />
-      );
+      return <ReviewIndexDetail
+        review={review}
+        key={review.id}
+        fetchUser={this.props.fetchUser}
+        currentUser={this.props.currentUser}
+        deleteReview={this.props.deleteReview}
+        sendReviewForEdit={this.props.sendReviewForEdit} />;
     });
   }
 

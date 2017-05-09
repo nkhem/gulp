@@ -7,6 +7,7 @@ import { fetchReviews,
   clearReviewErrors,
   deleteReview,
   createReview } from '../../actions/review_actions';
+import { fetchUser } from '../../actions/user_actions';
 import { fetchSearchResults } from '../../actions/search_actions';
 import { logout } from '../../actions/session_actions';
 
@@ -104,6 +105,7 @@ class BusinessShow extends React.Component {
             reviews={this.props.business.reviews}
             businessId={this.props.business.id}
             currentUser={this.props.currentUser}
+            fetchUser={this.props.fetchUser}
             createReview={this.props.createReview}
             errors={this.props.errors}
             clearReviewErrors={this.props.clearReviewErrors}

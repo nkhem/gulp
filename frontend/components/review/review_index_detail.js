@@ -1,54 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router';
-import _ from 'lodash';
-
 import { starsImgUrl } from '../yelp/stars';
-import * as BizApiUtil from '../../util/business_api_util';
-import * as UserApiUtil from '../../util/user_api_util';
+import _ from 'lodash';
 
 class ReviewIndexDetail extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: {},
-      biz: {}
+      user: {}
     };
-    this.bizFetchCompleted = false;
-    this.userFetchCompleted = false;
-
     this.renderEditBtns = this.renderEditBtns.bind(this);
-    this.renderBizDetail = this.renderBizDetail.bind(this);
   }
 
   componentWillMount() {
-    if (this.props.isUserProfile) {
-      BizApiUtil.fetchBusiness(`${this.props.review.business_id}`)
-        .then(res => {
-          this.bizFetchCompleted = true;
-          this.setState({biz: res, user: this.props.currentUser});
-        });
-    } else {
-      UserApiUtil.fetchUser(this.props.review.user_id)
-        .then(res => {
-          this.userFetchCompleted = true;
-          this.setState({ user: res});
-      });
-    }
-  }
-
-  renderBizDetail(){
-    let { biz } = this.state;
-    return (
-      <div className='user-profile-biz-detail'>
-        <Link to={`business/${biz.id}`}>
-          <h3>{biz.title}</h3>
-          <p>{biz.price}</p>
-          <p>{biz.phone}</p>
-          <p>{biz.address1}</p>
-          <p>{biz.address2}</p>
-        </Link>
-      </div>
-    );
+    this.props.fetchUser(this.props.review.user_id)
+      .then(res => this.setState({ user: res.user}));
   }
 
   renderEditBtns(){
@@ -66,9 +31,7 @@ class ReviewIndexDetail extends React.Component {
           <div
             id='review-delete-btn'
             className='gray-btn'
-            onClick={() => {
-              this.props.deleteReview(this.props.review);
-            }}>
+            onClick={() => this.props.deleteReview(this.props.review)}>
             delete
           </div>
         </div>
@@ -77,34 +40,23 @@ class ReviewIndexDetail extends React.Component {
   }
 
   render() {
-    if (this.props.isUserProfile && this.bizFetchCompleted) {
+    if (Object.keys(this.state.user).length !== 0){
+
+      let userDisplayName = this.state.user.f_name === 'Guest'
+      ? 'Guest User'
+      : `${this.state.user.f_name} ${this.state.user.l_name.slice(0,1)}`;
       return (
         <div id={`review-index-detail-${this.props.review.id}`}>
           <li
+            id={`review-index-detail-${this.props.review.id}`}
             className="review-index-detail">
-            {this.renderBizDetail()}
+            <p>{`${userDisplayName}:`}</p>
             <img src={starsImgUrl[this.props.review.rating]} />
             <p>{this.props.review.content}</p>
             {this.renderEditBtns()}
           </li>
         </div>
       );
-    } else if ((!this.props.isUserProfile) && this.userFetchCompleted) {
-        let userDisplayName = this.state.user.f_name === 'Guest'
-        ? 'Guest User'
-        : `${this.state.user.f_name} ${this.state.user.l_name.slice(0,1)}`;
-
-        return (
-          <div id={`review-index-detail-${this.props.review.id}`}>
-            <li
-              className="review-index-detail">
-              <p>{`${userDisplayName}:`}</p>
-              <img src={starsImgUrl[this.props.review.rating]} />
-              <p>{this.props.review.content}</p>
-              {this.renderEditBtns()}
-            </li>
-          </div>
-        );
     } else {
       return null;
     }
