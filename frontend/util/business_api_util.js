@@ -17,7 +17,7 @@ export const fetchBusinessesByCategory = categoryAlias => {
 export const fetchBusiness = titleOrId => {
   let data;
   let url;
-  if(titleOrId.replace(/[^0-9]/g, '').length === titleOrId.length){
+  if(typeof titleOrId === "number" || titleOrId.replace(/[^0-9]/g, '').length === titleOrId.length){
     data = { businessId: parseInt(titleOrId) };
     url = `/api/businesses/${parseInt(titleOrId)}`;
   } else {

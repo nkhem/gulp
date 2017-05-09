@@ -49,6 +49,7 @@ class BizReviewSection extends React.Component {
           editReview={this.props.editReview}
           />
         <ReviewIndex
+          isUserProfile={ false }
           reviews={this.props.reviews}
           fetchUser={this.props.fetchUser}
           currentUser={this.props.currentUser}

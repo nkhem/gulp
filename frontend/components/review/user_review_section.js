@@ -1,4 +1,3 @@
-
 import React from 'react';
 import ReviewIndex from './review_index';
 import { withRouter } from 'react-router';
@@ -22,6 +21,7 @@ class UserReviewSection extends React.Component {
     return (
       <div className={`review-section ${this.props.className}`}>
         <ReviewIndex
+          isUserProfile={ true }
           reviews={this.props.reviews}
           fetchUser={this.props.fetchUser}
           currentUser={this.props.currentUser}

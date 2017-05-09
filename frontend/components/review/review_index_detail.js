@@ -2,18 +2,27 @@ import React from 'react';
 import { starsImgUrl } from '../yelp/stars';
 import _ from 'lodash';
 
+import * as BizApiUtil from '../../util/business_api_util';
+
 class ReviewIndexDetail extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: {}
+      user: {},
+      biz: {}
     };
     this.renderEditBtns = this.renderEditBtns.bind(this);
   }
 
   componentWillMount() {
-    this.props.fetchUser(this.props.review.user_id)
-      .then(res => this.setState({ user: res.user}));
+    if (this.props.isUserProfile) {
+      console.log(this.props.review);
+      BizApiUtil.fetchBusiness(this.props.review.business_id)
+      .then(res => console.log(res));
+    } else {
+      this.props.fetchUser(this.props.review.user_id)
+        .then(res => this.setState({ user: res.user}));
+    }
   }
 
   renderEditBtns(){
