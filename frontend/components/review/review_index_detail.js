@@ -1,6 +1,7 @@
 import React from 'react';
 import { starsImgUrl } from '../yelp/stars';
 import _ from 'lodash';
+import { Link } from 'react-router';
 
 import * as BizApiUtil from '../../util/business_api_util';
 
@@ -11,18 +12,46 @@ class ReviewIndexDetail extends React.Component {
       user: {},
       biz: {}
     };
+
+    this.userFetchCompleted = false;
+    this.bizFetchCompleted = false;
     this.renderEditBtns = this.renderEditBtns.bind(this);
   }
 
   componentWillMount() {
     if (this.props.isUserProfile) {
-      console.log(this.props.review);
       BizApiUtil.fetchBusiness(this.props.review.business_id)
-      .then(res => console.log(res));
+      .then(res => {
+        this.bizFetchCompleted = true;
+        this.setState({biz: res});
+      });
     } else {
       this.props.fetchUser(this.props.review.user_id)
-        .then(res => this.setState({ user: res.user}));
+        .then(res => {
+          this.userFetchCompleted = true;
+          this.setState({ user: res.user});
+        });
     }
+  }
+
+  renderBizDetail(){
+    let { biz } = this.state;
+    return (
+      <div className="user-profile-biz-show">
+        <img
+          className="user-profile-biz-show-img"
+          src={biz.image_url} />
+        <div className='user-profile-biz-show-info'>
+          <div>
+            <h3>{biz.title}</h3>
+            <p>{biz.price}</p>
+            <p>{biz.phone}</p>
+            <p>{biz.address1}</p>
+            <p>{biz.address2}</p>
+          </div>
+        </div>
+      </div>
+    );
   }
 
   renderEditBtns(){
@@ -49,21 +78,33 @@ class ReviewIndexDetail extends React.Component {
   }
 
   render() {
-    if (Object.keys(this.state.user).length !== 0){
+    if (!this.props.isUserProfile && this.userFetchCompleted){
 
       let userDisplayName = this.state.user.f_name === 'Guest'
       ? 'Guest User'
       : `${this.state.user.f_name} ${this.state.user.l_name.slice(0,1)}`;
+
       return (
-        <div id={`review-index-detail-${this.props.review.id}`}>
-          <li
-            id={`review-index-detail-${this.props.review.id}`}
-            className="review-index-detail">
+        <div className="review-index-detail">
+          <li>
             <p>{`${userDisplayName}:`}</p>
             <img src={starsImgUrl[this.props.review.rating]} />
             <p>{this.props.review.content}</p>
             {this.renderEditBtns()}
           </li>
+        </div>
+      );
+    } else if (this.props.isUserProfile && this.bizFetchCompleted) {
+      return (
+        <div className="user-profile-review-index-detail">
+          <Link to={`business/${this.state.biz.id}`}>
+            <li>
+              {this.renderBizDetail()}
+              <img src={starsImgUrl[this.props.review.rating]} />
+              <p>{this.props.review.content}</p>
+              {this.renderEditBtns()}
+            </li>
+          </Link>
         </div>
       );
     } else {
