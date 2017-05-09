@@ -17,7 +17,7 @@ class ReviewIndexDetail extends React.Component {
     this.bizFetchCompleted = false;
 
     this.renderEditBtns = this.renderEditBtns.bind(this);
-    this.seeReviewBtn = this.seeReviewBtn.bind(this);
+    this.renderProfileEditBtns = this.renderProfileEditBtns.bind(this);
   }
 
   componentWillMount() {
@@ -39,11 +39,9 @@ class ReviewIndexDetail extends React.Component {
   renderBizDetail(){
     let { biz } = this.state;
     return (
-      <div className="user-profile-biz-show">
-        <img
-          className="user-profile-biz-show-img"
-          src={biz.image_url} />
-        <div className='user-profile-biz-show-info'>
+      <div>
+        <img src={biz.image_url} />
+        <div className={`${this.props.isUserProfile ? 'user-profile-' : ''}biz-show-info`}>
           <div>
             <h3>{biz.title}</h3>
             <p>{biz.price}</p>
@@ -79,15 +77,15 @@ class ReviewIndexDetail extends React.Component {
     }
   }
 
-  seeReviewBtn(){
+  renderProfileEditBtns(){
     return (
       <div className='review-index-detail-btns'>
         <Link to={`business/${this.state.biz.id}`}>
         <div
-          id='review-delete-btn'
+          id='review-edit-btn'
           className='gray-btn'
           >
-          see review
+          edit review
         </div>
         </Link>
       </div>
@@ -113,12 +111,12 @@ class ReviewIndexDetail extends React.Component {
       );
     } else if (this.props.isUserProfile && this.bizFetchCompleted) {
       return (
-        <div className="user-profile-review-index-detail">
+        <div className={`${this.props.isUserProfile ? 'user-profile-' : ''}review-index-detail`}>
           <li>
             {this.renderBizDetail()}
-            <img src={starsImgUrl[this.props.review.rating]} />
+            <img id='stars' src={starsImgUrl[this.props.review.rating]} />
             <p>{this.props.review.content}</p>
-            {this.seeReviewBtn()}
+            {this.renderProfileEditBtns()}
           </li>
         </div>
       );

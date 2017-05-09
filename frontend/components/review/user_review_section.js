@@ -19,7 +19,7 @@ class UserReviewSection extends React.Component {
 
   render() {
     return (
-      <div className={`review-section ${this.props.className}`}>
+      <div className='user-review-section'>
         <ReviewIndex
           isUserProfile={ true }
           reviews={this.props.reviews}

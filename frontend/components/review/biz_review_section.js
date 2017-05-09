@@ -38,7 +38,7 @@ class BizReviewSection extends React.Component {
 
   render() {
     return (
-      <div className={`review-section ${this.props.className}`}>
+      <div className={`review-section`}>
         <ReviewForm
           businessId={this.props.businessId}
           currentUser={this.props.currentUser}

@@ -40,7 +40,6 @@ class UserProfile extends React.Component {
           />
 
         <UserReviewSection
-          className='user-profile-reviews'
           isUserProfile={ true }
           reviews={this.props.currentUser.reviews}
           currentUser={this.props.currentUser}
