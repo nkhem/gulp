@@ -6,7 +6,8 @@ import { fetchBusinessesByCategory, fetchBusiness } from '../../actions/business
 import {fetchReviews,
   clearReviewErrors,
   deleteReview,
-  createReview } from '../../actions/review_actions';
+  createReview,
+  editReview } from '../../actions/review_actions';
 import { fetchUser } from '../../actions/user_actions';
 import { fetchSearchResults } from '../../actions/search_actions';
 import { logout } from '../../actions/session_actions';
@@ -128,7 +129,9 @@ class BusinessShow extends React.Component {
             errors={this.props.errors}
             clearReviewErrors={this.props.clearReviewErrors}
             currentUser={this.props.currentUser}
-            deleteReview={this.props.deleteReview}/>
+            deleteReview={this.props.deleteReview}
+            editReview={this.props.editReview}
+            />
 
           <Footer id="biz-show-footer"/>
         </div>
@@ -159,7 +162,8 @@ const mapDispatchToProps = (dispatch, state) => {
     fetchUser: userId => dispatch(fetchUser(userId)),
     createReview: userId => dispatch(createReview(userId)),
     clearReviewErrors: () => dispatch(clearReviewErrors()),
-    deleteReview: review => dispatch(deleteReview(review))
+    deleteReview: review => dispatch(deleteReview(review)),
+    editReview: review => dispatch(editReview(review))
   };
 };
 

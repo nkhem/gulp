@@ -10,8 +10,7 @@ class ReviewForm extends React.Component {
     super(props);
 
     this.starsImgUrl = starsImgUrl[this.props.currentReview.rating];
-    this.prevReview = null;
-    console.log(this.props.currentReview);
+
     this.state = this.props.currentReview;
 
     this.renderSubmitBtn = this.renderSubmitBtn.bind(this);
@@ -25,7 +24,6 @@ class ReviewForm extends React.Component {
     if (!_.isEqual(nextProps.currentReview.id, this.state.id)) {
       this.setState(nextProps.currentReview);
       this.starsImgUrl = starsImgUrl[nextProps.currentReview.rating];
-      this.prevReview = nextProps.currentReview;
     }
   }
 
@@ -52,7 +50,10 @@ class ReviewForm extends React.Component {
     if (isLoggedIn) {
       return (
         <div className='review-form-end'>
-          <input className="gray-btn review-form-submit" type="submit" value='Submit Review' />
+          <input
+            className="gray-btn review-form-submit"
+            type="submit"
+            value={`${window.location.hash.slice(21)? 'Edit' : 'Submit'} Review`} />
         </div>
       );
     } else {
@@ -94,20 +95,16 @@ class ReviewForm extends React.Component {
   handleSubmit(e){
     e.preventDefault();
 
-    this.props.createReview(this.state)
+    this.props.editReview(this.state)
       .then( () => {
-        if(this.prevReview) {
-          this.props.deleteReview(this.prevReview);
-          this.prevReview = null;
-        }
-
         this.starsImgUrl = starsImgUrl[0];
         this.props.clearReviewErrors();
         this.setState({
+          id: null,
           businessId: this.state.businessId,
           userId: this.state.userId,
           content: '',
-          rating: ''
+          rating: 0
       });
     });
   }

@@ -9,6 +9,7 @@ class BizReviewSection extends React.Component {
 
     this.state = {
       review: {
+        id: null,
         content: '',
         rating: 0,
         userId: (props.currentUser ? props.currentUser.id : ''),
@@ -43,13 +44,16 @@ class BizReviewSection extends React.Component {
           errors={this.props.errors}
           clearReviewErrors={this.props.clearReviewErrors}
           currentReview={this.state.review}
-          deleteReview={this.props.deleteReview}/>
+          deleteReview={this.props.deleteReview}
+          editReview={this.props.editReview}
+          />
         <ReviewIndex
           reviews={this.props.reviews}
           fetchUser={this.props.fetchUser}
           currentUser={this.props.currentUser}
           deleteReview={this.props.deleteReview}
-          sendReviewForEdit={this.sendReviewForEdit}/>
+          sendReviewForEdit={this.sendReviewForEdit}
+          />
       </div>
     );
   }
