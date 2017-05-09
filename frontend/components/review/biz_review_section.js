@@ -21,7 +21,11 @@ class BizReviewSection extends React.Component {
 
   componentWillMount(){
     if (this.props.currentReview) {
-      this.setState({review: this.props.currentReview});
+      const rev = this.props.currentReview;
+      this.setState({review: {
+        content: rev.content,
+        rating: rev.rating
+      }});
     }
   }
 
