@@ -95,7 +95,14 @@ class ReviewForm extends React.Component {
   handleSubmit(e){
     e.preventDefault();
 
-    this.props.editReview(this.state)
+    let submitFunction;
+    if(window.location.hash.match('edit')) {
+      submitFunction = this.props.editReview;
+    } else {
+      submitFunction = this.props.createReview;
+    }
+    
+    submitFunction(this.state)
       .then( () => {
         this.starsImgUrl = starsImgUrl[0];
         this.props.clearReviewErrors();

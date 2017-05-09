@@ -1,5 +1,6 @@
-
 import React from 'react';
+import { withRouter } from 'react-router';
+
 import ReviewIndex from './review_index';
 import ReviewForm from './review_form';
 
@@ -32,6 +33,7 @@ class BizReviewSection extends React.Component {
 
   sendReviewForEdit(review){
     this.setState({review: review});
+    this.props.router.replace(`/business/${review.business_id}?edit='${review.id}'`);
   }
 
   render() {
@@ -44,7 +46,6 @@ class BizReviewSection extends React.Component {
           errors={this.props.errors}
           clearReviewErrors={this.props.clearReviewErrors}
           currentReview={this.state.review}
-          deleteReview={this.props.deleteReview}
           editReview={this.props.editReview}
           />
         <ReviewIndex
@@ -60,4 +61,4 @@ class BizReviewSection extends React.Component {
 
 }
 
-export default BizReviewSection;
+export default withRouter(BizReviewSection);

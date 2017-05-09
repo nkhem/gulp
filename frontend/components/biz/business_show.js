@@ -28,6 +28,7 @@ class BusinessShow extends React.Component {
       currentReview: null
     };
     this.retrieveReviewForEdit = this.retrieveReviewForEdit.bind(this);
+    this.deleteReview = this.deleteReview.bind(this);
   }
 
   componentWillMount(){
@@ -61,6 +62,11 @@ class BusinessShow extends React.Component {
         this.setState({reviews: res.reviews});
     });
     }
+  }
+
+  deleteReview(review){
+    this.props.deleteReview(review)
+      .then( res => this.setState({currentReview: null}));
   }
 
   retrieveReviewForEdit(){
@@ -129,7 +135,7 @@ class BusinessShow extends React.Component {
             errors={this.props.errors}
             clearReviewErrors={this.props.clearReviewErrors}
             currentUser={this.props.currentUser}
-            deleteReview={this.props.deleteReview}
+            deleteReview={this.deleteReview}
             editReview={this.props.editReview}
             />
 
