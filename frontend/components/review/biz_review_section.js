@@ -31,16 +31,18 @@ class BizReviewSection extends React.Component {
     }
   }
 
-  componentWillUpdate(){
-    console.log(this.props.currentReview);
-  }
-
   sendReviewForEdit(review){
     this.setState({review: review});
     this.props.router.replace(`/business/${review.business_id}?edit='${review.id}'`);
   }
 
   render() {
+    let idOfEditInProgress;
+    if (this.props.location.query.edit) {
+      idOfEditInProgress = this.props.location.query.edit;
+      idOfEditInProgress = idOfEditInProgress.slice(1, idOfEditInProgress.length - 1);
+    }
+
     return (
       <div className={`review-section`}>
         <ReviewForm
@@ -54,6 +56,7 @@ class BizReviewSection extends React.Component {
           refreshUser={this.props.refreshUser}
           />
         <ReviewIndex
+          idOfEditInProgress={idOfEditInProgress}
           isUserProfile={ false }
           reviews={this.props.reviews}
           fetchUser={this.props.fetchUser}

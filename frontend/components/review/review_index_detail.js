@@ -100,7 +100,10 @@ class ReviewIndexDetail extends React.Component {
       : `${this.state.user.f_name} ${this.state.user.l_name.slice(0,1)}`;
 
       return (
-        <div className="review-index-detail">
+        <div
+          className="review-index-detail"
+          id={this.props.idOfEditInProgress &&
+            _.isEqual(this.props.idOfEditInProgress, this.props.review.id) ? 'edit-in-progress' : ''}>
           <li>
             <p>{`${userDisplayName}:`}</p>
             <img src={starsImgUrl[this.props.review.rating]} />
