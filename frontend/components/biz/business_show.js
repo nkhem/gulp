@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
+import { withRouter } from 'react-router';
 
 import { fetchBusinessesByCategory, fetchBusiness } from '../../actions/business_actions';
 import {fetchReviews,
@@ -59,6 +60,14 @@ class BusinessShow extends React.Component {
         this.reviews = res.reviews;
         this.setState({reviews: res.reviews});
     });
+    }
+
+    if (nextProps.location.query.edit !== this.props.location.query.edit) {
+      this.props.fetchReviews(this.state.biz.id)
+        .then(res => {
+          this.reviews = res.reviews;
+          this.setState({reviews: res.reviews});
+        });
     }
   }
 
@@ -158,4 +167,4 @@ const mapDispatchToProps = (dispatch, state) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(BusinessShow);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(BusinessShow));
