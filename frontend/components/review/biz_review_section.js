@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 
+import * as ReviewApiUtil from '../../util/review_api_util';
 import ReviewIndex from './review_index';
 import ReviewForm from './review_form';
 
@@ -22,12 +23,19 @@ class BizReviewSection extends React.Component {
   }
 
   componentWillMount(){
-    if (this.props.currentReview) {
-      const rev = this.props.currentReview;
-      this.setState({review: {
-        content: rev.content,
-        rating: rev.rating
-      }});
+
+    let currentReviewId;
+    if (this.props.location.query.edit) {
+      currentReviewId = this.props.location.query.edit;
+      currentReviewId = currentReviewId.slice(1, currentReviewId.length - 1);
+      ReviewApiUtil.fetchReview(currentReviewId)
+        .then(res => {
+          this.setState({review: {
+            id: currentReviewId,
+            content: res.content,
+            rating: res.rating
+          }});
+        });
     }
   }
 
@@ -37,11 +45,6 @@ class BizReviewSection extends React.Component {
   }
 
   render() {
-    let idOfEditInProgress;
-    if (this.props.location.query.edit) {
-      idOfEditInProgress = this.props.location.query.edit;
-      idOfEditInProgress = idOfEditInProgress.slice(1, idOfEditInProgress.length - 1);
-    }
 
     return (
       <div className={`review-section`}>
@@ -56,7 +59,7 @@ class BizReviewSection extends React.Component {
           refreshUser={this.props.refreshUser}
           />
         <ReviewIndex
-          idOfEditInProgress={idOfEditInProgress}
+          currentReviewId={this.state.review.id}
           isUserProfile={ false }
           reviews={this.props.reviews}
           fetchUser={this.props.fetchUser}

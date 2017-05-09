@@ -13,8 +13,6 @@ import { fetchUser,
 import { fetchSearchResults } from '../../actions/search_actions';
 import { logout } from '../../actions/session_actions';
 
-import * as ReviewApiUtil from '../../util/review_api_util';
-
 import Header from '../header';
 import Footer from '../footer';
 import SingleBizMap from '../map/single_biz_map';
@@ -26,16 +24,14 @@ class BusinessShow extends React.Component {
     super(props);
     this.state = {
       biz: {},
-      reviews: [],
-      currentReview: null
+      reviews: []
     };
-    this.retrieveReviewForEdit = this.retrieveReviewForEdit.bind(this);
+
     this.deleteReview = this.deleteReview.bind(this);
   }
 
   componentWillMount(){
     if (this.props.errors.length > 0) this.props.clearReviewErrors();
-    if (window.location.hash.match('edit')) this.retrieveReviewForEdit();
 
     this.props.fetchBusiness(this.props.params.businessId)
     .then(res => {
@@ -52,8 +48,6 @@ class BusinessShow extends React.Component {
   componentDidUpdate(nextProps, nextState) {
     if (!_.isEqual(parseInt(nextProps.params.businessId), this.state.biz.id)) {
       if (this.props.errors.length > 0) this.props.clearReviewErrors();
-      if (window.location.hash.match('edit')) this.retrieveReviewForEdit();
-      console.log('updating');
 
       this.props.fetchBusiness(this.props.params.businessId)
       .then(res => {
@@ -70,24 +64,7 @@ class BusinessShow extends React.Component {
 
   deleteReview(review){
     return this.props.deleteReview(review)
-      .then( res => this.setState({currentReview: null}))
       .then( () => this.props.refreshUser(this.props.currentUser.id));
-  }
-
-  retrieveReviewForEdit(){
-    console.log('retrieving review');
-    let reviewId = window.location.hash.slice(21);
-    reviewId = parseInt(reviewId.slice(1, reviewId.length - 1));
-    ReviewApiUtil.fetchReview(reviewId)
-      .then(res => {
-        if (this.props.loggedIn &&
-          (res.user_id === this.props.currentUser.id)) {
-          this.setState({currentReview: res});
-          console.log('currentReview fetched:', this.state.currentReview);
-        } else {
-          this.props.router.replace(`/`);
-        }
-      });
   }
 
   render() {
@@ -133,7 +110,6 @@ class BusinessShow extends React.Component {
 
           <BizReviewSection
             className='biz-show-reviews'
-            currentReview={this.state.currentReview}
             reviews={this.props.business.reviews}
             businessId={this.props.business.id}
             currentUser={this.props.currentUser}

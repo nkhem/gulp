@@ -102,8 +102,8 @@ class ReviewIndexDetail extends React.Component {
       return (
         <div
           className="review-index-detail"
-          id={this.props.idOfEditInProgress &&
-            _.isEqual(this.props.idOfEditInProgress, this.props.review.id) ? 'edit-in-progress' : ''}>
+          id={this.props.currentReviewId &&
+            _.isEqual(this.props.currentReviewId, this.props.review.id) ? 'edit-in-progress' : ''}>
           <li>
             <p>{`${userDisplayName}:`}</p>
             <img src={starsImgUrl[this.props.review.rating]} />
