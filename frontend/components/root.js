@@ -8,6 +8,7 @@ import SessionForm from './session/session_form';
 import SearchResults from './search_results';
 import BusinessShow from './biz/business_show';
 import UserProfile from './user/user_profile';
+import * as ReviewApiUtil from '../util/review_api_util';
 
 const Root = ({ store }) => {
   const _redirectIfLoggedIn = (nextState, replace) => {
@@ -25,6 +26,22 @@ const Root = ({ store }) => {
     }
   };
 
+  const _divertFromEditIfUnauthorizedUser = (nextState, replace) => {
+    if (window.location.hash.match('edit')){
+      const currentUser = store.getState().session.currentUser;
+      let currentReviewId = window.location.hash.slice(21);
+      currentReviewId = parseInt(currentReviewId.slice(1, currentReviewId.length - 1));
+
+      let currentReviewUserId;
+      ReviewApiUtil.fetchReview(currentReviewId)
+        .then( res => {currentReviewUserId = res.user_id;});
+
+      if (!currentUser || currentUser.id !== currentReviewUserId) {
+        replace(window.location.hash.slice(1, 15));
+      }
+    }
+  };
+
   return (
     <Provider store={ store }>
       <Router history={ hashHistory }>
@@ -33,7 +50,7 @@ const Root = ({ store }) => {
           <Route path="login" component={ SessionForm } onEnter={ _redirectIfLoggedIn } />
           <Route path="signup" component={ SessionForm } onEnter={ _redirectIfLoggedIn } />
           <Route path="search" component={ SearchResults } />
-          <Route path ="business/:businessId" component={BusinessShow} />
+          <Route path ="business/:businessId" component={BusinessShow} onEnter={ _divertFromEditIfUnauthorizedUser }/>
           <Route path ="user/:userId" component={UserProfile} onEnter={ _redirectIfUnauthorizedUser } />
         </Route>
       </Router>

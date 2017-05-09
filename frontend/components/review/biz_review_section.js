@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router';
+import _ from 'lodash';
 
 import * as ReviewApiUtil from '../../util/review_api_util';
 import ReviewIndex from './review_index';
@@ -9,7 +10,7 @@ class BizReviewSection extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
+    this.nullState = {
       review: {
         id: null,
         content: '',
@@ -18,6 +19,9 @@ class BizReviewSection extends React.Component {
         businessId: props.businessId
       }
     };
+
+    this.state = this.nullState;
+
 
     this.sendReviewForEdit = this.sendReviewForEdit.bind(this);
   }
