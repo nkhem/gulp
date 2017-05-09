@@ -2,6 +2,7 @@ import React from 'react';
 import { starsImgUrl } from '../yelp/stars';
 import _ from 'lodash';
 import { Link } from 'react-router';
+import { withRouter } from 'react-router';
 
 import * as BizApiUtil from '../../util/business_api_util';
 
@@ -62,7 +63,7 @@ class ReviewIndexDetail extends React.Component {
             id='review-delete-btn'
             className='gray-btn'
             onClick={() => {
-              this.props.sendReviewForEdit(this.props.review);
+              this.props.router.replace(`/business/${this.props.review.business_id}?edit='${this.props.review.id}'`);
             }}>
             edit
           </div>
@@ -130,4 +131,4 @@ class ReviewIndexDetail extends React.Component {
 
 }
 
-export default ReviewIndexDetail;
+export default withRouter(ReviewIndexDetail);

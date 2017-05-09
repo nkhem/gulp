@@ -17,7 +17,6 @@ class ReviewIndex extends React.Component {
         fetchUser={this.props.fetchUser}
         currentUser={this.props.currentUser}
         deleteReview={this.props.deleteReview}
-        sendReviewForEdit={this.props.sendReviewForEdit}
         />;
     });
   }

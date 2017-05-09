@@ -12,7 +12,17 @@ class ReviewForm extends React.Component {
 
     this.starsImgUrl = starsImgUrl[this.props.currentReview.rating];
 
-    this.state = this.props.currentReview;
+    this.nullState = {
+      review: {
+        id: null,
+        content: '',
+        rating: 0,
+        userId: (props.currentUser ? props.currentUser.id : ''),
+        businessId: props.businessId
+      }
+    };
+
+    this.state = this.nullState;
 
     this.renderSubmitBtn = this.renderSubmitBtn.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -54,7 +64,7 @@ class ReviewForm extends React.Component {
           <input
             className="gray-btn review-form-submit"
             type="submit"
-            value={`${window.location.hash.slice(21)? 'Edit' : 'Submit'} Review`} />
+            value={`${window.location.hash.match('edit')? 'Edit' : 'Submit'} Review`} />
         </div>
       );
     } else {
@@ -115,7 +125,9 @@ class ReviewForm extends React.Component {
           rating: 0
       });
     }).then( () => this.props.refreshUser(this.props.currentUser.id))
-    .then( () => this.props.router.replace(`business/${this.state.businessId}`));
+    .then( () => {
+      this.props.router.replace(`business/${this.state.businessId}`);
+  });
   }
 
   update(field) {

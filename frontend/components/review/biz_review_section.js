@@ -21,44 +21,65 @@ class BizReviewSection extends React.Component {
     };
 
     this.state = this.nullState;
-
-
-    this.sendReviewForEdit = this.sendReviewForEdit.bind(this);
   }
 
   componentWillMount(){
 
     let currentReviewId;
-    if (this.props.location.query.edit) {
-      currentReviewId = this.props.location.query.edit;
-      currentReviewId = currentReviewId.slice(1, currentReviewId.length - 1);
+    if (window.location.hash.match('edit')) {
+      currentReviewId = window.location.hash.slice(21);
+      currentReviewId = parseInt(currentReviewId.slice(1, currentReviewId.length - 1));
+
       ReviewApiUtil.fetchReview(currentReviewId)
         .then(res => {
+          console.log('current review fetched:', res);
           this.setState({review: {
             id: currentReviewId,
             content: res.content,
-            rating: res.rating
+            rating: res.rating,
+            userId: this.state.userId,
+            businessId: this.state.businessId
           }});
         });
     }
   }
 
-  sendReviewForEdit(review){
-    this.setState({review: review});
-    this.props.router.replace(`/business/${review.business_id}?edit='${review.id}'`);
+  componentWillUpdate(nextProps){
+    if (nextProps.location.query.edit !== this.props.location.query.edit) {
+      if (nextProps.location.query.edit) {
+        let currentReviewId = window.location.hash.slice(21);
+        currentReviewId = parseInt(currentReviewId.slice(1, currentReviewId.length - 1));
+
+        ReviewApiUtil.fetchReview(currentReviewId)
+          .then(res => {
+            console.log('current review fetched:', res);
+            this.setState({review: {
+              id: currentReviewId,
+              content: res.content,
+              rating: res.rating,
+              userId: res.user_id,
+              businessId: res.business_id
+            }});
+          });
+      } else {
+        this.setState(this.nullState);
+      }
+    }
   }
+
+
 
   render() {
 
     return (
       <div className={`review-section`}>
         <ReviewForm
-          businessId={this.props.businessId}
           currentUser={this.props.currentUser}
           createReview={this.props.createReview}
           errors={this.props.errors}
           clearReviewErrors={this.props.clearReviewErrors}
           currentReview={this.state.review}
+          businessId={this.state.review.businessId}
           editReview={this.props.editReview}
           refreshUser={this.props.refreshUser}
           />
@@ -70,7 +91,6 @@ class BizReviewSection extends React.Component {
           refreshUser={this.props.refreshUser}
           currentUser={this.props.currentUser}
           deleteReview={this.props.deleteReview}
-          sendReviewForEdit={this.sendReviewForEdit}
           />
       </div>
     );
