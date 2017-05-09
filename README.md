@@ -2,7 +2,7 @@
 
 [On Heroku][heroku]
 
-[heroku]: nkhem-gulp.herokuapp.com
+[heroku]: https://nkhem-gulp.herokuapp.com
 
 ## Minimum Viable Product
 
@@ -12,11 +12,11 @@ following criteria with smooth, bug-free navigation, adequate seed data and
 sufficient CSS styling:
 
 - Hosting on Heroku
-- Authentication: new account creation, login, and guest/demo login
-- Business Page: displays business info, map with business location marker, list of reviews, and new review form
+- Authentication: new account creation, login, and guest/demo login using BCrypt
+- Business Page: displays business info, map with business location marker, list of reviews, and new review form. Allows for the editing of reviews associated with the currently logged-in user.
 - Search Bar: provides dropdown autocomplete suggestions as you type
 - Reviews/Ratings: CRUD capable
-- Navigation Page: central map with up to ten business location markers based on top search results
+- Search Results Page: displays Google map with business location markers based on top search results
 - Production README
 
 ## Implementation Timeline
@@ -53,9 +53,15 @@ sufficient CSS styling:
 ### Phase 9: CSS (4 days)
 **Objective** To make things pretty.
 
+### Phase 10: Add CRUD capabilities to reviews (2 days)
+**Objective** To allow users to create, edit and delete reviews associated with their account.
+
+### Phase 11: Personal Profile Page (1 day)
+**Objective** To display list of reviews associated with the current user's account on their personal profile page.
+
 
 ### Bonus Features (TBD)
+- [X] Personal profiles
 - [ ] Responsiveness
-- [ ] Personal profiles
 - [ ] Performance and Scaling
 - [ ] Specs
