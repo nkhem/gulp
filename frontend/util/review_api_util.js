@@ -7,6 +7,7 @@ export const fetchReviews = businessId => {
 };
 
 export const fetchReview = reviewId => {
+  console.log('fetchReview action controller:', reviewId);
   return $.ajax({
       method: 'GET',
       url: `/api/reviews/${reviewId}`

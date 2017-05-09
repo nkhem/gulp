@@ -31,6 +31,10 @@ class BizReviewSection extends React.Component {
     }
   }
 
+  componentWillUpdate(){
+    console.log(this.props.currentReview);
+  }
+
   sendReviewForEdit(review){
     this.setState({review: review});
     this.props.router.replace(`/business/${review.business_id}?edit='${review.id}'`);

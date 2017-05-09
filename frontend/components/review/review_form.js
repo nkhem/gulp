@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import _ from 'lodash';
+import { withRouter } from 'react-router';
 
 import { starsImgUrl } from '../yelp/stars';
 import ErrorMsgs from '../error_msgs';
@@ -22,8 +23,8 @@ class ReviewForm extends React.Component {
 
   componentWillUpdate(nextProps, nextState) {
     if (!_.isEqual(nextProps.currentReview.id, this.state.id)) {
-      this.setState(nextProps.currentReview);
-      this.starsImgUrl = starsImgUrl[nextProps.currentReview.rating];
+      this.setState(this.props.currentReview);
+      this.starsImgUrl = starsImgUrl[this.props.currentReview.rating];
     }
   }
 
@@ -113,7 +114,8 @@ class ReviewForm extends React.Component {
           content: '',
           rating: 0
       });
-    }).then( () => this.props.refreshUser(this.props.currentUser.id));
+    }).then( () => this.props.refreshUser(this.props.currentUser.id))
+    .then( () => this.props.router.replace(`business/${this.state.businessId}`));
   }
 
   update(field) {
@@ -171,4 +173,4 @@ class ReviewForm extends React.Component {
 
 }
 
-export default ReviewForm;
+export default withRouter(ReviewForm);

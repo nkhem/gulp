@@ -35,7 +35,7 @@ class BusinessShow extends React.Component {
 
   componentWillMount(){
     if (this.props.errors.length > 0) this.props.clearReviewErrors();
-    if (window.location.hash.slice(21)) this.retrieveReviewForEdit();
+    if (window.location.hash.match('edit')) this.retrieveReviewForEdit();
 
     this.props.fetchBusiness(this.props.params.businessId)
     .then(res => {
@@ -52,6 +52,8 @@ class BusinessShow extends React.Component {
   componentDidUpdate(nextProps, nextState) {
     if (!_.isEqual(parseInt(nextProps.params.businessId), this.state.biz.id)) {
       if (this.props.errors.length > 0) this.props.clearReviewErrors();
+      if (window.location.hash.match('edit')) this.retrieveReviewForEdit();
+      console.log('updating');
 
       this.props.fetchBusiness(this.props.params.businessId)
       .then(res => {
@@ -73,6 +75,7 @@ class BusinessShow extends React.Component {
   }
 
   retrieveReviewForEdit(){
+    console.log('retrieving review');
     let reviewId = window.location.hash.slice(21);
     reviewId = parseInt(reviewId.slice(1, reviewId.length - 1));
     ReviewApiUtil.fetchReview(reviewId)
@@ -80,6 +83,7 @@ class BusinessShow extends React.Component {
         if (this.props.loggedIn &&
           (res.user_id === this.props.currentUser.id)) {
           this.setState({currentReview: res});
+          console.log('currentReview fetched:', this.state.currentReview);
         } else {
           this.props.router.replace(`/`);
         }
