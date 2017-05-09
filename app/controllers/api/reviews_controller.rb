@@ -27,6 +27,17 @@ class Api::ReviewsController < ApplicationController
     render :show
   end
 
+  def update
+    @review = Review.find_by(id: params[:id])
+
+    if (@review.user_id == current_user.id) && @review.update({
+        content: params[:content],
+        rating: params[:rating]
+      })
+      render :show
+    end
+  end
+
   def destroy
     @review = Review.find(params[:reviewId])
     if @review && @review.user_id == current_user.id
