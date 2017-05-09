@@ -65,7 +65,7 @@ class BusinessShow extends React.Component {
   }
 
   deleteReview(review){
-    this.props.deleteReview(review)
+    return this.props.deleteReview(review)
       .then( res => this.setState({currentReview: null}));
   }
 
