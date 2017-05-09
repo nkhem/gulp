@@ -31,8 +31,12 @@
   top: 200px;
 }
 
+.review-form-end a{
+  color: $gray-plum;
+}
+
 .review-form-end a:hover{
-  color: $plum;
+  color: $light-plum;
 }
 
 #rating-mouseover-numbers {
