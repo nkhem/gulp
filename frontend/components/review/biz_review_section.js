@@ -10,7 +10,7 @@ class BizReviewSection extends React.Component {
     this.state = {
       review: {
         content: '',
-        rating: '',
+        rating: 0,
         userId: (props.currentUser ? props.currentUser.id : ''),
         businessId: props.businessId
       }
@@ -20,8 +20,8 @@ class BizReviewSection extends React.Component {
   }
 
   componentWillMount(){
-    if (this.props.reviewForEdit) {
-      this.setState({review: this.props.reviewForEdit});
+    if (this.props.currentReview) {
+      this.setState({review: this.props.currentReview});
     }
   }
 
@@ -30,10 +30,10 @@ class BizReviewSection extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <div className={`review-section ${this.props.className}`}>
         <ReviewForm
+          businessId={this.props.businessId}
           currentUser={this.props.currentUser}
           createReview={this.props.createReview}
           errors={this.props.errors}

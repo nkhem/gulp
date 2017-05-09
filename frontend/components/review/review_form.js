@@ -9,9 +9,9 @@ class ReviewForm extends React.Component {
   constructor(props) {
     super(props);
 
-    this.starsImgUrl = starsImgUrl[0];
+    this.starsImgUrl = starsImgUrl[this.props.currentReview.rating];
     this.prevReview = null;
-
+    console.log(this.props.currentReview);
     this.state = this.props.currentReview;
 
     this.renderSubmitBtn = this.renderSubmitBtn.bind(this);
@@ -21,13 +21,13 @@ class ReviewForm extends React.Component {
     this.handleRatingClick = this.handleRatingClick.bind(this);
   }
 
-componentWillUpdate(nextProps, nextState) {
-  if (!_.isEqual(nextProps.currentReview.id, this.state.id)) {
-    this.setState(nextProps.currentReview);
-    this.starsImgUrl = starsImgUrl[nextProps.currentReview.rating];
-    this.prevReview = nextProps.currentReview;
+  componentWillUpdate(nextProps, nextState) {
+    if (!_.isEqual(nextProps.currentReview.id, this.state.id)) {
+      this.setState(nextProps.currentReview);
+      this.starsImgUrl = starsImgUrl[nextProps.currentReview.rating];
+      this.prevReview = nextProps.currentReview;
+    }
   }
-}
 
   handleRatingMouseOver(e){
     const num = e.target.innerHTML;

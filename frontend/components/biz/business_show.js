@@ -67,8 +67,11 @@ class BusinessShow extends React.Component {
     reviewId = parseInt(reviewId.slice(1, reviewId.length - 1));
     ReviewApiUtil.fetchReview(reviewId)
       .then(res => {
-        if (res.user_id === this.props.currentUser.id) {
+        if (this.props.loggedIn &&
+          (res.user_id === this.props.currentUser.id)) {
           this.setState({currentReview: res});
+        } else {
+          this.props.router.replace(`/`);
         }
       });
   }
@@ -116,7 +119,7 @@ class BusinessShow extends React.Component {
 
           <BizReviewSection
             className='biz-show-reviews'
-            reviewForEdit={this.state.currentReview}
+            currentReview={this.state.currentReview}
             reviews={this.props.business.reviews}
             businessId={this.props.business.id}
             currentUser={this.props.currentUser}
