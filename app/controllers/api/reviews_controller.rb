@@ -28,12 +28,12 @@ class Api::ReviewsController < ApplicationController
   end
 
   def update
-    @review = Review.find_by(id: params[:id])
+    @review = Review.find_by(id: params[:review][:id])
 
     if (@review.user_id == current_user.id) && @review.update({
-        content: params[:content],
-        rating: params[:rating]
-      })
+      content: params[:review][:content],
+      rating: params[:review][:rating]
+    })
       render :show
     end
   end

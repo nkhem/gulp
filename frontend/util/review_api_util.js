@@ -28,3 +28,11 @@ export const deleteReview = review => {
       data: { reviewId: review.id },
   });
 };
+
+export const editReview = review => {
+  return $.ajax({
+      method: 'DELETE',
+      url: `/api/reviews/${review.id}`,
+      data: { review: review },
+  });
+};
