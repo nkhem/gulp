@@ -3,7 +3,7 @@ import React from 'react';
 import ReviewIndex from './review_index';
 import ReviewForm from './review_form';
 
-class ReviewSection extends React.Component {
+class BizReviewSection extends React.Component {
   constructor(props) {
     super(props);
 
@@ -19,11 +19,18 @@ class ReviewSection extends React.Component {
     this.sendReviewForEdit = this.sendReviewForEdit.bind(this);
   }
 
+  componentWillMount(){
+    if (this.props.reviewForEdit) {
+      this.setState({review: this.props.reviewForEdit});
+    }
+  }
+
   sendReviewForEdit(review){
     this.setState({review: review});
   }
 
   render() {
+    console.log(this.props);
     return (
       <div className={`review-section ${this.props.className}`}>
         <ReviewForm
@@ -45,4 +52,4 @@ class ReviewSection extends React.Component {
 
 }
 
-export default ReviewSection;
+export default BizReviewSection;

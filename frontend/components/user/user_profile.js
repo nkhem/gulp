@@ -13,7 +13,7 @@ import { logout } from '../../actions/session_actions';
 import Header from '../header';
 import Footer from '../footer';
 import YelpSection from '../yelp/yelp_section';
-import ReviewSection from '../review/review_section';
+import UserReviewSection from '../review/user_review_section';
 
 class UserProfile extends React.Component {
   constructor(props) {
@@ -39,7 +39,7 @@ class UserProfile extends React.Component {
           shouldDisplayLogo={true}
           />
 
-        <ReviewSection
+        <UserReviewSection
           className='user-profile-reviews'
           isUserProfile={ true }
           reviews={this.props.currentUser.reviews}

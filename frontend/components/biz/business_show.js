@@ -3,31 +3,35 @@ import { connect } from 'react-redux';
 import _ from 'lodash';
 
 import { fetchBusinessesByCategory, fetchBusiness } from '../../actions/business_actions';
-import { fetchReviews,
+import {fetchReviews,
   clearReviewErrors,
   deleteReview,
   createReview } from '../../actions/review_actions';
 import { fetchUser } from '../../actions/user_actions';
 import { fetchSearchResults } from '../../actions/search_actions';
 import { logout } from '../../actions/session_actions';
+import * as ReviewApiUtil from '../../util/review_api_util';
 
 import Header from '../header';
 import Footer from '../footer';
 import SingleBizMap from '../map/single_biz_map';
 import YelpSection from '../yelp/yelp_section';
-import ReviewSection from '../review/review_section';
+import BizReviewSection from '../review/biz_review_section';
 
 class BusinessShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       biz: {},
-      reviews: []
+      reviews: [],
+      currentReview: null
     };
+    this.retrieveReviewForEdit = this.retrieveReviewForEdit.bind(this);
   }
 
   componentWillMount(){
     if (this.props.errors.length > 0) this.props.clearReviewErrors();
+    if (window.location.hash.slice(21)) this.retrieveReviewForEdit();
 
     this.props.fetchBusiness(this.props.params.businessId)
     .then(res => {
@@ -58,6 +62,17 @@ class BusinessShow extends React.Component {
     }
   }
 
+  retrieveReviewForEdit(){
+    let reviewId = window.location.hash.slice(21);
+    reviewId = parseInt(reviewId.slice(1, reviewId.length - 1));
+    ReviewApiUtil.fetchReview(reviewId)
+      .then(res => {
+        if (res.user_id === this.props.currentUser.id) {
+          this.setState({currentReview: res});
+        }
+      });
+  }
+
   render() {
     let biz = this.props.business;
     if (biz.id && biz.reviews) {
@@ -66,7 +81,6 @@ class BusinessShow extends React.Component {
 
           <Header
             loggedIn={this.props.loggedIn}
-            currentUser={this.props.currentUser}
             currentUser={this.props.currentUser}
             logout={ this.props.logout }
             fetchSearchResults={ this.props.fetchSearchResults }
@@ -100,8 +114,9 @@ class BusinessShow extends React.Component {
             </div>
           </div>
 
-          <ReviewSection
+          <BizReviewSection
             className='biz-show-reviews'
+            reviewForEdit={this.state.currentReview}
             reviews={this.props.business.reviews}
             businessId={this.props.business.id}
             currentUser={this.props.currentUser}
