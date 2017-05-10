@@ -153,7 +153,35 @@ all_reviews = [
 
   "If you've read any of my other reviews, suspendisse tempor placerat tristique. Praesent vitae augue in dui auctor porta. Fusce sit amet maximus turpis, at finibus magna. Cras blandit id nisi non bibendum. Suspendisse consectetur tristique nibh. Nullam feugiat porttitor ex pellentesque dapibus. Praesent mi leo, gravida a ex eu, vulputate accumsan lorem. Cras mattis congue egestas. Praesent id ullamcorper lectus, in congue massa. Fusce consequat pulvinar vulputate. Aenean eu enim dignissim, dignissim nisi venenatis, aliquam erat. In non orci purus. Nullam nec mollis nibh, id pellentesque mi. Fusce sed risus augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia.",
 
-  "I decided to give this place a try because sed sed sed viverra metus. Aliquam erat volutpat. Etiam eleifend nisi sit amet odio posuere, ut ultrices eros viverra. Nulla feugiat facilisis enim eu malesuada. Donec feugiat lorem arcu, eu pharetra diam volutpat volutpat. Suspendisse tempor dictum eros, viverra semper metus pulvinar eget. Phasellus elit purus, varius a turpis a, sagittis faucibus sem. Sed et vulputate metus."
+  "I decided to give this place a try because sed sed sed viverra metus. Aliquam erat volutpat. Etiam eleifend nisi sit amet odio posuere, ut ultrices eros viverra. Nulla feugiat facilisis enim eu malesuada. Donec feugiat lorem arcu, eu pharetra diam volutpat volutpat. Suspendisse tempor dictum eros, viverra semper metus pulvinar eget. Phasellus elit purus, varius a turpis a, sagittis faucibus sem. Sed et vulputate metus.",
+
+  "I love it when ullamcorper vestibulum. Vestibulum est nunc, sodales nec congue vehicula, gravida non sem. Integer sed neque quis dolor interdum lobortis id vitae tortor.",
+
+  "There aren't a lot of places that I'd say this about, but morbi bibendum pellentesque turpis pulvinar accumsan. Donec sagittis tempus magna at tincidunt. Quisque orci tortor, egestas a tristique sit amet, iaculis eu sapien. Phasellus id semper lorem.",
+
+  "I love it when ullamcorper vestibulum. Vestibulum est nunc, sodales nec congue vehicula, gravida non sem. Integer sed neque quis dolor interdum lobortis id vitae tortor.",
+
+  "This is a great place for etiam convallis vestibulum enim non volutpat. Nam lacus enim, ultrices sit amet vehicula a, mattis vitae nulla. Proin aliquet pellentesque pellentesque. If that's your thing.",
+
+  "Vivamus quis orci elit. Nulla mattis tincidunt libero, sed sodales neque varius cursus. Aenean consectetur, lacus et mattis venenatis, arcu sem dictum enim, et varius erat neque sit amet justo. Cras blandit enim erat. What the heck, right?",
+
+  "Nam quis aliquet tellus. Aenean faucibus blandit nisi ac semper. Proin gravida commodo mattis. Yum yum get in my belly slurp.",
+
+  "I had never been to a nullam feugiat porttitor ex pellentesque dapibus. Praesent mi leo, gravida a ex eu, vulputate accumsan lorem. Cras mattis congue egestas. Praesent id ullamcorper lectus, in congue massa. Fusce consequat pulvinar vulputate.",
+
+  "I'll preface this by praesent vitae augue in dui auctor porta. Fusce sit amet maximus turpis, at finibus magna. Cras blandit id nisi non bibendum. Suspendisse consectetur tristique nibh. Nullam feugiat porttitor ex pellentesque dapibus.",
+
+  "The staff here is SUPER super sit amet maximus turpis, at finibus magna. Cras blandit id nisi non bibendum. Suspendisse consectetur tristique nibh. Nullam feugiat porttitor ex pellentesque dapibus.",
+
+  "Really top notch augue sollicitudin tempor nec a nunc, but if we're being real here, quis orci elit. Nulla mattis tincidunt libero, sed sodales neque varius cursus.",
+
+  "Had a craving for a ullamcorper vestibulum. Vestibulum est nunc, sodales nec congue vehicula, gravida non sem. Integer sed neque quis dolor interdum lobortis id vitae tortor. Phasellus ornare dignissim nulla vel mollis. Nunc sodales iaculis semper. Vestibulum tempor libero dui, eu sodales erat maximus id. Phasellus id elit augue.",
+
+  "Since when did sodales quam vitae feugiat volutpat. Donec ut aliquam odio. Proin non mollis odio. Proin ac efficitur justo, placerat vehicula nisl. Mauris vitae vulputate diam. Sed nibh arcu, consequat vitae malesuada ut, lobortis quis lacus.",
+
+  "I decided to give this place a passing try because one day a friend of a friend of a distant relative who I kinda trust regarding these kinds of things said that habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla consectetur dolor sit amet tellus ultricies ultricies.",
+
+  "I'm a huge fan of sodales erat maximus id, so when I heard that phasellus id elit augue, I had to give this place a try. Proin tristique, metus et lobortis lacinia, turpis dui volutpat dolor, nec venenatis neque ipsum quis sem."
 ]
 
 User.destroy_all

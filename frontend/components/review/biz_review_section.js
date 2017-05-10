@@ -27,7 +27,8 @@ class BizReviewSection extends React.Component {
 
     let currentReviewId;
     if (window.location.hash.match('edit')) {
-      currentReviewId = window.location.hash.slice(19);
+
+      currentReviewId = window.location.hash.slice(window.location.hash.indexOf('edit=') + 5);
       currentReviewId = parseInt(currentReviewId.slice(1, currentReviewId.length - 1));
 
       ReviewApiUtil.fetchReview(currentReviewId)
@@ -46,7 +47,7 @@ class BizReviewSection extends React.Component {
   componentWillUpdate(nextProps){
     if (nextProps.location.query.edit !== this.props.location.query.edit) {
       if (nextProps.location.query.edit) {
-        let currentReviewId = window.location.hash.slice(19);
+        let currentReviewId = window.location.hash.slice(window.location.hash.indexOf('edit=') + 5)
         currentReviewId = parseInt(currentReviewId.slice(1, currentReviewId.length - 1));
 
         ReviewApiUtil.fetchReview(currentReviewId)
