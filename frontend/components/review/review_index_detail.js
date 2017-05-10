@@ -81,14 +81,14 @@ class ReviewIndexDetail extends React.Component {
   renderProfileEditBtns(){
     return (
       <div className='review-index-detail-btns'>
-        <Link to={`business/${this.state.biz.id}?edit='${this.props.review.id}'`}>
         <div
           id='review-edit-btn'
           className='gray-btn'
-          >
+          onClick={() => {
+            this.props.router.replace(`/business/${this.props.review.business_id}?edit='${this.props.review.id}'`);
+          }}>
           edit review
         </div>
-        </Link>
       </div>
     );
   }

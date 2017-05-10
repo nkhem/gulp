@@ -79,7 +79,7 @@ class BizReviewSection extends React.Component {
           errors={this.props.errors}
           clearReviewErrors={this.props.clearReviewErrors}
           currentReview={this.state.review}
-          businessId={this.state.review.businessId}
+          businessId={this.props.businessId}
           editReview={this.props.editReview}
           refreshUser={this.props.refreshUser}
           />

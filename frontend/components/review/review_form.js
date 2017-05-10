@@ -126,7 +126,8 @@ class ReviewForm extends React.Component {
       });
     }).then( () => this.props.refreshUser(this.props.currentUser.id))
     .then( () => {
-      this.props.router.replace(`business/${this.state.businessId}`);
+      console.log(this.props);
+      this.props.router.replace(`business/${this.props.businessId}`);
   });
   }
 

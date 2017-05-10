@@ -1,6 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
+import _ from 'lodash';
 
 import App from './app';
 import Main from './main';
@@ -32,13 +33,15 @@ const Root = ({ store }) => {
       let currentReviewId = window.location.hash.slice(21);
       currentReviewId = parseInt(currentReviewId.slice(1, currentReviewId.length - 1));
 
-      let currentReviewUserId;
       ReviewApiUtil.fetchReview(currentReviewId)
-        .then( res => {currentReviewUserId = res.user_id;});
-
-      if (!currentUser || currentUser.id !== currentReviewUserId) {
-        replace(window.location.hash.slice(1, 15));
-      }
+        .then( res => {
+          let unauthorizedUser = !_.isEqual(res.user_id, currentUser.id);
+          if (unauthorizedUser) {
+            replace(window.location.hash.slice(1, 15));
+          }
+        }, err => {
+          replace(window.location.hash.slice(1, 15));
+        });
     }
   };
 
