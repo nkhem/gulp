@@ -155,8 +155,6 @@ all_reviews = [
 
   "I decided to give this place a try because sed sed sed viverra metus. Aliquam erat volutpat. Etiam eleifend nisi sit amet odio posuere, ut ultrices eros viverra. Nulla feugiat facilisis enim eu malesuada. Donec feugiat lorem arcu, eu pharetra diam volutpat volutpat. Suspendisse tempor dictum eros, viverra semper metus pulvinar eget. Phasellus elit purus, varius a turpis a, sagittis faucibus sem. Sed et vulputate metus.",
 
-  "I love it when ullamcorper vestibulum. Vestibulum est nunc, sodales nec congue vehicula, gravida non sem. Integer sed neque quis dolor interdum lobortis id vitae tortor.",
-
   "There aren't a lot of places that I'd say this about, but morbi bibendum pellentesque turpis pulvinar accumsan. Donec sagittis tempus magna at tincidunt. Quisque orci tortor, egestas a tristique sit amet, iaculis eu sapien. Phasellus id semper lorem.",
 
   "I love it when ullamcorper vestibulum. Vestibulum est nunc, sodales nec congue vehicula, gravida non sem. Integer sed neque quis dolor interdum lobortis id vitae tortor.",
@@ -180,6 +178,8 @@ all_reviews = [
   "Since when did sodales quam vitae feugiat volutpat. Donec ut aliquam odio. Proin non mollis odio. Proin ac efficitur justo, placerat vehicula nisl. Mauris vitae vulputate diam. Sed nibh arcu, consequat vitae malesuada ut, lobortis quis lacus.",
 
   "I decided to give this place a passing try because one day a friend of a friend of a distant relative who I kinda trust regarding these kinds of things said that habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla consectetur dolor sit amet tellus ultricies ultricies.",
+
+  "Every day at the cooler, my coworkers kept saying interdum et malesuada fames ac ante ipsum primis in faucibus. Sed ut pretium quam. Cras ullamcorper mattis mauris sit amet mattis. Cras finibus et massa eget suscipit. Vivamus quis orci elit. Nulla mattis tincidunt libero, sed sodales neque varius cursus. Boy, were they right!",
 
   "I'm a huge fan of sodales erat maximus id, so when I heard that phasellus id elit augue, I had to give this place a try. Proin tristique, metus et lobortis lacinia, turpis dui volutpat dolor, nec venenatis neque ipsum quis sem."
 ]

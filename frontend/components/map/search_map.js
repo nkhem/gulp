@@ -6,8 +6,8 @@ import _ from 'lodash';
 import MarkerManager from './marker_manager';
 
 let _mapOptions = {
-  center: {lat: 37.773972 + 0.01, lng: -122.431297  - 0.05},
-  zoom: 13
+  center: {lat: 37.773972 + 0.01, lng: -122.431297  - 0.1},
+  zoom: 12
 };
 
 class SearchMap extends React.Component {
