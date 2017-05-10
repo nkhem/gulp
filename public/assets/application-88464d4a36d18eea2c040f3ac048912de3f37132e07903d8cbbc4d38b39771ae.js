@@ -43410,7 +43410,7 @@ var Root = function Root(_ref) {
   var _divertFromEditIfUnauthorizedUser = function _divertFromEditIfUnauthorizedUser(nextState, replace) {
     if (window.location.hash.match('edit')) {
       var currentUser = store.getState().session.currentUser;
-      var currentReviewId = window.location.hash.slice(21);
+      var currentReviewId = window.location.hash.slice(19);
       currentReviewId = parseInt(currentReviewId.slice(1, currentReviewId.length - 1));
 
       ReviewApiUtil.fetchReview(currentReviewId).then(function (res) {
@@ -62227,7 +62227,7 @@ var BizReviewSection = function (_React$Component) {
 
       var currentReviewId = void 0;
       if (window.location.hash.match('edit')) {
-        currentReviewId = window.location.hash.slice(21);
+        currentReviewId = window.location.hash.slice(19);
         currentReviewId = parseInt(currentReviewId.slice(1, currentReviewId.length - 1));
 
         ReviewApiUtil.fetchReview(currentReviewId).then(function (res) {
@@ -62249,7 +62249,7 @@ var BizReviewSection = function (_React$Component) {
 
       if (nextProps.location.query.edit !== this.props.location.query.edit) {
         if (nextProps.location.query.edit) {
-          var currentReviewId = window.location.hash.slice(21);
+          var currentReviewId = window.location.hash.slice(19);
           currentReviewId = parseInt(currentReviewId.slice(1, currentReviewId.length - 1));
 
           ReviewApiUtil.fetchReview(currentReviewId).then(function (res) {

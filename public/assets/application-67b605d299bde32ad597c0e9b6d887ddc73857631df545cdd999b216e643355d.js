@@ -43963,7 +43963,7 @@ var BusinessShow = function (_React$Component) {
       var _this5 = this;
 
       console.log('retrieving review');
-      var reviewId = window.location.hash.slice(21);
+      var reviewId = window.location.hash.slice(19);
       reviewId = parseInt(reviewId.slice(1, reviewId.length - 1));
       ReviewApiUtil.fetchReview(reviewId).then(function (res) {
         if (_this5.props.loggedIn && res.user_id === _this5.props.currentUser.id) {
@@ -44656,7 +44656,7 @@ var ReviewForm = function (_React$Component) {
           _react2.default.createElement('input', {
             className: 'gray-btn review-form-submit',
             type: 'submit',
-            value: (window.location.hash.slice(21) ? 'Edit' : 'Submit') + ' Review' })
+            value: (window.location.hash.slice(19) ? 'Edit' : 'Submit') + ' Review' })
         );
       } else {
         return _react2.default.createElement(

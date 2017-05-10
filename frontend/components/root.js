@@ -30,7 +30,7 @@ const Root = ({ store }) => {
   const _divertFromEditIfUnauthorizedUser = (nextState, replace) => {
     if (window.location.hash.match('edit')){
       const currentUser = store.getState().session.currentUser;
-      let currentReviewId = window.location.hash.slice(21);
+      let currentReviewId = window.location.hash.slice(19);
       currentReviewId = parseInt(currentReviewId.slice(1, currentReviewId.length - 1));
 
       ReviewApiUtil.fetchReview(currentReviewId)
