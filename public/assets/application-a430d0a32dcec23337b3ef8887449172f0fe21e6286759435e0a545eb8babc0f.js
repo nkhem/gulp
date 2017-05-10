@@ -43960,7 +43960,7 @@ var BusinessShow = function (_React$Component) {
     value: function retrieveReviewForEdit() {
       var _this5 = this;
 
-      var reviewId = window.location.hash.slice(19);
+      var reviewId = window.location.hash.slice(window.location.hash.indexOf('edit=') + 5)
       reviewId = parseInt(reviewId.slice(1, reviewId.length - 1));
       ReviewApiUtil.fetchReview(reviewId).then(function (res) {
         if (_this5.props.loggedIn && res.user_id === _this5.props.currentUser.id) {
