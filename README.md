@@ -6,8 +6,8 @@
 
 ## Minimum Viable Product
 
-Gulp is a web application inspired by Yelp built using Ruby on Rails
-and React/Redux.  By May 1st, this app will, at a minimum, satisfy the
+Gulp is a web application inspired by Yelp built using a PostgreSQL database, Ruby on Rails on the backend,
+and React/Redux on the front. By May 1st, this app will, at a minimum, satisfy the
 following criteria with smooth, bug-free navigation, adequate seed data and
 sufficient CSS styling:
 
