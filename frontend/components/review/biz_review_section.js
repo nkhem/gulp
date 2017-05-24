@@ -5,6 +5,7 @@ import _ from 'lodash';
 import * as ReviewApiUtil from '../../util/review_api_util';
 import ReviewIndex from './review_index';
 import ReviewForm from './review_form';
+import RelatedBizIndex from '../biz/related_biz_index';
 
 class BizReviewSection extends React.Component {
   constructor(props) {
@@ -72,7 +73,7 @@ class BizReviewSection extends React.Component {
   render() {
 
     return (
-      <div className={`review-section`}>
+      <div className='review-section'>
         <ReviewIndex
           currentReviewId={this.state.review.id}
           isUserProfile={ false }
@@ -82,16 +83,19 @@ class BizReviewSection extends React.Component {
           currentUser={this.props.currentUser}
           deleteReview={this.props.deleteReview}
           />
-        <ReviewForm
-          currentUser={this.props.currentUser}
-          createReview={this.props.createReview}
-          errors={this.props.errors}
-          clearReviewErrors={this.props.clearReviewErrors}
-          currentReview={this.state.review}
-          businessId={this.props.businessId}
-          editReview={this.props.editReview}
-          refreshUser={this.props.refreshUser}
-          />
+        <div className='review-section-col-2'>
+          <ReviewForm
+            currentUser={this.props.currentUser}
+            createReview={this.props.createReview}
+            errors={this.props.errors}
+            clearReviewErrors={this.props.clearReviewErrors}
+            currentReview={this.state.review}
+            businessId={this.props.businessId}
+            editReview={this.props.editReview}
+            refreshUser={this.props.refreshUser}
+            />
+          <RelatedBizIndex />
+        </div>
       </div>
     );
   }
