@@ -1,11 +1,27 @@
 .related-biz-index {
 }
 
+.related-biz-index-content {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
 .related-biz-index h2{
-  width: 160px;
+  width: 180px;
   font-size: 16px;
   text-align: left;
   padding: 18px 0 3px 12px;
   color: $light-plum;
   border-bottom: 1px solid $light-plum;
+}
+
+#related-biz-index-detail {
+  padding: 20px 50px;
+  width: 240px;
+}
+
+.biz-img {
+  border-radius: 3px;
 }

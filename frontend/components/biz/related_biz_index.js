@@ -1,7 +1,5 @@
 import React from 'react';
 import BusinessIndexDetail from './business_index_detail';
-import { connect } from 'react-redux';
-
 
 import { fetchBusinessesByCategory, fetchBusiness } from '../../actions/business_actions';
 
@@ -16,8 +14,11 @@ class RelatedBizIndex extends React.Component {
   }
 
   componentDidMount(){
-    this.setState({
-      businessesList: this.props.businessesList
+    let catAlias = this.props.currentBizCategory.alias;
+    this.props.fetchBusinessesByCategory(catAlias).then(res => {
+      this.setState({
+        businessesList: res.businesses
+      });
     });
   }
 
@@ -27,7 +28,9 @@ class RelatedBizIndex extends React.Component {
       return <BusinessIndexDetail
         business={biz}
         fetchUser={this.props.fetchUser}
-        key={biz.id}
+        key={biz.alias}
+        id='related-biz-index-detail'
+        isRelatedBizIndex={true}
         />;
     });
   }
@@ -36,26 +39,13 @@ class RelatedBizIndex extends React.Component {
     return (
       <div className='related-biz-index'>
         <h2>Similar Businesses</h2>
-        {this.renderBizDetails()}
+        <div className='related-biz-index-ul'>
+          {this.renderBizDetails()}
+        </div>
       </div>
     );
   }
 
 }
 
-const mapStateToProps = state => {
-  return {
-    currentUser: state.session.currentUser,
-    loggedIn: Boolean(state.session.currentUser),
-    businessesList: Object.values(state.businesses.list),
-  };
-};
-
-const mapDispatchToProps = (dispatch, state) => {
-  return {
-    fetchBusinessesByCategory: cat => dispatch(fetchBusinessesByCategory(cat)),
-    fetchBusiness: title => dispatch(fetchBusiness(title))
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(RelatedBizIndex);
+export default RelatedBizIndex;

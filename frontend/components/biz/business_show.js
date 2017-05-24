@@ -119,6 +119,8 @@ class BusinessShow extends React.Component {
 
           <BizReviewSection
             className='biz-show-reviews'
+            fetchBusinessesByCategory={this.props.fetchBusinessesByCategory}
+            currentBizCategory={this.props.business.categories[0]}
             reviews={this.props.business.reviews}
             businessId={this.props.business.id}
             currentUser={this.props.currentUser}

@@ -17,8 +17,13 @@ class BusinessIndexDetail extends React.Component {
   render() {
     const biz = this.props.business;
     return (
-      <div id={`${biz.id}`} className="biz-index-detail" onClick={this.handleClick.bind(this)}>
-        <img src={biz.image_url} />
+      <div
+        id={`${this.props.isRelatedBizIndex ? this.props.id : biz.id}`}
+        className="biz-index-detail"
+        onClick={this.handleClick.bind(this)}>
+        <img
+          className={`${this.props.isRelatedBizIndex ? 'biz-img' : ''}`}
+          src={biz.image_url} />
         <div className="info-box">
 
           <div id='info-box-headline'>
