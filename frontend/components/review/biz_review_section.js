@@ -73,6 +73,15 @@ class BizReviewSection extends React.Component {
 
     return (
       <div className={`review-section`}>
+        <ReviewIndex
+          currentReviewId={this.state.review.id}
+          isUserProfile={ false }
+          reviews={this.props.reviews}
+          fetchUser={this.props.fetchUser}
+          refreshUser={this.props.refreshUser}
+          currentUser={this.props.currentUser}
+          deleteReview={this.props.deleteReview}
+          />
         <ReviewForm
           currentUser={this.props.currentUser}
           createReview={this.props.createReview}
@@ -82,15 +91,6 @@ class BizReviewSection extends React.Component {
           businessId={this.props.businessId}
           editReview={this.props.editReview}
           refreshUser={this.props.refreshUser}
-          />
-        <ReviewIndex
-          currentReviewId={this.state.review.id}
-          isUserProfile={ false }
-          reviews={this.props.reviews}
-          fetchUser={this.props.fetchUser}
-          refreshUser={this.props.refreshUser}
-          currentUser={this.props.currentUser}
-          deleteReview={this.props.deleteReview}
           />
       </div>
     );
