@@ -28,6 +28,35 @@ all_first_names =  [
   "Rochel",
   "Antony",
   "Gail",
+  "Blaine",
+  "Dania",
+  "Josette",
+  "Gerry",
+  "Domingo",
+  "Shemeka",
+  "Francesca",
+  "Michael",
+  "Tiffany",
+  "Chase",
+  "Jeanne",
+  "Krishna",
+  "Kurtis",
+  "Federico",
+  "Graham",
+  "Eura",
+  "Hugh",
+  "Pilar",
+  "Doretha",
+  "Lizzette",
+  "Woodrow",
+  "Robyn",
+  "Dinah",
+  "Raguel",
+  "Obdulia",
+  "Tyron",
+  "Rochel",
+  "Antony",
+  "Gail",
   "Blaine"
 ]
 
@@ -61,7 +90,36 @@ all_last_names = [
   "Josich",
   "Rosenfield",
   "Dinn",
-  "Mintken"
+  "Mintken",
+  "Frayre",
+  "Sholar",
+  "Huwe",
+  "Aquirre",
+  "Arrez",
+  "Knutt",
+  "Krakowsky",
+  "Drzazgowski",
+  "Bienfang",
+  "Raglin",
+  "Alhameed",
+  "Vojta",
+  "Pase",
+  "Badeaux",
+  "Margeson",
+  "Kepner",
+  "Po",
+  "Haith",
+  "Levett",
+  "Prettner",
+  "Rauth",
+  "Westman",
+  "Akemon",
+  "Smid",
+  "Economides",
+  "Gotcher",
+  "Josich",
+  "Rosenfield",
+  "Dinn"
 ]
 
 all_categories = {
@@ -239,7 +297,7 @@ all_businesses_by_category.each do |category_alias, biz_arr|
       })
 
       unless Review.find_by(business_id: current_biz.id)
-        all_reviews.sample(5).each do |review|
+        all_reviews.sample(3).each do |review|
           user_id = User.find_by_l_name(all_last_names.sample).id
           next if Review.find_by(user_id: user_id)
           Review.create(
@@ -255,4 +313,18 @@ all_businesses_by_category.each do |category_alias, biz_arr|
 
 
   end
+end
+
+guest_user_id = User.find_by_email("guest_user@email.com").id
+
+Business.all.sample(5).each do |biz|
+  review = all_reviews.sample(1)[0]
+
+  Review.create(
+  business_id: biz.id,
+  user_id: guest_user_id,
+  content: review,
+  rating: (1..5).to_a.sample
+  )
+
 end
