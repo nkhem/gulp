@@ -583,12 +583,12 @@ ul.dropdown-list {
 }
 
 /* line 15, /Users/nicolehemenway/Desktop/app_academy/gulpProject/gulp/app/assets/stylesheets/components/review-form.scss */
-#stars-img-form {
+#stars-img {
   z-index: -1;
 }
 
 /* line 19, /Users/nicolehemenway/Desktop/app_academy/gulpProject/gulp/app/assets/stylesheets/components/review-form.scss */
-#stars-img-form, #rating-mouseover-numbers {
+#stars-img, #rating-mouseover-numbers {
   position: absolute;
   top: 0;
 }

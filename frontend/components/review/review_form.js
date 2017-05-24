@@ -40,14 +40,14 @@ class ReviewForm extends React.Component {
 
   handleRatingMouseOver(e){
     const num = e.target.innerHTML;
-    document.getElementById('stars-img-form').src = starsImgUrl[num];
+    document.getElementById('stars-img').src = starsImgUrl[num];
   }
 
   handleRatingMouseOut(e){
     if (this.starsImgUrl === starsImgUrl[0]) {
-      document.getElementById('stars-img-form').src = starsImgUrl[0];
+      document.getElementById('stars-img').src = starsImgUrl[0];
     } else {
-      document.getElementById('stars-img-form').src = this.starsImgUrl;
+      document.getElementById('stars-img').src = this.starsImgUrl;
     }
   }
 
@@ -141,8 +141,9 @@ class ReviewForm extends React.Component {
     if (this.state) {
       return (
         <div className={`review-form-section ${this.props.className}`} id={this.props.id}>
-          <ErrorMsgs id='review-errors' errors={this.props.errors} />
 
+          <h2>Write a Review</h2>
+          <ErrorMsgs id='review-errors' errors={this.props.errors} />
           <div className="review-form">
             <form onSubmit={ e => this.handleSubmit(e)}>
               <input
@@ -156,8 +157,8 @@ class ReviewForm extends React.Component {
                 />
 
               <div id='review-form-stars'>
+                <img id='stars-img' src={this.starsImgUrl} />
                 {this.renderRatingInput(isLoggedIn)}
-                <img id='stars-img-form' src={this.starsImgUrl} />
               </div>
 
               <br/>
@@ -167,7 +168,7 @@ class ReviewForm extends React.Component {
                 type='text'
                 value={this.state.content}
                 onChange={this.update("content")}
-                placeholder='Holy flying fruitcakes! This place is totes my new favorite sodales tellus justo, laoreet consectetur enim ultricies id. Donec justo ligula, rhoncus sit amet elit at, condimentum mattis lacus. Suspendisse rutrum, mi et pellentesque auctor, arcu erat tempus neque, id tincidunt ligula felis vel ipsum.'
+                placeholder='Holy flying fruitcakes! This place is totes my new favorite sodales tellus justo, laoreet consectetur enim ultricies id.'
                 disabled={isLoggedIn ? false : 'disabled'} />
 
               <br/>

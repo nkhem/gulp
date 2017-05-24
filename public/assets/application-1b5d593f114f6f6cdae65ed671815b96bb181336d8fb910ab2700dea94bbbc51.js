@@ -44317,15 +44317,15 @@ var ReviewForm = function (_React$Component) {
     value: function handleRatingMouseOver(e) {
       var num = e.target.innerHTML;
       console.log('mouseover:', num);
-      document.getElementById('stars-img-form').src = _stars.starsImgUrl[num];
+      document.getElementById('stars-img').src = _stars.starsImgUrl[num];
     }
   }, {
     key: 'handleRatingMouseOut',
     value: function handleRatingMouseOut(e) {
       if (this.starsImgUrl === _stars.starsImgUrl[0]) {
-        document.getElementById('stars-img-form').src = _stars.starsImgUrl[0];
+        document.getElementById('stars-img').src = _stars.starsImgUrl[0];
       } else {
-        document.getElementById('stars-img-form').src = this.starsImgUrl;
+        document.getElementById('stars-img').src = this.starsImgUrl;
       }
     }
   }, {
@@ -44463,7 +44463,7 @@ var ReviewForm = function (_React$Component) {
             'div',
             { id: 'review-form-stars' },
             this.renderRatingInput(isLoggedIn),
-            _react2.default.createElement('img', { id: 'stars-img-form', src: this.starsImgUrl })
+            _react2.default.createElement('img', { id: 'stars-img', src: this.starsImgUrl })
           ),
           _react2.default.createElement('br', null),
           _react2.default.createElement('textarea', {

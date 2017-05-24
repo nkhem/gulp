@@ -595,12 +595,12 @@ ul.dropdown-list {
 }
 
 /* line 20, /Users/nicolehemenway/Desktop/app_academy/gulpProject/gulp/app/assets/stylesheets/components/review-form.scss */
-#stars-img-form {
+#stars-img {
   z-index: -1;
 }
 
 /* line 24, /Users/nicolehemenway/Desktop/app_academy/gulpProject/gulp/app/assets/stylesheets/components/review-form.scss */
-#stars-img-form {
+#stars-img {
   position: absolute;
   top: 0;
 }
