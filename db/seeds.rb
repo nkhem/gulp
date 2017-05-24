@@ -239,10 +239,12 @@ all_businesses_by_category.each do |category_alias, biz_arr|
       })
 
       unless Review.find_by(business_id: current_biz.id)
-        all_reviews.sample(3).each do |review|
+        all_reviews.sample(5).each do |review|
+          user_id = User.find_by_l_name(all_last_names.sample).id
+          next if Review.find_by(user_id: user_id)
           Review.create(
           business_id: current_biz.id,
-          user_id: User.find_by_l_name(all_last_names.sample).id,
+          user_id: user_id,
           content: review,
           rating: (1..5).to_a.sample
           )

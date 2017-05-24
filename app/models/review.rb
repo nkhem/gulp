@@ -12,8 +12,9 @@
 #
 
 class Review < ApplicationRecord
-  validates :content, :rating, presence: true
   validates :rating, inclusion: { in: [1, 2, 3, 4, 5] }
+  validates :content, :rating, presence: true
+  validates_uniqueness_of :business_id, :scope => :user_id
 
   belongs_to :business
   belongs_to :user
