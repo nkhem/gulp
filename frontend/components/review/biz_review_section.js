@@ -95,6 +95,7 @@ class BizReviewSection extends React.Component {
             refreshUser={this.props.refreshUser}
             />
           <RelatedBizIndex
+            currentBizId={this.props.businessId}
             currentBizCategory={this.props.currentBizCategory}
             fetchBusinessesByCategory={this.props.fetchBusinessesByCategory}
             />

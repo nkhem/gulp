@@ -13,11 +13,14 @@ class RelatedBizIndex extends React.Component {
     this.renderBizDetails = this.renderBizDetails.bind(this);
   }
 
-  componentDidMount(){
+  componentWillMount(){
     let catAlias = this.props.currentBizCategory.alias;
     this.props.fetchBusinessesByCategory(catAlias).then(res => {
+      let bizList = res.businesses.filter(biz => {
+        if (biz.id !== this.props.currentBizId) return biz;
+      });
       this.setState({
-        businessesList: res.businesses
+        businessesList: bizList
       });
     });
   }

@@ -1,0 +1,935 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+ */
+/* PHASE 0: Reset */
+/* line 3, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/base/reset.scss */
+html, body, header, nav, h1, a,
+ul, li, strong, main, button, i,
+section, img, figcaption, div, h2, h3, p, form,
+fieldset, label, input, textarea,
+span, article, footer, time, small {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  text-decoration: none;
+  vertical-align: inherit;
+  box-sizing: inherit;
+  background: transparent;
+}
+
+/* line 21, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/base/reset.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 25, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/base/reset.scss */
+img {
+  width: inherit;
+  height: auto;
+}
+
+/* line 30, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/base/reset.scss */
+input[type="password"],
+input[type="email"],
+input[type="text"],
+input[type="submit"],
+textarea,
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* line 41, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/base/reset.scss */
+textarea {
+  border: none;
+  background-color: transparent;
+  resize: none;
+  outline: none;
+}
+
+/* line 48, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/base/reset.scss */
+button,
+input[type="submit"] {
+  cursor: pointer;
+}
+
+/* line 53, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/base/reset.scss */
+.clearfix:after {
+  content: "";
+  display: block;
+  align-items: center;
+}
+
+/* Define application-wide selectors here!*/
+/* line 3, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/base/layout.scss */
+html {
+  position: relative;
+  height: 100%;
+}
+
+/* line 8, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/base/layout.scss */
+body {
+  font-family: helvetica, arial, sans-serif;
+  width: 80%;
+  margin: 0 auto;
+  font-size: 17px;
+}
+
+/* line 15, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/base/layout.scss */
+link {
+  color: #280A20;
+}
+
+/* line 19, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/base/layout.scss */
+i {
+  font-size: 32px;
+}
+
+/* line 23, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/base/layout.scss */
+.map {
+  width: 800px;
+  height: 800px;
+  float: left;
+  position: relative;
+}
+
+/* line 30, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/base/layout.scss */
+.hidden {
+  display: none;
+}
+
+/* line 34, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/base/layout.scss */
+.gulp-logo {
+  font-size: 38px;
+  color: #F7BEBE;
+  font-family: helvetica, arial, sans-serif;
+  padding: 16px;
+  text-shadow: -5px 0 #280A20, 0 5px #280A20, 5px 0 #280A20, 0 -5px #280A20;
+}
+
+/* line 42, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/base/layout.scss */
+.gulp-logo:not(#main-gulp-logo):hover {
+  color: #D88F93;
+  transition: color 0.3s ease;
+}
+
+/*
+	Header Rules
+*/
+/* line 50, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/base/layout.scss */
+h1 {
+  font-size: 30px;
+  font-weight: bold;
+  font-family: garamond, helvetica;
+}
+
+/* line 56, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/base/layout.scss */
+h2 {
+  font-size: 22px;
+  text-transform: uppercase;
+  font-weight: lighter;
+  font-family: garamond, helvetica;
+}
+
+/* line 63, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/base/layout.scss */
+h3 {
+  font-size: 18px;
+  font-weight: lighter;
+  text-transform: uppercase;
+  font-family: garamond, helvetica;
+}
+
+@media all and (max-width: 1043px) {
+  /* line 71, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/base/layout.scss */
+  .search, .sections {
+    display: none;
+  }
+}
+/* line 1, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/base/buttons.scss */
+.gray-btn, .transparent-btn, .darkest-btn, .submit-btn {
+  padding: 10px 15px;
+  margin: 5px;
+  font-weight: bold;
+  font-family: helvetica, arial, sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+/* line 13, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/base/buttons.scss */
+.transparent-btn {
+  color: #D88F93;
+  background-color: inherit;
+  box-shadow: none;
+}
+
+/* line 19, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/base/buttons.scss */
+.gray-btn {
+  color: #280A20;
+  background-color: #D88F93;
+  border-color: #C98489;
+}
+
+/* line 25, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/base/buttons.scss */
+.darkest-btn {
+  color: #D88F93;
+  background-color: #280A20;
+  border-color: #21081A;
+}
+
+/* line 31, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/base/buttons.scss */
+.transparent-btn:hover {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  background-color: #280A20;
+  border-color: #21081A;
+}
+
+/* line 37, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/base/buttons.scss */
+.gray-btn:hover {
+  background-color: #682A3E;
+  border-color: #562233;
+  color: #D88F93;
+}
+
+/* line 43, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/base/buttons.scss */
+.darkest-btn:hover {
+  background-color: #D88F93;
+  border-color: #C98489;
+}
+
+/* line 48, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/base/buttons.scss */
+.submit-btn {
+  color: #D88F93;
+  background-color: #3F1032;
+  border-color: #330C28;
+}
+
+/* line 54, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/base/buttons.scss */
+.submit-btn:hover {
+  background-color: #682A3E;
+  border-color: #562233;
+}
+
+/* line 1, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/biz-index.scss */
+.biz-index {
+  position: absolute;
+  width: 500px;
+  top: 95px;
+  left: 55px;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  padding: 30px 16px 120px 16px;
+  background-color: #F7BEBE;
+  border: 1px solid #DDAAAA;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+/* line 18, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/biz-index.scss */
+.biz-index li {
+  width: 100%;
+  height: 350px;
+  list-style: none;
+  padding-bottom: 16px;
+  border: 1px solid black;
+  display: block;
+}
+
+/* line 27, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/biz-index.scss */
+.biz-index-title, .session-box-title {
+  color: #280A20;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* line 33, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/biz-index.scss */
+.biz-index-detail {
+  background-color: #D88F93;
+  border: 1px solid #C98489;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+  padding: 16px;
+  margin: 20px auto;
+  width: 460px;
+}
+
+/* line 43, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/biz-index.scss */
+.biz-index-detail:hover {
+  background-color: rgba(169, 85, 89, 0.67);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+}
+
+/* line 50, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/biz-index.scss */
+.biz-index-detail img {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* line 55, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/biz-index.scss */
+.info-box {
+  color: #280A20;
+}
+
+/* line 59, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/biz-index.scss */
+.info-box h3 {
+  border-bottom: 1px solid #280A20;
+}
+
+/* line 63, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/biz-index.scss */
+#info-box-headline {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* line 1, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/biz-show.scss */
+.biz-show-info-container {
+  position: absolute;
+  top: 110px;
+  left: 60px;
+  color: #280A20;
+  background-color: #D88F93;
+  padding: 12px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  height: 270px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* line 15, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/biz-show.scss */
+.biz-show-img {
+  height: 270px;
+  border-radius: 3px;
+}
+
+/* line 20, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/biz-show.scss */
+.biz-show-info-container h3 {
+  border-bottom: 1px solid #280A20;
+}
+
+/* line 24, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/biz-show.scss */
+.biz-show-info-container div {
+  padding-top: 6px;
+}
+
+/* line 28, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/biz-show.scss */
+.biz-show-info {
+  margin: auto 15px auto 25px;
+}
+
+/* line 1, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/error_msgs.scss */
+.error-msgs {
+  color: #841225;
+  list-style: disc;
+  font-size: 16px;
+}
+
+/* line 7, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/error_msgs.scss */
+#session-errors {
+  padding: 24px 50px;
+}
+
+/* line 11, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/error_msgs.scss */
+#review-errors {
+  padding: 10px;
+  padding-left: 26px;
+  background-color: #eee;
+  margin: 10px;
+}
+
+/* line 1, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/footer.scss */
+.footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* line 11, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/footer.scss */
+#biz-index-footer {
+  position: absolute;
+  left: 0;
+  flex-direction: row;
+  justify-content: center;
+  padding: 10px;
+  width: 80%;
+  position: absolute;
+  margin: auto;
+}
+
+/* line 25, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/footer.scss */
+#biz-index-footer i {
+  margin: 10px;
+  color: #280A20;
+}
+
+/* line 29, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/footer.scss */
+#biz-index-footer i:hover {
+  color: #D88F93;
+}
+
+/* line 33, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/footer.scss */
+#main-footer i:hover {
+  color: #280A20;
+}
+
+/* line 37, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/footer.scss */
+i.fa-github, i.fa-linkedin-square {
+  font-size: 50px;
+  color: #D88F93;
+  padding: 4px;
+}
+
+/* line 43, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/footer.scss */
+i.fa-github:hover, i.fa-linkedin-square:hover {
+  color: #3F1032;
+}
+
+/* line 1, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/header.scss */
+.main-nav {
+  background-color: #3F1032;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+}
+
+/* line 14, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/header.scss */
+.new-session-btns {
+  padding: 8px;
+  display: flex;
+}
+
+/* line 19, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/header.scss */
+.search-bar {
+  width: 700px;
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* line 26, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/header.scss */
+i.fa-search {
+  font-size: 30px;
+  color: #D88F93;
+  padding: 9px;
+  background-color: #280A20;
+  border-radius: 0px 5px 5px 0px;
+}
+
+/* line 34, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/header.scss */
+i.fa-search:hover {
+  color: #3F1032;
+  transition: color 0.3s ease;
+}
+
+/* line 39, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/header.scss */
+.search-bar form {
+  width: 650px;
+  display: flex;
+  border-radius: 0px 3px 3px 0px;
+}
+
+/* line 45, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/header.scss */
+.search-bar input {
+  background-color: #D88F93;
+  width: 100%;
+  height: 100%;
+  padding: 14px 20px;
+  border-radius: 3px 0px 0px 3px;
+}
+
+/* line 53, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/header.scss */
+.search-bar input[type="text"]:disabled {
+  color: #eee;
+  font-style: italic;
+  width: 50%;
+}
+
+/* line 59, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/header.scss */
+ul.dropdown-list {
+  width: 391px;
+  font-size: 85%;
+  background-color: #D88F93;
+  position: absolute;
+  z-index: 1;
+  border: 0 solid #D88F93;
+  box-shadow: -1px 4px 6px 1px rgba(0, 0, 0, 0.09);
+  border-radius: 0px 0px 3px 3px;
+  padding: 6px;
+}
+
+/* line 72, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/header.scss */
+.dropdown-list li {
+  padding: 6px 20px;
+  cursor: pointer;
+  color: #280A20;
+  background-color: #D88F93;
+}
+
+/* line 79, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/header.scss */
+.dropdown-list li:hover {
+  cursor: pointer;
+  background-color: #F7BEBE;
+  border-radius: 4px;
+}
+
+/* line 85, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/header.scss */
+.search-bar input::placeholder {
+  color: #682A3E;
+}
+
+/* line 89, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/header.scss */
+.main-header {
+  background-color: transparent;
+}
+
+/* line 1, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/main.scss */
+#main-gulp-logo {
+  font-size: 80px;
+  text-align: center;
+  text-shadow: -8px 0 #280A20, 0 8px #280A20, 8px 0 #280A20, 0 -8px #280A20;
+}
+
+/* line 7, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/main.scss */
+#main-detail {
+  text-align: center;
+  position: fixed;
+  top: 280px;
+  width: 100%;
+}
+
+/* line 14, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/main.scss */
+.main-content {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+  background-image: url("http://res.cloudinary.com/dx0y3rkfs/image/upload/v1493840760/brown-2029522_mhlkwy.png");
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-color: #3F1032;
+  z-index: -1;
+  display: flex;
+  align-items: center;
+}
+
+/* line 1, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/map.scss */
+.map {
+  width: 100%;
+  top: 0px;
+  left: 0px;
+}
+
+/* line 7, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/map.scss */
+#search-map {
+  height: 100%;
+  position: fixed !important;
+  top: 80px;
+  left: 0;
+}
+
+/* line 14, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/map.scss */
+#single-biz-map {
+  top: 80px;
+  height: 350px;
+  position: absolute;
+}
+
+/* line 20, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/map.scss */
+.search-results-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* line 4, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/related_biz_index.scss */
+.related-biz-index-content {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+/* line 11, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/related_biz_index.scss */
+.related-biz-index h2 {
+  width: 180px;
+  font-size: 16px;
+  text-align: left;
+  padding: 18px 0 3px 12px;
+  color: #D88F93;
+  border-bottom: 1px solid #D88F93;
+}
+
+/* line 20, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/related_biz_index.scss */
+#related-biz-index-detail {
+  padding: 20px 50px;
+  width: 240px;
+}
+
+/* line 25, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/related_biz_index.scss */
+.biz-img {
+  border-radius: 3px;
+}
+
+/* line 4, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/review-form.scss */
+.review-form-section h2 {
+  width: 160px;
+  padding: 18px 0 3px 12px;
+  font-size: 16px;
+  text-align: left;
+  color: #D88F93;
+  border-bottom: 1px solid #D88F93;
+}
+
+/* line 13, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/review-form.scss */
+.review-form {
+  background-color: #FFE8E8;
+  margin: 18px 60px;
+  padding: 25px 45px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+}
+
+/* line 21, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/review-form.scss */
+.review-form-content {
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 15px;
+  width: 300px;
+  height: 100px;
+}
+
+/* line 29, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/review-form.scss */
+#review-form-stars {
+  display: flex;
+}
+
+/* line 33, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/review-form.scss */
+#stars-img {
+  position: relative;
+  z-index: 1;
+  left: 0;
+}
+
+/* line 39, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/review-form.scss */
+#rating-mouseover-numbers {
+  position: relative;
+  left: -166px;
+  cursor: pointer;
+  width: 165px;
+  height: 30px;
+  display: flex;
+  justify-content: space-around;
+  z-index: 2;
+}
+
+/* line 50, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/review-form.scss */
+#rating-mouseover-numbers span {
+  border: 1px solid black;
+  width: 33px;
+}
+
+/* line 58, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/review-form.scss */
+.review-form-end a {
+  color: #682A3E;
+}
+
+/* line 62, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/review-form.scss */
+.review-form-end a:hover {
+  color: #D88F93;
+}
+
+/* line 66, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/review-form.scss */
+.review-form-submit {
+  color: #682A3E;
+}
+
+/* line 1, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/review-index-detail.scss */
+.review-index-detail {
+  color: #280A20;
+  padding: 20px 12px;
+  border-radius: 3px;
+}
+
+/* line 7, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/review-index-detail.scss */
+#review-delete-btn {
+  color: #D88F93;
+  background-color: #3F1032;
+  border: 1px solid #330C28;
+  cursor: pointer;
+  width: 40px;
+  font-size: 10px;
+  padding: 4px;
+}
+
+/* line 17, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/review-index-detail.scss */
+#review-delete-btn:hover {
+  background-color: #841225;
+  border: 1px solid #700F1F;
+}
+
+/* line 22, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/review-index-detail.scss */
+#edit-in-progress {
+  background-color: #F7BEBE;
+  color: #682A3E;
+}
+
+/* line 1, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/review-index.scss */
+.review-index {
+  background-color: #FFE8E8;
+  padding: 40px 20px;
+}
+
+/* line 6, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/review-index.scss */
+.review-index h3 {
+  border-bottom: 1px solid #280A20;
+}
+
+/* line 1, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/review-section.scss */
+.review-section {
+  position: absolute;
+  top: 430px;
+  left: 0;
+  display: flex;
+}
+
+/* line 8, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/review-section.scss */
+.review-section-header {
+  margin-bottom: 10px;
+}
+
+/* line 12, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/review-section.scss */
+.review-section-col-2 {
+  background-color: #682A3E;
+  display: flex;
+  flex-direction: column;
+}
+
+/* line 1, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/session.scss */
+.new-session-box {
+  width: 500px;
+  background-color: #D88F93;
+  position: absolute;
+  right: 160px;
+  padding: 32px;
+  border-radius: 5px;
+  color: #280A20;
+  border: 1px solid #C98489;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+/* line 13, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/session.scss */
+.or-transition {
+  text-align: center;
+  color: #F7BEBE;
+  font-size: 12px;
+}
+
+/* line 19, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/session.scss */
+.new-session-box input[type="text"] {
+  border-radius: 3px 3px 0 0;
+}
+
+/* line 23, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/session.scss */
+.new-session-box input[type="password"] {
+  border-radius: 0 0 3px 3px;
+}
+
+/* line 27, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/session.scss */
+.new-session-box input {
+  background-color: #F7BEBE;
+  width: 80%;
+  height: 100%;
+  padding: 11px 20px;
+  font-size: 16px;
+}
+
+/* line 35, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/session.scss */
+.new-session-box input::placeholder {
+  color: #D88F93;
+}
+
+/* line 39, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/session.scss */
+.new-session-box form {
+  text-align: center;
+  width: 100%;
+}
+
+/* line 44, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/session.scss */
+#session-form {
+  margin-top: 11px;
+}
+
+/* line 48, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/session.scss */
+.session-form-btn {
+  margin: 0;
+  margin-top: 5px;
+}
+
+/* line 53, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/session.scss */
+#demo-btn {
+  margin-bottom: 10px;
+}
+
+/* line 57, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/session.scss */
+#back-to-main, #session-form-switch {
+  color: #280A20;
+  font-size: 16px;
+  margin-top: 5px;
+  text-align: right;
+}
+
+/* line 64, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/session.scss */
+#back-to-main span, #session-form-switch span {
+  cursor: pointer;
+  color: #682A3E;
+}
+
+/* line 69, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/session.scss */
+#back-to-main span:hover, #session-form-switch span:hover {
+  color: #F7BEBE;
+}
+
+/* line 1, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/user-profile.scss */
+#profile-nav-btn {
+  font-size: 30px;
+  color: #280A20;
+  border: 5px solid #280A20;
+  background-color: #D88F93;
+  border-radius: 50px;
+  width: 30px;
+  padding-left: 10px;
+  padding-top: 2px;
+}
+
+/* line 12, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/user-profile.scss */
+#profile-nav-btn i {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* line 17, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/user-profile.scss */
+#profile-nav-btn:hover {
+  background-color: #F7BEBE;
+}
+
+/* line 21, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/user-profile.scss */
+.logout-profile-btns {
+  display: flex;
+}
+
+/* line 26, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/user-profile.scss */
+.review-section-header {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 30px;
+  border-bottom: 1px solid black;
+  width: 30%;
+}
+
+/* line 35, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/user-profile.scss */
+.user-profile-review-index ul {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+/* line 42, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/user-profile.scss */
+.user-profile-review-index-detail {
+  color: #280A20;
+  background-color: #F7BEBE;
+  padding: 12px;
+  margin: 12px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  width: 270px;
+  font-size: 12px;
+}
+
+/* line 53, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/user-profile.scss */
+.user-profile-review-index-detail img {
+  width: 270px;
+  height: 100%;
+}
+
+/* line 58, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/user-profile.scss */
+#stars {
+  width: 170px;
+}
+
+/* line 62, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/user-profile.scss */
+.user-review-section {
+  position: absolute;
+  top: 110px;
+  left: 0;
+}
+
+/* line 68, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/user-profile.scss */
+#review-edit-btn {
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+}
+
+/* line 1, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/yelp.scss */
+.biz-show-yelp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* line 7, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/yelp.scss */
+.biz-index-yelp .yelp-logo {
+  display: none;
+}
+
+/* line 11, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/yelp.scss */
+.yelp-logo {
+  height: 40px;
+}
+
+/* line 15, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/yelp.scss */
+img.stars {
+  height: 25px;
+}
+
+/* line 19, /Users/nicolehemenway/Desktop/projects/gulpProject/gulp/app/assets/stylesheets/components/yelp.scss */
+.yelp-promo:hover {
+  font-size: 14px;
+  color: #3F1032;
+}
