@@ -89,6 +89,14 @@ class ReviewIndexDetail extends React.Component {
           }}>
           edit review
         </div>
+        <div
+          id='review-edit-btn'
+          className='gray-btn'
+          onClick={() => {
+            this.props.router.replace(`/business/${this.props.review.business_id}`);
+          }}>
+          view business
+        </div>
       </div>
     );
   }
