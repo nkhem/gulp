@@ -53,7 +53,6 @@ class BizReviewSection extends React.Component {
 
         ReviewApiUtil.fetchReview(currentReviewId)
           .then(res => {
-            console.log('current review fetched:', res);
             this.setState({review: {
               id: currentReviewId,
               content: res.content,

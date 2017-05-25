@@ -140,7 +140,8 @@ class ReviewForm extends React.Component {
     let isLoggedIn = this.props.currentUser;
     if (this.state) {
       return (
-        <div className={`review-form-section ${this.props.className}`} id={this.props.id}>
+        <div
+          className={`review-form-section ${this.props.className ? this.props.className : ''}`}>
 
           <h2>Write a Review</h2>
           <ErrorMsgs id='review-errors' errors={this.props.errors} />
@@ -148,7 +149,7 @@ class ReviewForm extends React.Component {
             <form onSubmit={ e => this.handleSubmit(e)}>
               <input
                 type='hidden'
-                value={this.state.userId}
+                value={this .state.userId}
                 />
 
               <input
