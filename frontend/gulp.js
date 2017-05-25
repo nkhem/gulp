@@ -11,11 +11,9 @@ if (window.currentUser) {
   store = configureStore();
 }
 
-window.store = store;
+// window.store = store;
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
-
-  store = store;
   ReactDOM.render(<Root store={ store }/>, root);
 });
