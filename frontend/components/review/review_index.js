@@ -22,9 +22,16 @@ class ReviewIndex extends React.Component {
   }
 
   render() {
+    let greeting;
+    if (this.props.isUserProfile) {
+      greeting = `Hi, ${this.props.currentUser.f_name}! Your reviews:`;
+    } else {
+      greeting = 'Reviews';
+    }
+    
     return (
       <div className={`${this.props.isUserProfile ? 'user-profile-' : ''}review-index`}>
-        <h3 className='review-section-header'>{this.props.isUserProfile ? 'Your ' : ''}Reviews</h3>
+        <h3 className='review-section-header'>{greeting}</h3>
         <ul>
           {this.renderIndexDetail()}
         </ul>
